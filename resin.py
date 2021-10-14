@@ -9,7 +9,7 @@ import time
 """
 current_resin=35 当前树脂
 max_resin=160 树脂上限
-resin_discount_num_limit=3  不知道
+resin_discount_num_limit=3  本周剩余树脂减半次数
 resin_recovery_time=59900 树脂恢复时间
 
 current_expedition_num=5 当前派遣数量

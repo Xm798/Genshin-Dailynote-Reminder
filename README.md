@@ -5,14 +5,14 @@
 * 请确保米游社的实时便笺权限已经打开
 * 获取cookie
 
-0. [安装python环境](https://www.python.org)
+0. [安装python3环境](https://www.python.org)
     
 1. 下载源码
 1. `pip3 install -r requirements.txt`
-1. 配置config.example.hson  (修改config.example.json并另存为config.json\[可选\])
+1. 配置config.example.hson  (\[可选\]修改config.example.json并另存为config.json)
 1. `python3 resin.py`
 
-## Config配置
+## Config.json配置
 
 **目前实现了使用server酱和企业微信进行推送的功能**  (其他的在做了在做了)
 ### 0. 一些基础信息
@@ -49,14 +49,37 @@
 
 6. 修改 WECOM_STATUS 为ON
 
+## config参数
+
+| key  | comment |example|
+ ------------- |:-------------:|:--:
+UID|游戏uid|100088888
+COOKIE|米游社cookie     |****
+SENDKEY|server酱的sendkey   |****
+WECOM_CORP_ID|企业微信的企业id |****
+WECOM_SECRET|企业应用的secret| ****
+WECOM_USER_ID|企业微信收信人id|****
+WECOM_AGENT_ID |企业应用的agentid|****
+WECOM_STATUS|企业微信收信状态 "ON"为打开，其他为关闭|ON
+SERVER_CHAN_STATUS|server酱收信状态 "ON"为打开，其他为关闭|ON
+RESIN_ALERT_NUM|树脂达到多少时进行提示|150
+RECEIVE_RESIN_DATA|是否接收树脂溢出提示|ON
+RECEIVE_BOSS_COUNT|是否接收本周boss树脂减半剩余次数|ON
+RECEIVE_TASK_NUM|是否接收每日委托提示|ON
+REVEIVE_EXPEDITION_NUM|是否接收探索派遣提示|ON
+INCOMPLETE_ALERT|在这个时间，如果每日委托未完成，进行提示|213030(即21:30:30)
 
 
 ## 自定义提示信息：
-#### 根据需要修改resin.py即可
+#### 根据需要修改resin.py即可(过两天有空会优化一下，现在有点丑)
 
 #### server酱与企业微信均支持markdown语法，<br>
 
 server酱: desp直接使用markdown语法就可以<br>
 企业微信: 只需给wx.send_message添加参数"markdown"<br>
 
-感谢[Lycreal](https://github.com/Lycreal)
+
+
+
+## credits
+[Lycreal](https://github.com/Lycreal)
