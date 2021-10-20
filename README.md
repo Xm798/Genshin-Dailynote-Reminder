@@ -33,8 +33,6 @@
 
 0. 安装 [python3](https://www.python.org) 环境，版本>=3.9。
 
-    **如果要使用qqbot，需要安装3.10及以上版本。**
-
     如果你的服务器已经有了较低版本的 python 环境，此处以 Centos 为例：
 
     ```shell
@@ -148,7 +146,7 @@
 
 ### 5. QQBot
 <summary>暂时只支持主动查询，只能在windows环境部署，输入/resin xxxx即可获取信息<br>目前支持的有:/resin 树脂/委托/boss/派遣/总览共5项</summary>
-**由于使用了match case，所以需要python版本>=3.10**
+
 
 <details>
 qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支持windows平台<br>
