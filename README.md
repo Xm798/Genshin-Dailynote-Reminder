@@ -66,7 +66,7 @@
 
 ### 1.Docker 运行
 
-1. 点击[链接](https://raw.githubusercontent.com/yaomeng0722/genshin_task-resin-expedition_alert/master/alert/config_data/config.example.json)或本项目路径`alert/config_data/config.example.json`提取示例配置文件并填写，重命名为`config.json`。
+1. 点击[链接](https://raw.githubusercontent.com/Xm798/Genshin-Dailynote-Notice-Helper/master/alert/config_data/config.example.json)或本项目路径`alert/config_data/config.example.json`提取示例配置文件并填写，重命名为`config.json`。
 
 2. 运行，`/PATH/config.json`是你本地配置文件的路径，需要根据实际情况填写。
 
@@ -95,7 +95,7 @@
 
 2. 下载项目并安装依赖
    ```shell
-   git clone https://github.com/yaomeng0722/genshin_task-resin-expedition_alert.git
+   git clone https://github.com/Xm798/Genshin-Dailynote-Notice-Helper.git
    cd genshin_task-resin-expedition_alert
    pip3 install -r requirements.txt
    ```
@@ -134,53 +134,54 @@
 
 ---
 
-| Key                       |                             Comment                             |                      Remark                      |
-| ------------------------- | :-------------------------------------------------------------: | :----------------------------------------------: |
-| RUN_ENV                   |        运行环境，国内云服务商为`cloud`，其他使用`local`         |                  local / cloud                   |
-| UID                       |                            游戏 uid                             |                                                  |
-| COOKIE                    |                          米游社 cookie                          |                                                  |
-| NAME                      |                            账号别名                             |                   便于区分账号                   |
-| RESIN_ALERT_NUM           |                     树脂达到多少时进行提示                      |                       150                        |
-| RECEIVE_RESIN_DATA        |                      是否接收树脂溢出提示                       |                      ON/OFF                      |
-| RECEIVE_BOSS_COUNT        |               是否接收本周 boss 树脂减半剩余次数                |                      ON/OFF                      |
-| RECEIVE_TASK_NUM          |                      是否接收每日委托信息                       |                      ON/OFF                      |
-| REVEIVE_EXPEDITION_NUM    |                      是否接收探索派遣信息                       |                      ON/OFF                      |
-| RECEIVE_HOMECOIN_ALERT    |                    是否接收洞天宝钱溢出提醒                     |                      ON/OFF                      |
-| INCOMPLETE_ALERT          |            在这个时间，如果每日委托未完成，进行提示             |              "213030"(即 21:30:30)               |
-| EXPEDITION_COMPLETE_ALERT |                    当探索派遣完成时发送提醒                     |                      ON/OFF                      |
-| SELLP_TIME                | 执行每轮检查的等待时间，为避免被封 ip，建议稍微长点（单位：秒） |                       900                        |
-| ALERT_SUCCESS_SLEEP_TIME  |    推送成功后的等待时间，为避免扰民可以设置长点（单位：秒）     |                       1800                       |
-| SLEEP_START_TIME          |     休眠开始时间，避免深夜扰民，与`SLEEP_END_TIME`配合使用      |              "230000"(即 23:00:00)               |
-| SLEEP_END_TIME            |           休眠结束时间，与`SLEEP_START_TIME`配合使用            |              "080000"(即 08:00:00)               |
-| WW_ID                     |                           企业微信 id                           |                                                  |
-| WW_APP_SECRET             |                         企业微信 secret                         |                                                  |
-| WW_APP_USERID             |                    企业微信接收消息的用户 id                    |                                                  |
-| WW_APP_AGENTID            |                           企业应用 Id                           |                                                  |
-| WW_BOT_KEY                |                       企业微信机器人 key                        |                                                  |
-| BARK_URL                  |                         Bark 推送服务器                         |          默认使用`https://api.day.app/`          |
-| BARK_KEY                  |                          Bark App KEY                           |                                                  |
-| BARK_GROUP                |                        自定义 Bark 分组                         |                不填则使用默认分组                |
-| BARK_ICON                 |                      自定义 Bark 通知图标                       |   仅支持 Web URL 图片，不填则不使用自定义图标    |
-| BARK_ARCHIVE              |                        自定义 Bark 保存                         |   1 为保存，其他值为不保存，不填则使用默认规则   |
-| TG_BOT_API                |                        Telegram API 接口                        |                 api.telegram.org                 |
-| TG_BOT_TOKEN              |                       Telegram Bot token                        |                                                  |
-| TG_USER_ID                |                      接收消息账号的 userid                      | 可用[@userinfobot](https://t.me/userinfobot)获取 |
-| PUSHDEER_KEY              |                       Pushdeer 的 pushkey                       |                                                  |
-| CQHTTP_URL                |      cqhttp 的 API 地址，格式：`协议头://IP 或域名:端口号`      |    需包含协议头，如：http://example.com:5700/    |
-| CQHTTP_MESSAGE_TYPE       |      cqhttp 的消息发送方式，`private`为私聊，`group`为群聊      |                  private/group                   |
-| CQHTTP_SEND_ID            |                    接收消息的 qq 号码/群号码                    |                                                  |
-| CQHTTP_TOKEN              |                     cqhttp 的 CQHTTP_TOKEN                      |                 未设置不需要填写                 |
-| DD_BOT_TOKEN              |                     钉钉机器人 access_token                     |                                                  |
-| DD_BOT_SECRET             |                       钉钉机器人加签密钥                        |                                                  |
-| SCTKEY                    |                            Server 酱                            |                 SCT**\*\*\*\***                  |
-| PUSH_PLUS_TOKEN           |                       PushPlus 推送 token                       |                                                  |
-| PUSH_PLUS_USER            |                   PushPlus 一对多推送群组 id                    |                不填则为一对一推送                |
-| COOL_PUSH_SKEY            |                            酷推 SKEY                            |                                                  |
-| COOL_PUSH_MODE            |                          酷推推送模式                           |             send/psend/group/pgroup              |
-| COOL_PUSH_SENDID          |                    酷推指定接收方 QQ 号/群号                    |                                                  |
-| QMSG_KEY                  |                         Qmsg 酱推送 KEY                         |                                                  |
-| DISCORD_WEBHOOK           |                             未测试                              |                      未测试                      |
-| IGOT_KEY                  |                             未测试                              |                      未测试                      |
+| Key                       |                             Comment                             |                                                      Remark                                                       |
+| ------------------------- | :-------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: |
+| RUN_ENV                   |        运行环境，国内云服务商为`cloud`，其他使用`local`         |                                                   local / cloud                                                   |
+| UID                       |                            游戏 uid                             |                                                                                                                   |
+| COOKIE                    |                          米游社 cookie                          |                                                                                                                   |
+| NAME                      |                            账号别名                             |                                                   便于区分账号                                                    |
+| RESIN_ALERT_NUM           |                     树脂达到多少时进行提示                      |                                                        150                                                        |
+| RECEIVE_RESIN_DATA        |                      是否接收树脂溢出提示                       |                                                      ON/OFF                                                       |
+| RECEIVE_BOSS_COUNT        |               是否接收本周 boss 树脂减半剩余次数                |                                                      ON/OFF                                                       |
+| RECEIVE_TASK_NUM          |                      是否接收每日委托信息                       |                                                      ON/OFF                                                       |
+| REVEIVE_EXPEDITION_NUM    |                      是否接收探索派遣信息                       |                                                      ON/OFF                                                       |
+| RECEIVE_HOMECOIN_ALERT    |                    是否接收洞天宝钱溢出提醒                     |                                                      ON/OFF                                                       |
+| INCOMPLETE_ALERT          |            在这个时间，如果每日委托未完成，进行提示             |                                               "213030"(即 21:30:30)                                               |
+| EXPEDITION_COMPLETE_ALERT |                    当探索派遣完成时发送提醒                     |                                                      ON/OFF                                                       |
+| SELLP_TIME                | 执行每轮检查的等待时间，为避免被封 ip，建议稍微长点（单位：秒） |                                                        900                                                        |
+| ALERT_SUCCESS_SLEEP_TIME  |    推送成功后的等待时间，为避免扰民可以设置长点（单位：秒）     |                                                       1800                                                        |
+| SLEEP_START_TIME          |     休眠开始时间，避免深夜扰民，与`SLEEP_END_TIME`配合使用      |                                               "230000"(即 23:00:00)                                               |
+| SLEEP_END_TIME            |           休眠结束时间，与`SLEEP_START_TIME`配合使用            |                                               "080000"(即 08:00:00)                                               |
+| WW_ID                     |                           企业微信 id                           |                                                                                                                   |
+| WW_APP_SECRET             |                         企业微信 secret                         |                                                                                                                   |
+| WW_APP_USERID             |                    企业微信接收消息的用户 id                    |                                                                                                                   |
+| WW_APP_AGENTID            |                           企业应用 Id                           |                                                                                                                   |
+| WW_BOT_KEY                |                      企业微信群机器人 key                       |                                                                                                                   |
+| BARK_URL                  |                         Bark 推送服务器                         |                                          默认使用`https://api.day.app/`                                           |
+| BARK_KEY                  |                          Bark App KEY                           |                                                  BARK 的推送 KEY                                                  |
+| BARK_GROUP                |                        自定义 Bark 分组                         |                                                不填则使用默认分组                                                 |
+| BARK_ICON                 |                      自定义 Bark 通知图标                       |                                    仅支持 Web URL 图片，不填则不使用自定义图标                                    |
+| BARK_ARCHIVE              |                        自定义 Bark 保存                         |                                   1 为保存，其他值为不保存，不填则使用默认规则                                    |
+| BARK_LEVEL                |                       BARK 时效性通知设置                       | `active`/`timeSensitive`/`passive`，[详细说明](https://github.com/Finb/Bark#%E5%85%B6%E4%BB%96%E5%8F%82%E6%95%B0) |
+| TG_BOT_API                |                        Telegram API 接口                        |                                                 api.telegram.org                                                  |
+| TG_BOT_TOKEN              |                       Telegram Bot token                        |                                                                                                                   |
+| TG_USER_ID                |                      接收消息账号的 userid                      |                                 可用[@userinfobot](https://t.me/userinfobot)获取                                  |
+| PUSHDEER_KEY              |                       Pushdeer 的 pushkey                       |                                                                                                                   |
+| CQHTTP_URL                |      cqhttp 的 API 地址，格式：`协议头://IP 或域名:端口号`      |                                    需包含协议头，如：http://example.com:5700/                                     |
+| CQHTTP_MESSAGE_TYPE       |      cqhttp 的消息发送方式，`private`为私聊，`group`为群聊      |                                                   private/group                                                   |
+| CQHTTP_SEND_ID            |                    接收消息的 qq 号码/群号码                    |                                                                                                                   |
+| CQHTTP_TOKEN              |                     cqhttp 的 CQHTTP_TOKEN                      |                                                 未设置不需要填写                                                  |
+| DD_BOT_TOKEN              |                     钉钉机器人 access_token                     |                                                                                                                   |
+| DD_BOT_SECRET             |                       钉钉机器人加签密钥                        |                                                                                                                   |
+| SCTKEY                    |                            Server 酱                            |                                                  SCT**\*\*\*\***                                                  |
+| PUSH_PLUS_TOKEN           |                       PushPlus 推送 token                       |                                                                                                                   |
+| PUSH_PLUS_USER            |                   PushPlus 一对多推送群组 id                    |                                                不填则为一对一推送                                                 |
+| COOL_PUSH_SKEY            |                            酷推 SKEY                            |                                                                                                                   |
+| COOL_PUSH_MODE            |                          酷推推送模式                           |                                              send/psend/group/pgroup                                              |
+| COOL_PUSH_SENDID          |                    酷推指定接收方 QQ 号/群号                    |                                                                                                                   |
+| QMSG_KEY                  |                         Qmsg 酱推送 KEY                         |                                                                                                                   |
+| DISCORD_WEBHOOK           |                             未测试                              |                                                      未测试                                                       |
+| IGOT_KEY                  |                             未测试                              |                                                      未测试                                                       |
 
 ## 推送方式配置
 
@@ -196,7 +197,7 @@
 |     [企业微信](#1-企业微信)     |  ✅ 支持  |          微信（全平台）          |         推荐 ⭐         |
 |         [Bark](#2-bark)         |  ✅ 支持  |         APP（仅限 iOS）          |         推荐 ⭐         |
 | [Telegram Bot](#3-telegram-bot) |  ✅ 支持  |        Telegram（全平台）        |   推荐 ⭐，需科学上网   |
-|    [Pushdeer](#4-pushdeer)    |  ✅ 支持  | 轻 APP(iOS)/APP(安卓)/APP(MacOS) | 推荐 iOS 和小米设备使用 |
+|     [Pushdeer](#4-pushdeer)     |  ✅ 支持  | 轻 APP(iOS)/APP(安卓)/APP(MacOS) | 推荐 iOS 和小米设备使用 |
 |    [go-cqhttp](#5-go-cqhttp)    |  ✅ 支持  |                QQ                |  需自行部署 go-cqhttp   |
 | [钉钉群机器人](#6-钉钉群机器人) |  ✅ 支持  |              钉钉群              |                         |
 |    [Server 酱](#7-server-酱)    |  ✅ 支持  |        多渠道推送(微信等)        |    免费版每天限 5 条    |
@@ -207,6 +208,10 @@
 |              IGOT               | 🛠️ 未测试 |                                  |                         |
 
 ### 1. 企业微信
+
+i. 企业微信自建应用
+
+通过自建应用推送到企业微信/微信，推荐使用。
 
 <details>
 
@@ -239,13 +244,28 @@
 
 </details>
 
+ii. 企业微信机器人
+
+<details>
+
+在终端某个群组添加机器人之后，创建者可以在机器人详情页看的该机器人特有的 webhookurl，将其中的`key=`后面的内容填写到配置文件`WW_BOT_KEY`中，例如`693a91f6-7xxx-4bc4-97a0-0ec2sifa5aaa`。
+
+</details>
+
 ### 2. Bark
 
 <details>
 
 1. 从 AppStore 下载并打开 [Bark](https://github.com/Finb/Bark) App，将 App 内提供的 KEY 填入 `BARK_KEY` 即可。
-2. 支持部分可选配置，如自定义消息分组 `BARK_GROUP`，自定义通知图标 `BARK_ICON`，自定义消息保存 `BARK_ARCHIVE`。
-3. 支持自建服务器`BARK_URL`。
+2. 支持部分可选配置，如自定义消息分组 `BARK_GROUP`，自定义通知图标 `BARK_ICON`，自定义消息保存 `BARK_ARCHIVE`，时效性通知`BARK_LEVEL`。
+     - BARK_GROUP: 指定推送消息分组，可在历史记录中按分组查看推送。
+     - BARK_ICON：指定推送消息图标，仅 iOS15 或以上支持，如：`http://day.app/assets/images/avatar.jpg`。
+     - BARK_ARCHIVE： 指定是否需要保存推送信息到历史记录，1 为保存，其他值为不保存。如果不指定这个参数，推送信息将按照APP内设置来决定是否保存。
+     - BARK_LEVEL： 设置时效性通知。
+         - `active`：不设置时的默认值，系统会立即亮屏显示通知。
+         - `timeSensitive`：时效性通知，可在专注状态下显示通知。
+         - `passive`：仅将通知添加到通知列表，不会亮屏提醒。
+3. 自建服务器需修改`BARK_URL`。
 
 </details>
 
@@ -494,16 +514,15 @@ Bug Fixes:
 
 ## 致谢
 
-- [Lycreal](https://github.com/Lycreal) 好看的米游社 api 调用
+- [yaomeng0722](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert) 本项目的初始版本 [MIT LICENSE](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE)
 
-- [y1ndan](https://www.yindan.me/tutorial/genshin-impact-helper.html) notifiers 多渠道发送消息
+- [y1ndan](https://github.com/y1ndan/onepush) 多渠道发送消息 [MIT LICENSE](https://github.com/y1ndan/onepush/blob/main/LICENSE)
+
+- [Lycreal](https://github.com/Lycreal) 好看的米游社 api 调用
 
 - [lulu666lulu](https://github.com/lulu666lulu) ds 的算法
 
-- [Mrs4s](https://github.com/Mrs4s) cqhttp 客户端
-
-- [nonebot](https://github.com/nonebot/nonebot2) nonebot 机器人框架
 
 ## License
 
-[MIT](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE)
+[GNU GPLv3](https://github.com/Xm798/Genshin-Dailynote-Notice-Helper/blob/master/LICENSE)
