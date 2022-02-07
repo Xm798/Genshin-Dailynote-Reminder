@@ -1,3 +1,4 @@
 discord_webhook==0.14.0
 pydantic==1.9.0
 requests==2.27.1
+typing_extensions==4.0.1

@@ -1,6 +1,6 @@
-from typing import Literal, Optional
+from typing_extensions import Literal
+from typing import Optional
 import pydantic
-
 
 class ConfigData(pydantic.BaseModel):
     RUN_ENV: Literal["local", "cloud"]

@@ -1,4 +1,5 @@
-from typing import Dict, Optional, List, Literal, Any
+from typing_extensions import Literal
+from typing import Optional, Dict, Any
 
 import pydantic
 import requests

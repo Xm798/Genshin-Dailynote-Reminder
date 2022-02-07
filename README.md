@@ -80,18 +80,18 @@
 
 ### 2.本地运行
 
-1. 安装 [python3](https://www.python.org) 环境，版本>=3.9。
+1. 安装 [python3](https://www.python.org) 环境，版本>=3.7。
 
    如果你的服务器已经有了较低版本的 python 环境，此处以 Centos 为例：
 
    ```shell
    yum install epel-release
-   yum install python39
-   pip3.9 install -r requirements.txt
-   python3.9 index.py
+   yum install python37
+   pip3.7 install -r requirements.txt
+   python3.7 index.py
    ```
 
-   其它系统请自行安装 >=3.9 的版本 python。
+   其它系统请自行安装 >=3.7 的版本 python。
 
 2. 下载项目并安装依赖
    ```shell

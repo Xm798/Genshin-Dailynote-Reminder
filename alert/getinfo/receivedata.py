@@ -1,12 +1,12 @@
 from ..config import config
 from .dataanalystic import *
 
-def receive_data(base_data) -> list[str]:
+def receive_data(base_data) -> list:
     """
     
     Configure the data you want to receive
     """
-    result: list[str] = []
+    result: list = []
 
     if (config.NAME):
         result.append(f'账号：{config.NAME}')

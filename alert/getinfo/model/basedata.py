@@ -1,6 +1,7 @@
 import pydantic
 from pydantic import root_validator, validator
-from typing import List, Literal
+from typing import List
+from typing_extensions import Literal
 
 
 class BaseData(pydantic.BaseModel):
