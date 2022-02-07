@@ -28,6 +28,7 @@
   "BARK_GROUP": "",
   "BARK_ICON": "https://ae03.alicdn.com/kf/Hca199ca287ee4ee8aa4c8004db6de367o.png",
   "BARK_ARCHIVE": "",
+  "BARK_LEVEL": "",
   "TG_BOT_API": "api.telegram.org",
   "TG_BOT_TOKEN": "",
   "TG_USER_ID": "",

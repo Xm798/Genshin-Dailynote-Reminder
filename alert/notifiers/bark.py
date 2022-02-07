@@ -11,7 +11,7 @@ class Bark(Base):
         self.retcode_value = 200
 
     def send(self, text, status, desp):
-        url = f'{config.BARK_URL}{config.BARK_KEY}'
+        url = f'{config.BARK_URL}{config.BARK_KEY}' if config.BARK_URL.endswith('/') else f'{config.BARK_URL}/{config.BARK_KEY}'
         data = {
             'title': f'{text} {status}',
             'body': desp
@@ -21,5 +21,6 @@ class Bark(Base):
         if (config.BARK_GROUP) : data['group'] = f'{config.BARK_GROUP}'
         if (config.BARK_ICON) : data['icon'] = f'{config.BARK_ICON}'
         if (config.BARK_ARCHIVE) : data['isArchive'] = f'{config.BARK_ARCHIVE}'
+        if (config.BARK_LEVEL) :data['level'] = f'{config.BARK_LEVEL}'
 
         return self.push('post', url, data=data)

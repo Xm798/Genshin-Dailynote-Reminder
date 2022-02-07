@@ -32,6 +32,7 @@ class ConfigData(pydantic.BaseModel):
     BARK_GROUP: Optional[str] = ""
     BARK_ICON: Optional[str] = ""
     BARK_ARCHIVE: Optional[str] = ""
+    BARK_LEVEL: Optional[str] = ""
 
     TG_BOT_API: Optional[str] = ""
     TG_BOT_TOKEN: Optional[str] = ""

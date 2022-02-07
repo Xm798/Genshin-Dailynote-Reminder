@@ -51,6 +51,7 @@ class Config():
         self.config_data['BARK_GROUP'] = self.get_config('BARK_GROUP')
         self.config_data['BARK_ICON'] = self.get_config('BARK_ICON')
         self.config_data['BARK_ARCHIVE'] = self.get_config('BARK_ARCHIVE')
+        self.config_data['BARK_LEVEL'] = self.get_config('BARK_LEVEL')
 
         # Telegram Bot
         self.config_data['TG_BOT_API'] = self.get_config('TG_BOT_API')

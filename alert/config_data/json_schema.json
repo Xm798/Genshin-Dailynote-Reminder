@@ -127,10 +127,7 @@
       "pattern": "ON|OFF"
     },
     "RESIN_ALERT_NUM": {
-      "default": 150,
-      "examples": [
-        150
-      ],
+      "default": 140,
       "title": "树脂达到多少时进行提示",
       "type": "integer"
     },
@@ -187,6 +184,13 @@
         "1",
         "0"
       ]
+    },
+    "BARK_LEVEL":{
+      "description": "active：不设置时的默认值，系统会立即亮屏显示通知；timeSensitive：时效性通知，可在专注状态下显示通知；passive：仅将通知添加到通知列表，不会亮屏提醒",
+      "title": "BARK 时效性通知",
+      "type": "string",
+      "examples": ["active","timeSensitive","passive"],
+      "pattern": "active|timeSensitive|passive"
     },
     "SLEEP_TIME": {
       "default": 900,
