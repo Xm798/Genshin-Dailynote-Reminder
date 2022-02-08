@@ -1,3 +1,3 @@
-from alert import main
+from dailynotehelper import run_once
 
-main()
+run_once()

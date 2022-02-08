@@ -1,6 +1,6 @@
 from . import (
     dingtalkbot,
-    discordwebhook,
+    discord,
     igot,
     pushplus,
     serverchanturbo,
@@ -20,7 +20,7 @@ from .exceptions import NoSuchNotifierError
 
 _all_notifiers = {
     'dingtalkbot': dingtalkbot.DingTalkBot,
-    'discordwebhook': discordwebhook.Discord,
+    'discord': discord.Discord,
     'igot': igot.Igot,
     'pushplus': pushplus.PushPlus,
     'serverchanturbo': serverchanturbo.ServerChanTurbo,
@@ -31,7 +31,7 @@ _all_notifiers = {
     'qmsg': qmsg.Qmsg,
     'bark':bark.Bark,
     'cqhttp':cqhttp.Cqhttp,
-    'pushdeer':pushdeer.Pushdeer
+    'pushdeer':pushdeer.Pushdeer,
 }
 
 

@@ -1,0 +1,141 @@
+# PROJECT: Genshin DailyNote Notice Helper Config File
+# Author: Xm798
+# Github: https://github.com/Xm798/Genshin-Dailynote-Notice-Helper
+
+# Caution: 如果字符串中含有特殊字符，请不要忘记使用引号。
+
+base:
+  # 运行环境，local 为新API，cloud 为旧API。
+  # 若云服务商环境下运行出错，请尝试修改为 cloud 。
+  RUN_ENV: local
+  # 账号信息
+  UID: 
+    - UID1
+    - UID2
+  COOKIE: 
+    - 'COOKIE1'
+    - 'COOKIE2'
+  NAME: 
+    - NAME
+
+# 展示信息设置
+receive_info: 
+  # 原粹树脂
+  RESIN_INFO: true
+  # 委托任务
+  COMMISSION_INFO: true
+  # 探索派遣
+  EXPEDITION_INFO: true
+  # 征讨领域（周本）减半信息
+  TROUNCE_INFO: true
+  # 洞天宝钱
+  HOMECOIN_INFO: true
+
+# 接收提醒设置
+receive_notice:
+  # 原粹树脂回满提醒
+  RESIN_NOTICE: true
+  # 原粹树脂提醒阈值
+  RESIN_THRESHOLD: 140
+  #  委托未完成的提醒时间，不填则不关闭委托未完成提醒
+  COMMISSION_NOTICE_TIME: '21:00'
+  # 探索派遣完成提醒
+  EXPEDITION_NOTICE: true
+  # 洞天宝钱溢出提醒
+  HOMECOIN_NOTICE: true
+
+time:
+  # 检查间隔（分钟）
+  CHECK_INTERVAL: 15
+  # 推送后检查间隔（分钟），避免夺命连环推扰民，云函数环境无效。
+  CHECK_INTERVAL_AFTER_ALERT: 30
+  # 免打扰时间
+  SLEEP_TIME: '23:00-07:00'
+
+# 推送通道设置
+notifier:
+
+# 企业微信
+  # 企业ID
+  WW_ID: 
+  # 企业微信应用 ID
+  WW_APP_AGENTID: 
+  # 企业微信应用 SECRET
+  WW_APP_SECRET: 
+  # 接收推送的用户ID，全部用户填写 @all
+  WW_APP_USERID: '@all'
+
+# 企业微信机器人
+  WW_BOT_KEY: ''
+
+# BARK
+  # BARK 完整推送地址，如'https://api.day.app/YourKey'
+  BARK_URL: 
+  # 自定义 Bark 分组，不填则使用默认分组
+  BARK_GROUP: 
+  # 自定义 Bark 通知图标，不填则不使用自定义图标
+  BARK_ICON: 'https://i2.hdslb.com/bfs/face/d2a95376140fb1e5efbcbed70ef62891a3e5284f.jpg@240w_240h_1c_1s.png'
+  # 自定义 Bark 保存，1 为保存，0 为不保存，不填使用默认规则
+  BARK_ARCHIVE: 
+  # BARK 时效性通知设置，active / timeSensitive / passive，不填使用默认规则
+  BARK_LEVEL: 
+
+# Telegram bot
+  # Telegram API 地址
+  TG_BOT_API: api.telegram.org
+  # Telegram Bot Token
+  TG_BOT_TOKEN: ''
+  # 接收推送的用户 id
+  TG_USER_ID: 
+
+# Pushdeer
+  PUSHDEER_KEY: 
+
+# CQHTTP
+  # CQHTTP 的 API 地址，格式：协议头://IP 或域名:端口号
+  CQHTTP_URL: 'http://1.2.3.4:5700'
+  # 接收消息的 QQ 号码/群号码
+  CQHTTP_SEND_ID: 
+  # 消息发送方式，private为私聊，group为群聊
+  CQHTTP_MESSAGE_TYPE: private
+  # CQHTTP 的鉴权 TOKEN，未设置不需要填写
+  CQHTTP_TOKEN: 
+
+# 钉钉群机器人
+  # 钉钉机器人的 access_token
+  DD_BOT_TOKEN: 
+  # 钉钉机器人加签密钥，未设置不需要填写
+  DD_BOT_SECRET: 
+
+# Server chan
+  SCTKEY: 
+
+# Push plus 推送加
+  # PushPlus 推送 token
+  PUSH_PLUS_TOKEN: 
+  # PushPlus 一对多推送群组 id，一对一推送不填
+  PUSH_PLUS_USER: 
+
+# 酷推
+  # 酷推 SKEY
+  COOL_PUSH_SKEY: 
+  # 酷推推送模式，send / psend / group / pgroup
+  COOL_PUSH_MODE: psend
+  # 酷推指定接收方 QQ 号/群号
+  COOL_PUSH_SENDID: 
+
+# QMSG 酱
+  QMSG_KEY: 
+
+# Discord Webhook
+  # Discord Webhook 地址
+  DISCORD_WEBHOOK: 
+  # 机器人名字，不填使用默认
+  DISCORD_USERNAME: 
+  # 机器人头像，不填使用默认
+  DISCORD_AVATAR: 
+  # 将颜色16进制转为十进制
+  DISCORD_COLOR: 15553898
+
+# IGOT
+  IGOT_KEY: 

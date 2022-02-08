@@ -5,13 +5,12 @@ from ..config import config
 class Bark(Base):
     def __init__(self):
         self.name = 'Bark'
-        self.url = config.BARK_URL
-        self.token = config.BARK_KEY
+        self.token = config.BARK_URL
         self.retcode_key = 'code'
         self.retcode_value = 200
 
     def send(self, text, status, desp):
-        url = f'{config.BARK_URL}{config.BARK_KEY}' if config.BARK_URL.endswith('/') else f'{config.BARK_URL}/{config.BARK_KEY}'
+        url = config.BARK_URL if config.BARK_URL.endswith('/') else f'{config.BARK_URL}/'
         data = {
             'title': f'{text} {status}',
             'body': desp

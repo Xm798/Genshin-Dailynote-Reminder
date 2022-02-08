@@ -3,7 +3,7 @@ __pycache__
 *.pyc
 
 # Config
-config.json
+config.yaml
 
 # IDE
 .vscode

@@ -13,7 +13,7 @@ class TelegramBot(Base):
         url = f'https://{config.TG_BOT_API}/bot{config.TG_BOT_TOKEN}/sendMessage'
         data = {
             'chat_id': config.TG_USER_ID,
-            'text': f'{text} {status}\n\n{desp}',
+            'text': f'*{text} {status}*\n\n{desp}',
             'disable_web_page_preview': True,
             'parse_mode': 'MarkdownV2'
         }
