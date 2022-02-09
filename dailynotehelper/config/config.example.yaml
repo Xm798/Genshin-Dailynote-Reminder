@@ -14,7 +14,7 @@ base:
     #- 'COOKIE2'
     #- 'COOKIE3'
 
-# 展示信息设置
+# 展示信息设置，true or false
 receive_info: 
   # 原粹树脂
   RESIN_INFO: true
@@ -29,15 +29,13 @@ receive_info:
 
 # 接收提醒设置
 receive_notice:
-  # 原粹树脂回满提醒
-  RESIN_NOTICE: true
-  # 原粹树脂提醒阈值
+  # 原粹树脂提醒阈值，不填则关闭提醒
   RESIN_THRESHOLD: 140
-  #  委托未完成的提醒时间，不填则不关闭委托未完成提醒
+  #  委托未完成的提醒时间，不填则关闭提醒
   COMMISSION_NOTICE_TIME: '21:00'
-  # 探索派遣完成提醒
+  # 探索派遣完成提醒，true or false
   EXPEDITION_NOTICE: true
-  # 洞天宝钱溢出提醒
+  # 洞天宝钱溢出提醒，true or false
   HOMECOIN_NOTICE: true
 
 time:
@@ -55,7 +53,7 @@ notifier:
   # 企业微信应用 ID
   WW_APP_AGENTID: 
   # 企业微信应用 SECRET
-  WW_APP_SECRET: 
+  WW_APP_SECRET: ''
   # 接收推送的用户ID，全部用户填写 @all
   WW_APP_USERID: '@all'
 
@@ -64,7 +62,7 @@ notifier:
 
 # BARK
   # BARK 完整推送地址，如'https://api.day.app/YourKey'
-  BARK_URL: 
+  BARK_URL: ''
   # 自定义 Bark 分组，不填则使用默认分组
   BARK_GROUP: 
   # 自定义 Bark 通知图标，不填则不使用自定义图标
@@ -93,13 +91,13 @@ notifier:
   # 消息发送方式，private为私聊，group为群聊
   CQHTTP_MESSAGE_TYPE: private
   # CQHTTP 的鉴权 TOKEN，未设置不需要填写
-  CQHTTP_TOKEN: 
+  CQHTTP_TOKEN: ''
 
 # 钉钉群机器人
   # 钉钉机器人的 access_token
-  DD_BOT_TOKEN: 
+  DD_BOT_TOKEN: ''
   # 钉钉机器人加签密钥，未设置不需要填写
-  DD_BOT_SECRET: 
+  DD_BOT_SECRET: ''
 
 # Server chan
   SCTKEY: 
@@ -123,11 +121,11 @@ notifier:
 
 # Discord Webhook
   # Discord Webhook 地址
-  DISCORD_WEBHOOK: 
+  DISCORD_WEBHOOK: ''
   # 机器人名字，不填使用默认
   DISCORD_USERNAME: 
   # 机器人头像，不填使用默认
-  DISCORD_AVATAR: 
+  DISCORD_AVATAR: ''
   # 将颜色16进制转为十进制
   DISCORD_COLOR: 15553898
 

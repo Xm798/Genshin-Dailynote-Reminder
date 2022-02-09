@@ -70,15 +70,16 @@ def get_homecoin_info(base_data: BaseData) -> str:
     week_day_dict = {0: '周一', 1: '周二', 2: '周三',
                      3: '周四', 4: '周五', 5: '周六', 6: '周日', }
     coin_data = f"当前洞天宝钱/上限：{base_data.current_home_coin}/{base_data.max_home_coin}\n"
-    coin_overflow_time = datetime.datetime.now(
-    ) + datetime.timedelta(seconds=base_data.home_coin_recovery_time)
-    coin_data += f"洞天宝钱全部恢复时间：{week_day_dict[coin_overflow_time.weekday()]} {coin_overflow_time.strftime('%X')}\n--------------------"
+    if base_data.home_coin_recovery_time:
+        coin_overflow_time = datetime.datetime.now() + datetime.timedelta(seconds=base_data.home_coin_recovery_time)
+        coin_data += f"洞天宝钱全部恢复时间：{week_day_dict[coin_overflow_time.weekday()]} {coin_overflow_time.strftime('%X')}\n"
+    coin_data += '--------------------'
     return coin_data
 
 
 def get_expedition_info(base_data: BaseData) -> str:
     project_path = os.path.dirname(__file__)
-    config_file = os.path.join(project_path, '', 'avatar_name.json')
+    config_file = os.path.join(project_path, '', './model/avatar_name.json')
     with open(config_file, 'r', encoding='utf-8') as f:
         avatar_json = json.load(f)
 

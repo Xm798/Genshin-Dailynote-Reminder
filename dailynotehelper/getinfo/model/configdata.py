@@ -12,7 +12,6 @@ class ConfigData(BaseModel):
     TROUNCE_INFO: StrictBool
     HOMECOIN_INFO: StrictBool
 
-    RESIN_NOTICE: StrictBool
     RESIN_THRESHOLD: int
     COMMISSION_NOTICE_TIME: Optional[str]
     EXPEDITION_NOTICE: StrictBool
