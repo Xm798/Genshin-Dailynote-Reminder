@@ -4,9 +4,7 @@ from typing import Optional, Dict, Any
 import pydantic
 import requests
 
-from .exceptions import APIError
-from .headers import headers
-from .utils import get_server
+from .utils import get_server, headers, APIError
 from .model import BaseData
 
 session = requests.session()
