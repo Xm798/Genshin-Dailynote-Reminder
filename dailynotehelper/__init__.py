@@ -110,7 +110,7 @@ def run_once() -> None:
         return
     for index,cookie in enumerate(config.COOKIE):
         log.info(f'-------------------------')
-        log.info(f'🗝️  当前配置了{len(config.UID)}个账号，正在执行第{index+1}个')
+        log.info(f'🗝️  当前配置了{len(config.COOKIE)}个账号，正在执行第{index+1}个')
         client = Yuanshen(cookie, config.RUN_ENV)
         roles_info = client.roles_info
         log.info(f'获取到{len(roles_info)}个角色...')
@@ -118,8 +118,11 @@ def run_once() -> None:
             log.info(f"第{index+1}个角色，{role['game_uid']} {role['nickname']}")
             daily_info,message = client.prase_dailynote_info(role)
         check(daily_info,message)
+    print('\n')
+    log.info('本轮运行结束，等待下次检查...')
 
 def run() -> None:
+    run_once()
     schedule.every(config.CHECK_INTERVAL).minutes.do(run_once)
     while True:
         schedule.run_pending()

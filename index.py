@@ -1,3 +1,3 @@
-from dailynotehelper import run_once
+from dailynotehelper import run
 
-run_once()
+run()

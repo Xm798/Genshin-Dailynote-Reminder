@@ -1,6 +1,6 @@
 # PROJECT: Genshin DailyNote Notice Helper Config File
 # Author: Xm798
-# Github: https://github.com/Xm798/Genshin-Dailynote-Notice-Helper
+# Github: https://github.com/Xm798/Genshin-Dailynote-Helper
 
 # Caution: 如果字符串中含有特殊字符，请不要忘记使用引号。
 
@@ -12,6 +12,7 @@ base:
   COOKIE: 
     - 'COOKIE1'
     #- 'COOKIE2'
+    #- 'COOKIE3'
 
 # 展示信息设置
 receive_info: 

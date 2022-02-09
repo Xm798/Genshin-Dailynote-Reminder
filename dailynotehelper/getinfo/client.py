@@ -1,5 +1,5 @@
 '''
-Thanks to y1ndan's genshin-checkin-helper(https://gitlab.com/y1ndan/genshin-checkin-helper),GPLv3 License.
+Thanks to y1ndan's genshin-checkin-helper(https://gitlab.com/y1ndan/genshin-checkin-helper), GPLv3 License.
 '''
 
 from .utils import *

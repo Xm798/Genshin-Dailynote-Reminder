@@ -4,9 +4,7 @@ from pydantic import BaseModel,StrictBool
 
 class ConfigData(BaseModel):
     RUN_ENV: Literal['local', 'cloud']
-    UID: List
     COOKIE: List
-    NAME: List
 
     RESIN_INFO: StrictBool
     COMMISSION_INFO: StrictBool
