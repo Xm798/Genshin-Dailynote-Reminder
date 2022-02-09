@@ -1,13 +1,22 @@
+import schedule
+import datetime
 from .config import config
 from .getinfo.praseinfo import *
 from .getinfo.client import Yuanshen
 from . import notifiers
-import schedule
 from time import sleep
-import datetime
-
 from .utils import log
 
+__version__ = 'v2.0.0'
+__banner__ = f'''
+-------------------------------------------------------------
+|                Genshin Dailynote Helper                   |
+-------------------------------------------------------------
+| Current Version: {__version__}                            |
+| Last Update: Feb 09, 2022
+| Github: https://github.com/Xm798/Genshin-Dailynote-Helper |
+-------------------------------------------------------------
+'''
 
 def send(text:str,status:str,message:str) -> None:
     try:
@@ -122,6 +131,7 @@ def run_once() -> None:
     log.info('本轮运行结束，等待下次检查...')
 
 def run() -> None:
+    log.info(__banner__)
     run_once()
     schedule.every(config.CHECK_INTERVAL).minutes.do(run_once)
     while True:
