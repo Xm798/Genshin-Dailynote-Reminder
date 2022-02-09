@@ -124,7 +124,7 @@ notifier:
   DISCORD_WEBHOOK: ''
   # 机器人名字，不填使用默认
   DISCORD_USERNAME: 
-  # 机器人头像，不填使用默认
+  # 机器人头像，须为 web 图片，不填使用默认
   DISCORD_AVATAR: ''
   # 将颜色16进制转为十进制
   DISCORD_COLOR: 15553898

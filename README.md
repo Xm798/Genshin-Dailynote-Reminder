@@ -1,6 +1,6 @@
-# 原神提醒小助手 | Genshin Alert Helper
+# 原神实时便笺提醒小助手 | Genshin Dailynote Helper
 
-用来检查并推送原神内树脂、委托、周本、探索派遣和洞天宝钱情况的小工具，支持多渠道推送，只支持国服。
+检查并推送原神内树脂、委托、周本、探索派遣和洞天宝钱情况，支持多账号，支持多渠道推送，目前只支持国服。
 
 ## 示例
 
@@ -58,54 +58,70 @@
 
 </details>
 
-## 食用方法
+## 使用方法
 
 - 请确保米游社的实时便笺权限已经打开
 - 配置推送方式，参见[推送方式配置](#%E6%8E%A8%E9%80%81%E6%96%B9%E5%BC%8F%E9%85%8D%E7%BD%AE)部分
 - 填写配置文件或配置环境变量，详情参见[配置文件参数说明](#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E)部分
 
-### 1.Docker 运行
+### 1. 云函数运行
 
-1. 点击[链接](https://raw.githubusercontent.com/Xm798/Genshin-Dailynote-Notice-Helper/master/alert/config_data/config.example.json)或本项目路径`alert/config_data/config.example.json`提取示例配置文件并填写，重命名为`config.json`。
+1. 打开[腾讯云云函数控制台](https://console.cloud.tencent.com/scf)，登录账号，点击“函数服务”-“新建”。
 
-2. 运行，`/PATH/config.json`是你本地配置文件的路径，需要根据实际情况填写。
+2. 选择“从头开始”，输入一个函数名，地域在国内随便选择（如需推送 Telegram 或 Discord，可选香港地区），运行环境为 Python3.7。
+
+   ![image-20220209183102030](https://s2.loli.net/2022/02/09/BVQ1sZnSfRj2UhF.png)
+
+3. 函数代码部分，选择“本地上传zip包”，上传从 release 页面下载的 serverless 程序包。
+
+   ![image-20220209183304497](https://s2.loli.net/2022/02/09/HM275iAPhzxRyBn.png)
+
+4. 展开“高级配置”，**修改执行超时时间为 120 秒或更长**，**添加环境变量** key 为 `TZ`，value 为 `Asia/Shanghai`（十分重要）。
+
+   ![image-20220209183900117](https://s2.loli.net/2022/02/09/N4ubS2oFEGdhBVr.png)
+
+5. 展开触发器配置，选择自定义触发周期，填写 cron 表达式。例如：每15分钟检查一次，填写`* */15 * * * * *`，每30分钟检查一次，填写`* */30 * * * * *`，更多可查看文档。
+
+   ![image-20220209184423821](https://s2.loli.net/2022/02/09/OYZsChGzdVW6oqx.png)
+
+   6. 跳转到 **函数管理 - 函数代码**页面，复制`config.exampl.json`为`config.json`，**创建并填写你的配置**（不支持环境变量）。
+
+      ![image-20220209184555981](https://s2.loli.net/2022/02/09/vxkaqoOfVw6hBgW.png)
+
+   7. 点击下方**“部署并测试”**，测试是否运行正常。
+
+### 2.Docker 运行
+
+1. 点击[链接](https://raw.githubusercontent.com/Xm798/Genshin-Dailynote-Helper/master/dailynotehelper/config/config.example.yaml)或从本项目路径`dailynotehelper/config/config.example.yaml`提取示例配置文件并填写，重命名为`config.yaml`。
+
+2. 运行，`/PATH-to-YOUR-CONFIG/config.yaml`是你本地配置文件的路径，需要根据实际情况填写。
 
    ```sh
    docker run -d \
-   -v /PATH/config.json:/app/alert/config_data/config.json \
+   -v /PATH-to-YOUR-CONFIG/config.yaml:/app/dailynotehelper/config/config.yaml \
    --restart=always \
-   --name=genshin-alert \
-   xm798/genshin-alert:latest
+   --name=genshin-dailynote-helper \
+   xm798/genshin-dailynote-helper:latest
    ```
 
-### 2.本地运行
+### 3.本地运行
 
 1. 安装 [python3](https://www.python.org) 环境，版本>=3.7。
 
-   如果你的服务器已经有了较低版本的 python 环境，此处以 Centos 为例：
-
-   ```shell
-   yum install epel-release
-   yum install python37
-   pip3.7 install -r requirements.txt
-   python3.7 index.py
-   ```
-
-   其它系统请自行安装 >=3.7 的版本 python。
-
 2. 下载项目并安装依赖
+
    ```shell
-   git clone https://github.com/Xm798/Genshin-Dailynote-Notice-Helper.git
-   cd genshin_task-resin-expedition_alert
+   git clone https://github.com/Xm798/Genshin-Dailynote-Helper.git
+   cd dailynotehelper
    pip3 install -r requirements.txt
    ```
 3. 修改配置
 
-   复制 `./alert/config_data/config.example.json` 并另存为 `config.json`，填入配置信息。
+   复制 `./dailynotehelper/config/config.example.yaml` 并另存为 `config.yaml`，填入配置信息。
 
-   ```
-   cp ./alert/config_data/config.example.json ./alert/config_data/config.json
-   vi ./alert/config_data/config.json
+   ```shell
+   cp ./dailynotehelper/config/config.example.yaml ./dailynotehelper/config/config.yaml
+   vim ./dailynotehelper/config/config.yaml
    ```
 
 4. 运行项目
@@ -114,8 +130,6 @@
    ```
 
 ## 配置文件参数说明
-
-建议使用 [VS Code](https://code.visualstudio.com/) 或其他支持 json-schema 的编辑器编辑配置文件，可自动显示填写提示和进行配置检查。
 
 ### 一些基础信息
 
@@ -132,56 +146,144 @@
    javascript:(()=>{_=(n)=>{for(i in(r=document.cookie.split(';'))){var a=r[i].split('=');if(a[0].trim()==n)return a[1]}};c=_('account_id')||alert('无效的Cookie,请重新登录!');c&&confirm('将Cookie复制到剪贴板?')&&copy(document.cookie)})();
    ```
 
----
+### 配置文件示例
 
-| Key                       |                             Comment                             |                                                      Remark                                                       |
-| ------------------------- | :-------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: |
-| RUN_ENV                   |        运行环境，国内云服务商为`cloud`，其他使用`local`         |                                                   local / cloud                                                   |
-| UID                       |                            游戏 uid                             |                                                                                                                   |
-| COOKIE                    |                          米游社 cookie                          |                                                                                                                   |
-| NAME                      |                            账号别名                             |                                                   便于区分账号                                                    |
-| RESIN_ALERT_NUM           |                     树脂达到多少时进行提示                      |                                                        150                                                        |
-| RECEIVE_RESIN_DATA        |                      是否接收树脂溢出提示                       |                                                      ON/OFF                                                       |
-| RECEIVE_BOSS_COUNT        |               是否接收本周 boss 树脂减半剩余次数                |                                                      ON/OFF                                                       |
-| RECEIVE_TASK_NUM          |                      是否接收每日委托信息                       |                                                      ON/OFF                                                       |
-| REVEIVE_EXPEDITION_NUM    |                      是否接收探索派遣信息                       |                                                      ON/OFF                                                       |
-| RECEIVE_HOMECOIN_ALERT    |                    是否接收洞天宝钱溢出提醒                     |                                                      ON/OFF                                                       |
-| INCOMPLETE_ALERT          |            在这个时间，如果每日委托未完成，进行提示             |                                               "213030"(即 21:30:30)                                               |
-| EXPEDITION_COMPLETE_ALERT |                    当探索派遣完成时发送提醒                     |                                                      ON/OFF                                                       |
-| SELLP_TIME                | 执行每轮检查的等待时间，为避免被封 ip，建议稍微长点（单位：秒） |                                                        900                                                        |
-| ALERT_SUCCESS_SLEEP_TIME  |    推送成功后的等待时间，为避免扰民可以设置长点（单位：秒）     |                                                       1800                                                        |
-| SLEEP_START_TIME          |     休眠开始时间，避免深夜扰民，与`SLEEP_END_TIME`配合使用      |                                               "230000"(即 23:00:00)                                               |
-| SLEEP_END_TIME            |           休眠结束时间，与`SLEEP_START_TIME`配合使用            |                                               "080000"(即 08:00:00)                                               |
-| WW_ID                     |                           企业微信 id                           |                                                                                                                   |
-| WW_APP_SECRET             |                         企业微信 secret                         |                                                                                                                   |
-| WW_APP_USERID             |                    企业微信接收消息的用户 id                    |                                                                                                                   |
-| WW_APP_AGENTID            |                           企业应用 Id                           |                                                                                                                   |
-| WW_BOT_KEY                |                      企业微信群机器人 key                       |                                                                                                                   |
-| BARK_URL                  |                         Bark 推送服务器                         |                                          默认使用`https://api.day.app/`                                           |
-| BARK_KEY                  |                          Bark App KEY                           |                                                  BARK 的推送 KEY                                                  |
-| BARK_GROUP                |                        自定义 Bark 分组                         |                                                不填则使用默认分组                                                 |
-| BARK_ICON                 |                      自定义 Bark 通知图标                       |                                    仅支持 Web URL 图片，不填则不使用自定义图标                                    |
-| BARK_ARCHIVE              |                        自定义 Bark 保存                         |                                   1 为保存，其他值为不保存，不填则使用默认规则                                    |
-| BARK_LEVEL                |                       BARK 时效性通知设置                       | `active`/`timeSensitive`/`passive`，[详细说明](https://github.com/Finb/Bark#%E5%85%B6%E4%BB%96%E5%8F%82%E6%95%B0) |
-| TG_BOT_API                |                        Telegram API 接口                        |                                                 api.telegram.org                                                  |
-| TG_BOT_TOKEN              |                       Telegram Bot token                        |                                                                                                                   |
-| TG_USER_ID                |                      接收消息账号的 userid                      |                                 可用[@userinfobot](https://t.me/userinfobot)获取                                  |
-| PUSHDEER_KEY              |                       Pushdeer 的 pushkey                       |                                                                                                                   |
-| CQHTTP_URL                |      cqhttp 的 API 地址，格式：`协议头://IP 或域名:端口号`      |                                    需包含协议头，如：http://example.com:5700/                                     |
-| CQHTTP_MESSAGE_TYPE       |      cqhttp 的消息发送方式，`private`为私聊，`group`为群聊      |                                                   private/group                                                   |
-| CQHTTP_SEND_ID            |                    接收消息的 qq 号码/群号码                    |                                                                                                                   |
-| CQHTTP_TOKEN              |                     cqhttp 的 CQHTTP_TOKEN                      |                                                 未设置不需要填写                                                  |
-| DD_BOT_TOKEN              |                     钉钉机器人 access_token                     |                                                                                                                   |
-| DD_BOT_SECRET             |                       钉钉机器人加签密钥                        |                                                                                                                   |
-| SCTKEY                    |                            Server 酱                            |                                                  SCT**\*\*\*\***                                                  |
-| PUSH_PLUS_TOKEN           |                       PushPlus 推送 token                       |                                                                                                                   |
-| PUSH_PLUS_USER            |                   PushPlus 一对多推送群组 id                    |                                                不填则为一对一推送                                                 |
-| COOL_PUSH_SKEY            |                            酷推 SKEY                            |                                                                                                                   |
-| COOL_PUSH_MODE            |                          酷推推送模式                           |                                              send/psend/group/pgroup                                              |
-| COOL_PUSH_SENDID          |                    酷推指定接收方 QQ 号/群号                    |                                                                                                                   |
-| QMSG_KEY                  |                         Qmsg 酱推送 KEY                         |                                                                                                                   |
-| DISCORD_WEBHOOK           |                             未测试                              |                                                      未测试                                                       |
-| IGOT_KEY                  |                             未测试                              |                                                      未测试                                                       |
+```yaml
+# PROJECT: Genshin DailyNote Notice Helper Config File
+# Author: Xm798
+# Github: https://github.com/Xm798/Genshin-Dailynote-Helper
+
+# Caution: 如果字符串中含有特殊字符，请不要忘记使用引号。
+
+base:
+  # 运行环境，local 为新API，cloud 为旧API。
+  # 若云服务商环境下运行出错，请尝试修改为 cloud 。
+  RUN_ENV: local
+  # 账号信息
+  COOKIE: 
+    - 'COOKIE1'
+    #- 'COOKIE2'
+    #- 'COOKIE3'
+
+# 展示信息设置，true or false
+receive_info: 
+  # 原粹树脂
+  RESIN_INFO: true
+  # 委托任务
+  COMMISSION_INFO: true
+  # 探索派遣
+  EXPEDITION_INFO: true
+  # 征讨领域（周本）树脂减半信息
+  TROUNCE_INFO: true
+  # 洞天宝钱
+  HOMECOIN_INFO: true
+
+# 接收提醒设置
+receive_notice:
+  # 原粹树脂提醒阈值，不填则关闭提醒
+  RESIN_THRESHOLD: 140
+  #  委托未完成的提醒时间，不填则关闭提醒
+  COMMISSION_NOTICE_TIME: '21:00'
+  # 探索派遣完成提醒，true or false
+  EXPEDITION_NOTICE: true
+  # 洞天宝钱溢出提醒，true or false
+  HOMECOIN_NOTICE: true
+
+time:
+  # 检查间隔（分钟）
+  CHECK_INTERVAL: 15
+  # 免打扰时间
+  SLEEP_TIME: '23:00-07:00'
+
+# 推送通道设置
+notifier:
+
+# 企业微信
+  # 企业ID
+  WW_ID: 
+  # 企业微信应用 ID
+  WW_APP_AGENTID: 
+  # 企业微信应用 SECRET
+  WW_APP_SECRET: ''
+  # 接收推送的用户ID，全部用户填写 @all
+  WW_APP_USERID: '@all'
+
+# 企业微信机器人
+  WW_BOT_KEY: ''
+
+# BARK
+  # BARK 完整推送地址，如'https://api.day.app/YourKey'
+  BARK_URL: ''
+  # 自定义 Bark 分组，不填则使用默认分组
+  BARK_GROUP: 
+  # 自定义 Bark 通知图标，不填则不使用自定义图标
+  BARK_ICON: 'https://i2.hdslb.com/bfs/face/d2a95376140fb1e5efbcbed70ef62891a3e5284f.jpg@240w_240h_1c_1s.png'
+  # 自定义 Bark 保存，1 为保存，0 为不保存，不填使用默认规则
+  BARK_ARCHIVE: 
+  # BARK 时效性通知设置，active / timeSensitive / passive，不填使用默认规则
+  BARK_LEVEL: 
+
+# Telegram bot
+  # Telegram API 地址
+  TG_BOT_API: api.telegram.org
+  # Telegram Bot Token
+  TG_BOT_TOKEN: ''
+  # 接收推送的用户 id
+  TG_USER_ID: 
+
+# Pushdeer
+  PUSHDEER_KEY: 
+
+# CQHTTP
+  # CQHTTP 的 API 地址，格式：协议头://IP 或域名:端口号
+  CQHTTP_URL: 'http://1.2.3.4:5700'
+  # 接收消息的 QQ 号码/群号码
+  CQHTTP_SEND_ID: 
+  # 消息发送方式，private为私聊，group为群聊
+  CQHTTP_MESSAGE_TYPE: private
+  # CQHTTP 的鉴权 TOKEN，未设置不需要填写
+  CQHTTP_TOKEN: ''
+
+# 钉钉群机器人
+  # 钉钉机器人的 access_token
+  DD_BOT_TOKEN: ''
+  # 钉钉机器人加签密钥，未设置不需要填写
+  DD_BOT_SECRET: ''
+
+# Server chan
+  SCTKEY: 
+
+# Push plus 推送加
+  # PushPlus 推送 token
+  PUSH_PLUS_TOKEN: 
+  # PushPlus 一对多推送群组 id，一对一推送不填
+  PUSH_PLUS_USER: 
+
+# 酷推
+  # 酷推 SKEY
+  COOL_PUSH_SKEY: 
+  # 酷推推送模式，send / psend / group / pgroup
+  COOL_PUSH_MODE: psend
+  # 酷推指定接收方 QQ 号/群号
+  COOL_PUSH_SENDID: 
+
+# QMSG 酱
+  QMSG_KEY: 
+
+# Discord Webhook
+  # Discord Webhook 地址
+  DISCORD_WEBHOOK: ''
+  # 机器人名字，不填使用默认
+  DISCORD_USERNAME: 
+  # 机器人头像，须为 web 图片，不填使用默认
+  DISCORD_AVATAR: ''
+  # 将颜色16进制转为十进制
+  DISCORD_COLOR: 15553898
+
+# IGOT
+  IGOT_KEY: 
+```
+
 
 ## 推送方式配置
 
@@ -194,9 +296,10 @@
 
 |            推送渠道             | 支持情况  |             推送通道             |          备注           |
 | :-----------------------------: | :-------: | :------------------------------: | :---------------------: |
-|     [企业微信](#1-企业微信)     |  ✅ 支持  |          微信（全平台）          |         推荐 ⭐         |
-|         [Bark](#2-bark)         |  ✅ 支持  |         APP（仅限 iOS）          |         推荐 ⭐         |
-| [Telegram Bot](#3-telegram-bot) |  ✅ 支持  |        Telegram（全平台）        |   推荐 ⭐，需科学上网   |
+|     [企业微信](#1-企业微信)     |  ✅ 支持  |          微信（全平台）          |         推荐 ⭐        |
+|  [企业微信机器人](#1-企业微信)  |  ✅ 支持  |          微信（全平台）          |                         |
+|         [Bark](#2-bark)         |  ✅ 支持  |         APP（仅限 iOS）          |         推荐 ⭐        |
+| [Telegram Bot](#3-telegram-bot) |  ✅ 支持  |        Telegram（全平台）        |   推荐 ⭐，需科学上网  |
 |     [Pushdeer](#4-pushdeer)     |  ✅ 支持  | 轻 APP(iOS)/APP(安卓)/APP(MacOS) | 推荐 iOS 和小米设备使用 |
 |    [go-cqhttp](#5-go-cqhttp)    |  ✅ 支持  |                QQ                |  需自行部署 go-cqhttp   |
 | [钉钉群机器人](#6-钉钉群机器人) |  ✅ 支持  |              钉钉群              |                         |
@@ -204,7 +307,7 @@
 |    [pushplus](#8-push-plus)     |  ✅ 支持  |     多渠道推送(微信/邮件等)      |                         |
 |  [Cool Push](#9-coolpush-酷推)  |  ✅ 支持  |                QQ                |                         |
 |     [Qmsg 酱](#10-qmsg-酱)      |  ✅ 支持  |                QQ                |                         |
-|         Discord_Webhook         | 🛠️ 未测试 |                                  |                         |
+|         Discord Webhook         |  ✅ 支持  |             Discord              |        需科学上网       |
 |              IGOT               | 🛠️ 未测试 |                                  |                         |
 
 ### 1. 企业微信
@@ -336,7 +439,16 @@ ii. 企业微信机器人
 
 </details>
 
-### 9. CoolPush 酷推
+### 9. Discord Webhook
+
+<details>
+
+1. 进入 Server Settings（服务器设定） - Integrations（整合），点击 Create Webhook，点击 Copy Webhook URL，填写到配置文件 `DISCORD_WEBHOOK` 中。
+2. 可根据需要设置机器人显示的名字`DISCORD_USERNAME`、机器人头像`DISCORD_AVATAR`（需要是 web 图片地址）和消息卡片颜色`DISCORD_COLOR`，详情可阅读 [Discord Webhooks Guide](https://birdie0.github.io/discord-webhooks-guide/structure/embeds.html)。
+
+</details>
+
+### 10. CoolPush 酷推
 
 <details>
 
@@ -348,7 +460,7 @@ ii. 企业微信机器人
 
 </details>
 
-### 10. Qmsg 酱
+### 11. Qmsg 酱
 
 <details>
 
@@ -358,62 +470,26 @@ ii. 企业微信机器人
 
 </details>
 
-### 11. QQBot
-
-该部分不再提供支持，不推荐使用。如需使用，请确保具备一定的 Python 开发能力。
-
-<details>
-
-暂时只支持主动查询，只能在 windows 环境部署，输入/resin xxxx 即可获取信息。目前支持的有:/resin 树脂/委托/boss/派遣/总览共 5 项。
-
-qqbot 现在的部署有点麻烦= =使用了 NoneBot2 作为机器人框架,只支持 windows 平台<br>
-
-目前只有私聊功能，群聊使用可能需要代部署(即由他人来保存你的 cookie 并发送消息，会有很多不必要的风险，暂时不考虑做)
-<br>
-[None2bot 官方文档参考](https://v2.nonebot.dev/guide/)<br>
-
-1.  安装虚拟环境 此处以 virtualenv 为例<br> `pip install virtualenv`<br>
-2.  cd 到你想要安装的文件夹 输入 `virtualenv your-mkdir-name` 创建虚拟环境<br>
-3.  cd 到 Scripts 目录，使用普通 cmd(非 powershell)输入`activate`<br>
-4.  如果之前有 NoneBot v1，需要卸载 `pip uninstall nonebot`<br>
-5.  `pip install nb-cli`安装脚手架<br>
-6.  `cd ..` <br>`nb create` <br>创建目录，根据提示输入项目名称、插件存放路径、安装的插件 <br><br>
-    在选择安装插件时，注意用空格勾选 cqhttp 之后再回车<br>
-    <br>项目目录内包含`bot.py`<br>
-    在命令行使用如下命令即可运行这个 NoneBot 实例<br>
-    `nb run`<br>
-    或者<br>
-    `python bot.py`
-7.  [根据服务器版本安装机器人客户端并登录](https://github.com/Mrs4s/go-cqhttp/releases) <br>
-    [文档参考](https://v2.nonebot.dev/guide/cqhttp-guide.html) <br>
-    运行.exe 文件或者`./go-cqhttp`启动<br>
-
-            生成默认配置文件并修改默认配置<br>
-        
-            修改`config.yml`文件<br>
-        
-            account:<br>
-               uin: 机器人QQ号<br>
-                password: "机器人密码"<br>
-        
-            message:<br>
-                post-format: array<br>
-        
-            servers:<br>
-              - ws-reverse:<br>
-                  universal: ws://127.0.0.1:8080/cqhttp/ws<br>
-
-8.  在含有`bot.py`的项目目录中新建目录`plugins/resin_alert`并将源码中的 alert 文件夹复制进去,配置 config_data/config_example.json 中的 UID 与 COOKIE<br>
-
-9.  将 alert/for_qq 文件夹中的\_\_init\_\_.py 与 config.py 移至 resin_alert 文件夹<br>
-
-10. 修改`bot.py`，在 main 前添加`nonebot.load_plugins("plugins")`<br>
-
-11. 通过 qq 发送/resin 总览查看是否有消息返回，如果没有，尝试/echo hello 查看是否有"hello"返回,都没有请提交 issue
-
-</details>
-
 ## 更新日志
+
+### v2.0.0（2022-02-09）
+
+BREAKING CHANGE:
+
+- 配置文件改用 yaml 格式
+
+New Features:
+
+- 支持多账号、多角色
+
+Removed：
+
+- 移除 QQ 主动查询模块
+
+Others:
+
+- 优化推送体验
+- 重构部分模块
 
 ### v1.3.3（2022-02-06）
 
@@ -514,15 +590,14 @@ Bug Fixes:
 
 ## 致谢
 
-- [yaomeng0722](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert) 本项目的初始版本 [MIT LICENSE](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE)
+|                                                  Project                                                  |   Author    |                                                License                                                |     Comment      |
+| :-------------------------------------------------------------------------------------------------------: | :---------: | :---------------------------------------------------------------------------------------------------: | :--------------: |
+| [genshin_task-resin-expedition_alert](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert) | yaomeng0722 | [MIT LICENSE](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE) | 本项目的初始版本 |
+|                               [onepush](https://github.com/y1ndan/onepush)                                |    y1dan    |                  [MIT LICENSE](https://github.com/y1ndan/onepush/blob/main/LICENSE)                   |   消息推送通道   |
+|                [genshin-checkin-helper](https://gitlab.com/y1ndan/genshin-checkin-helper)                 |    y1dan    |         [GPLv3 LICENSE](https://gitlab.com/y1ndan/genshin-checkin-helper/-/blob/main/LICENSE)         |   API 调用方法   |
 
-- [y1ndan](https://github.com/y1ndan/onepush) 多渠道发送消息 [MIT LICENSE](https://github.com/y1ndan/onepush/blob/main/LICENSE)
-
-- [Lycreal](https://github.com/Lycreal) 好看的米游社 api 调用
-
-- [lulu666lulu](https://github.com/lulu666lulu) ds 的算法
 
 
 ## License
 
-[GNU GPLv3](https://github.com/Xm798/Genshin-Dailynote-Notice-Helper/blob/master/LICENSE)
+[GNU GPLv3](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/master/LICENSE)
