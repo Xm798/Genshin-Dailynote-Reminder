@@ -9,7 +9,7 @@ def seconds2hours(seconds: int) -> str:
     return "%02d:%02d:%02d" % (h, m, s)
 
 
-def get_resin_data(base_data: BaseData) -> str:
+def get_resin_info(base_data: BaseData) -> str:
     
     current_resin: str = f"{base_data.current_resin}/{base_data.max_resin}"
     resin_data = f"当前树脂：{current_resin}\n"
@@ -24,22 +24,22 @@ def get_resin_data(base_data: BaseData) -> str:
     return resin_data
 
 
-def get_resin_discount_data(base_data: BaseData) -> str:
+def get_trounce_info(base_data: BaseData) -> str:
     return f"本周boss战树脂减半剩余使用次数：{base_data.remain_resin_discount_num}/{base_data.resin_discount_num_limit}"
 
 
-def get_task_num_data(base_data: BaseData) -> str:
+def get_commission_info(base_data: BaseData) -> str:
     task_num: str = f"{base_data.finished_task_num}/{base_data.total_task_num}"
     return f"今日完成委托数量：{task_num} 奖励{'已' if base_data.is_extra_task_reward_received else '未'}领取\n--------------------"
 
-def get_home_coin_data(base_data: BaseData) -> str:
+def get_homecoin_info(base_data: BaseData) -> str:
     week_day_dict = {0: '周一',1: '周二',2: '周三',3: '周四',4: '周五',5: '周六',6: '周日',}
     coin_data = f"当前洞天宝钱/洞天宝钱上限：{base_data.current_home_coin}/{base_data.max_home_coin}\n"
     coin_overflow_time = datetime.datetime.now() + datetime.timedelta(seconds=base_data.home_coin_recovery_time)
     coin_data += f"洞天宝钱全部恢复时间：{week_day_dict[coin_overflow_time.weekday()]} {coin_overflow_time.strftime('%X')}\n--------------------"
     return coin_data
 
-def get_expedition_data(base_data: BaseData) -> str:
+def get_expedition_info(base_data: BaseData) -> str:
     project_path = os.path.dirname(__file__)
     config_file = os.path.join(project_path, '', 'avatar_name.json')
     with open(config_file, 'r', encoding='utf-8') as f:

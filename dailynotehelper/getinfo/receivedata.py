@@ -1,7 +1,7 @@
 from ..config import config
 from .dataanalystic import *
 
-def receive_data(base_data,uid) -> list:
+def receive_info(base_data,uid) -> list:
     """
     
     Configure the data you want to receive
@@ -15,21 +15,21 @@ def receive_data(base_data,uid) -> list:
     result.append(f'UID：{hidden_uid}\n--------------------')
 
     if config.RESIN_INFO:
-        result.append(get_resin_data(base_data))
+        result.append(get_resin_info(base_data))
 
     # resin_discount_num_limit
     if config.TROUNCE_INFO:
-        result.append(get_resin_discount_data(base_data))
+        result.append(get_trounce_info(base_data))
 
     # task_num
     if config.COMMISSION_INFO:
-        result.append(get_task_num_data(base_data))
+        result.append(get_commission_info(base_data))
 
     # home_coin
-    result.append(get_home_coin_data(base_data))
+    result.append(get_homecoin_info(base_data))
 
     # expedition_num
     if config.EXPEDITION_INFO:
-        result.append(get_expedition_data(base_data))
+        result.append(get_expedition_info(base_data))
 
     return result

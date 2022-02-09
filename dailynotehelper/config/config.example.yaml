@@ -47,8 +47,6 @@ receive_notice:
 time:
   # 检查间隔（分钟）
   CHECK_INTERVAL: 15
-  # 推送后检查间隔（分钟），避免夺命连环推扰民，云函数环境无效。
-  CHECK_INTERVAL_AFTER_ALERT: 30
   # 免打扰时间
   SLEEP_TIME: '23:00-07:00'
 
