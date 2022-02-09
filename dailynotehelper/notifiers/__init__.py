@@ -50,7 +50,7 @@ def get_notifier(name=None):
 def send2all(text='',status:str='',desp:str=''):
     for notifier in _all_notifiers:
         # 不支持 MARKDOWN 语法的推送渠道不做处理
-        if (notifier in ['telegrambot','serverchanturbo','pushdeer']):
+        if (notifier in ['serverchanturbo','pushdeer']):
             markdown_message = f'```\n{desp}\n```'
         else:
             markdown_message = desp

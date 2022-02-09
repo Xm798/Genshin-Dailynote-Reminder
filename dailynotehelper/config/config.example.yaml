@@ -9,14 +9,9 @@ base:
   # 若云服务商环境下运行出错，请尝试修改为 cloud 。
   RUN_ENV: local
   # 账号信息
-  UID: 
-    - UID1
-    - UID2
   COOKIE: 
     - 'COOKIE1'
-    - 'COOKIE2'
-  NAME: 
-    - NAME
+    #- 'COOKIE2'
 
 # 展示信息设置
 receive_info: 
@@ -26,7 +21,7 @@ receive_info:
   COMMISSION_INFO: true
   # 探索派遣
   EXPEDITION_INFO: true
-  # 征讨领域（周本）减半信息
+  # 征讨领域（周本）树脂减半信息
   TROUNCE_INFO: true
   # 洞天宝钱
   HOMECOIN_INFO: true

@@ -1,17 +1,9 @@
 """Utilities."""
 
-import logging
+
 import time
 import requests
-
-
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s %(levelname)s %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S')
-
-log = logger = logging
+from ..utils import log
 
 
 def request(method: str,

@@ -1,70 +1,106 @@
+from email import header
 import hashlib
 import random
 import time
-from typing import List, Tuple
+import requests
+import uuid
+import json
+from ..utils import log
+from urllib.parse import urlencode
 
 
-def get_server(uid: int) -> str:
-    if str(uid).startswith('1'):
-        return 'cn_gf01'  # 天空岛
-    elif str(uid).startswith('5'):
-        return 'cn_qd01'  # 世界树
-    else:
-        return ''
+def get_ds(params: dict, body: str) -> str:
+    t = str(int(time.time()))
+    r = str(random.randint(100000, 200000))
+    b = json.dumps(body) if body else ''
+    q = urlencode(params) if params else ''
+    salt = 'xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs'
+    text = f'salt={salt}&t={t}&r={r}&b={b}&q={q}'
+    md5 = hashlib.md5()
+    md5.update(text.encode())
+    c = md5.hexdigest()
+    return f'{t},{r},{c}'
 
-class Headers:
-    def __init__(self) -> None:
-        pass
 
-    @staticmethod
-    def md5(text: str) -> str:
-        md5 = hashlib.md5()
-        md5.update(text.encode())
-        return md5.hexdigest()
-
-    def getCookie(self) -> Tuple[str, int]:
-        return self.cookies[self.cookie_idx], self.cookie_idx
-
-    def create_dynamic_secret(self, query: dict, body: str) -> str:
-        parameters: List[str] = [
-            f'{k}={query[k]}' for k in sorted(query.keys())]
-        q = '&'.join(parameters)
-
-        salt: str = 'xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs'
-        time_: str = str(int(time.time()))
-        random_ = str(random.randint(100000, 199999))
-
-        check: str = self.md5(
-            f"salt={salt}&t={time_}&r={random_}&b={body}&q={q}")
-
-        return ','.join((time_, random_, check))
-
-    def new(self, cookie: str, query: dict, body: str = '') -> dict:
-        ds = self.create_dynamic_secret(query, body)
-        version: str = '2.11.1'
-        return {
-            'Accept': 'application/json, text/plain, */*',
+def get_headers(params: dict = None, body: dict = None, ds: bool = False) -> dict:
+    version: str = '2.11.1'
+    ua = f'Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/{version}'
+    headers = {
+        'Accept': 'application/json, text/plain, */*',
+        'Origin': 'https://webstatic.mihoyo.com',
+        'User-Agent': ua,
+    }
+    if ds:
+        ds = get_ds(params, body)
+        headers.update({
             'DS': ds,
-            'Origin': 'https://webstatic.mihoyo.com',
-            'x-rpc-app_version': version,
-            'User-Agent': f'Mozilla/5.0 (Linux; Android 6.0.1; MuMu Build/V417IR; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.70 Mobile Safari/537.36 miHoYoBBS/{version}',
             'x-rpc-client_type': '5',
-            'cookie': cookie,
-            'Referer': 'https://webstatic.mihoyo.com/app/community-game-records/index.html?v=6',
-            'Accept-Encoding': 'gzip, deflate',
-            'Accept-Language': 'zh-CN,en-US;q=0.8',
-            'X-Requested-With': 'com.mihoyo.hyperion'
-        }
+            'x-rpc-app_version': version,
+            'x-rpc-device_id': str(uuid.uuid3(uuid.NAMESPACE_URL, ua)).replace('-', '').upper(),
+        })
+    return headers
 
 
-headers = Headers()
+def nested_lookup(obj, key, with_keys=False, fetch_first=False):
+    result = list(_nested_lookup(obj, key, with_keys=with_keys))
+    if with_keys:
+        values = [v for k, v in _nested_lookup(obj, key, with_keys=with_keys)]
+        result = {key: values}
+    if fetch_first:
+        result = result[0] if result else result
+    return result
 
 
+def _nested_lookup(obj, key, with_keys=False):
+    if isinstance(obj, list):
+        for i in obj:
+            yield from _nested_lookup(i, key, with_keys=with_keys)
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if key == k:
+                if with_keys:
+                    yield k, v
+                else:
+                    yield v
 
-class APIError(ValueError):
-    def __init__(self, retcode: int, message: str) -> None:
-        self.retcode: int = retcode
-        self.message: str = message
+            if isinstance(v, list) or isinstance(v, dict):
+                yield from _nested_lookup(v, key, with_keys=with_keys)
+
+
+def extract_subset_of_dict(raw_dict, keys):
+    subset = {}
+    if isinstance(raw_dict, dict):
+        subset = {key: value for key, value in raw_dict.items() if key in keys}
+    return subset
+
+
+def request(*args, **kwargs):
+    is_retry = True
+    count = 0
+    max_retries = 3
+    sleep_seconds = 5
+    while is_retry and count <= max_retries:
+        try:
+            s = requests.Session()
+            response = s.request(*args, **kwargs)
+            is_retry = False
+        except Exception as e:
+            if count == max_retries:
+                raise e
+            log.error(f'Request failed: {e}')
+            count += 1
+            log.info(
+                f'Trying to reconnect in {sleep_seconds} seconds ({count}/{max_retries})...')
+            time.sleep(sleep_seconds)
+        else:
+            return response
 
     def __str__(self) -> str:
         return f"{self.retcode}: {self.message}"
+
+
+def cookie_to_dict(cookie) -> dict:
+    if cookie and '=' in cookie:
+        cookie = dict([line.strip().split('=', 1)
+                      for line in cookie.split(';')])
+    return cookie

@@ -1,13 +1,12 @@
-from .getinfo import MysAPI, APIError
 from .config import config
+from .getinfo.praseinfo import *
+from .getinfo.client import Yuanshen
 from . import notifiers
-from .getinfo.dataanalystic import *
 import schedule
 from time import sleep
 import datetime
 
-from .notifiers.utils import log
-from .getinfo.receivedata import receive_info
+from .utils import log
 
 
 def send(text:str,status:str,message:str) -> None:
@@ -15,17 +14,6 @@ def send(text:str,status:str,message:str) -> None:
         notifiers.send2all(text=text,status=status, desp=message)
     except Exception as e:
         print(e)
-
-def get_data(uid, cookie):
-    api = 'new' if config.RUN_ENV == "local" else 'old'
-    try:
-        base_data: BaseData = MysAPI(uid, cookie, api).get_dailyNote()
-        result: str = receive_info(base_data,uid)
-        message = "\n".join(result)
-    except APIError:
-        send(text='',status="error", message="发生错误，请检查配置文件中运行环境是否配置正确、cookie与id是否对应以及是否已开启米游社实时便笺功能。")
-        exit()
-    return base_data,message
 
 def time_in_sleep(t0: str) -> bool:
     t1, t2 = config.SLEEP_TIME.split('-')
@@ -120,15 +108,19 @@ def run_once() -> None:
     if time_in_sleep(datetime.datetime.now().strftime('%H:%M')):
         log.info('😴休眠中……')
         return
-    for index, (uid,cookie) in enumerate(zip(config.UID,config.COOKIE)):
+    for index,cookie in enumerate(config.COOKIE):
         log.info(f'-------------------------')
         log.info(f'🗝️  当前配置了{len(config.UID)}个账号，正在执行第{index+1}个')
-        base_data,message=get_data(uid, cookie)
-        check(base_data,message)
+        client = Yuanshen(cookie, config.RUN_ENV)
+        roles_info = client.roles_info
+        log.info(f'获取到{len(roles_info)}个角色...')
+        for index,role in enumerate(roles_info):
+            log.info(f"第{index+1}个角色，{role['game_uid']} {role['nickname']}")
+            daily_info,message = client.prase_dailynote_info(role)
+        check(daily_info,message)
 
 def run() -> None:
     schedule.every(config.CHECK_INTERVAL).minutes.do(run_once)
-
     while True:
         schedule.run_pending()
         sleep(1)
