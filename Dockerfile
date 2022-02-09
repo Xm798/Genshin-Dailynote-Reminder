@@ -1,4 +1,4 @@
-FROM python:3.9.7-alpine
+FROM python:3.7-alpine
 ENV TZ=Asia/Shanghai
 
 WORKDIR /tmp
@@ -10,7 +10,7 @@ RUN adduser app -D \
 
 WORKDIR /app
 COPY index.py ./
-COPY alert ./alert
+COPY dailynotehelper ./dailynotehelper
 
 USER app
 CMD [ "python3", "./index.py" ]

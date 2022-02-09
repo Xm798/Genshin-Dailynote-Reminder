@@ -3,12 +3,14 @@ name: Build Docker Image
 
 on:
   push:
+    branches:
+      - master
     tags:
       - v*
 
 env:
-  APP_NAME: genshin-alert
-  DOCKERHUB_REPO: xm798/genshin-alert
+  APP_NAME: genshin-dailynote-helper
+  DOCKERHUB_REPO: xm798/genshin-dailynote-helper
 
 jobs:
   main:
