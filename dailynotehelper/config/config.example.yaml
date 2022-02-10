@@ -132,3 +132,17 @@ notifier:
 
 # IGOT
   IGOT_KEY: 
+
+# MAIL
+  # 邮件 smtp 服务器
+  MAIL_HOST: ''
+  # smtp 端口
+  MAIL_PORT: 465
+  # 是否开启 STARTTLS，true or false
+  MAIL_STARTTLS: false
+  # 发件人邮箱账号
+  MAIL_USERNAME: ''
+  # 发件人邮箱密码（或授权码）
+  MAIL_PASSWORD: ''
+  # 收件人邮箱地址
+  MAIL_TO: ''

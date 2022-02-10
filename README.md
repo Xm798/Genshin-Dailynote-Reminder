@@ -350,8 +350,9 @@ notifier:
 |       [Server 酱](#7-server-酱)       |  ✅ 支持  |        多渠道推送(微信等)        |    免费版每天限 5 条    |
 |       [pushplus](#8-push-plus)        |  ✅ 支持  |     多渠道推送(微信/邮件等)      |                         |
 | [Discord Webhook](#9-discord-webhook) |  ✅ 支持  |             Discord              |       需科学上网        |
-|    [Cool Push](#10-coolpush-酷推)     |  ✅ 支持  |                QQ                |                         |
-|        [Qmsg 酱](#11-qmsg-酱)         |  ✅ 支持  |                QQ                |                         |
+|       [邮件推送](#10-邮件推送)        |  ✅ 支持  |                                  |                         |
+|    [Cool Push](#11-coolpush-酷推)     |  ✅ 支持  |                QQ                |                         |
+|        [Qmsg 酱](#12-qmsg-酱)         |  ✅ 支持  |                QQ                |                         |
 |                 IGOT                  | 🛠️ 未测试 |                                  |                         |
 
 ### 1. 企业微信
@@ -492,7 +493,12 @@ ii. 企业微信机器人
 
 </details>
 
-### 10. CoolPush 酷推
+### 10. 邮件推送
+
+进入邮件服务商帮助页面获取 SMTP 服务器服务器和端口信息，部分邮箱还需获取客户端授权码，将配置填入 MAIL 部分即可。
+仅支持通过 SSL 发送，一般默认端口为 465（不开启 STARTTLS）或 587（开启 STARTTLS）。
+
+### 11. CoolPush 酷推
 
 <details>
 
@@ -504,7 +510,7 @@ ii. 企业微信机器人
 
 </details>
 
-### 11. Qmsg 酱
+### 12. Qmsg 酱
 
 <details>
 
@@ -515,6 +521,16 @@ ii. 企业微信机器人
 </details>
 
 ## 更新日志
+
+### v2.0.1（2022-02-10）
+
+New Features:
+
+- 支持通过自定义 SMTP 服务器进行邮件推送
+
+Bug Fixes:
+
+- 修正部分推送配置为空时异常的问题
 
 ### v2.0.0（2022-02-09）
 

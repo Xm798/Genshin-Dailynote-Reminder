@@ -64,3 +64,10 @@ class ConfigData(BaseModel):
     DISCORD_COLOR: Optional[int]
 
     IGOT_KEY: Optional[str]
+
+    MAIL_HOST: Optional[str]
+    MAIL_PORT: Optional[int] = 465
+    MAIL_STARTTLS: Optional[bool] = False
+    MAIL_USERNAME: Optional[str]
+    MAIL_PASSWORD: Optional[str]
+    MAIL_TO: Optional[str]
