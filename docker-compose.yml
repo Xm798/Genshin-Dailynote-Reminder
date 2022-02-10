@@ -1,7 +1,9 @@
 version: "3"
 
 services:
-    genshin-task:
-        container_name: genshin-task-resin-expedition-alert
+    genshin-dailynote-helper:
+        container_name: genshin-dailynote-helper
         build: .
         restart: always
+        volumes: 
+            - ./dailynotehelper/config/config.yaml:/app/config/config.yaml
