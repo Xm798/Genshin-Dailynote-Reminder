@@ -11,9 +11,11 @@ def prase_info(base_data, role) -> list:
     """
     result: list = []
 
-    hidden_uid = str(role['game_uid']).replace(str(role['game_uid'])[3:-3], '***', 1)
     result.append(f"{role['nickname']} {('天空岛 🌈' if role['region'] == 'cn_gf01' else '世界树 🌲')}")
-    result.append(f'UID：{hidden_uid}\n--------------------')
+    if config.DISPLAY_UID:
+        hidden_uid = str(role['game_uid']).replace(str(role['game_uid'])[3:-3], '***', 1)
+        result.append(f'UID：{hidden_uid}')
+    result.append('--------------------')
 
     if config.RESIN_INFO:
         result.append(get_resin_info(base_data))

@@ -5,14 +5,15 @@
 # Caution: 如果字符串中含有特殊字符，请不要忘记使用引号。
 
 base:
-  # 运行环境，local 为新API，cloud 为旧API。
-  # 若云服务商环境下运行出错，请尝试修改为 cloud 。
+  # 运行环境，若云服务商环境下运行出错，请尝试修改为 cloud 。
   RUN_ENV: local
-  # 账号信息
+  # 账号信息，将下面的 COOKIEx 替换为你的 COOKIE。多账号换行填写，去掉 #，以 - 开头。
   COOKIE: 
     - 'COOKIE1'
     #- 'COOKIE2'
     #- 'COOKIE3'
+  # 消息中是否显示隐去中间三位数字的 UID，true or false
+  DISPLAY_UID: true
 
 # 展示信息设置，true or false
 receive_info: 
@@ -29,7 +30,7 @@ receive_info:
 
 # 接收提醒设置
 receive_notice:
-  # 原粹树脂提醒阈值，不填则关闭提醒
+  # 原粹树脂提醒阈值，填 0 则关闭提醒
   RESIN_THRESHOLD: 140
   #  委托未完成的提醒时间，不填则关闭提醒
   COMMISSION_NOTICE_TIME: '21:00'
@@ -39,8 +40,8 @@ receive_notice:
   HOMECOIN_NOTICE: true
 
 time:
-  # 检查间隔（分钟）
-  CHECK_INTERVAL: 15
+  # 检查间隔（分钟），云函数运行时请确保与触发器设置一致，以便执行睡前检查
+  CHECK_INTERVAL: 30
   # 免打扰时间
   SLEEP_TIME: '23:00-07:00'
 
@@ -49,12 +50,12 @@ notifier:
 
 # 企业微信
   # 企业ID
-  WW_ID: 
+  WW_ID: ''
   # 企业微信应用 ID
   WW_APP_AGENTID: 
   # 企业微信应用 SECRET
   WW_APP_SECRET: ''
-  # 接收推送的用户ID，全部用户填写 @all
+  # 接收推送的用户ID，多个接收者用‘|’分隔，全部用户填写 @all
   WW_APP_USERID: '@all'
 
 # 企业微信机器人

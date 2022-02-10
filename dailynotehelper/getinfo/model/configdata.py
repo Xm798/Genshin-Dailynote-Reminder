@@ -3,28 +3,28 @@ from typing import Optional, List
 from pydantic import BaseModel,StrictBool
 
 class ConfigData(BaseModel):
-    RUN_ENV: Literal['local', 'cloud']
+    RUN_ENV: Literal['local', 'cloud'] = 'local'
     COOKIE: List
+    DISPLAY_UID: StrictBool  = True
 
-    RESIN_INFO: StrictBool
-    COMMISSION_INFO: StrictBool
-    EXPEDITION_INFO: StrictBool
-    TROUNCE_INFO: StrictBool
-    HOMECOIN_INFO: StrictBool
+    RESIN_INFO: StrictBool = True
+    COMMISSION_INFO: StrictBool = True
+    EXPEDITION_INFO: StrictBool = True
+    TROUNCE_INFO: StrictBool = True
+    HOMECOIN_INFO: StrictBool = True
 
-    RESIN_THRESHOLD: int
-    COMMISSION_NOTICE_TIME: Optional[str]
-    EXPEDITION_NOTICE: StrictBool
-    HOMECOIN_NOTICE: StrictBool
+    RESIN_THRESHOLD: int = 140
+    COMMISSION_NOTICE_TIME: Optional[str] = '21:00'
+    EXPEDITION_NOTICE: StrictBool = True
+    HOMECOIN_NOTICE: StrictBool = True
 
-    CHECK_INTERVAL: int
-    CHECK_INTERVAL_AFTER_ALERT: Optional[int]
-    SLEEP_TIME: Optional[str]
+    CHECK_INTERVAL: int = 30
+    SLEEP_TIME: Optional[str] = '23:00-07:00'
 
     WW_ID: Optional[str]
     WW_APP_SECRET: Optional[str]
     WW_APP_USERID: Optional[str]
-    WW_APP_AGENTID: Optional[str]
+    WW_APP_AGENTID: Optional[int]
     WW_BOT_KEY: Optional[str]
 
     BARK_URL: Optional[str]
@@ -40,7 +40,7 @@ class ConfigData(BaseModel):
     PUSHDEER_KEY: Optional[str]
 
     CQHTTP_URL: Optional[str]
-    CQHTTP_MESSAGE_TYPE: Literal["private", "group"]
+    CQHTTP_MESSAGE_TYPE: Literal["private", "group"] = 'private'
     CQHTTP_SEND_ID: Optional[str]
     CQHTTP_TOKEN: Optional[str]
 
@@ -53,7 +53,7 @@ class ConfigData(BaseModel):
     PUSH_PLUS_USER: Optional[str]
 
     COOL_PUSH_SKEY: Optional[str]
-    COOL_PUSH_MODE: Literal['send', 'psend', 'group', 'pgroup']
+    COOL_PUSH_MODE: Literal['send', 'psend', 'group', 'pgroup'] = 'send'
     COOL_PUSH_SENDID: Optional[str]
 
     QMSG_KEY: Optional[str]
