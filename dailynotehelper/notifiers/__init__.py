@@ -11,7 +11,8 @@ from . import (
     qmsg,
     bark,
     cqhttp,
-    pushdeer
+    pushdeer,
+    mail
     )
 
 from .exceptions import NoSuchNotifierError
@@ -32,6 +33,7 @@ _all_notifiers = {
     'bark':bark.Bark,
     'cqhttp':cqhttp.Cqhttp,
     'pushdeer':pushdeer.Pushdeer,
+    'mail':mail.Mail
 }
 
 
@@ -51,7 +53,7 @@ def send2all(text='',status:str='',desp:str=''):
     for notifier in _all_notifiers:
         # 不支持 MARKDOWN 语法的推送渠道不做处理
         if (notifier in ['serverchanturbo','pushdeer']):
-            markdown_message = f'```\n{desp}\n```'
+            message = f'```\n{desp}\n```'
         else:
-            markdown_message = desp
-        get_notifier(notifier).send(text, status, markdown_message)
+            message = desp
+        get_notifier(notifier).send(text, status, message)
