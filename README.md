@@ -326,6 +326,20 @@ notifier:
 
 # IGOT
   IGOT_KEY: 
+
+# MAIL
+  # 邮件 smtp 服务器
+  MAIL_HOST: ''
+  # smtp 端口
+  MAIL_PORT: 465
+  # 是否开启 STARTTLS，true or false
+  MAIL_STARTTLS: false
+  # 发件人邮箱账号
+  MAIL_USERNAME: ''
+  # 发件人邮箱密码（或授权码）
+  MAIL_PASSWORD: ''
+  # 收件人邮箱地址
+  MAIL_TO: ''
 ```
 
 
@@ -495,8 +509,12 @@ ii. 企业微信机器人
 
 ### 10. 邮件推送
 
+<details>
+
 进入邮件服务商帮助页面获取 SMTP 服务器服务器和端口信息，部分邮箱还需获取客户端授权码，将配置填入 MAIL 部分即可。
 仅支持通过 SSL 发送，一般默认端口为 465（不开启 STARTTLS）或 587（开启 STARTTLS）。
+
+</details>
 
 ### 11. CoolPush 酷推
 
