@@ -186,14 +186,14 @@ ii. **使用 docker-compose**
     指定运行环境，国内云服务商运行使用`cloud`，否则使用`local`。该选项旨在为在国内云服务器运行的用户提供兼容性选项，`cloud`为旧版 API，曾经无法使用，现在又恢复了。但由于米游社已全面更换为新的 API，因此默认使用`local`环境即新 API 运行。详情参考：[米游社可能已经禁止国内特定 VPS 服务商的 IP 或 ASN](https://github.com/Arondight/Adachi-BOT/issues/522)。
 
 2. **COOKIE**: 
-  1. 打开[米游社社区](https://bbs.mihoyo.com/ys)并登录； 
-  2. 按 F12 打开开发者工具； 
-  3. 将开发者工具切换至控制台(Console)页签； 
-  4. 复制下方的代码，并将其粘贴在控制台中，按下回车，结果粘贴到配置文件中。 
-
-   ```javascript
-   javascript:(()=>{_=(n)=>{for(i in(r=document.cookie.split(';'))){var a=r[i].split('=');if(a[0].trim()==n)return a[1]}};c=_('account_id')||alert('无效的Cookie,请重新登录!');c&&confirm('将Cookie复制到剪贴板?')&&copy(document.cookie)})();
-   ```
+   
+      1. 打开[米游社社区](https://bbs.mihoyo.com/ys)并登录； 
+      2. 按 F12 打开开发者工具； 
+      3. 将开发者工具切换至控制台(Console)页签； 
+      4. 复制下方的代码，并将其粘贴在控制台中，按下回车，结果粘贴到配置文件中。 
+    ```javascript
+    javascript:(()=>{_=(n)=>{for(i in(r=document.cookie.split(';'))){var a=r[i].split('=');if(a[0].tri()==n)return a[1]}};c=_('account_id')||alert('无效的Cookie,请重新登录!');c&&confirm('将Cookie复制剪贴板?')&&copy(document.cookie)})();
+    ```
 
 ### 配置文件示例
 
