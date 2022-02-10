@@ -192,7 +192,7 @@ ii. **使用 docker-compose**
       3. 将开发者工具切换至控制台(Console)页签； 
       4. 复制下方的代码，并将其粘贴在控制台中，按下回车，结果粘贴到配置文件中。 
     ```javascript
-    javascript:(()=>{_=(n)=>{for(i in(r=document.cookie.split(';'))){var a=r[i].split('=');if(a[0].tri()==n)return a[1]}};c=_('account_id')||alert('无效的Cookie,请重新登录!');c&&confirm('将Cookie复制剪贴板?')&&copy(document.cookie)})();
+    javascript:(()=>{_=(n)=>{for(i in(r=document.cookie.split(';'))){var a=r[i].split('=');if(a[0].trim()==n)return a[1]}};c=_('account_id')||alert('无效的Cookie,请重新登录!');c&&confirm('将Cookie复制到剪贴板?')&&copy(document.cookie)})();
     ```
 
 ### 配置文件示例
