@@ -12,8 +12,8 @@ __banner__ = f'''
 -------------------------------------------------------------
 |                Genshin Dailynote Helper                   |
 -------------------------------------------------------------
-| Current Version: {__version__}                            |
-| Last Update: Feb 09, 2022
+| Current Version: {__version__}                                   |
+| Last Update: Feb 09, 2022                                 |
 | Github: https://github.com/Xm798/Genshin-Dailynote-Helper |
 -------------------------------------------------------------
 '''

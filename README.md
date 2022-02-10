@@ -1,60 +1,85 @@
 # 原神实时便笺提醒小助手 | Genshin Dailynote Helper
 
-检查并推送原神内树脂、委托、周本、探索派遣和洞天宝钱情况，支持多账号，支持多渠道推送，目前只支持国服。
+
+检查并推送原神内树脂、委托、周本、探索派遣和洞天宝钱情况。
+
+支持多账号，支持多渠道同时推送，目前只支持国服。
+
+支持当如下情况时发送提醒：
+  - 树脂即将溢出
+  - 今日委托未完成
+  - 洞天宝钱溢出
+  - 探索派遣已完成
+
+
+
+## 目录
+- [示例](#示例)
+- [使用方法](#使用方法)
+  - [1. 云函数运行](#1-云函数运行)
+  - [2. Docker 运行](#2docker-运行)
+  - [3. 本地运行](#3本地运行)
+- [配置文件参数说明](#配置文件参数说明)
+  - [一些基础信息](#一些基础信息)
+  - [配置文件示例](#配置文件示例)
+- [推送方式配置](#推送方式配置)
+- [更新日志](#更新日志)
+- [致谢](#致谢)
+- [License](#license)
 
 ## 示例
 
 **推送示例**
 
-<img src="https://s2.loli.net/2022/02/06/hdXcnRiM2Elg9C6.png" width="400px" />
+<img src="https://s2.loli.net/2022/02/10/D1n58XafpIWUYZ9.png" width="400px" />
 
 **通知中心**
 
-<img src="https://s2.loli.net/2022/02/06/m3JuvoHF9VzLIRM.png" width="400px" />
+<img src="https://s2.loli.net/2022/02/10/TJH8Kly4n7pwazg.png" width="400px" />
 
 **各推送渠道展示**
 
 <details>
 
-**锁屏通知**
+**通知中心预览**
 
-<img src="https://s2.loli.net/2022/02/06/IGzRZarEfjwdnY7.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/orsvg2lk794aIKZ.png" style="zoom:50%;" />
 
 **微信**
 
-<img src="https://s2.loli.net/2022/02/06/wBgTWO3xfDnA6lC.png" style="zoom:50%;" />
-
-**企业微信**
-
-<img src="https://s2.loli.net/2022/02/06/UrpmkKiSJN21xGH.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/fop8SNLW1bqejEQ.png" style="zoom:50%;" />
 
 **Bark**
 
-<img src="https://s2.loli.net/2022/02/06/CwpKF6qX98EGboe.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/WCyNp9mEUziFt2d.png" style="zoom:50%;" />
 
 **Server 酱**
 
-<img src="https://s2.loli.net/2022/02/06/2mBxjlWPyCsgo7d.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/uwpErkDjth4voM7.png" style="zoom:50%;" />
 
 **Telegram Bot**
 
-<img src="https://s2.loli.net/2022/02/06/12k3XPWxJioOlyh.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/l3aN2JWfOtKwn9L.png" style="zoom:50%;" />
 
 **Pushdeer**
 
-<img src="https://s2.loli.net/2022/02/06/oRcmCxtaWf5FDN3.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/RZb1s6GD8V5Kpt9.png" style="zoom:50%;" />
 
 **PUSH PLUS**
 
-<img src="https://s2.loli.net/2022/02/06/5BoEWzvuxahU4G8.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/dnuyhcSqfeR28As.png" style="zoom:50%;" />
 
 **钉钉群机器人**
 
-<img src="https://s2.loli.net/2022/02/06/5IfT1jEGQwOUHJl.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/duZLQUelNRMT5Cc.png" style="zoom:50%;" />
+
+**Discord**
+
+<img src="https://s2.loli.net/2022/02/10/HdwcDSgqLe8m6kK.png" style="zoom:50%;" />
 
 **QQ**
 
-<img src="https://s2.loli.net/2022/02/06/hdXcnRiM2Elg9C6.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/UArdhlvXQjomJgM.png" style="zoom:50%;" />
 
 </details>
 
@@ -68,43 +93,64 @@
 
 1. 打开[腾讯云云函数控制台](https://console.cloud.tencent.com/scf)，登录账号，点击“函数服务”-“新建”。
 
-2. 选择“从头开始”，输入一个函数名，地域在国内随便选择（如需推送 Telegram 或 Discord，可选香港地区），运行环境为 Python3.7。
+2. 选择“从头开始”，输入一个函数名，地域在国内随便选择（如需推送 Telegram 或 Discord，选中国香港地区），运行环境为 Python3.7。
 
    ![image-20220209183102030](https://s2.loli.net/2022/02/09/BVQ1sZnSfRj2UhF.png)
 
-3. 函数代码部分，选择“本地上传zip包”，上传从 release 页面下载的 serverless 程序包。
+3. 函数代码部分，选择“本地上传 zip 包”，从 [release 页面](https://github.com/Xm798/Genshin-Dailynote-Helper/releases) 下载最新的 serverless 程序包并上传。
 
    ![image-20220209183304497](https://s2.loli.net/2022/02/09/HM275iAPhzxRyBn.png)
 
-4. 展开“高级配置”，**修改执行超时时间为 120 秒或更长**，**添加环境变量** key 为 `TZ`，value 为 `Asia/Shanghai`（十分重要）。
+4. 展开“高级配置”，**修改执行超时时间为 120 秒或更长**，**添加环境变量** key 为 `TZ`，value 为 `Asia/Shanghai`（**十分重要**，否则时间不正确）。
 
    ![image-20220209183900117](https://s2.loli.net/2022/02/09/N4ubS2oFEGdhBVr.png)
 
-5. 展开触发器配置，选择自定义触发周期，填写 cron 表达式。例如：每15分钟检查一次，填写`* */15 * * * * *`，每30分钟检查一次，填写`* */30 * * * * *`，更多可查看文档。
+5. 展开触发器配置，选择自定义触发周期，填写 cron 表达式。例如：每15分钟检查一次，填写`* */15 * * * * *`，每30分钟检查一次，填写`* */30 * * * * *`，每小时整点触发，填写`0 0 * * * * *`。该间隔请注意与配置文件中`CHECK_INTERVAL`一致，以便运行睡前检查功能。
 
    ![image-20220209184423821](https://s2.loli.net/2022/02/09/OYZsChGzdVW6oqx.png)
 
-   6. 跳转到 **函数管理 - 函数代码**页面，复制`config.exampl.json`为`config.json`，**创建并填写你的配置**（不支持环境变量）。
+6. 跳转到 **函数管理 - 函数代码**页面，在目录中找到`dailynotehelper/config/config.example.yaml`，右键重命名为`config.yaml`，**并填写你的配置**（不支持环境变量）。
 
-      ![image-20220209184555981](https://s2.loli.net/2022/02/09/vxkaqoOfVw6hBgW.png)
+    ![image-20220209184555981](https://s2.loli.net/2022/02/09/vxkaqoOfVw6hBgW.png)
 
-   7. 点击下方**“部署并测试”**，测试是否运行正常。
+7. 点击下方“**部署并测试**”，查看日志测试是否运行正常。
 
-### 2.Docker 运行
+### 2. Docker 运行
 
-1. 点击[链接](https://raw.githubusercontent.com/Xm798/Genshin-Dailynote-Helper/master/dailynotehelper/config/config.example.yaml)或从本项目路径`dailynotehelper/config/config.example.yaml`提取示例配置文件并填写，重命名为`config.yaml`。
+i. **使用镜像**
 
-2. 运行，`/PATH-to-YOUR-CONFIG/config.yaml`是你本地配置文件的路径，需要根据实际情况填写。
+  1. 点击 [链接](https://raw.githubusercontent.com/Xm798/Genshin-Dailynote-Helper/master/dailynotehelper/config/config.example.yaml) 或从本项目路径`dailynotehelper/config/config.example.yaml`提取示例配置文件并填写，重命名为`config.yaml`。
 
-   ```sh
-   docker run -d \
-   -v /PATH-to-YOUR-CONFIG/config.yaml:/app/dailynotehelper/config/config.yaml \
-   --restart=always \
-   --name=genshin-dailynote-helper \
-   xm798/genshin-dailynote-helper:latest
-   ```
+  2. 运行，`/PATH-to-YOUR-CONFIG/config.yaml`是你本地配置文件的路径，需要根据实际情况填写。
 
-### 3.本地运行
+     ```shell
+     docker run -d \
+     -v /PATH-to-YOUR-CONFIG/config.yaml:/app/dailynotehelper/config/config.yaml \
+     --restart=always \
+     --name=genshin-dailynote-helper \
+     xm798/genshin-dailynote-helper:latest
+     ```
+     若在国内机器运行，可使用在腾讯云的镜像。
+     ```shell
+     docker run -d \
+     -v /PATH-to-YOUR-CONFIG/config.yaml:/app/dailynotehelper/config/config.yaml \
+     --restart=always \
+     --name=genshin-dailynote-helper \
+     ccr.ccs.tencentyun.com/xm798/genshin-dailynote-helper:latest
+     ```
+
+ii. **使用 docker-compose**
+
+  克隆项目，填写配置文件后构建运行。
+
+  ```sh
+  git clone https://github.com/Xm798/Genshin-Dailynote-Helper.git
+  cd Genshin-Dailynote-Helper
+  cp ./dailynotehelper/config/config.example.yaml/ dailynotehelper/config/config.yaml
+  docker-compose up -d
+  ```
+
+### 3. 本地运行
 
 1. 安装 [python3](https://www.python.org) 环境，版本>=3.7。
 
@@ -112,7 +158,7 @@
 
    ```shell
    git clone https://github.com/Xm798/Genshin-Dailynote-Helper.git
-   cd dailynotehelper
+   cd Genshin-Dailynote-Helper
    pip3 install -r requirements.txt
    ```
 3. 修改配置
@@ -125,7 +171,7 @@
    ```
 
 4. 运行项目
-   ```
+   ```shell
    python3 index.py
    ```
 
@@ -133,14 +179,15 @@
 
 ### 一些基础信息
 
-1. RUN_ENV：指定运行环境，国内云服务商运行使用`cloud`，否则使用`local`。该选项旨在为在国内云服务器运行的用户提供兼容性选项,`cloud`为旧版 API，曾经无法使用，现在又恢复了。但由于米游社已全面更换为新的 API，因此默认使用`local`环境即新 API 运行。
-   详情参考：[米游社可能已经禁止国内特定 VPS 服务商的 IP 或 ASN](https://github.com/Arondight/Adachi-BOT/issues/522)
+1. RUN_ENV：
 
-2. COOKIE: 
-   1. 打开[米游社社区](https://bbs.mihoyo.com/ys)并登录； 
-   2. 按 F12 打开开发者工具； 
-   3. 将开发者工具切换至控制台(Console)页签； 
-   4. 复制下方的代码，并将其粘贴在控制台中，按下回车，将结果粘贴到配置文件中。
+    指定运行环境，国内云服务商运行使用`cloud`，否则使用`local`。该选项旨在为在国内云服务器运行的用户提供兼容性选项，`cloud`为旧版 API，曾经无法使用，现在又恢复了。但由于米游社已全面更换为新的 API，因此默认使用`local`环境即新 API 运行。详情参考：[米游社可能已经禁止国内特定 VPS 服务商的 IP 或 ASN](https://github.com/Arondight/Adachi-BOT/issues/522)。
+
+2. **COOKIE**: 
+  1. 打开[米游社社区](https://bbs.mihoyo.com/ys)并登录； 
+  2. 按 F12 打开开发者工具； 
+  3. 将开发者工具切换至控制台(Console)页签； 
+  4. 复制下方的代码，并将其粘贴在控制台中，按下回车，结果粘贴到配置文件中。 
 
    ```javascript
    javascript:(()=>{_=(n)=>{for(i in(r=document.cookie.split(';'))){var a=r[i].split('=');if(a[0].trim()==n)return a[1]}};c=_('account_id')||alert('无效的Cookie,请重新登录!');c&&confirm('将Cookie复制到剪贴板?')&&copy(document.cookie)})();
@@ -149,21 +196,16 @@
 ### 配置文件示例
 
 ```yaml
-# PROJECT: Genshin DailyNote Notice Helper Config File
-# Author: Xm798
-# Github: https://github.com/Xm798/Genshin-Dailynote-Helper
-
-# Caution: 如果字符串中含有特殊字符，请不要忘记使用引号。
-
 base:
-  # 运行环境，local 为新API，cloud 为旧API。
-  # 若云服务商环境下运行出错，请尝试修改为 cloud 。
+  # 运行环境，若云服务商环境下运行出错，请尝试修改为 cloud 。
   RUN_ENV: local
-  # 账号信息
+  # 账号信息，将下面的 COOKIEx 替换为你的 COOKIE。多账号换行填写，去掉 #，以 - 开头。
   COOKIE: 
     - 'COOKIE1'
     #- 'COOKIE2'
     #- 'COOKIE3'
+  # 消息中是否显示隐去中间三位数字的 UID，true or false
+  DISPLAY_UID: true
 
 # 展示信息设置，true or false
 receive_info: 
@@ -180,7 +222,7 @@ receive_info:
 
 # 接收提醒设置
 receive_notice:
-  # 原粹树脂提醒阈值，不填则关闭提醒
+  # 原粹树脂提醒阈值，填 0 则关闭提醒
   RESIN_THRESHOLD: 140
   #  委托未完成的提醒时间，不填则关闭提醒
   COMMISSION_NOTICE_TIME: '21:00'
@@ -190,8 +232,8 @@ receive_notice:
   HOMECOIN_NOTICE: true
 
 time:
-  # 检查间隔（分钟）
-  CHECK_INTERVAL: 15
+  # 检查间隔（分钟），云函数运行时请确保与触发器设置一致，以便执行睡前检查
+  CHECK_INTERVAL: 30
   # 免打扰时间
   SLEEP_TIME: '23:00-07:00'
 
@@ -200,12 +242,12 @@ notifier:
 
 # 企业微信
   # 企业ID
-  WW_ID: 
+  WW_ID: ''
   # 企业微信应用 ID
   WW_APP_AGENTID: 
   # 企业微信应用 SECRET
   WW_APP_SECRET: ''
-  # 接收推送的用户ID，全部用户填写 @all
+  # 接收推送的用户ID，多个接收者用‘|’分隔，全部用户填写 @all
   WW_APP_USERID: '@all'
 
 # 企业微信机器人
@@ -294,21 +336,21 @@ notifier:
 - **全平台推送**：使用 Telegram 或企业微信；
 - **QQ 推送**：自行部署 go-cqhttp 并使用。
 
-|            推送渠道             | 支持情况  |             推送通道             |          备注           |
-| :-----------------------------: | :-------: | :------------------------------: | :---------------------: |
-|     [企业微信](#1-企业微信)     |  ✅ 支持  |          微信（全平台）          |         推荐 ⭐        |
-|  [企业微信机器人](#1-企业微信)  |  ✅ 支持  |          微信（全平台）          |                         |
-|         [Bark](#2-bark)         |  ✅ 支持  |         APP（仅限 iOS）          |         推荐 ⭐        |
-| [Telegram Bot](#3-telegram-bot) |  ✅ 支持  |        Telegram（全平台）        |   推荐 ⭐，需科学上网  |
-|     [Pushdeer](#4-pushdeer)     |  ✅ 支持  | 轻 APP(iOS)/APP(安卓)/APP(MacOS) | 推荐 iOS 和小米设备使用 |
-|    [go-cqhttp](#5-go-cqhttp)    |  ✅ 支持  |                QQ                |  需自行部署 go-cqhttp   |
-| [钉钉群机器人](#6-钉钉群机器人) |  ✅ 支持  |              钉钉群              |                         |
-|    [Server 酱](#7-server-酱)    |  ✅ 支持  |        多渠道推送(微信等)        |    免费版每天限 5 条    |
-|    [pushplus](#8-push-plus)     |  ✅ 支持  |     多渠道推送(微信/邮件等)      |                         |
-|  [Cool Push](#9-coolpush-酷推)  |  ✅ 支持  |                QQ                |                         |
-|     [Qmsg 酱](#10-qmsg-酱)      |  ✅ 支持  |                QQ                |                         |
-|         Discord Webhook         |  ✅ 支持  |             Discord              |        需科学上网       |
-|              IGOT               | 🛠️ 未测试 |                                  |                         |
+|               推送渠道                | 支持情况 |             推送通道             |          备注           |
+| :-----------------------------------: | :------: | :------------------------------: | :---------------------: |
+|        [企业微信](#1-企业微信)        |  ✅ 支持  |          微信（全平台）          |         推荐 ⭐          |
+|     [企业微信机器人](#1-企业微信)     |  ✅ 支持  |          微信（全平台）          |                         |
+|            [Bark](#2-bark)            |  ✅ 支持  |         APP（仅限 iOS）          |         推荐 ⭐          |
+|    [Telegram Bot](#3-telegram-bot)    |  ✅ 支持  |        Telegram（全平台）        |   推荐 ⭐，需科学上网    |
+|        [Pushdeer](#4-pushdeer)        |  ✅ 支持  | 轻 APP(iOS)/APP(安卓)/APP(MacOS) | 推荐 iOS 和小米设备使用 |
+|       [go-cqhttp](#5-go-cqhttp)       |  ✅ 支持  |                QQ                |  需自行部署 go-cqhttp   |
+|    [钉钉群机器人](#6-钉钉群机器人)    |  ✅ 支持  |              钉钉群              |                         |
+|       [Server 酱](#7-server-酱)       |  ✅ 支持  |        多渠道推送(微信等)        |    免费版每天限 5 条    |
+|       [pushplus](#8-push-plus)        |  ✅ 支持  |     多渠道推送(微信/邮件等)      |                         |
+| [Discord Webhook](#9-discord-webhook) |  ✅ 支持  |             Discord              |       需科学上网        |
+|    [Cool Push](#10-coolpush-酷推)     |  ✅ 支持  |                QQ                |                         |
+|        [Qmsg 酱](#11-qmsg-酱)         |  ✅ 支持  |                QQ                |                         |
+|                 IGOT                  | 🛠️ 未测试 |                                  |                         |
 
 ### 1. 企业微信
 
@@ -481,6 +523,8 @@ BREAKING CHANGE:
 New Features:
 
 - 支持多账号、多角色
+- 支持云函数部署
+- 支持 Discord 推送
 
 Removed：
 
@@ -488,6 +532,7 @@ Removed：
 
 Others:
 
+- 添加国内 docker 镜像
 - 优化推送体验
 - 重构部分模块
 
@@ -538,55 +583,75 @@ Bug Fixes:
 
 ### v1.2.5（2021-12-24）
 
-- 同步米游社 API 变动，更换新的 API，请务必更新。
+Bug Fixes：
 
-注：若 API 返回“很抱歉，由于您访问的 URL 有可能对网站造成安全威胁，您的访问被阻断”的错误提示，请不要使用腾讯云或阿里云等云服务商的 VPS 运行本项目，尝试使用本地设备部署。
+- 同步米游社 API 变动，更换新的 API。
 
 ### v1.2.4（2021-11-24）
 
-- Bug Fixes：修复 cookie 出错时的异常退出问题
+Bug Fixes：
+
+- 修复 cookie 出错时的异常退出问题
 
 ### v1.2.3（2021-11-23）
+
+New Features:
 
 - CQHTTP 推送 IP 字段支持协议头，以支持 HTTPS
 
 ### v1.2.2（2021-11-10）
 
-优化每日委托提醒
+New Features:
 
-- 优化提醒时间判断逻辑
-- 增加奖励领取情况判断，去他人世界做委托领取奖励后不再会被误认为未完成委托。
+- 优化每日委托提醒时间判断逻辑
+- 增加每日委托奖励领取情况判断，去他人世界做委托领取奖励后不再会被误认为未完成委托。
 
 ### v1.2.1（2021-11-01）
 
-修复 CQ-HTTP 推送，请使用 CQ-HTTP 的用户注意**配置文件字段变动**。
+Bug Fixes：
 
-- 修复鉴权错误，解决需要鉴权的 CQ-HTTP 不能使用的问题
+- 修复 CQ-HTTP 推送鉴权错误，请使用 CQ-HTTP 的用户注意**配置文件字段变动**。
+
+New Features:
+
 - 增加群推送模式支持
 - 增加自定义端口支持
 
 ### v1.2.0 (2021-11-01)
 
+New Features:
+
 - 支持夜间休眠，再也不会深夜不停扰民了
 - 日志增加每轮检查树脂值显示
+
+Bug Fixes：
 - 修复 cqhttp 推送错误提示
 - 配置文件部分字段改为可选配置
 
 ### v1.1.2（2021-10-29）
 
+New Features:
+
 - 增加 cqhttp 推送
+
+Others:
 - 更新文档
 
 ### v1.1.1 (2021-10-28)
+
+New Features:
 
 - 增加探索派遣完成提醒
 - 优化提醒标题
 
 ### v1.1.0 (2021-10-28)
 
-- 修复休眠时间不正确的问题
+New Features:
 - 优化提醒逻辑
 - 增加账号信息显示
+
+Bug Fixes:
+- 修复休眠时间不正确的问题
 
 ## 致谢
 
