@@ -31,11 +31,9 @@
 
 **推送示例**
 
-<img src="https://s2.loli.net/2022/02/10/D1n58XafpIWUYZ9.png" width="400px" />
+<img src="https://s2.loli.net/2022/02/10/fop8SNLW1bqejEQ.png" width="300px" />
+<img src="https://s2.loli.net/2022/02/10/TJH8Kly4n7pwazg.png" width="300px" />
 
-**通知中心**
-
-<img src="https://s2.loli.net/2022/02/10/TJH8Kly4n7pwazg.png" width="400px" />
 
 **各推送渠道展示**
 
@@ -43,43 +41,43 @@
 
 **通知中心预览**
 
-<img src="https://s2.loli.net/2022/02/10/orsvg2lk794aIKZ.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/orsvg2lk794aIKZ.png" width="300px" />
 
 **微信**
 
-<img src="https://s2.loli.net/2022/02/10/fop8SNLW1bqejEQ.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/D1n58XafpIWUYZ9.png" width="300px" />
 
 **Bark**
 
-<img src="https://s2.loli.net/2022/02/10/WCyNp9mEUziFt2d.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/WCyNp9mEUziFt2d.png" width="300px" />
 
 **Server 酱**
 
-<img src="https://s2.loli.net/2022/02/10/uwpErkDjth4voM7.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/uwpErkDjth4voM7.png" width="300px" />
 
 **Telegram Bot**
 
-<img src="https://s2.loli.net/2022/02/10/l3aN2JWfOtKwn9L.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/l3aN2JWfOtKwn9L.png" width="300px" />
 
 **Pushdeer**
 
-<img src="https://s2.loli.net/2022/02/10/RZb1s6GD8V5Kpt9.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/RZb1s6GD8V5Kpt9.png" width="300px" />
 
 **PUSH PLUS**
 
-<img src="https://s2.loli.net/2022/02/10/dnuyhcSqfeR28As.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/dnuyhcSqfeR28As.png" width="300px" />
 
 **钉钉群机器人**
 
-<img src="https://s2.loli.net/2022/02/10/duZLQUelNRMT5Cc.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/duZLQUelNRMT5Cc.png" width="300px" />
 
 **Discord**
 
-<img src="https://s2.loli.net/2022/02/10/HdwcDSgqLe8m6kK.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/HdwcDSgqLe8m6kK.png" width="300px" />
 
 **QQ**
 
-<img src="https://s2.loli.net/2022/02/10/UArdhlvXQjomJgM.png" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/02/10/UArdhlvXQjomJgM.png" width="300px" />
 
 </details>
 
@@ -91,29 +89,31 @@
 
 ### 1. 云函数运行
 
-1. 打开[腾讯云云函数控制台](https://console.cloud.tencent.com/scf)，登录账号，点击“函数服务”-“新建”。
+1. 从 [Release 页面](https://github.com/Xm798/Genshin-Dailynote-Helper/releases) 下载最新代码包，国内可从 [Gitee镜像](https://gitee.com/Xm798/Genshin-Dailynote-Helper/releases) 下载。
+   
+2. 打开[腾讯云云函数控制台](https://console.cloud.tencent.com/scf)，登录账号，点击“函数服务”-“新建”。
 
-2. 选择“从头开始”，输入一个函数名，地域在国内随便选择（如需推送 Telegram 或 Discord，选中国香港地区），运行环境为 Python3.7。
+3. 选择“从头开始”，输入一个函数名，地域在国内随便选择（如需推送 Telegram 或 Discord，选中国香港地区），运行环境为 Python3.7。
 
    ![image-20220209183102030](https://s2.loli.net/2022/02/09/BVQ1sZnSfRj2UhF.png)
 
-3. 函数代码部分，选择“本地上传 zip 包”，从 [release 页面](https://github.com/Xm798/Genshin-Dailynote-Helper/releases) 下载最新的 serverless 程序包并上传。
+4. 函数代码部分，选择“本地上传 zip 包”，选择下载的程序包并上传。
 
    ![image-20220209183304497](https://s2.loli.net/2022/02/09/HM275iAPhzxRyBn.png)
 
-4. 展开“高级配置”，**修改执行超时时间为 120 秒或更长**，**添加环境变量** key 为 `TZ`，value 为 `Asia/Shanghai`（**十分重要**，否则时间不正确）。
+5. 展开“高级配置”，**修改执行超时时间为 120 秒或更长**，**添加环境变量** key 为 `TZ`，value 为 `Asia/Shanghai`（**十分重要**，否则时间不正确）。
 
    ![image-20220209183900117](https://s2.loli.net/2022/02/09/N4ubS2oFEGdhBVr.png)
 
-5. 展开触发器配置，选择自定义触发周期，填写 cron 表达式。例如：每15分钟检查一次，填写`* */15 * * * * *`，每30分钟检查一次，填写`* */30 * * * * *`，每小时整点触发，填写`0 0 * * * * *`。该间隔请注意与配置文件中`CHECK_INTERVAL`一致，以便运行睡前检查功能。
+6. 展开触发器配置，选择自定义触发周期，填写 cron 表达式。例如：每15分钟检查一次，填写`* */15 * * * * *`，每30分钟检查一次，填写`* */30 * * * * *`，每小时整点触发，填写`0 0 * * * * *`。该间隔请注意与配置文件中`CHECK_INTERVAL`一致，以便运行睡前检查功能。
 
    ![image-20220209184423821](https://s2.loli.net/2022/02/09/OYZsChGzdVW6oqx.png)
 
-6. 跳转到 **函数管理 - 函数代码**页面，在目录中找到`dailynotehelper/config/config.example.yaml`，右键重命名为`config.yaml`，**并填写你的配置**（不支持环境变量）。
+7. 跳转到 **函数管理 - 函数代码**页面，在目录中找到`dailynotehelper/config/config.example.yaml`，右键重命名为`config.yaml`，**并填写你的配置**（不支持环境变量）。
 
     ![image-20220209184555981](https://s2.loli.net/2022/02/09/vxkaqoOfVw6hBgW.png)
 
-7. 点击下方“**部署并测试**”，查看日志测试是否运行正常。
+8. 点击下方“**部署并测试**”，查看日志测试是否运行正常。
 
 ### 2. Docker 运行
 
@@ -154,13 +154,15 @@ ii. **使用 docker-compose**
 
 1. 安装 [python3](https://www.python.org) 环境，版本>=3.7。
 
-2. 下载项目并安装依赖
+2. 下载项目并安装依赖，
 
    ```shell
+   # 国内可考虑使用 Gitee 镜像: https://gitee.com/Xm798/Genshin-Dailynote-Helper
    git clone https://github.com/Xm798/Genshin-Dailynote-Helper.git
    cd Genshin-Dailynote-Helper
    pip3 install -r requirements.txt
    ```
+
 3. 修改配置
 
    复制 `./dailynotehelper/config/config.example.yaml` 并另存为 `config.yaml`，填入配置信息。
