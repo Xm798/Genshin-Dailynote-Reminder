@@ -1,0 +1,65 @@
+name: 漏洞和非预期行为
+description: 提交一个漏洞和非预期行为报告
+#title:
+labels:
+  - bug
+assignees:
+  - Xm798
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您的提交，请至少填写下方带红色星花标记的部分。
+  - type: textarea
+    id: question
+    attributes:
+      label: 问题描述
+      description: 请在此详细描述你遇到的非预期行为或漏洞。
+      placeholder: 在此输入 Markdown 文本。
+      #value:
+    validations:
+      required: true
+  - type: dropdown
+    id: run-env
+    attributes:
+      label: 运行环境
+      description: 运行命令 `git diff-index --quiet HEAD && echo 'Clean' || echo 'Dirty'` 并观察输出是。
+      options:
+        - 云函数
+        - Docker
+        - 本地运行
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 程序版本
+      description: 请将程序的版本粘贴在此处，可观察日志输出或云函数程序包文件名。
+      placeholder: 例如 v2.0.1 。
+    validations:
+      required: true
+  - type: textarea
+    id: operation
+    attributes:
+      label: 复现流程
+      description: 请告诉我们如何操作才有可能重现你的问题，以便我们定位和解决。
+      placeholder: 在此输入 Markdown 文本。
+      #value:
+    validations:
+      required: false
+  - type: textarea
+    id: log
+    attributes:
+      label: 完整日志
+      description: 请将云函数、Docker 或本地运行时出错的完整日志粘贴在这里。
+      render: shell
+      placeholder: 在此输入日志，将被转化为代码块。
+      #value:
+    validations:
+      required: false
+  - type: textarea
+    id: remark
+    attributes:
+      label: 其他补充说明
+    validations:
+      required: false
