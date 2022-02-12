@@ -6,6 +6,6 @@ services:
         build: .
         restart: always
         volumes: 
-            - ./dailynotehelper/config/config.yaml:/app/config/config.yaml
+            - ./dailynotehelper/config/config.yaml:/app/dailynotehelper/config/config.yaml
         environment:
             - TZ=Asia/Shanghai
