@@ -10,10 +10,18 @@
 ![](https://img.shields.io/docker/pulls/xm798/genshin-dailynote-helper?style=flat-square)
 ![](https://img.shields.io/github/v/release/xm798/Genshin-Dailynote-Helper?color=success&style=flat-square)
 
+</div>
+
+## 💬交流反馈
+
+<div align="center"> 
 
 [![](https://img.shields.io/badge/%20-QQ%20Group-blue?style=for-the-badge&logo=Tencent%20QQ&logoColor=EB1923&labelColor=eeeeee&color=EB1923)](https://jq.qq.com/?_wv=1027&k=CnNxc9hp)
 [![](https://img.shields.io/badge/%20-Telegram%20Group-blue?style=for-the-badge&logo=Telegram&logoColor=26A5E4&labelColor=eeeeee&color=26A5E4)](https://t.me/+QtSxha7rXsc2ZTg1)
+
 </div>
+
+## 简介
 
 检查并推送原神内树脂、委托、周本、探索派遣和洞天宝钱情况。
 
@@ -111,7 +119,7 @@
    
 2. 打开[腾讯云云函数控制台](https://console.cloud.tencent.com/scf)，登录账号，点击“函数服务”-“新建”。
 
-3. 选择“从头开始”，输入一个函数名，地域在国内随便选择（如需推送 Telegram 或 Discord，选中国香港地区），运行环境为 Python3.7。
+3. 选择“从头开始”，输入一个函数名。地域在国内随便选择，如需检测国际服或者推送 Telegram 或 Discord，必须选择大陆以外如中国香港地区。运行环境为 Python3.7。
 
    ![image-20220209183102030](https://s2.loli.net/2022/02/09/BVQ1sZnSfRj2UhF.png)
 
