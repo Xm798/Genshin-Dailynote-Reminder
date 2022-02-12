@@ -1,0 +1,19 @@
+on:
+  push:
+    branches: master
+
+name: Mirror GitHub Repos to Gitee
+jobs:
+  run:
+    name: Sync-GitHub-to-Gitee
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mirror the Github repos to Gitee.
+      uses: Yikun/hub-mirror-action@master
+      with:
+        src: github/Xm798
+        dst: gitee/Xm798
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token: ${{ secrets.GITEE_TOKEN }}
+        white_list: "Genshin-Dailynote-Helper"
+        force_update: true
