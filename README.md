@@ -756,7 +756,7 @@ Bug Fixes:
 | [genshin_task-resin-expedition_alert](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert) | [yaomeng0722](https://gitlab.com/yaomeng0722/) | [MIT LICENSE](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE) | 本项目的初始版本 |
 |                               [onepush](https://github.com/y1ndan/onepush)                                |      [y1ndan](https://gitlab.com/y1ndan/)      |                  [MIT LICENSE](https://github.com/y1ndan/onepush/blob/main/LICENSE)                   |   消息推送通道   |
 |                [genshin-checkin-helper](https://gitlab.com/y1ndan/genshin-checkin-helper)                 |      [y1ndan](https://gitlab.com/y1ndan/)      |         [GPLv3 LICENSE](https://gitlab.com/y1ndan/genshin-checkin-helper/-/blob/main/LICENSE)         |   API 调用方法   |
-|                                                     -                                                     |      [yllhwa](https://gitlab.com/yllhwa)       |                                                   -                                                   | DS 加密算法逆向  |
+|                                                     -                                                     |      [yllhwa](https://github.com/yllhwa)       |                                                   -                                                   | DS 加密算法逆向  |
 
 
 
