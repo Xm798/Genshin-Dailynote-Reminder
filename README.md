@@ -584,6 +584,10 @@ New Features:
 - 新增国际服支持
 - 新增屏蔽部分角色功能
 
+Bug Fixes:
+
+- 修复 API 请求失败时异常退出的问题
+
 ### v2.0.1（2022-02-10）
 
 New Features:
@@ -615,6 +619,8 @@ Others:
 - 添加国内 docker 镜像
 - 优化推送体验
 - 重构部分模块
+
+<details>
 
 ### v1.3.3（2022-02-06）
 
@@ -732,6 +738,8 @@ New Features:
 
 Bug Fixes:
 - 修复休眠时间不正确的问题
+
+</details>
 
 ## 致谢
 
