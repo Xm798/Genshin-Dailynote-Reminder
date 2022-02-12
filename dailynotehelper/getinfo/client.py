@@ -56,23 +56,28 @@ class Client(object):
             'role_id': uid,
             'server': region
         }
-        response = Response.parse_obj(request('get', url, headers=get_headers(
+        try:
+            response = Response.parse_obj(request('get', url, headers=get_headers(
             params=body, ds=True, oversea=self.oversea), params=body, cookies=self.cookie).json())
-        if response.retcode == 0:
-            pass
-        elif response.retcode == -10001:
-            log.error(response.retcode,response.message)
-            raise APIError
-        elif response.retcode == 10102:
-            log.error('未开启实时便笺！')
-            raise APIError
+        except:
+            log.error('获取数据失败！')
+            self.dailynote_info = None
         else:
-            log.error(response.retcode,response.message)
-            raise APIError
-        self.dailynote_info = BaseData.parse_obj(response.data)
+            if response.retcode == 0:
+                pass
+            elif response.retcode == -10001:
+                log.error(response.retcode,response.message)
+                raise APIError
+            elif response.retcode == 10102:
+                log.error('未开启实时便笺！')
+                raise APIError
+            else:
+                log.error(response.retcode,response.message)
+                raise APIError
+            self.dailynote_info = BaseData.parse_obj(response.data)
 
     def prase_dailynote_info(self, role):
         self._get_dailynote_info(role['game_uid'], role['region'])
-        result: str = prase_info(self.dailynote_info, role)
+        result: str = prase_info(self.dailynote_info, role) if self.dailynote_info else ''
         message = "\n".join(result)
         return self.dailynote_info, message

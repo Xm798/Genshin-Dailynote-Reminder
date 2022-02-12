@@ -47,9 +47,7 @@ def seconds2hours(seconds: int) -> str:
 
 
 def get_resin_info(base_data: BaseData) -> str:
-
-    current_resin: str = f"{base_data.current_resin}/{base_data.max_resin}"
-    resin_data = f"当前树脂：{current_resin}\n"
+    resin_data = f"当前树脂：{base_data.current_resin} / {base_data.max_resin}\n"
     if(base_data.current_resin < 160):
         next_resin_rec_time = seconds2hours(
             8 * 60 - ((base_data.max_resin - base_data.current_resin) * 8 * 60 - base_data.resin_recovery_time))
@@ -62,18 +60,18 @@ def get_resin_info(base_data: BaseData) -> str:
 
 
 def get_trounce_info(base_data: BaseData) -> str:
-    return f"周本树脂减半：{base_data.remain_resin_discount_num}/{base_data.resin_discount_num_limit}"
+    return f"周本树脂减半：{base_data.remain_resin_discount_num} / {base_data.resin_discount_num_limit}"
 
 
 def get_commission_info(base_data: BaseData) -> str:
-    task_num: str = f"{base_data.finished_task_num}/{base_data.total_task_num}"
+    task_num: str = f"{base_data.finished_task_num} / {base_data.total_task_num}"
     return f"今日委托任务：{task_num}   奖励{'已' if base_data.is_extra_task_reward_received else '未'}领取\n--------------------"
 
 
 def get_homecoin_info(base_data: BaseData) -> str:
     week_day_dict = {0: '周一', 1: '周二', 2: '周三',
                      3: '周四', 4: '周五', 5: '周六', 6: '周日', }
-    coin_data = f"当前洞天宝钱/上限：{base_data.current_home_coin}/{base_data.max_home_coin}\n"
+    coin_data = f"当前洞天宝钱/上限：{base_data.current_home_coin} / {base_data.max_home_coin}\n"
     if base_data.home_coin_recovery_time:
         coin_overflow_time = datetime.datetime.now(
         ) + datetime.timedelta(seconds=base_data.home_coin_recovery_time)

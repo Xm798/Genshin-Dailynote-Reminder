@@ -3,7 +3,7 @@ import datetime
 import os
 from time import sleep
 from . import notifiers
-from . import __banner__
+from .__banner__ import banner
 from .utils import *
 from .config import config
 from .getinfo.praseinfo import *
@@ -47,7 +47,7 @@ def check(region, base_data, message):
     # CHECK RESIN
     if(config.RESIN_THRESHOLD):
         if(base_data.current_resin >= int(config.RESIN_THRESHOLD)):
-
+            alert = True
             status += ("树脂已经溢出啦！") if(base_data.current_resin >=160) else ("树脂快要溢出啦！")
             log.info(f'🔔树脂已到临界值，当前树脂{base_data.current_resin}，发送提醒。')
         else:
@@ -57,7 +57,7 @@ def check(region, base_data, message):
 
     # CHECK HOMECOIN
     if(config.HOMECOIN_NOTICE):
-        if(base_data.current_home_coin >= base_data.max_home_coin):
+        if(base_data.current_home_coin >= base_data.max_home_coin) and base_data.max_home_coin:
             alert = True
             status = status + "洞天宝钱已经溢出啦！"
             log.info('🔔洞天宝钱已经溢出，发送提醒。')
@@ -119,7 +119,10 @@ def start(cookies: list, server: str) -> None:
                 log.info(f'跳过该角色')
             else:
                 daily_info, message = client.prase_dailynote_info(role)
-                check(role['region'], daily_info, message)
+                if daily_info:
+                    check(role['region'], daily_info, message) 
+                else:
+                    send(text="ERROR! ", status=f"获取UID: {role['game_uid']} 数据失败！", message='')
             log.info(f'-------------------------')
 
 
@@ -137,7 +140,7 @@ def run_once() -> None:
 
 
 def run() -> None:
-    log.info(__banner__)
+    log.info(banner)
     run_once()
     schedule.every(config.CHECK_INTERVAL).minutes.do(run_once)
     while True:

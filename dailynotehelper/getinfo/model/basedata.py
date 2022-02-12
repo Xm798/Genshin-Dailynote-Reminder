@@ -21,18 +21,18 @@ class BaseData(pydantic.BaseModel):
     home_coin_recovery_time: 洞天宝钱溢出时间
 
     """
-    current_resin: int
-    max_resin: int
-    resin_recovery_time: int
-    remain_resin_discount_num: Literal[0, 1, 2, 3]
+    current_resin: int = 0
+    max_resin: int = 0
+    resin_recovery_time: int = 0
+    remain_resin_discount_num: Literal[0, 1, 2, 3] = 0
     resin_discount_num_limit: int = 3
-    current_expedition_num: Literal[0, 1, 2, 3, 4, 5]
-    max_expedition_num: Literal[0, 1, 2, 3, 4, 5]
-    finished_task_num: Literal[0, 1, 2, 3, 4]
+    current_expedition_num: Literal[0, 1, 2, 3, 4, 5] = 0
+    max_expedition_num: Literal[0, 1, 2, 3, 4, 5] = 0
+    finished_task_num: Literal[0, 1, 2, 3, 4] = 0
     total_task_num: int = 4
-    is_extra_task_reward_received: bool
-    current_home_coin: int
-    max_home_coin: int
-    home_coin_recovery_time: int
+    is_extra_task_reward_received: bool = False
+    current_home_coin: int = 0
+    max_home_coin: int = 0
+    home_coin_recovery_time: int = 0
 
-    expeditions: List[dict]
+    expeditions: List[dict] = []
