@@ -1,6 +1,20 @@
 # 原神实时便笺提醒小助手 | Genshin Dailynote Helper
 
 
+<div align="center"> 
+
+[![](https://img.shields.io/badge/Author-Xm798-blueviolet?style=flat-square)](https://github.com/Xm798/)
+[![](https://img.shields.io/badge/Mirror-Gitea-red?style=flat-square)](https://hub.docker.com/r/xm798/genshin-dailynote-helper)
+![](https://img.shields.io/github/license/Xm798/Genshin-Dailynote-Helper?style=flat-square)
+![](https://img.shields.io/github/contributors/Xm798/Genshin-Dailynote-Helper?style=flat-square)
+![](https://img.shields.io/docker/pulls/xm798/genshin-dailynote-helper?style=flat-square)
+![](https://img.shields.io/github/v/release/xm798/Genshin-Dailynote-Helper?color=success&style=flat-square)
+
+
+[![](https://img.shields.io/badge/%20-QQ%20Group-blue?style=for-the-badge&logo=Tencent%20QQ&logoColor=EB1923&labelColor=eeeeee&color=EB1923)](https://jq.qq.com/?_wv=1027&k=CnNxc9hp)
+[![](https://img.shields.io/badge/%20-Telegram%20Group-blue?style=for-the-badge&logo=Telegram&logoColor=26A5E4&labelColor=eeeeee&color=26A5E4)](https://t.me/+QtSxha7rXsc2ZTg1)
+</div>
+
 检查并推送原神内树脂、委托、周本、探索派遣和洞天宝钱情况。
 
 特性：
@@ -16,8 +30,6 @@
   - 洞天宝钱溢出
   - 探索派遣已完成
   - 免打扰时间段内树脂会溢出
-
-
 
 ## 目录
 - [示例](#示例)
