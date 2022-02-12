@@ -1,6 +1,6 @@
-from dailynotehelper import run_once, __banner__
+from dailynotehelper.__banner__ import banner, run_once
 
 def main_handler(event, context):
-    print(__banner__)
+    print(banner)
     run_once()
     return
