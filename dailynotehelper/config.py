@@ -19,7 +19,10 @@ class Config():
         for key in self.config_dict:
             k = key
             for key in self.config_dict[k]:
-                self.config_data[key] = self.config_dict[k][key]
+                if 'COOKIE' in key or 'EXCLUDE_UID' in key:
+                    self.config_data[key] = self.config_dict[k][key] if self.config_dict[k][key] else []
+                else:
+                    self.config_data[key] = self.config_dict[k][key]
 
     def parse_config(self):
         self.config_data = {}

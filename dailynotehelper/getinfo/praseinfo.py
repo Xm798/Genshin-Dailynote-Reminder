@@ -10,10 +10,12 @@ def prase_info(base_data, role) -> list:
     Configure the data you want to receive
     """
     result: list = []
-
-    result.append(f"{role['nickname']} {('天空岛 🌈' if role['region'] == 'cn_gf01' else '世界树 🌲')}")
+    server = {'cn_gf01': '天空岛 🌈', 'cn_qd01': '世界树 🌲',
+              'os_usa': '美服 🦙', 'os_euro': '欧服 🏰', 'os_asia': '亚服 🐯'}
+    result.append(f"{role['nickname']} {server[role['region']]}")
     if config.DISPLAY_UID:
-        hidden_uid = str(role['game_uid']).replace(str(role['game_uid'])[3:-3], '***', 1)
+        hidden_uid = str(role['game_uid']).replace(
+            str(role['game_uid'])[3:-3], '***', 1)
         result.append(f'UID：{hidden_uid}')
     result.append('--------------------')
 
@@ -73,7 +75,8 @@ def get_homecoin_info(base_data: BaseData) -> str:
                      3: '周四', 4: '周五', 5: '周六', 6: '周日', }
     coin_data = f"当前洞天宝钱/上限：{base_data.current_home_coin}/{base_data.max_home_coin}\n"
     if base_data.home_coin_recovery_time:
-        coin_overflow_time = datetime.datetime.now() + datetime.timedelta(seconds=base_data.home_coin_recovery_time)
+        coin_overflow_time = datetime.datetime.now(
+        ) + datetime.timedelta(seconds=base_data.home_coin_recovery_time)
         coin_data += f"洞天宝钱全部恢复时间：{week_day_dict[coin_overflow_time.weekday()]} {coin_overflow_time.strftime('%X')}\n"
     coin_data += '--------------------'
     return coin_data
@@ -104,4 +107,4 @@ def get_expedition_info(base_data: BaseData) -> str:
 
     expedition_num: str = f"{base_data.current_expedition_num}/{finished}/{base_data.max_expedition_num}"
     expedition_data: str = "\n".join(expedition_info)
-    return f"当前探索派遣总数/完成/上限：{expedition_num}\n详细信息:\n{expedition_data}"
+    return f"当前探索派遣总数/完成/上限：{expedition_num}\n{expedition_data}"

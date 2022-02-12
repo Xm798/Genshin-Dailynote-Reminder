@@ -7,3 +7,5 @@ services:
         restart: always
         volumes: 
             - ./dailynotehelper/config/config.yaml:/app/config/config.yaml
+        environment:
+            - TZ: 'Asia/Shanghai'

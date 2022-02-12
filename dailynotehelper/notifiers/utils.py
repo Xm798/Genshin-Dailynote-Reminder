@@ -5,7 +5,6 @@ import time
 import requests
 from ..utils import log
 
-
 def request(method: str,
             url: str,
             max_retries: int = 2,

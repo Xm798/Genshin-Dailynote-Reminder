@@ -1,10 +1,12 @@
 from typing_extensions import Literal
 from typing import Optional, List
-from pydantic import BaseModel,StrictBool
+from pydantic import BaseModel,StrictBool,Field
 
 class ConfigData(BaseModel):
     RUN_ENV: Literal['local', 'cloud'] = 'local'
-    COOKIE: List
+    COOKIE: List[str] = []
+    COOKIE_HOYOLAB: List[str] = []
+    EXCLUDE_UID: List[int] = []
     DISPLAY_UID: StrictBool  = True
 
     RESIN_INFO: StrictBool = True
@@ -40,7 +42,7 @@ class ConfigData(BaseModel):
     PUSHDEER_KEY: Optional[str]
 
     CQHTTP_URL: Optional[str]
-    CQHTTP_MESSAGE_TYPE: Literal["private", "group"] = 'private'
+    CQHTTP_MESSAGE_TYPE: Literal['private', 'group'] = 'private'
     CQHTTP_SEND_ID: Optional[str]
     CQHTTP_TOKEN: Optional[str]
 

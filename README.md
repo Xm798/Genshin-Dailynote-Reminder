@@ -3,13 +3,19 @@
 
 检查并推送原神内树脂、委托、周本、探索派遣和洞天宝钱情况。
 
-支持多账号，支持多渠道同时推送，目前只支持国服。
+特性：
+  - 支持云函数、Docker 和本地运行
+  - 支持多账号、多角色
+  - 支持推送到多个渠道
+  - 支持国服（官服以及渠道服）和国际服
+  - 支持跳过某些角色（同一米游社/ Hoyolab 账号下绑定了多个角色时）
 
 支持当如下情况时发送提醒：
   - 树脂即将溢出
   - 今日委托未完成
   - 洞天宝钱溢出
   - 探索派遣已完成
+  - 免打扰时间段内树脂会溢出
 
 
 
@@ -101,9 +107,9 @@
 
    ![image-20220209183304497](https://s2.loli.net/2022/02/09/HM275iAPhzxRyBn.png)
 
-5. 展开“高级配置”，**修改执行超时时间为 120 秒或更长**，**添加环境变量** key 为 `TZ`，value 为 `Asia/Shanghai`（**十分重要**，否则时间不正确）。
+5. 展开“高级配置”，**修改执行超时时间为 120 秒或更长**，**添加环境变量** key 为 `TZ`，value 为 `Asia/Shanghai`如果你在其他时区，请修改为对应的时区，可以在[这里](https://gist.github.com/Xm798/54d188c65f683b84a74cfbe340c09518)查询时区列表（**十分重要**，否则时间会不正确）。
 
-   ![image-20220209183900117](https://s2.loli.net/2022/02/09/N4ubS2oFEGdhBVr.png)
+   ![image-20220209183900117](https://s2.loli.net/2022/02/12/Lw2Hn48jKSGBPJF.png)
 
 6. 展开触发器配置，选择自定义触发周期，填写 cron 表达式。例如：每15分钟检查一次，填写`* */15 * * * * *`，每30分钟检查一次，填写`* */30 * * * * *`，每小时整点触发，填写`0 0 * * * * *`。该间隔请注意与配置文件中`CHECK_INTERVAL`一致，以便运行睡前检查功能。
 
@@ -121,11 +127,12 @@ i. **使用镜像**
 
   1. 点击 [链接](https://raw.githubusercontent.com/Xm798/Genshin-Dailynote-Helper/master/dailynotehelper/config/config.example.yaml) 或从本项目路径`dailynotehelper/config/config.example.yaml`提取示例配置文件并填写，重命名为`config.yaml`。
 
-  2. 运行，`/PATH-to-YOUR-CONFIG/config.yaml`是你本地配置文件的路径，需要根据实际情况填写。
+  2. 运行，`/PATH-to-YOUR-CONFIG/config.yaml`是你本地配置文件的路径，需要根据实际情况填写。环境变量 TZ 为你所在地的时区（**十分重要**，否则时间会不正确），可以在[这里](https://gist.github.com/Xm798/54d188c65f683b84a74cfbe340c09518)查询时区列表。
 
      ```shell
      docker run -d \
      -v /PATH-to-YOUR-CONFIG/config.yaml:/app/dailynotehelper/config/config.yaml \
+     --env TZ="Asia/Shanghai"
      --restart=always \
      --name=genshin-dailynote-helper \
      xm798/genshin-dailynote-helper:latest
@@ -134,6 +141,7 @@ i. **使用镜像**
      ```shell
      docker run -d \
      -v /PATH-to-YOUR-CONFIG/config.yaml:/app/dailynotehelper/config/config.yaml \
+     --env TZ="Asia/Shanghai"
      --restart=always \
      --name=genshin-dailynote-helper \
      ccr.ccs.tencentyun.com/xm798/genshin-dailynote-helper:latest
@@ -141,7 +149,7 @@ i. **使用镜像**
 
 ii. **使用 docker-compose**
 
-  克隆项目，填写配置文件后构建运行。
+  克隆项目，填写配置文件后构建运行。环境变量 TZ 为你所在地的时区，可以在[这里](https://gist.github.com/Xm798/54d188c65f683b84a74cfbe340c09518)查询时区列表。
 
   ```sh
   git clone https://github.com/Xm798/Genshin-Dailynote-Helper.git
@@ -184,10 +192,9 @@ ii. **使用 docker-compose**
 1. RUN_ENV：
 
     指定运行环境，国内云服务商运行使用`cloud`，否则使用`local`。该选项旨在为在国内云服务器运行的用户提供兼容性选项，`cloud`为旧版 API，曾经无法使用，现在又恢复了。但由于米游社已全面更换为新的 API，因此默认使用`local`环境即新 API 运行。详情参考：[米游社可能已经禁止国内特定 VPS 服务商的 IP 或 ASN](https://github.com/Arondight/Adachi-BOT/issues/522)。
-
+    
 2. **COOKIE**: 
-   
-      1. 打开[米游社社区](https://bbs.mihoyo.com/ys)并登录； 
+      1. 国服打开[米游社社区](https://bbs.mihoyo.com/ys)并登录，国际服打开[Hoyolab](https://www.hoyolab.com/)并登录
       2. 按 F12 打开开发者工具； 
       3. 将开发者工具切换至控制台(Console)页签； 
       4. 复制下方的代码，并将其粘贴在控制台中，按下回车，结果粘贴到配置文件中。 
@@ -195,17 +202,35 @@ ii. **使用 docker-compose**
     javascript:(()=>{_=(n)=>{for(i in(r=document.cookie.split(';'))){var a=r[i].split('=');if(a[0].trim()==n)return a[1]}};c=_('account_id')||alert('无效的Cookie,请重新登录!');c&&confirm('将Cookie复制到剪贴板?')&&copy(document.cookie)})();
     ```
 
+3. EXCLUDE_UID
+   
+   如果你的米游社/ Hoyolab 账号绑定了多个角色，但不想接收其中某些角色的提醒，可以将它们的 UID 写在这里，每行一个。
+
 ### 配置文件示例
 
 ```yaml
+# PROJECT: Genshin DailyNote Notice Helper Config File
+# Author: Xm798
+# Github: https://github.com/Xm798/Genshin-Dailynote-Helper
+
+# Caution: 如果字符串中含有特殊字符，请不要忘记使用引号。
+
 base:
   # 运行环境，若云服务商环境下运行出错，请尝试修改为 cloud 。
   RUN_ENV: local
   # 账号信息，将下面的 COOKIEx 替换为你的 COOKIE。多账号换行填写，去掉 #，以 - 开头。
+  # 国服 COOKIE
   COOKIE: 
     - 'COOKIE1'
     #- 'COOKIE2'
-    #- 'COOKIE3'
+  # 国际服 COOKIE
+  COOKIE_HOYOLAB:
+    #- 'COOKIE1'
+    #- 'COOKIE2'
+  # 排除 UID，在该列表中的 UID 不会进行检测
+  EXCLUDE_UID:
+    #- 100000001
+    #- 500000001
   # 消息中是否显示隐去中间三位数字的 UID，true or false
   DISPLAY_UID: true
 
@@ -540,6 +565,13 @@ ii. 企业微信机器人
 
 ## 更新日志
 
+### v2.1.0（2022-02-12）
+
+New Features:
+
+- 新增国际服支持
+- 新增屏蔽部分角色功能
+
 ### v2.0.1（2022-02-10）
 
 New Features:
@@ -691,11 +723,12 @@ Bug Fixes:
 
 ## 致谢
 
-|                                                  Project                                                  |   Author    |                                                License                                                |     Comment      |
-| :-------------------------------------------------------------------------------------------------------: | :---------: | :---------------------------------------------------------------------------------------------------: | :--------------: |
-| [genshin_task-resin-expedition_alert](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert) | yaomeng0722 | [MIT LICENSE](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE) | 本项目的初始版本 |
-|                               [onepush](https://github.com/y1ndan/onepush)                                |    y1ndan    |                  [MIT LICENSE](https://github.com/y1ndan/onepush/blob/main/LICENSE)                   |   消息推送通道   |
-|                [genshin-checkin-helper](https://gitlab.com/y1ndan/genshin-checkin-helper)                 |    y1ndan    |         [GPLv3 LICENSE](https://gitlab.com/y1ndan/genshin-checkin-helper/-/blob/main/LICENSE)         |   API 调用方法   |
+|                                                  Project                                                  |                     Author                     |                                                License                                                |     Comment      |
+| :-------------------------------------------------------------------------------------------------------: | :--------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :--------------: |
+| [genshin_task-resin-expedition_alert](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert) | [yaomeng0722](https://gitlab.com/yaomeng0722/) | [MIT LICENSE](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE) | 本项目的初始版本 |
+|                               [onepush](https://github.com/y1ndan/onepush)                                |      [y1ndan](https://gitlab.com/y1ndan/)      |                  [MIT LICENSE](https://github.com/y1ndan/onepush/blob/main/LICENSE)                   |   消息推送通道   |
+|                [genshin-checkin-helper](https://gitlab.com/y1ndan/genshin-checkin-helper)                 |      [y1ndan](https://gitlab.com/y1ndan/)      |         [GPLv3 LICENSE](https://gitlab.com/y1ndan/genshin-checkin-helper/-/blob/main/LICENSE)         |   API 调用方法   |
+|                                                     -                                                     |      [yllhwa](https://gitlab.com/yllhwa)       |                                                   -                                                   | DS 加密算法逆向  |
 
 
 

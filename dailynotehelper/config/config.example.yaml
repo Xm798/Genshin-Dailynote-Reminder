@@ -8,10 +8,18 @@ base:
   # 运行环境，若云服务商环境下运行出错，请尝试修改为 cloud 。
   RUN_ENV: local
   # 账号信息，将下面的 COOKIEx 替换为你的 COOKIE。多账号换行填写，去掉 #，以 - 开头。
+  # 国服 COOKIE
   COOKIE: 
     - 'COOKIE1'
     #- 'COOKIE2'
-    #- 'COOKIE3'
+  # 国际服 COOKIE
+  COOKIE_HOYOLAB:
+    #- 'COOKIE1'
+    #- 'COOKIE2'
+  # 排除 UID，在该列表中的 UID 不会进行检测
+  EXCLUDE_UID:
+    #- 100000001
+    #- 500000001
   # 消息中是否显示隐去中间三位数字的 UID，true or false
   DISPLAY_UID: true
 

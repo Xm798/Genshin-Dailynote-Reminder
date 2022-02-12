@@ -1,13 +1,13 @@
 '''
 Thanks to y1ndan's genshin-checkin-helper(https://gitlab.com/y1ndan/genshin-checkin-helper), GPLv3 License.
 '''
-
+import pydantic
 from .utils import *
 from ..utils import log
 from .model import BaseData
 from typing import Optional
 from .praseinfo import prase_info
-import pydantic
+from .exceptions import APIError
 
 
 class Response(pydantic.BaseModel):
@@ -16,16 +16,14 @@ class Response(pydantic.BaseModel):
     data: Optional[dict]
 
 
-class Yuanshen(object):
-    def __init__(self, cookie: str = None, run_env: str = 'cloud'):
+class Client(object):
+    def __init__(self, cookie: str = None):
         self.cookie = cookie_to_dict(cookie)
-        self.headers = get_headers()
+        self.headers = None
+        self.oversea = None
         self._roles_info = None
         self.required_keys = {'region', 'game_uid',
                               'nickname', 'level', 'region_name'}
-        self.roles_info_url = 'https://api-takumi.mihoyo.com/binding/api/getUserGameRolesByCookie?game_biz=hk4e_cn'
-        self.daily_note_url = 'https://api-takumi.mihoyo.com/game_record/app/genshin/api/dailyNote' if run_env == 'cloud' \
-            else 'https://api-takumi-record.mihoyo.com/game_record/app/genshin/api/dailyNote'
 
     @property
     def roles_info(self):
@@ -59,13 +57,18 @@ class Yuanshen(object):
             'server': region
         }
         response = Response.parse_obj(request('get', url, headers=get_headers(
-            ds=True, params=body), params=body, cookies=self.cookie).json())
+            params=body, ds=True, oversea=self.oversea), params=body, cookies=self.cookie).json())
         if response.retcode == 0:
             pass
         elif response.retcode == -10001:
-            log.error(response.message)
+            log.error(response.retcode,response.message)
+            raise APIError
+        elif response.retcode == 10102:
+            log.error('未开启实时便笺！')
+            raise APIError
         else:
-            log.error(response.retcode, response.message)
+            log.error(response.retcode,response.message)
+            raise APIError
         self.dailynote_info = BaseData.parse_obj(response.data)
 
     def prase_dailynote_info(self, role):

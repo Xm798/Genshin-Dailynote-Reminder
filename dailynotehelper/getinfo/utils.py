@@ -1,4 +1,5 @@
-from email import header
+
+import string
 import hashlib
 import random
 import time
@@ -9,12 +10,12 @@ from ..utils import log
 from urllib.parse import urlencode
 
 
-def get_ds(params: dict, body: str) -> str:
+def get_ds(oversea, params: dict, body: str) -> str:
     t = str(int(time.time()))
     r = str(random.randint(100000, 200000))
     b = json.dumps(body) if body else ''
     q = urlencode(params) if params else ''
-    salt = 'xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs'
+    salt = 'okr4obncj8bw5a65hbnn5oo6ixjc3l9w' if oversea else 'xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs'
     text = f'salt={salt}&t={t}&r={r}&b={b}&q={q}'
     md5 = hashlib.md5()
     md5.update(text.encode())
@@ -22,19 +23,23 @@ def get_ds(params: dict, body: str) -> str:
     return f'{t},{r},{c}'
 
 
-def get_headers(params: dict = None, body: dict = None, ds: bool = False) -> dict:
-    version: str = '2.11.1'
-    ua = f'Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/{version}'
+def get_headers(params: dict = None, body: dict = None, ds: bool = False, oversea: bool = False) -> dict:
+    version_cn: str = '2.21.2'
+    version_os: str = '2.4.1'
+    ua_cn = f'Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/{version_cn}'
+    ua_os = f'Mozilla/5.0 (Linux; Android 12; Mi 10 Pro Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) miHoYoBBSOversea/{version_os}'
+    ua = ua_os if oversea else ua_cn
+    version = version_os if oversea else version_cn
+    client_type = '2' if oversea else '5'
     headers = {
         'Accept': 'application/json, text/plain, */*',
-        'Origin': 'https://webstatic.mihoyo.com',
         'User-Agent': ua,
     }
     if ds:
-        ds = get_ds(params, body)
+        ds = get_ds(oversea, params, body)
         headers.update({
             'DS': ds,
-            'x-rpc-client_type': '5',
+            'x-rpc-client_type': client_type,
             'x-rpc-app_version': version,
             'x-rpc-device_id': str(uuid.uuid3(uuid.NAMESPACE_URL, ua)).replace('-', '').upper(),
         })
