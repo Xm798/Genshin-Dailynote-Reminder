@@ -5,8 +5,10 @@ WORKDIR /tmp
 COPY ./requirements.txt ./
 RUN adduser app -D \
     && apk add --no-cache tzdata \
+    && apk add --no-cache build-base \
     && pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt \
+    && apk del build-base\
     && rm -rf /tmp/*
 
 WORKDIR /app

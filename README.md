@@ -119,7 +119,7 @@
 
    ![image-20220209183304497](https://s2.loli.net/2022/02/09/HM275iAPhzxRyBn.png)
 
-5. 展开“高级配置”，**修改执行超时时间为 120 秒或更长**，**添加环境变量** key 为 `TZ`，value 为 `Asia/Shanghai`如果你在其他时区，请修改为对应的时区，可以在[这里](https://gist.github.com/Xm798/54d188c65f683b84a74cfbe340c09518)查询时区列表（**十分重要**，否则时间会不正确）。
+5. 展开“高级配置”，**修改执行超时时间为 90 秒或更长**，**添加环境变量** key 为 `TZ`，value 为 `Asia/Shanghai`。如果你在其他时区，请修改为对应的时区，可以在[这里](https://gist.github.com/Xm798/54d188c65f683b84a74cfbe340c09518)查询时区列表（**十分重要**，否则时间会不正确）。
 
    ![image-20220209183900117](https://s2.loli.net/2022/02/12/Lw2Hn48jKSGBPJF.png)
 
@@ -144,7 +144,7 @@ i. **使用镜像**
      ```shell
      docker run -d \
      -v /PATH-to-YOUR-CONFIG/config.yaml:/app/dailynotehelper/config/config.yaml \
-     --env TZ="Asia/Shanghai"
+     --env TZ=Asia/Shanghai
      --restart=always \
      --name=genshin-dailynote-helper \
      xm798/genshin-dailynote-helper:latest
@@ -153,7 +153,7 @@ i. **使用镜像**
      ```shell
      docker run -d \
      -v /PATH-to-YOUR-CONFIG/config.yaml:/app/dailynotehelper/config/config.yaml \
-     --env TZ="Asia/Shanghai"
+     --env TZ=Asia/Shanghai
      --restart=always \
      --name=genshin-dailynote-helper \
      ccr.ccs.tencentyun.com/xm798/genshin-dailynote-helper:latest
