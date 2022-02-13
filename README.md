@@ -270,6 +270,8 @@ receive_notice:
   COMMISSION_NOTICE_TIME: '21:00'
   # 探索派遣完成提醒，true or false
   EXPEDITION_NOTICE: true
+  # 是否等全部探索派遣都完成后才发送提醒，true or false
+  WAIT_ALL_EXPEDITION: false
   # 洞天宝钱溢出提醒，true or false
   HOMECOIN_NOTICE: true
 
@@ -590,7 +592,7 @@ ii. 企业微信机器人
 ### v2.1.1（2022-02-13）
 New Features:
 
-- 支持设置是否等全部探索派遣完成后再提醒，配置增加字段 WAIT_ALL_EXPEDITION
+- 支持设置是否等全部探索派遣完成后再提醒，配置文件增加字段`WAIT_ALL_EXPEDITION`
   
 Bug Fixes:
 
