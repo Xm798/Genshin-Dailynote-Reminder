@@ -118,11 +118,11 @@ def start(cookies: list, server: str) -> None:
             if role['game_uid'] in str(config.EXCLUDE_UID):
                 log.info(f'跳过该角色')
             else:
-                daily_info, message = client.prase_dailynote_info(role)
-                if daily_info:
-                    check(role['region'], daily_info, message) 
+                dailynote_info, message = client.prase_dailynote_info(role)
+                if dailynote_info:
+                    check(role['region'], dailynote_info, message) 
                 else:
-                    send(text="ERROR! ", status=f"获取UID: {role['game_uid']} 数据失败！", message='')
+                    send(text="ERROR! ", status=f"获取UID: {role['game_uid']} 数据失败！", message='请查阅运行日志获取详细原因。')
             log.info(f'-------------------------')
 
 

@@ -1,5 +1,3 @@
-
-import string
 import hashlib
 import random
 import time

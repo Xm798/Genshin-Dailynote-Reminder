@@ -7,7 +7,6 @@ from ..utils import log
 from .model import BaseData
 from typing import Optional
 from .praseinfo import prase_info
-from .exceptions import APIError
 
 
 class Response(pydantic.BaseModel):
@@ -64,17 +63,18 @@ class Client(object):
             self.dailynote_info = None
         else:
             if response.retcode == 0:
+                self.dailynote_info = BaseData.parse_obj(response.data)
                 pass
             elif response.retcode == -10001:
                 log.error(response.retcode,response.message)
-                raise APIError
+                self.dailynote_info = None
             elif response.retcode == 10102:
                 log.error('未开启实时便笺！')
-                raise APIError
+                self.dailynote_info = None
             else:
                 log.error(response.retcode,response.message)
-                raise APIError
-            self.dailynote_info = BaseData.parse_obj(response.data)
+                self.dailynote_info = None
+
 
     def prase_dailynote_info(self, role):
         self._get_dailynote_info(role['game_uid'], role['region'])
