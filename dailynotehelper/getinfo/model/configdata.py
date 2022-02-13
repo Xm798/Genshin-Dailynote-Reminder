@@ -18,6 +18,7 @@ class ConfigData(BaseModel):
     RESIN_THRESHOLD: int = 140
     COMMISSION_NOTICE_TIME: Optional[str] = '21:00'
     EXPEDITION_NOTICE: StrictBool = True
+    WAIT_ALL_EXPEDITION: StrictBool = False
     HOMECOIN_NOTICE: StrictBool = True
 
     CHECK_INTERVAL: int = 30

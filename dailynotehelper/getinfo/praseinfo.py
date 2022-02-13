@@ -96,12 +96,12 @@ def get_expedition_info(base_data: BaseData) -> str:
             avatar_name: str = avatar
 
         if(expedition['status'] == 'Finished'):
-            expedition_info.append(f"  · {avatar_name} 已完成")
+            expedition_info.append(f"  · {avatar_name}：已完成")
             finished += 1
         else:
             remained_timed: str = seconds2hours(expedition['remained_time'])
             expedition_info.append(
-                f"  · {avatar_name} ，剩余时间{remained_timed}")
+                f"  · {avatar_name}：剩余时间{remained_timed}")
 
     expedition_num: str = f"{base_data.current_expedition_num}/{finished}/{base_data.max_expedition_num}"
     expedition_data: str = "\n".join(expedition_info)
