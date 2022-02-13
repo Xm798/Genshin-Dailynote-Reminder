@@ -4,20 +4,14 @@
 <div align="center"> 
 
 [![](https://img.shields.io/badge/Author-Xm798-blueviolet?style=flat-square)](https://github.com/Xm798/)
-[![](https://img.shields.io/badge/Mirror-Gitea-red?style=flat-square)](https://hub.docker.com/r/xm798/genshin-dailynote-helper)
-![](https://img.shields.io/github/license/Xm798/Genshin-Dailynote-Helper?style=flat-square)
-![](https://img.shields.io/github/contributors/Xm798/Genshin-Dailynote-Helper?style=flat-square)
-![](https://img.shields.io/docker/pulls/xm798/genshin-dailynote-helper?style=flat-square)
-![](https://img.shields.io/github/v/release/xm798/Genshin-Dailynote-Helper?color=success&style=flat-square)
+[![](https://img.shields.io/badge/Github-blue?style=flat-square&logo=Github&logoColor=181717&labelColor=eeeeee&color=181717)](https://github.com/Xm798/Genshin-Dailynote-Helper)
+[![](https://img.shields.io/badge/Gitee-blue?style=flat-square&logo=Gitee&logoColor=C71D23&labelColor=eeeeee&color=C71D23)](https://gitee.com/Xm798/Genshin-Dailynote-Helper)
+[![](https://img.shields.io/badge/Python-3.7%2B-blue?style=flat-square&color=3776AB)](https://github.com/Xm798/)
+[![](https://img.shields.io/github/license/Xm798/Genshin-Dailynote-Helper?style=flat-square)](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/master/LICENSE)
+[![](https://img.shields.io/github/contributors/Xm798/Genshin-Dailynote-Helper?style=flat-square)](https://github.com/Xm798/Genshin-Dailynote-Helper/graphs/contributors)
+[![](https://img.shields.io/docker/pulls/xm798/genshin-dailynote-helper?style=flat-square)](https://hub.docker.com/r/xm798/genshin-dailynote-helper)
+[![](https://img.shields.io/github/v/release/xm798/Genshin-Dailynote-Helper?color=success&style=flat-square)](https://github.com/Xm798/Genshin-Dailynote-Helper/releases)
 
-</div>
-
-## 💬交流反馈
-
-<div align="center"> 
-
-[![](https://img.shields.io/badge/%20-QQ%20Group-blue?style=for-the-badge&logo=Tencent%20QQ&logoColor=EB1923&labelColor=eeeeee&color=EB1923)](https://jq.qq.com/?_wv=1027&k=CnNxc9hp)
-[![](https://img.shields.io/badge/%20-Telegram%20Group-blue?style=for-the-badge&logo=Telegram&logoColor=26A5E4&labelColor=eeeeee&color=26A5E4)](https://t.me/+QtSxha7rXsc2ZTg1)
 
 </div>
 
@@ -49,6 +43,7 @@
   - [一些基础信息](#一些基础信息)
   - [配置文件示例](#配置文件示例)
 - [推送方式配置](#推送方式配置)
+- [💬交流反馈](#交流反馈)
 - [更新日志](#更新日志)
 - [致谢](#致谢)
 - [License](#license)
@@ -463,16 +458,15 @@ ii. 企业微信机器人
 
 <details>
 
-1. 从 AppStore 下载并打开 [Bark](https://github.com/Finb/Bark) App，将 App 内提供的 KEY 填入 `BARK_KEY` 即可。
+1. 从 AppStore 下载并打开 [Bark](https://github.com/Finb/Bark) App，将完整推送链接（如`https://api.day.app/xxxxxxx`）填入 `BARK_URL` 即可。
 2. 支持部分可选配置，如自定义消息分组 `BARK_GROUP`，自定义通知图标 `BARK_ICON`，自定义消息保存 `BARK_ARCHIVE`，时效性通知`BARK_LEVEL`。
      - BARK_GROUP: 指定推送消息分组，可在历史记录中按分组查看推送。
      - BARK_ICON：指定推送消息图标，仅 iOS15 或以上支持，如：`http://day.app/assets/images/avatar.jpg`。
      - BARK_ARCHIVE： 指定是否需要保存推送信息到历史记录，1 为保存，其他值为不保存。如果不指定这个参数，推送信息将按照APP内设置来决定是否保存。
-     - BARK_LEVEL： 设置时效性通知。
+     - BARK_LEVEL： 设置时效性通知：
          - `active`：不设置时的默认值，系统会立即亮屏显示通知。
          - `timeSensitive`：时效性通知，可在专注状态下显示通知。
          - `passive`：仅将通知添加到通知列表，不会亮屏提醒。
-3. 自建服务器需修改`BARK_URL`。
 
 </details>
 
@@ -582,6 +576,14 @@ ii. 企业微信机器人
 注：Qmsg 酱容易被判定违规=\_=，且无法进行群聊推送（审核不通过）。
 
 </details>
+
+
+## 💬交流反馈
+
+[![](https://img.shields.io/badge/%20-QQ%20Group-blue?style=for-the-badge&logo=Tencent%20QQ&logoColor=EB1923&labelColor=eeeeee&color=EB1923)](https://jq.qq.com/?_wv=1027&k=CnNxc9hp)
+[![](https://img.shields.io/badge/%20-Telegram%20Group-blue?style=for-the-badge&logo=Telegram&logoColor=26A5E4&labelColor=eeeeee&color=26A5E4)](https://t.me/+QtSxha7rXsc2ZTg1)
+
+
 
 ## 更新日志
 
