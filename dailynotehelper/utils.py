@@ -1,7 +1,15 @@
+import os
+import pytz
+import gettext
 import logging
 import datetime
-import pytz
 from tzlocal import get_localzone_name
+from .config import config
+
+_localedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'locale')
+_translate = gettext.translation(
+    'dailynotehelper', _localedir, languages=[config.LANGUAGE], fallback=True)
+_ = _translate.gettext
 
 logging.basicConfig(
     level=logging.INFO,

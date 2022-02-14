@@ -10,7 +10,7 @@ class Config():
         try:
             f = open(config_file, 'r', encoding='utf-8')
         except IOError:
-            print('配置文件读取错误，请检查 ./dailynotehelper/config/config.yaml 是否存在且可读。')
+            print('Cannot read the configuration file file! Please check if ./dailynotehelper/config/config.yaml exists.')
             exit()
         else:
             self.config_dict = yaml.load(f,Loader=yaml.FullLoader)

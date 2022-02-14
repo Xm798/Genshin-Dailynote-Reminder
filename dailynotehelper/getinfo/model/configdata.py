@@ -3,6 +3,7 @@ from typing import Optional, List
 from pydantic import BaseModel,StrictBool,Field
 
 class ConfigData(BaseModel):
+    LANGUAGE: Literal['zh_CN', 'en_US'] = 'zh_CN'
     RUN_ENV: Literal['local', 'cloud'] = 'local'
     COOKIE: List[str] = []
     COOKIE_HOYOLAB: List[str] = []

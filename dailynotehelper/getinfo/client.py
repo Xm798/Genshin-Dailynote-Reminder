@@ -3,7 +3,7 @@ Thanks to y1ndan's genshin-checkin-helper(https://gitlab.com/y1ndan/genshin-chec
 '''
 import pydantic
 from .utils import *
-from ..utils import log
+from ..utils import log, _
 from .model import BaseData
 from typing import Optional
 from .praseinfo import prase_info
@@ -27,7 +27,7 @@ class Client(object):
     @property
     def roles_info(self):
         if not self._roles_info:
-            log.info('正在获取角色信息')
+            log.info(_('正在获取角色信息'))
             url = self.roles_info_url
             response = request('get', url, headers=self.headers,
                                cookies=self.cookie).json()
@@ -59,7 +59,7 @@ class Client(object):
             response = Response.parse_obj(request('get', url, headers=get_headers(
             params=body, ds=True, oversea=self.oversea), params=body, cookies=self.cookie).json())
         except:
-            log.error('获取数据失败！')
+            log.error(_('获取数据失败！'))
             self.dailynote_info = None
         else:
             if response.retcode == 0:
@@ -69,7 +69,7 @@ class Client(object):
                 log.error(response.retcode,response.message)
                 self.dailynote_info = None
             elif response.retcode == 10102:
-                log.error('未开启实时便笺！')
+                log.error(_('未开启实时便笺！'))
                 self.dailynote_info = None
             else:
                 log.error(response.retcode,response.message)
