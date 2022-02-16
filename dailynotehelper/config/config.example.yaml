@@ -3,61 +3,81 @@
 # Github: https://github.com/Xm798/Genshin-Dailynote-Helper
 
 # Caution: 如果字符串中含有特殊字符，请不要忘记使用引号。
+# Caution: Don't forget to use quotes if the string contains special characters.
 
 base:
   # 语言，支持 zh_CN，zh_TW 或 en_US。
+  # Language, support zh_CN zh_TW or en_US.
   LANGUAGE: 'zh_CN'
   # 运行环境，若云服务商环境下运行出错，请尝试修改为 cloud 。
   RUN_ENV: local
   # 账号信息，将下面的 COOKIEx 替换为你的 COOKIE。多账号换行填写，去掉 #，以 - 开头。
+  # Account information, replace COOKIEx below with your COOKIE. Fill in a new line for multiple accounts, remove the #, and start with - .
   # 国服 COOKIE
   COOKIE: 
     - 'COOKIE1'
     #- 'COOKIE2'
-  # 国际服 COOKIE
+  # 国际服 HOYOLAB COOKIE
   COOKIE_HOYOLAB:
     #- 'COOKIE1'
     #- 'COOKIE2'
   # 排除 UID，在该列表中的 UID 不会进行检测
+  # Exclude UIDs, UIDs in this list will not be detected
   EXCLUDE_UID:
     #- 100000001
     #- 500000001
   # 消息中是否显示隐去中间三位数字的 UID，true or false
+  # Whether to display the UID with the middle three digits hidden in the message, true or false
   DISPLAY_UID: true
 
 # 展示信息设置，true or false
+# Display information settings, true or false
 receive_info: 
   # 原粹树脂
+  # Original Resin
   RESIN_INFO: true
   # 委托任务
+  # Commission requests
   COMMISSION_INFO: true
   # 探索派遣
+  # Expeditions
   EXPEDITION_INFO: true
   # 征讨领域（周本）树脂减半信息
+  # Resin discount of trounce
   TROUNCE_INFO: true
   # 洞天宝钱
+  # Home coin
   HOMECOIN_INFO: true
 
 # 接收提醒设置
+# Receive reminder settings
 receive_notice:
   # 原粹树脂提醒阈值，填 0 则关闭提醒
+  # The original resin reminder threshold, fill in 0 to close the reminder
   RESIN_THRESHOLD: 140
-  #  委托未完成的提醒时间，不填则关闭提醒
+  # 委托未完成的提醒时间，不填则关闭提醒
+  # Reminder time when the commissions is not completed, if not filled, the reminder will be closed
   COMMISSION_NOTICE_TIME: '21:00'
   # 探索派遣完成提醒，true or false
+  # Expeditions completion reminder, true or false
   EXPEDITION_NOTICE: true
   # 是否等全部探索派遣都完成后才发送提醒，true or false
+  # Whether to wait until all expeditions are completed before sending reminders，true or false
   WAIT_ALL_EXPEDITION: false
   # 洞天宝钱溢出提醒，true or false
+  # Homecoin overflow reminder，true or false
   HOMECOIN_NOTICE: true
 
 time:
   # 检查间隔（分钟），云函数运行时请确保与触发器设置一致，以便执行睡前检查
+    # Check interval (minutes)
   CHECK_INTERVAL: 30
   # 免打扰时间
+  # Do Not Disturb Time
   SLEEP_TIME: '23:00-07:00'
 
 # 推送通道设置
+# Push channel settings
 notifier:
 
 # 企业微信
@@ -86,11 +106,12 @@ notifier:
   BARK_LEVEL: 
 
 # Telegram bot
-  # Telegram API 地址
+  # Telegram API
   TG_BOT_API: api.telegram.org
   # Telegram Bot Token
   TG_BOT_TOKEN: ''
   # 接收推送的用户 id
+  # User id to receive push
   TG_USER_ID: 
 
 # Pushdeer
@@ -134,12 +155,16 @@ notifier:
 
 # Discord Webhook
   # Discord Webhook 地址
+  # Discord Webhook url
   DISCORD_WEBHOOK: ''
   # 机器人名字，不填使用默认
+  # Robot name, leave it blank and use the default
   DISCORD_USERNAME: 
   # 机器人头像，须为 web 图片，不填使用默认
+  # The avatar of the robot, which must be a web image, the default is used if not filled
   DISCORD_AVATAR: ''
   # 将颜色16进制转为十进制
+  # Convert hex color to decimal
   DISCORD_COLOR: 15553898
 
 # IGOT
@@ -147,14 +172,20 @@ notifier:
 
 # MAIL
   # 邮件 smtp 服务器
+  # mail smtp server
   MAIL_HOST: ''
   # smtp 端口
+  # smtp port
   MAIL_PORT: 465
   # 是否开启 STARTTLS，true or false
+  # Whether to enable STARTTLS，true or false
   MAIL_STARTTLS: false
   # 发件人邮箱账号
+  # Sender's email account
   MAIL_USERNAME: ''
   # 发件人邮箱密码（或授权码）
+  # Sender's email password (or authorization code)
   MAIL_PASSWORD: ''
   # 收件人邮箱地址
+  # recipient email address
   MAIL_TO: ''
