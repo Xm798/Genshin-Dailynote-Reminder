@@ -169,7 +169,7 @@ ii. **使用 docker-compose**
   ```sh
   git clone https://github.com/Xm798/Genshin-Dailynote-Helper.git
   cd Genshin-Dailynote-Helper
-  cp ./dailynotehelper/config/config.example.yaml/ dailynotehelper/config/config.yaml
+  cp ./dailynotehelper/config/config.example.yaml ./dailynotehelper/config/config.yaml
   docker-compose up -d
   ```
 
