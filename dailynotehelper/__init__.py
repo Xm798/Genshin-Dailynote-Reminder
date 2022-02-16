@@ -114,7 +114,7 @@ def start(cookies: list, server: str) -> None:
         client = Yuanshen(
             cookie, config.RUN_ENV) if server == 'cn' else Genshin(cookie)
         roles_info = client.roles_info
-        log.info(_('获取到{}的{}个角色...').format((_('国服') if server == 'cn' else _('国际服')),len(roles_info)))
+        log.info(_('获取到{0}的{1}个角色...').format((_('国服') if server == 'cn' else _('国际服')),len(roles_info)))
         for index, role in enumerate(roles_info):
             log.info((_('第{}个角色，{} {}')).format(index+1,role['game_uid'],role['nickname']))
             if role['game_uid'] in str(config.EXCLUDE_UID):

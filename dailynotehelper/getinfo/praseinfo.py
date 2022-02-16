@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import datetime
 from ..utils import _
@@ -78,15 +79,15 @@ def get_homecoin_info(base_data: BaseData) -> str:
 
 
 def get_expedition_info(base_data: BaseData) -> str:
-    project_path = os.path.dirname(__file__)
-    config_file = os.path.join(project_path, '', f'./model/avatar_{config.LANGUAGE}.json')
+    project_path = os.path.dirname(os.path.dirname(__file__))
+    config_file = os.path.join(project_path, '', f'./locale/{config.LANGUAGE}/avatar.json')
     with open(config_file, 'r', encoding='utf-8') as f:
         avatar_json = json.load(f)
 
     expedition_info: list[str] = []
     finished = 0
     for expedition in base_data.expeditions:
-        avatar: str = expedition['avatar_side_icon'][89:-4]
+        avatar = re.search((r'(?<=(UI_AvatarIcon_Side_)).*(?=.png)'),expedition['avatar_side_icon']).group()
         try:
             avatar_name: str = avatar_json[avatar]
         except KeyError:

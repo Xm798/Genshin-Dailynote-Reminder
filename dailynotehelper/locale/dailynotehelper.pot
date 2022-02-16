@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-14 20:54+0800\n"
+"POT-Creation-Date: 2022-02-16 17:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\dailynotehelper\__init__.py:33 .\dailynotehelper\getinfo\praseinfo.py:64
+#: .\dailynotehelper\__init__.py:33 .\dailynotehelper\getinfo\praseinfo.py:65
 msgid "奖励未领取"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "🔔今日委托已完成，奖励未领取，发送提醒。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:41 .\dailynotehelper\getinfo\praseinfo.py:64
+#: .\dailynotehelper\__init__.py:41 .\dailynotehelper\getinfo\praseinfo.py:65
 msgid "奖励已领取"
 msgstr ""
 
@@ -138,7 +138,8 @@ msgid "🗝️ 当前配置了{}个账号，正在执行第{}个"
 msgstr ""
 
 #: .\dailynotehelper\__init__.py:117
-msgid "获取到{}的{}个角色..."
+#, python-brace-format
+msgid "获取到{0}的{1}个角色..."
 msgstr ""
 
 #: .\dailynotehelper\__init__.py:117
@@ -185,101 +186,101 @@ msgstr ""
 msgid "未开启实时便笺！"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:13
+#: .\dailynotehelper\getinfo\praseinfo.py:14
 msgid "天空岛 🌈"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:13
+#: .\dailynotehelper\getinfo\praseinfo.py:14
 msgid "世界树 🌲"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:14
+#: .\dailynotehelper\getinfo\praseinfo.py:15
 msgid "美服 🦙"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:14
+#: .\dailynotehelper\getinfo\praseinfo.py:15
 msgid "欧服 🏰"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:14
+#: .\dailynotehelper\getinfo\praseinfo.py:15
 msgid "亚服 🐯"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:46
+#: .\dailynotehelper\getinfo\praseinfo.py:47
 msgid "当前树脂：{} / {}\n"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:50
+#: .\dailynotehelper\getinfo\praseinfo.py:51
 msgid "下个回复倒计时：{}\n"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:53
+#: .\dailynotehelper\getinfo\praseinfo.py:54
 msgid "今天"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:53
+#: .\dailynotehelper\getinfo\praseinfo.py:54
 msgid "明天"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:54
+#: .\dailynotehelper\getinfo\praseinfo.py:55
 msgid "全部回复时间：{} {}"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:59
+#: .\dailynotehelper\getinfo\praseinfo.py:60
 msgid "周本树脂减半：{} / {}"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:65
+#: .\dailynotehelper\getinfo\praseinfo.py:66
 msgid ""
 "今日委托任务：{}   {}\n"
 "--------------------"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:69
+#: .\dailynotehelper\getinfo\praseinfo.py:70
 msgid "周一"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:69
+#: .\dailynotehelper\getinfo\praseinfo.py:70
 msgid "周二"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:69
+#: .\dailynotehelper\getinfo\praseinfo.py:70
 msgid "周三"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:70
+#: .\dailynotehelper\getinfo\praseinfo.py:71
 msgid "周四"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:70
+#: .\dailynotehelper\getinfo\praseinfo.py:71
 msgid "周五"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:70
+#: .\dailynotehelper\getinfo\praseinfo.py:71
 msgid "周六"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:70
+#: .\dailynotehelper\getinfo\praseinfo.py:71
 msgid "周日"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:71
+#: .\dailynotehelper\getinfo\praseinfo.py:72
 msgid "当前洞天宝钱/上限：{} / {}\n"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:75
+#: .\dailynotehelper\getinfo\praseinfo.py:76
 msgid "洞天宝钱全部恢复时间：{} {}\n"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:96
+#: .\dailynotehelper\getinfo\praseinfo.py:97
 msgid "  · {}：已完成"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:101
+#: .\dailynotehelper\getinfo\praseinfo.py:102
 msgid "  · {}：剩余时间 {}"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:105
+#: .\dailynotehelper\getinfo\praseinfo.py:106
 msgid ""
 "当前探索派遣总数/完成/上限：{}\n"
 "{}"
