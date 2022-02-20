@@ -277,7 +277,7 @@ ii. **Using docker-compose**
 
 ## Changelog
 
-See [Changelog.md]((./docs/CHANGELOG.md))
+See [Changelog.md](./docs/CHANGELOG.md)
 
 
 ## Acknowledgements
