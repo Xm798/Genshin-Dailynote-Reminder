@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-16 17:01+0800\n"
-"PO-Revision-Date: 2022-02-16 17:13+0800\n"
+"POT-Creation-Date: 2022-02-27 16:31+0800\n"
+"PO-Revision-Date: 2022-02-27 16:33+0800\n"
 "Last-Translator: KT-Yeh\n"
 "Language-Team: https://crowdin.com/project/genshin-dailynote-helper\n"
 "Language: zh_TW\n"
@@ -89,14 +89,6 @@ msgstr "✅洞天寶錢檢查結束，未溢出。"
 #: .\dailynotehelper\__init__.py:68
 msgid "⏩︎未开启洞天宝钱检查，已跳过。"
 msgstr "⏩︎未開啟洞天寶錢檢查，已跳過。"
-
-#: .\dailynotehelper\__init__.py:72
-msgid "已完成"
-msgstr "已完成"
-
-#: .\dailynotehelper\__init__.py:73
-msgid "剩余时间"
-msgstr "剩餘時間"
 
 #: .\dailynotehelper\__init__.py:74
 msgid "✅探索派遣未全部完成。"
@@ -216,10 +208,12 @@ msgid "下个回复倒计时：{}\n"
 msgstr "下個恢復倒計時：{}\n"
 
 #: .\dailynotehelper\getinfo\praseinfo.py:54
+#: .\dailynotehelper\getinfo\praseinfo.py:101
 msgid "今天"
 msgstr "今天"
 
 #: .\dailynotehelper\getinfo\praseinfo.py:54
+#: .\dailynotehelper\getinfo\praseinfo.py:101
 msgid "明天"
 msgstr "明天"
 
@@ -279,14 +273,20 @@ msgstr "洞天寶錢全部恢復時間：{} {}\n"
 msgid "  · {}：已完成"
 msgstr "  · {}：已完成"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:102
-msgid "  · {}：剩余时间 {}"
-msgstr "  · {}：剩餘時間 {}"
+#: .\dailynotehelper\getinfo\praseinfo.py:103
+msgid "  · {} 完成时间：{}{}"
+msgstr "  · {} 完成時間：{}{}"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:106
+#: .\dailynotehelper\getinfo\praseinfo.py:108
 msgid ""
 "当前探索派遣总数/完成/上限：{}\n"
 "{}"
 msgstr ""
 "當前探索派遣總數/完成/上限：{}\n"
 "{}"
+
+#~ msgid "已完成"
+#~ msgstr "已完成"
+
+#~ msgid "剩余时间"
+#~ msgstr "剩餘時間"

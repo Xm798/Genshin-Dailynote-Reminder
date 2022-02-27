@@ -97,10 +97,12 @@ def get_expedition_info(base_data: BaseData) -> str:
             expedition_info.append(_('  · {}：已完成').format(avatar_name))
             finished += 1
         else:
-            remained_timed: str = seconds2hours(expedition['remained_time'])
+            finish_time = datetime.datetime.now() + datetime.timedelta(seconds=int(expedition['remained_time']))
+            day = _('今天') if datetime.datetime.now().day == finish_time.day else _('明天')
             expedition_info.append(
-                (_('  · {}：剩余时间 {}')).format(avatar_name,remained_timed))
+                (_('  · {} 完成时间：{}{}')).format(avatar_name,day,finish_time.strftime('%X')))
 
     expedition_num: str = f'{base_data.current_expedition_num}/{finished}/{base_data.max_expedition_num}'
+    base_data.finished_expedition_num = finished
     expedition_data: str = '\n'.join(expedition_info)
     return (_('当前探索派遣总数/完成/上限：{}\n{}')).format(expedition_num,expedition_data)

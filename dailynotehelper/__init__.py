@@ -69,8 +69,8 @@ def check(region, base_data, message):
 
     # CHECK EXPEDITION
     if(config.EXPEDITION_NOTICE):
-        if (_('已完成') in message):
-            if config.WAIT_ALL_EXPEDITION and (_('剩余时间') in message):
+        if (base_data.finished_expedition_num > 0):
+            if config.WAIT_ALL_EXPEDITION and (base_data.finished_expedition_num != base_data.current_expedition_num):
                 log.info(_('✅探索派遣未全部完成。'))
             else:
                 alert = True

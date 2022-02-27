@@ -1,5 +1,13 @@
 # Changelog
 
+
+### v2.1.5 (2022-02-27)
+
+New Features:
+
+- Change expedition remaining time to finishing time.
+
+
 ### v2.1.4 (2022-02-16)
 
 New Features:

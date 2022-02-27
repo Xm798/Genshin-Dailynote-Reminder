@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-16 17:01+0800\n"
-"PO-Revision-Date: 2022-02-16 17:13+0800\n"
+"POT-Creation-Date: 2022-02-27 16:31+0800\n"
+"PO-Revision-Date: 2022-02-27 16:34+0800\n"
 "Last-Translator: \n"
 "Language-Team: https://crowdin.com/project/genshin-dailynote-helper\n"
 "Language: en_US\n"
@@ -96,14 +96,6 @@ msgstr "✅ Home coin check is over and has not overflowed."
 #: .\dailynotehelper\__init__.py:68
 msgid "⏩︎未开启洞天宝钱检查，已跳过。"
 msgstr "⏩︎ The home coin check is disabled, skipped."
-
-#: .\dailynotehelper\__init__.py:72
-msgid "已完成"
-msgstr "Finished"
-
-#: .\dailynotehelper\__init__.py:73
-msgid "剩余时间"
-msgstr "Remaining"
 
 #: .\dailynotehelper\__init__.py:74
 msgid "✅探索派遣未全部完成。"
@@ -225,10 +217,12 @@ msgid "下个回复倒计时：{}\n"
 msgstr "Countdown to next resin recovery: {}\n"
 
 #: .\dailynotehelper\getinfo\praseinfo.py:54
+#: .\dailynotehelper\getinfo\praseinfo.py:101
 msgid "今天"
 msgstr "Today"
 
 #: .\dailynotehelper\getinfo\praseinfo.py:54
+#: .\dailynotehelper\getinfo\praseinfo.py:101
 msgid "明天"
 msgstr "Tomorrow"
 
@@ -288,14 +282,20 @@ msgstr "Recovery time of home coin: {} {}\n"
 msgid "  · {}：已完成"
 msgstr "  · {}: Finished"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:102
-msgid "  · {}：剩余时间 {}"
-msgstr "  · {}: Remaining {}"
+#: .\dailynotehelper\getinfo\praseinfo.py:103
+msgid "  · {} 完成时间：{}{}"
+msgstr "  · {} Finishing time: {} {}"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:106
+#: .\dailynotehelper\getinfo\praseinfo.py:108
 msgid ""
 "当前探索派遣总数/完成/上限：{}\n"
 "{}"
 msgstr ""
 "Total number of expeditions / finished / limit: {}\n"
 "{}"
+
+#~ msgid "已完成"
+#~ msgstr "Finished"
+
+#~ msgid "剩余时间"
+#~ msgstr "Remaining"

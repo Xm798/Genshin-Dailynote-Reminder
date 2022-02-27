@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-16 17:01+0800\n"
+"POT-Creation-Date: 2022-02-27 16:31+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,14 +87,6 @@ msgstr ""
 
 #: .\dailynotehelper\__init__.py:68
 msgid "⏩︎未开启洞天宝钱检查，已跳过。"
-msgstr ""
-
-#: .\dailynotehelper\__init__.py:72
-msgid "已完成"
-msgstr ""
-
-#: .\dailynotehelper\__init__.py:73
-msgid "剩余时间"
 msgstr ""
 
 #: .\dailynotehelper\__init__.py:74
@@ -215,10 +207,12 @@ msgid "下个回复倒计时：{}\n"
 msgstr ""
 
 #: .\dailynotehelper\getinfo\praseinfo.py:54
+#: .\dailynotehelper\getinfo\praseinfo.py:101
 msgid "今天"
 msgstr ""
 
 #: .\dailynotehelper\getinfo\praseinfo.py:54
+#: .\dailynotehelper\getinfo\praseinfo.py:101
 msgid "明天"
 msgstr ""
 
@@ -276,11 +270,11 @@ msgstr ""
 msgid "  · {}：已完成"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:102
-msgid "  · {}：剩余时间 {}"
+#: .\dailynotehelper\getinfo\praseinfo.py:103
+msgid "  · {} 完成时间：{}{}"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:106
+#: .\dailynotehelper\getinfo\praseinfo.py:108
 msgid ""
 "当前探索派遣总数/完成/上限：{}\n"
 "{}"
