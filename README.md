@@ -1,4 +1,4 @@
-English | [简体中文](./README_ZH.md)
+English | [简体中文](./docs/README_ZH.md)
 
 # Genshin Dailynote Helper
 
@@ -44,7 +44,7 @@ Check and push the status of the Genshin Impact resin, commissions, expeditions 
     - [Configuration file example](#configuration-file-example)
   - [Push method configuration](#push-method-configuration)
   - [💬Feedback](#feedback)
-  - [Changelog](./CHANGELOG.md)
+  - [Changelog](#changelog)
   - [Acknowledgements](#acknowledgements)
     - [Open Source Projects](#open-source-projects)
     - [Translators](#translators)
@@ -245,27 +245,28 @@ ii. **Using docker-compose**
 
 **Details of the supported push channels currently are listed below**, recommended:
 
-- **WeChat Push**: Using WeChat Work.
 - **System notification push**: Bark or Pushdeer for iOS users, Pushdeer for MIUI users.
-- **Full Platform Push**: Use Telegram.
+- **Full Platform Push**: Use Telegram or Discord.
+- **WeChat Push**: Using WeChat Work or Pushplus.
 - **QQ Push**: Use go-cqhttp.
 
-|                 Push Channels                 | Support Situation |              Push Channel              |                  Remark                  |
-| :-------------------------------------------: | :---------------: | :------------------------------------: | :--------------------------------------: |
-|         [WeChat Work](./docs/Push-method-configuration.md#1-wechat-work)         |    ✅ Supported    |         WeChat (All Platforms)         |               Recommend ⭐             |
-|    [WeChat Work group bot](./docs/Push-method-configuration.md#1-wechat-work)    |    ✅ Supported    |         WeChat (All Platforms)         |                                         |
-|                [Bark](./docs/Push-method-configuration.md#2-bark)                |    ✅ Supported    |          APP (only for iOS)           |               Recommend ⭐              |
-|        [Telegram Bot](./docs/Push-method-configuration.md#3-telegram-bot)        |    ✅ Supported    |       Telegram (All platforms)        |               Recommend ⭐              |
+|                                  Push Channels                                   | Support Situation |              Push Channel              |                  Remark                  |
+| :------------------------------------------------------------------------------: | :---------------: | :------------------------------------: | :--------------------------------------: |
+|         [WeChat Work](./docs/Push-method-configuration.md#1-wechat-work)         |    ✅ Supported    |         WeChat (All Platforms)         |               Recommend ⭐                |
+|    [WeChat Work group bot](./docs/Push-method-configuration.md#1-wechat-work)    |    ✅ Supported    |         WeChat (All Platforms)         |                                          |
+|                [Bark](./docs/Push-method-configuration.md#2-bark)                |    ✅ Supported    |           APP (only for iOS)           |               Recommend ⭐                |
+|        [Telegram Bot](./docs/Push-method-configuration.md#3-telegram-bot)        |    ✅ Supported    |        Telegram (All platforms)        |               Recommend ⭐                |
 |            [Pushdeer](./docs/Push-method-configuration.md#4-pushdeer)            |    ✅ Supported    | Light APP(iOS)/APP(Android)/APP(MacOS) |  Recommended for iOS and Xiaomi devices  |
-|           [go-cqhttp](./docs/Push-method-configuration.md#5-go-cqhttp)           |    ✅ Supported    |                   QQ                   |       Need to deploy by yourself         |
+|           [go-cqhttp](./docs/Push-method-configuration.md#5-go-cqhttp)           |    ✅ Supported    |                   QQ                   |        Need to deploy by yourself        |
 | [DingTalk group bot](./docs/Push-method-configuration.md#6-dingtalk-group-robot) |    ✅ Supported    |             DingTalk group             |                                          |
-|        [Server Chan](./docs/Push-method-configuration.md#7-server-chan)         |    ✅ Supported    |       Multi-channel aggregation        | The free version is limited to 5 per day |
+|         [Server Chan](./docs/Push-method-configuration.md#7-server-chan)         |    ✅ Supported    |       Multi-channel aggregation        | The free version is limited to 5 per day |
 |           [pushplus](./docs/Push-method-configuration.md#8-push-plus)            |    ✅ Supported    |       Multi-channel aggregation        |                                          |
 |     [Discord Webhook](./docs/Push-method-configuration.md#9-discord-webhook)     |    ✅ Supported    |                Discord                 |                                          |
 |              [Email](./docs/Push-method-configuration.md#10-email)               |    ✅ Supported    |                                        |                                          |
 |           [Cool Push](./docs/Push-method-configuration.md#11-coolpush)           |    ✅ Supported    |                   QQ                   |                                          |
-|            [Qmsg](./docs/Push-method-configuration.md#12-qmsg)             |    ✅ Supported    |                   QQ                   |                                          |
-|                     IGOT                      |   🛠️ Not tested    |                                        |                                          |
+|               [Qmsg](./docs/Push-method-configuration.md#12-qmsg)                |    ✅ Supported    |                   QQ                   |                                          |
+|    [Custom Notifier](./docs/Push-method-configuration.md#13-custom-notifier)     |    ✅ Supported    |                                        |                                          |
+|                                       IGOT                                       |   🛠️ Not tested    |                                        |                                          |
 
 
 ## 💬Feedback
@@ -284,12 +285,12 @@ See [Changelog.md](./docs/CHANGELOG.md)
 
 ### Open Source Projects and Contributors
 
-|                                                   Project                                                   |                     Author                     |                                                License                                                |             Comment             |
-| :---------------------------------------------------------------------------------------------------------: | :--------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :-----------------------------: |
-| [ genshin_task-resin-expedition_alert ](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert) | [yaomeng0722](https://gitlab.com/yaomeng0722/) | [MIT LICENSE](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE) | Initial version of this project |
-|                                [onepush](https://github.com/y1ndan/onepush)                                 |      [y1ndan](https://gitlab.com/y1ndan/)      |                  [MIT LICENSE](https://github.com/y1ndan/onepush/blob/main/LICENSE)                   |      message push channel       |
-|                [ genshin-checkin-helper ](https://gitlab.com/y1ndan/genshin-checkin-helper)                 |      [y1ndan](https://gitlab.com/y1ndan/)      |         [GPLv3 LICENSE](https://gitlab.com/y1ndan/genshin-checkin-helper/-/blob/main/LICENSE)         |         API call method         |
-|                                                      -                                                      |      [yllhwa](https://github.com/yllhwa)       |                                                   -                                                   | DS encryption algorithm reverse |
+|                                                   Project                                                   |                     Author                     |                                            License                                            |             Comment             |
+| :---------------------------------------------------------------------------------------------------------: | :--------------------------------------------: | :-------------------------------------------------------------------------------------------: | :-----------------------------: |
+| [ genshin_task-resin-expedition_alert ](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert) | [yaomeng0722](https://gitlab.com/yaomeng0722/) | [MIT](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE) | Initial version of this project |
+|                                [onepush](https://github.com/y1ndan/onepush)                                 |      [y1ndan](https://gitlab.com/y1ndan/)      |                  [MIT](https://github.com/y1ndan/onepush/blob/main/LICENSE)                   |      message push channel       |
+|                [ genshin-checkin-helper ](https://gitlab.com/y1ndan/genshin-checkin-helper)                 |      [y1ndan](https://gitlab.com/y1ndan/)      |         [GPLv3](https://gitlab.com/y1ndan/genshin-checkin-helper/-/blob/main/LICENSE)         |         API call method         |
+|                                                      -                                                      |      [yllhwa](https://github.com/yllhwa)       |                                               -                                               | DS encryption algorithm reverse |
 
 ### Translators
 

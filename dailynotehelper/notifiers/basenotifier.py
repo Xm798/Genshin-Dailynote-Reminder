@@ -31,6 +31,7 @@ class BaseNotifier(object):
             response = request(method, url, 2, params, data, json, headers)
         except Exception as e:
             log.error(f'{self.name} 😳\n{e}')
+            log.error(response.json())
             raise NotificationError()
         else:
             if self.name == 'Server Chan Turbo':
@@ -47,13 +48,15 @@ class BaseNotifier(object):
                 log.info(f'{self.name} 🥳')
             elif self.name == 'Telegram Bot' and response.json()[self.retcode_value] == 400:
                 log.error(f'{self.name} 😳\n请主动给 bot 发送一条消息并检查 TG_USER_ID 是否正确')
-                print(response.json())
+                log.error(response.json())
                 raise NotificationError()
             elif self.name == 'Telegram Bot' and response.json()[self.retcode_value] == 401:
                 log.error(f'{self.name} 😳\nTG_BOT_TOKEN 错误')
+                log.error(response.json())
                 raise NotificationError()
             else:
                 log.error(f'{self.name} 😳\n{response}')
+                log.error(response.json())
                 raise NotificationError()
         # 一个推送渠道失败后不会继续进行推送
         finally:

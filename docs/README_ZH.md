@@ -34,8 +34,6 @@
   - 免打扰时间段内树脂会溢出
 
 ## 目录
-- [简介](#简介)
-- [目录](#目录)
 - [示例](#示例)
 - [使用方法](#使用方法)
   - [1. 云函数运行](#1-云函数运行)
@@ -278,25 +276,26 @@ ii. **使用 docker-compose**
 - **全平台推送**：使用 Telegram 或企业微信；
 - **QQ 推送**：自行部署 go-cqhttp 并使用。
 
-|               推送渠道                | 支持情况 |             推送通道             |          备注           |
-| :-----------------------------------: | :------: | :------------------------------: | :---------------------: |
-|        [企业微信](./docs/Push-method-configuration_ZH.md#1-企业微信)        |  ✅ 支持  |          微信（全平台）          |         推荐 ⭐          |
-|     [企业微信机器人](./docs/Push-method-configuration_ZH.md#ii-企业微信机器人)     |  ✅ 支持  |          微信（全平台）          |                         |
-|            [Bark](./docs/Push-method-configuration_ZH.md#2-bark)            |  ✅ 支持  |         APP（仅限 iOS）          |         推荐 ⭐          |
-|    [Telegram Bot](./docs/Push-method-configuration_ZH.md#3-telegram-bot)    |  ✅ 支持  |        Telegram（全平台）        |   推荐 ⭐，需科学上网    |
-|        [Pushdeer](./docs/Push-method-configuration_ZH.md#4-pushdeer)        |  ✅ 支持  | 轻 APP(iOS)/APP(安卓)/APP(MacOS) | 推荐 iOS 和小米设备使用 |
-|       [go-cqhttp](./docs/Push-method-configuration_ZH.md#5-go-cqhttp)       |  ✅ 支持  |                QQ                |  需自行部署 go-cqhttp   |
-|    [钉钉群机器人](./docs/Push-method-configuration_ZH.md#6-钉钉群机器人)    |  ✅ 支持  |              钉钉群              |                         |
-|       [Server 酱](./docs/Push-method-configuration_ZH.md#7-server-酱)       |  ✅ 支持  |        多渠道推送(微信等)        |    免费版每天限 5 条    |
-|       [pushplus](./docs/Push-method-configuration_ZH.md#8-push-plus)        |  ✅ 支持  |     多渠道推送(微信/邮件等)      |                         |
-| [Discord Webhook](./docs/Push-method-configuration_ZH.md#9-discord-webhook) |  ✅ 支持  |             Discord              |       需科学上网        |
-|       [邮件推送](./docs/Push-method-configuration_ZH.md#10-邮件推送)        |  ✅ 支持  |                                  |                         |
-|    [Cool Push](./docs/Push-method-configuration_ZH.md#11-coolpush-酷推)     |  ✅ 支持  |                QQ                |                         |
-|        [Qmsg 酱](./docs/Push-method-configuration_ZH.md#12-qmsg-酱)         |  ✅ 支持  |                QQ                |                         |
-|                 IGOT                  | 🛠️ 未测试 |                                  |                         |
+|                                  推送渠道                                   | 支持情况 |             推送通道             |          备注           |
+| :-------------------------------------------------------------------------: | :------: | :------------------------------: | :---------------------: |
+|        [企业微信](./Push-method-configuration_ZH.md#1-企业微信)        |  ✅ 支持  |          微信（全平台）          |         推荐 ⭐          |
+| [企业微信机器人](./Push-method-configuration_ZH.md#ii-企业微信机器人)  |  ✅ 支持  |          微信（全平台）          |                         |
+|            [Bark](./Push-method-configuration_ZH.md#2-bark)            |  ✅ 支持  |         APP（仅限 iOS）          |         推荐 ⭐          |
+|    [Telegram Bot](./Push-method-configuration_ZH.md#3-telegram-bot)    |  ✅ 支持  |        Telegram（全平台）        |   推荐 ⭐，需科学上网    |
+|        [Pushdeer](./Push-method-configuration_ZH.md#4-pushdeer)        |  ✅ 支持  | 轻 APP(iOS)/APP(安卓)/APP(MacOS) | 推荐 iOS 和小米设备使用 |
+|       [go-cqhttp](./Push-method-configuration_ZH.md#5-go-cqhttp)       |  ✅ 支持  |                QQ                |  需自行部署 go-cqhttp   |
+|    [钉钉群机器人](./Push-method-configuration_ZH.md#6-钉钉群机器人)    |  ✅ 支持  |              钉钉群              |                         |
+|       [Server 酱](./Push-method-configuration_ZH.md#7-server-酱)       |  ✅ 支持  |        多渠道推送(微信等)        |    免费版每天限 5 条    |
+|       [pushplus](./Push-method-configuration_ZH.md#8-push-plus)        |  ✅ 支持  |     多渠道推送(微信/邮件等)      |                         |
+| [Discord Webhook](./Push-method-configuration_ZH.md#9-discord-webhook) |  ✅ 支持  |             Discord              |       需科学上网        |
+|       [邮件推送](./Push-method-configuration_ZH.md#10-邮件推送)        |  ✅ 支持  |                                  |                         |
+|    [Cool Push](./Push-method-configuration_ZH.md#11-coolpush-酷推)     |  ✅ 支持  |                QQ                |                         |
+|        [Qmsg 酱](./Push-method-configuration_ZH.md#12-qmsg-酱)         |  ✅ 支持  |                QQ                |                         |
+|     [自定义推送](./Push-method-configuration_ZH.md#13-自定义推送)      |  ✅ 支持  |                                  |                         |
+|                                    IGOT                                     | 🛠️ 未测试 |                                  |                         |
 
 
-**各渠道详细设置方法参见：[推送渠道配置文档](./docs/Push-method-configuration_ZH.md)**
+**各渠道详细设置方法参见：[推送渠道配置文档](./Push-method-configuration_ZH.md)**
 
 
 ## 💬交流反馈
@@ -308,18 +307,18 @@ ii. **使用 docker-compose**
 
 ## 更新日志
 
-参见：[CHANGELOG_ZH.md](./docs/CHANGELOG_ZH.md)
+参见：[CHANGELOG_ZH.md](./CHANGELOG_ZH.md)
 
 ## 致谢
 
 ### 开源项目及贡献者
 
-|                                                  Project                                                  |                     Author                     |                                                License                                                |     Comment      |
-| :-------------------------------------------------------------------------------------------------------: | :--------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :--------------: |
-| [genshin_task-resin-expedition_alert](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert) | [yaomeng0722](https://gitlab.com/yaomeng0722/) | [MIT LICENSE](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE) | 本项目的初始版本 |
-|                               [onepush](https://github.com/y1ndan/onepush)                                |      [y1ndan](https://gitlab.com/y1ndan/)      |                  [MIT LICENSE](https://github.com/y1ndan/onepush/blob/main/LICENSE)                   |   消息推送通道   |
-|                [genshin-checkin-helper](https://gitlab.com/y1ndan/genshin-checkin-helper)                 |      [y1ndan](https://gitlab.com/y1ndan/)      |         [GPLv3 LICENSE](https://gitlab.com/y1ndan/genshin-checkin-helper/-/blob/main/LICENSE)         |   API 调用方法   |
-|                                                     -                                                     |      [yllhwa](https://github.com/yllhwa)       |                                                   -                                                   | DS 加密算法逆向  |
+|                                                  Project                                                  |                     Author                     |                                            License                                            |     Comment      |
+| :-------------------------------------------------------------------------------------------------------: | :--------------------------------------------: | :-------------------------------------------------------------------------------------------: | :--------------: |
+| [genshin_task-resin-expedition_alert](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert) | [yaomeng0722](https://gitlab.com/yaomeng0722/) | [MIT](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE) | 本项目的初始版本 |
+|                               [onepush](https://github.com/y1ndan/onepush)                                |      [y1ndan](https://gitlab.com/y1ndan/)      |                  [MIT](https://github.com/y1ndan/onepush/blob/main/LICENSE)                   |   消息推送通道   |
+|                [genshin-checkin-helper](https://gitlab.com/y1ndan/genshin-checkin-helper)                 |      [y1ndan](https://gitlab.com/y1ndan/)      |         [GPLv3](https://gitlab.com/y1ndan/genshin-checkin-helper/-/blob/main/LICENSE)         |   API 调用方法   |
+|                                                     -                                                     |      [yllhwa](https://github.com/yllhwa)       |                                               -                                               | DS 加密算法逆向  |
 
 ### 本地化译者
 

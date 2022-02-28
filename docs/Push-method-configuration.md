@@ -14,6 +14,8 @@
 - [10. Email](#10-email)
 - [11. CoolPush Cool Push](#11-coolpush-cool-push)
 - [12. Qmsg](#12-qmsg)
+- [13. Custom Notifier](#13-custom-notifier)
+
 
 ## 1. Wechat Work
 
@@ -126,3 +128,84 @@ Note: Cool Push public service is now unavailable and may need to be privatized 
 Log in to [Qmsg website](https://qmsg.zendee.cn/)and get the KEY by filling in `QMSG_KEY`.
 
 Note: Qmsg is easily determined to be in violation =\_= and cannot be pushed in group chats (audit does not pass).
+
+## 13. Custom Notifier
+
+```yaml
+  CUSTOM_NOTIFIER:
+   method:              Required，request method，GET/POST
+   url: ''              Required, request URL
+   data_type:           Required, the format of the sent data, data/json/params
+   headers: {}          Optional, headers to be added
+   data: {}             Optional, additional request content
+   title_key:           Required, the key of the message title
+   desp_key:            Optional, the key of the message details. If this item is empty, the message title and message details will be combined to 'title_key'.
+   markdown:            Optional, whether to support markdown, true/false
+   retcode_key:         Required, the key of the status code in the response body
+   retcode_value:       Required, the status code when push was succeeded in the response body
+```
+
+### Examples
+
+#### Send CQHTTP push with custom notifier
+
+```yaml
+  CUSTOM_NOTIFIER:
+   method: POST
+   url: 'http://x.x.x.x:5700/send_private_msg'
+   data_type: data
+   headers: {"Authorization":"Bearer xxxxxxxx"}
+   data: {"user_id": 123456789}
+   title_key: message
+   desp_key:
+   markdown: false
+   retcode_key: 'retcode'
+   retcode_value: 0
+```
+
+#### Send Telegram push with custom notifier
+
+```yaml
+  CUSTOM_NOTIFIER:
+   method: POST
+   url: 'https://tg-message.xm.mk/botxxxxxxxxxxxxxxxxxx/sendMessage'
+   data_type: data
+   headers: {}
+   data: {"chat_id": 123456789, "parse_mode":"MarkdownV2"}
+   title_key: text
+   desp_key:
+   markdown: true
+   retcode_key: 'ok'
+   retcode_value: True
+```
+#### Send Pushplus push with custom notifier
+
+```yaml
+  CUSTOM_NOTIFIER:
+   method: POST
+   url: 'http://www.pushplus.plus/send'
+   data_type: data
+   headers: {}
+   data: {"token":"xxxxxxxxxxxxxxxxx","template":"markdown"}
+   title_key: title
+   desp_key: content
+   markdown: true
+   retcode_key: 'code'
+   retcode_value: 200
+```
+
+#### Send Server chan push with custom notifier
+
+```yaml
+  CUSTOM_NOTIFIER:
+   method: GET
+   url: 'https://sctapi.ftqq.com/SCTxxxxxxxxxxxxxxxxx.send'
+   data_type: params
+   headers: {}
+   data: {}
+   title_key: title
+   desp_key: desp
+   markdown: true
+   retcode_key: 'code'
+   retcode_value: 0
+```

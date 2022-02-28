@@ -12,7 +12,8 @@ from . import (
     bark,
     cqhttp,
     pushdeer,
-    mail
+    mail,
+    custom
     )
 
 from .exceptions import NoSuchNotifierError
@@ -33,7 +34,8 @@ _all_notifiers = {
     'bark':bark.Bark,
     'cqhttp':cqhttp.Cqhttp,
     'pushdeer':pushdeer.Pushdeer,
-    'mail':mail.Mail
+    'mail':mail.Mail,
+    'custom':custom.Custom
 }
 
 

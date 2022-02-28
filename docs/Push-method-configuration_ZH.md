@@ -14,6 +14,7 @@
 - [10. 邮件推送](#10-邮件推送)
 - [11. CoolPush 酷推](#11-coolpush-酷推)
 - [12. Qmsg 酱](#12-qmsg-酱)
+- [13. 自定义推送](#13-自定义推送)
 
 ## 1. 企业微信
 
@@ -131,3 +132,86 @@
 登录 [Qmsg 酱](https://qmsg.zendee.cn/)，获取 KEY 填入 `QMSG_KEY` 即可。
 
 注：Qmsg 酱容易被判定违规 =\_=，且无法进行群聊推送（审核不通过）。
+
+## 13. 自定义推送
+
+```yaml
+  CUSTOM_NOTIFIER:
+    method:             必填，请求方式，GET/POST
+    url: ''             必填，请求URL
+    data_type:          必填，发送数据的格式，data/json/params
+    headers: {}         选填，需要添加的 headers
+    data: {}            选填，需要额外追加的请求内容
+    title_key:          必填，消息标题的 key
+    desp_key:           选填，消息详情的 key。若该项为空，则会将消息标题和消息详情合并推送。
+    markdown:           选填，是否支持 markdown，true/false
+    retcode_key:        必填，响应体中状态码的 key
+    retcode_value:      必填，响应体中推送正常时的状态码
+```
+
+参考上表填写自定义推送配置。
+
+### 示例
+
+#### 使用自定义推送发送 CQHTTP 推送
+
+```yaml
+  CUSTOM_NOTIFIER:
+    method: POST
+    url: 'http://x.x.x.x:5700/send_private_msg'
+    data_type: data
+    headers: {"Authorization":"Bearer xxxxxxxx"}
+    data: {"user_id": 123456789}
+    title_key: message
+    desp_key:
+    markdown: false
+    retcode_key: 'retcode'
+    retcode_value: 0
+```
+
+#### 使用自定义推送发送 Telegram 推送
+
+```yaml
+  CUSTOM_NOTIFIER:
+    method: POST
+    url: 'https://tg-message.xm.mk/botxxxxxxxxxxxxxxxxxx/sendMessage'
+    data_type: data
+    headers: {}
+    data: {"chat_id": 123456789, "parse_mode":"MarkdownV2"}
+    title_key: text
+    desp_key:
+    markdown: true
+    retcode_key: 'ok'
+    retcode_value: True
+```
+#### 使用自定义推送发送 Pushplus 推送
+
+```yaml
+  CUSTOM_NOTIFIER:
+    method: POST
+    url: 'http://www.pushplus.plus/send'
+    data_type: data
+    headers: {}
+    data: {"token":"xxxxxxxxxxxxxxxxx","template":"markdown"}
+    title_key: title
+    desp_key: content
+    markdown: true
+    retcode_key: 'code'
+    retcode_value: 200
+```
+
+#### 使用自定义推送发送 Server 酱推送
+
+```yaml
+  CUSTOM_NOTIFIER:
+    method: GET
+    url: 'https://sctapi.ftqq.com/SCTxxxxxxxxxxxxxxxxx.send'
+    data_type: params
+    headers: {}
+    data: {}
+    title_key: title
+    desp_key: desp
+    markdown: true
+    retcode_key: 'code'
+    retcode_value: 0
+```

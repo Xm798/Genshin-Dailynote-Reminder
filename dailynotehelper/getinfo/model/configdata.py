@@ -75,3 +75,5 @@ class ConfigData(BaseModel):
     MAIL_USERNAME: Optional[str]
     MAIL_PASSWORD: Optional[str]
     MAIL_TO: Optional[str]
+
+    CUSTOM_NOTIFIER: dict = {}

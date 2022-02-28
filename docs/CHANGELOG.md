@@ -1,12 +1,12 @@
 # Changelog
 
 
-### v2.1.5 (2022-02-27)
+### v2.1.5 (2022-02-28)
 
 New Features:
 
 - Change expedition remaining time to finishing time.
-
+- Add custom notifier support, [#18](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/18).
 
 ### v2.1.4 (2022-02-16)
 

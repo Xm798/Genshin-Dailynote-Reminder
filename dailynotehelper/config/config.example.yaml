@@ -189,3 +189,17 @@ notifier:
   # 收件人邮箱地址
   # recipient email address
   MAIL_TO: ''
+
+# 自定义推送
+# Custom notifier
+  CUSTOM_NOTIFIER:
+    method: POST
+    url: ''
+    data_type: data
+    headers: {}
+    data: {}
+    title_key:
+    desp_key:
+    markdown: false
+    retcode_key:
+    retcode_value:

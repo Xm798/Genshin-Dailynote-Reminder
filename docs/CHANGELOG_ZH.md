@@ -1,11 +1,12 @@
 
 # 更新日志
 
-### v2.1.5（2022-02-27）
+### v2.1.5（2022-02-28）
 
 New Features:
 
 - 调整探索派遣倒计时为完成时间
+- 增加自定义推送支持, [#18](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/18)
 
 
 ### v2.1.4（2022-02-16）
