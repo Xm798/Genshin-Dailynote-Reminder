@@ -224,7 +224,7 @@ ii. **Using docker-compose**
     Specify the runtime environment, use `cloud` for running on domestic cloud service providers, otherwise use `local`, only effective for national service. This option is designed to provide compatibility options for users running on domestic cloud servers. `cloud` is an old version of the API, which was once unusable and is now restored. However, since MiYosha has been fully replaced with the new API, the default is to run with the `local` environment, which is the new API. For more information, please refer to [米游社可能已经禁止国内特定VPS服务商的IP或ASN](https://github.com/Arondight/Adachi-BOT/issues/522).
     
 2. **COOKIE**:
-      1. Open [Mihoyo bbs](https://bbs.mihoyo.com/ys)and login for cn server, open [Hoyolab](https://www.hoyolab.com/)and login for oversea server.
+      1. Open [Mihoyo bbs](https://bbs.mihoyo.com/ys) for cn server and [Hoyolab](https://www.hoyolab.com/) for oversea server, then login.
       2. Press F12 to open Developer Tools.
       3. Switching the developer tools to the Console tab.
       4. Copy the code below and paste it in the console, press enter and the result is pasted into the configuration file.

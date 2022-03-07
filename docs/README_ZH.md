@@ -265,7 +265,7 @@ ii. **使用 docker-compose**
 
 ### 示例配置文件
 
-[config.example.yaml](./dailynotehelper/config/config.example.yaml)
+[config.example.yaml](../dailynotehelper/config/config.example.yaml)
 
 ## 推送方式配置
 
