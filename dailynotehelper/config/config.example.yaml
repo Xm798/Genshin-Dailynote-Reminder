@@ -120,10 +120,12 @@ notifier:
 # CQHTTP
   # CQHTTP 的 API 地址，格式：协议头://IP 或域名:端口号
   CQHTTP_URL: 'http://1.2.3.4:5700'
-  # 接收消息的 QQ 号码/群号码
-  CQHTTP_SEND_ID: 
-  # 消息发送方式，private为私聊，group为群聊
+  # 消息发送方式，private为私聊，group为群聊，guild为频道
   CQHTTP_MESSAGE_TYPE: private
+  # 接收消息的 QQ 号码/群号码/频道 guild_id
+  CQHTTP_SEND_ID: 
+  # 接收频道消息的子频道 ID，如果不发送到频道不填
+  CQHTTP_SEND_CHANNEL_ID:
   # CQHTTP 的鉴权 TOKEN，未设置不需要填写
   CQHTTP_TOKEN: ''
 

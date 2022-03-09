@@ -44,8 +44,9 @@ class ConfigData(BaseModel):
     PUSHDEER_KEY: Optional[str]
 
     CQHTTP_URL: Optional[str]
-    CQHTTP_MESSAGE_TYPE: Literal['private', 'group'] = 'private'
+    CQHTTP_MESSAGE_TYPE: Literal['private', 'group', 'guild'] = 'private'
     CQHTTP_SEND_ID: Optional[str]
+    CQHTTP_SEND_CHANNEL_ID: Optional[str]
     CQHTTP_TOKEN: Optional[str]
 
     DD_BOT_TOKEN: Optional[str] 

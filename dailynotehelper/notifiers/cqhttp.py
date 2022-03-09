@@ -27,5 +27,13 @@ class Cqhttp(Base):
                 "user_id": config.CQHTTP_SEND_ID,
                 "message": f'{text} {status}\n\n{desp}'
             }
+        elif config.CQHTTP_MESSAGE_TYPE == "guild":
+            url = (f'{self.url}send_guild_channel_msg' if self.url.endswith('/') else f'{self.url}/send_guild_channel_msg')
+            header = {'Authorization': 'Bearer ' + self.auth}
+            data = {
+                "guild_id": config.CQHTTP_SEND_ID,
+                "channel_id": config.CQHTTP_SEND_CHANNEL_ID,
+                "message": f'{text} {status}\n\n{desp}'
+            }
 
         return self.push('post', url, headers=header, data=data)
