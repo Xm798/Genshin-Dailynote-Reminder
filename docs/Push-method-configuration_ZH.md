@@ -87,7 +87,7 @@
 
 1. 部署 [GO-CQHTTP](https://github.com/Mrs4s/go-cqhttp)，参见文档 [快速开始](https://docs.go-cqhttp.org/guide/quick_start.html#%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B)，也可使用其他兼容 [OneBot-v11](https://github.com/botuniverse/onebot-11) 规范的框架或 SDK。
 2. 将 CQHTTP 的服务器 ` 协议头://IP 或域名: 端口号 ` 填入 `CQHTTP_URL`，需包含协议头，如：`http://1.2.3.4:5700/` 或 `https://example.com/`。
-3. 配置发送模式 `CQHTTP_MESSAGE_TYPE`，`private` 为私聊发送，`group` 为群聊发送，`guild_id` 为频道发送。
+3. 配置发送模式 `CQHTTP_MESSAGE_TYPE`，`private` 为私聊发送，`group` 为群聊发送，`guild_id` 为频道发送。发送到频道需要先获取频道 ID 和子频道 ID，详见 CQHTTP 文档[频道 API](https://docs.go-cqhttp.org/api/guild.html)。
 4. 配置消息接收方的 QQ 号 / 群号，填入 `CQHTTP_SEND_ID`，与发送模式匹配。
 5. 若配置了 `Access Token`，需要填写 `CQHTTP_TOKEN`。
 
