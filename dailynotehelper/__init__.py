@@ -22,7 +22,7 @@ def send(text: str, status: str, message: str) -> None:
 def check(region, base_data, message):
     alert = False
     status = ''
-    
+
     # CHECK COMMISSION
     if (config.COMMISSION_NOTICE_TIME):
         time_delta = reset_time_offset(region)
@@ -49,10 +49,13 @@ def check(region, base_data, message):
     if(config.RESIN_THRESHOLD):
         if(base_data.current_resin >= int(config.RESIN_THRESHOLD)):
             alert = True
-            status += _('树脂已经溢出啦！') if(base_data.current_resin >=160) else _('树脂快要溢出啦！')
-            log.info(_('🔔树脂已到临界值，当前树脂{}，发送提醒。').format(base_data.current_resin))
+            status += _('树脂已经溢出啦！') if(base_data.current_resin >=
+                                       160) else _('树脂快要溢出啦！')
+            log.info(_('🔔树脂已到临界值，当前树脂{}，发送提醒。').format(
+                base_data.current_resin))
         else:
-            log.info(_('✅树脂检查结束，当前树脂{}，未到提醒临界值。').format(base_data.current_resin))
+            log.info(_('✅树脂检查结束，当前树脂{}，未到提醒临界值。').format(
+                base_data.current_resin))
     else:
         log.info(_('⏩︎未开启树脂检查，已跳过。'))
 
@@ -60,7 +63,8 @@ def check(region, base_data, message):
     if(config.HOMECOIN_NOTICE):
         if(base_data.current_home_coin >= config.HOMECOIN_THRESHOLD*base_data.max_home_coin) and base_data.max_home_coin:
             alert = True
-            status = (status + _('洞天宝钱已经溢出啦！')) if (base_data.current_home_coin >= base_data.max_home_coin) else (status + _('洞天宝钱快要溢出啦！'))
+            status = (status + _('洞天宝钱已经溢出啦！')) if (base_data.current_home_coin >=
+                                                    base_data.max_home_coin) else (status + _('洞天宝钱快要溢出啦！'))
             log.info(_('🔔洞天宝钱已到临界值，发送提醒。'))
         else:
             log.info(_('✅洞天宝钱检查结束，未溢出。'))
@@ -108,21 +112,24 @@ def check_before_sleep(base_data, status: str):
 
 def start(cookies: list, server: str) -> None:
     for index, cookie in enumerate(cookies):
-        log.info(_('🗝️ 当前配置了{}个账号，正在执行第{}个').format(os.environ['ACCOUNT_NUM'],os.environ['ACCOUNT_INDEX']))
+        log.info(_('🗝️ 当前配置了{}个账号，正在执行第{}个').format(
+            os.environ['ACCOUNT_NUM'], os.environ['ACCOUNT_INDEX']))
         log.info('-------------------------')
         os.environ['ACCOUNT_INDEX'] = str(int(os.environ['ACCOUNT_INDEX']) + 1)
         client = Yuanshen(
             cookie, config.RUN_ENV) if server == 'cn' else Genshin(cookie)
         roles_info = client.roles_info
-        log.info(_('获取到{0}的{1}个角色...').format((_('国服') if server == 'cn' else _('国际服')),len(roles_info)))
+        log.info(_('获取到{0}的{1}个角色...').format(
+            (_('国服') if server == 'cn' else _('国际服')), len(roles_info)))
         for index, role in enumerate(roles_info):
-            log.info((_('第{}个角色，{} {}')).format(index+1,role['game_uid'],role['nickname']))
+            log.info((_('第{}个角色，{} {}')).format(
+                index+1, role['game_uid'], role['nickname']))
             if role['game_uid'] in str(config.EXCLUDE_UID):
                 log.info(_('跳过该角色'))
             else:
                 dailynote_info, message = client.prase_dailynote_info(role)
                 if dailynote_info:
-                    check(role['region'], dailynote_info, message) 
+                    check(role['region'], dailynote_info, message)
                 else:
                     status = (_('获取UID: {} 数据失败！')).format(role['game_uid'])
                     message = _('请查阅运行日志获取详细原因。')
