@@ -5,7 +5,7 @@
 New Features:
 
 - Add QQ guild(channel) support，[#19](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/19)，[config file adjustment](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/e8f190812a864f266e7f32c02793a2cfccc14722/dailynotehelper/config/config.example.yaml#L124-L128).
-- Add alert threshold of homecoin，add [HOMECOIN_THRESHOLD](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1f0730a2f7525bdf9aaac66c498b0e2412a6ebc7/dailynotehelper/config/config.example.yaml#L69) item in config file.
+- Add alert threshold of homecoin，add [HOMECOIN_THRESHOLD](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1f0730a2f7525bdf9aaac66c498b0e2412a6ebc7/dailynotehelper/config/config.example.yaml#L72) item in config file.
 
 
 ### v2.1.5 (2022-02-28)
