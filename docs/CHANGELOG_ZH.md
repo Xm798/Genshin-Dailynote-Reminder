@@ -1,6 +1,14 @@
 
 # 更新日志
 
+### v2.1.6（2022-03-09）
+
+New Features:
+
+- 增加 QQ 频道推送支持，[#19](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/19)，[配置文件字段调整](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/e8f190812a864f266e7f32c02793a2cfccc14722/dailynotehelper/config/config.example.yaml#L124-L128)。
+- 增加洞天宝钱提醒阈值设置，配置文件增加字段 [HOMECOIN_THRESHOLD](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1f0730a2f7525bdf9aaac66c498b0e2412a6ebc7/dailynotehelper/config/config.example.yaml#L69)。
+
+
 ### v2.1.5（2022-02-28）
 
 New Features:
