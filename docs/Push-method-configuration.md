@@ -84,7 +84,7 @@ After adding a bot to a group in the terminal, the creator can look at the bot-s
 
 1. Deploy [GO-CQHTTP](https://github.com/Mrs4s/go-cqhttp), see the documentation at [快速开始](https://docs.go-cqhttp.org/guide/quick_start.html#%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B), or use other frameworks or SDKs that are compatible with the [OneBot-v11](https://github.com/botuniverse/onebot-11) specification.
 2. Fill CQHTTP's server `protocol header://IP or domain:port number` with `CQHTTP_URL`, which needs to include the protocol header, e.g. `http://1.2.3.4:5700/` or `https://example.com/`.
-3. Configure the sending mode `CQHTTP_MESSAGE_TYPE`, `private` for private chat sending, `group` for group chat sending.
+3. Configure the sending mode `CQHTTP_MESSAGE_TYPE`, `private` for private chat sending, `group` for group chat sending, `guild` for QQ guild sending.
 4. Configure the QQ number/group number of the message recipient by filling in `CQHTTP_SEND_ID`to match the sending pattern.
 5. If `Access Token` is configured, you need to fill in `CQHTTP_TOKEN`.
 
