@@ -58,10 +58,10 @@ def check(region, base_data, message):
 
     # CHECK HOMECOIN
     if(config.HOMECOIN_NOTICE):
-        if(base_data.current_home_coin >= base_data.max_home_coin) and base_data.max_home_coin:
+        if(base_data.current_home_coin >= config.HOMECOIN_THRESHOLD*base_data.max_home_coin) and base_data.max_home_coin:
             alert = True
-            status = status + _('洞天宝钱已经溢出啦！')
-            log.info(_('🔔洞天宝钱已经溢出，发送提醒。'))
+            status = (status + _('洞天宝钱已经溢出啦！')) if (base_data.current_home_coin >= base_data.max_home_coin) else (status + _('洞天宝钱快要溢出啦！'))
+            log.info(_('🔔洞天宝钱已到临界值，发送提醒。'))
         else:
             log.info(_('✅洞天宝钱检查结束，未溢出。'))
     else:

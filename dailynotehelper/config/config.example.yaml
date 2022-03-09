@@ -67,6 +67,9 @@ receive_notice:
   # 洞天宝钱溢出提醒，true or false
   # Homecoin overflow reminder，true or false
   HOMECOIN_NOTICE: true
+  # 洞天宝钱提醒的阈值，为最大存储上限×该值，该值为 0 到 1 之间的数字
+  # The threshold of Homecoin, which is the maximum storage upper limit × this value. A number between 0 and 1.
+  HOMECOIN_THRESHOLD: 0.9
 
 time:
   # 检查间隔（分钟），云函数运行时请确保与触发器设置一致，以便执行睡前检查

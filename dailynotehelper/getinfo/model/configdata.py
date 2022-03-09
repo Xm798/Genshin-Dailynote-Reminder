@@ -15,6 +15,7 @@ class ConfigData(BaseModel):
     EXPEDITION_INFO: StrictBool = True
     TROUNCE_INFO: StrictBool = True
     HOMECOIN_INFO: StrictBool = True
+    HOMECOIN_THRESHOLD: float = 0.9
 
     RESIN_THRESHOLD: int = 140
     COMMISSION_NOTICE_TIME: Optional[str] = '21:00'
