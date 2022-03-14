@@ -249,6 +249,8 @@ ii. **使用 docker-compose**
 1. RUN_ENV：
 
     指定运行环境，国内云服务商运行使用`cloud`，否则使用`local`，仅对国服生效。该选项旨在为在国内云服务器运行的用户提供兼容性选项，`cloud`为旧版 API，曾经无法使用，现在又恢复了。但由于米游社已全面更换为新的 API，因此默认使用`local`环境即新 API 运行。详情参考：[米游社可能已经禁止国内特定 VPS 服务商的 IP 或 ASN](https://github.com/Arondight/Adachi-BOT/issues/522)。
+
+    **2022/3/14 更新**：由于新接口极不稳定，本地请求也会概率触发阿里云应用防火墙的盾，因此请使用 `cloud` 环境，等老接口不能用了再说。
     
 2. **COOKIE**: 
       1. 国服打开[米游社社区](https://bbs.mihoyo.com/ys)并登录，国际服打开[Hoyolab](https://www.hoyolab.com/)并登录
