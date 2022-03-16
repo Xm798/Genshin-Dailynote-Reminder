@@ -22,24 +22,37 @@ def get_ds(oversea, params: dict, body: str) -> str:
 
 
 def get_headers(params: dict = None, body: dict = None, ds: bool = False, oversea: bool = False) -> dict:
-    version_cn: str = '2.21.2'
-    version_os: str = '2.4.1'
-    ua_cn = f'Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/{version_cn}'
-    ua_os = f'Mozilla/5.0 (Linux; Android 12; Mi 10 Pro Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) miHoYoBBSOversea/{version_os}'
-    ua = ua_os if oversea else ua_cn
-    version = version_os if oversea else version_cn
-    client_type = '2' if oversea else '5'
+    cn = {
+        "x-rpc-app_version": "2.23.1",
+        "User-Agent": "Mozilla/5.0 (Linux; Android 12; Mi 10 Pro Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.4638.74 Mobile Safari/537.36 miHoYoBBS/2.23.1",
+        "x-rpc-client_type": "5",
+        "Origin": "https://webstatic.mihoyo.com",
+        "X-Requested-With": "com.mihoyo.hyperion",
+        "Referer": "https://webstatic.mihoyo.com/"
+    }
+    os = {
+        "x-rpc-app_version": "2.6.0",
+        "User-Agent": "Mozilla/5.0 (Linux; Android 12; Mi 10 Pro Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.4638.74 Mobile Safari/537.36 miHoYoBBSOversea/2.6.0",
+        "x-rpc-client_type": "2",
+        "Origin": "https://webstatic-sea.hoyolab.com",
+        "X-Requested-With": "com.mihoyo.hoyolab",
+        "Referer": "https://webstatic-sea.hoyolab.com"
+    }
+    client = os if oversea else cn
     headers = {
         'Accept': 'application/json, text/plain, */*',
-        'User-Agent': ua,
+        'User-Agent': client['User-Agent'],
+        'X-Requested-With': client['X-Requested-With'],
+        'Origin': client['Origin'],
+        'Referer': client['Referer']
     }
     if ds:
         ds = get_ds(oversea, params, body)
         headers.update({
             'DS': ds,
-            'x-rpc-client_type': client_type,
-            'x-rpc-app_version': version,
-            'x-rpc-device_id': str(uuid.uuid3(uuid.NAMESPACE_URL, ua)).replace('-', '').upper(),
+            'x-rpc-client_type': client['x-rpc-client_type'],
+            'x-rpc-app_version': client['x-rpc-app_version'],
+            'x-rpc-device_id': str(uuid.uuid3(uuid.NAMESPACE_URL, client['User-Agent'])).replace('-', '').upper(),
         })
     return headers
 

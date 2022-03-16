@@ -1,5 +1,12 @@
 # Changelog
 
+### v2.1.6.1 (2022-03-16)
+
+Others:
+
+- Update APP version in dailynote API of CN server to 2.23.1，update salt and request headers.
+- Update APP version in dailynote API of oversea server to 2.6.0, update request headers.
+
 ### v2.1.6（2022-03-09）
 
 New Features:
