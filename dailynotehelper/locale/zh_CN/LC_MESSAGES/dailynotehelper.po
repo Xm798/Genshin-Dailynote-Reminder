@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-09 10:02+0800\n"
-"PO-Revision-Date: 2022-03-09 10:04+0800\n"
+"POT-Creation-Date: 2022-03-16 15:06+0800\n"
+"PO-Revision-Date: 2022-03-16 15:07+0800\n"
 "Last-Translator: \n"
 "Language-Team: https://crowdin.com/project/genshin-dailynote-helper\n"
 "Language: zh_CN\n"
@@ -179,7 +179,7 @@ msgstr ""
 msgid "获取数据失败！"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\client.py:72
+#: .\dailynotehelper\getinfo\client.py:73
 msgid "未开启实时便笺！"
 msgstr ""
 

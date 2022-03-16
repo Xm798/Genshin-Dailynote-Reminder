@@ -56,10 +56,11 @@ class Client(object):
             'server': region
         }
         try:
-            response = Response.parse_obj(request('get', url, headers=get_headers(
-            params=body, ds=True, oversea=self.oversea), params=body, cookies=self.cookie).json())
+            r = request('get', url, headers=get_headers(params=body, ds=True, oversea=self.oversea), params=body, cookies=self.cookie)
+            response = Response.parse_obj(r.json())
         except:
             log.error(_('获取数据失败！'))
+            log.error(r.content)
             self.dailynote_info = None
         else:
             if response.retcode == 0:
