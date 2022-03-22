@@ -189,7 +189,7 @@ i. **使用镜像**
      ```shell
      docker run -d \
      -v /PATH-to-YOUR-CONFIG/config.yaml:/app/dailynotehelper/config/config.yaml \
-     --env TZ=Asia/Shanghai
+     --env TZ=Asia/Shanghai \
      --restart=always \
      --name=genshin-dailynote-helper \
      xm798/genshin-dailynote-helper:latest
@@ -198,7 +198,7 @@ i. **使用镜像**
      ```shell
      docker run -d \
      -v /PATH-to-YOUR-CONFIG/config.yaml:/app/dailynotehelper/config/config.yaml \
-     --env TZ=Asia/Shanghai
+     --env TZ=Asia/Shanghai \
      --restart=always \
      --name=genshin-dailynote-helper \
      ccr.ccs.tencentyun.com/xm798/genshin-dailynote-helper:latest
