@@ -48,6 +48,9 @@ receive_info:
   # 洞天宝钱
   # Home coin
   HOMECOIN_INFO: true
+  # 参量质变仪
+  # Parametric Transformer
+  TRANSFORMER_INFO: true
 
 # 接收提醒设置
 # Receive reminder settings
@@ -56,7 +59,7 @@ receive_notice:
   # The original resin reminder threshold, fill in 0 to close the reminder
   RESIN_THRESHOLD: 140
   # 委托未完成的提醒时间，不填则关闭提醒
-  # Reminder time when the commissions is not completed, if not filled, the reminder will be closed
+  # Reminder time when the commissions are not completed, if not filled, the reminder will be closed
   COMMISSION_NOTICE_TIME: '21:00'
   # 探索派遣完成提醒，true or false
   # Expeditions completion reminder, true or false
@@ -69,7 +72,10 @@ receive_notice:
   HOMECOIN_NOTICE: true
   # 洞天宝钱提醒的阈值，为最大存储上限×该值，该值为 0 到 1 之间的数字
   # The threshold of Homecoin, which is the maximum storage upper limit × this value. A number between 0 and 1.
-  HOMECOIN_THRESHOLD: 0.9
+  HOMECOIN_THRESHOLD: 0.95
+  # 参量质变仪就绪提醒
+  # Parametric Transformer status reminder, true or false
+  TRANSFORMER: true
 
 time:
   # 检查间隔（分钟），云函数运行时请确保与触发器设置一致，以便执行睡前检查
@@ -81,7 +87,7 @@ time:
 
 # 推送通道设置
 # Push channel settings
-notifier:
+notifier: # 这里不要填东西 Donot put anything here!
 
 # 企业微信
   # 企业ID

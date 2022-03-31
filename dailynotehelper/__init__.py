@@ -93,6 +93,20 @@ def check(region, base_data, message):
     else:
         log.info(_('⏩︎未开启探索派遣完成提醒，已跳过。'))
 
+    # CHECK TRANSFORMER
+    if config.TRANSFORMER:
+        if base_data.transformer.get('obtained'):
+            if base_data.transformer.get('recovery_time')['reached']:
+                alert = True
+                status = status + _('参量质变仪已就绪！')
+                log.info(_('🔔参量质变仪已就绪，发送提醒。'))
+            else:
+                log.info(_('✅参量质变仪未准备好。'))
+        else:
+            log.info(_('⏩︎参量质变仪未获得。'))
+    else:
+        log.info(_('⏩︎未开启参量质变仪就绪提醒，已跳过。'))
+
     # CHECK BEFORE SLEEP
     if config.SLEEP_TIME:
         overflow, status = check_before_sleep(base_data, status)

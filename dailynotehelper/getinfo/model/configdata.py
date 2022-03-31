@@ -1,6 +1,7 @@
 from typing_extensions import Literal
 from typing import Optional, List
-from pydantic import BaseModel,StrictBool,Field
+from pydantic import BaseModel, StrictBool, Field
+
 
 class ConfigData(BaseModel):
     LANGUAGE: Literal['zh_CN', 'en_US', 'zh_TW'] = 'zh_CN'
@@ -8,20 +9,22 @@ class ConfigData(BaseModel):
     COOKIE: List[str] = []
     COOKIE_HOYOLAB: List[str] = []
     EXCLUDE_UID: List[int] = []
-    DISPLAY_UID: StrictBool  = True
+    DISPLAY_UID: StrictBool = True
 
     RESIN_INFO: StrictBool = True
     COMMISSION_INFO: StrictBool = True
     EXPEDITION_INFO: StrictBool = True
     TROUNCE_INFO: StrictBool = True
     HOMECOIN_INFO: StrictBool = True
-    HOMECOIN_THRESHOLD: float = 0.9
+    HOMECOIN_THRESHOLD: float = 0.95
+    TRANSFORMER_INFO: StrictBool = True
 
     RESIN_THRESHOLD: int = 140
     COMMISSION_NOTICE_TIME: Optional[str] = '21:00'
     EXPEDITION_NOTICE: StrictBool = True
     WAIT_ALL_EXPEDITION: StrictBool = False
     HOMECOIN_NOTICE: StrictBool = True
+    TRANSFORMER: StrictBool = True
 
     CHECK_INTERVAL: int = 30
     SLEEP_TIME: Optional[str] = '23:00-07:00'
@@ -50,7 +53,7 @@ class ConfigData(BaseModel):
     CQHTTP_SEND_CHANNEL_ID: Optional[str]
     CQHTTP_TOKEN: Optional[str]
 
-    DD_BOT_TOKEN: Optional[str] 
+    DD_BOT_TOKEN: Optional[str]
     DD_BOT_SECRET: Optional[str]
 
     SCTKEY: Optional[str]

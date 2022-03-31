@@ -36,5 +36,5 @@ class BaseData(pydantic.BaseModel):
     home_coin_recovery_time: int = 0
 
     expeditions: List[dict] = []
-
+    transformer: dict = {}
     finished_expedition_num: Literal[0, 1, 2, 3, 4, 5] = 0

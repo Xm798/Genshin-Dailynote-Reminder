@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-31 09:24+0800\n"
+"POT-Creation-Date: 2022-03-31 09:59+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\dailynotehelper\__init__.py:34 .\dailynotehelper\getinfo\praseinfo.py:82
+#: .\dailynotehelper\__init__.py:34 .\dailynotehelper\getinfo\praseinfo.py:85
 msgid "奖励未领取"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "🔔今日委托已完成，奖励未领取，发送提醒。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:42 .\dailynotehelper\getinfo\praseinfo.py:82
+#: .\dailynotehelper\__init__.py:42 .\dailynotehelper\getinfo\praseinfo.py:85
 msgid "奖励已领取"
 msgstr ""
 
@@ -113,60 +113,80 @@ msgstr ""
 msgid "⏩︎未开启探索派遣完成提醒，已跳过。"
 msgstr ""
 
+#: .\dailynotehelper\__init__.py:101
+msgid "参量质变仪已就绪！"
+msgstr ""
+
 #: .\dailynotehelper\__init__.py:102
+msgid "🔔参量质变仪已就绪，发送提醒。"
+msgstr ""
+
+#: .\dailynotehelper\__init__.py:104
+msgid "✅参量质变仪未准备好。"
+msgstr ""
+
+#: .\dailynotehelper\__init__.py:106
+msgid "⏩︎参量质变仪未获得。"
+msgstr ""
+
+#: .\dailynotehelper\__init__.py:108
+msgid "⏩︎未开启参量质变仪就绪提醒，已跳过。"
+msgstr ""
+
+#: .\dailynotehelper\__init__.py:116
 msgid "亲爱的旅行者，"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:117
+#: .\dailynotehelper\__init__.py:131
 msgid "树脂将会在{}溢出，睡前记得清树脂哦！"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:118
+#: .\dailynotehelper\__init__.py:132
 msgid "🔔睡眠期间树脂将会溢出，发送提醒。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:120
+#: .\dailynotehelper\__init__.py:134
 msgid "✅睡眠期间树脂不会溢出，放心休息。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:127
+#: .\dailynotehelper\__init__.py:141
 msgid "🗝️ 当前配置了{}个账号，正在执行第{}个"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:136
+#: .\dailynotehelper\__init__.py:150
 #, python-brace-format
 msgid "获取到{0}的{1}个角色..."
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:137
+#: .\dailynotehelper\__init__.py:151
 msgid "国服"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:137
+#: .\dailynotehelper\__init__.py:151
 msgid "国际服"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:142
+#: .\dailynotehelper\__init__.py:156
 msgid "第{}个角色，{} {}"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:147
+#: .\dailynotehelper\__init__.py:161
 msgid "跳过该角色"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:153
+#: .\dailynotehelper\__init__.py:167
 msgid "获取UID: {} 数据失败！"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:154
+#: .\dailynotehelper\__init__.py:168
 msgid "请查阅运行日志获取详细原因。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:161
+#: .\dailynotehelper\__init__.py:175
 msgid "😴休眠中……"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:169
+#: .\dailynotehelper\__init__.py:183
 msgid "本轮运行结束，等待下次检查..."
 msgstr ""
 
@@ -202,84 +222,96 @@ msgstr ""
 msgid "亚服 🐯"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:54
+#: .\dailynotehelper\getinfo\praseinfo.py:57
 msgid "当前树脂：{} / {}\n"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:65
+#: .\dailynotehelper\getinfo\praseinfo.py:68
 msgid "下个回复倒计时：{}\n"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:69
-#: .\dailynotehelper\getinfo\praseinfo.py:137
+#: .\dailynotehelper\getinfo\praseinfo.py:72
+#: .\dailynotehelper\getinfo\praseinfo.py:140
 msgid "今天"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:69
-#: .\dailynotehelper\getinfo\praseinfo.py:137
+#: .\dailynotehelper\getinfo\praseinfo.py:72
+#: .\dailynotehelper\getinfo\praseinfo.py:140
 msgid "明天"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:70
+#: .\dailynotehelper\getinfo\praseinfo.py:73
 msgid "全部回复时间：{} {}"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:75
+#: .\dailynotehelper\getinfo\praseinfo.py:78
 msgid "周本树脂减半：{} / {}"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:83
+#: .\dailynotehelper\getinfo\praseinfo.py:86
 msgid ""
 "今日委托任务：{}   {}\n"
 "--------------------"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:88
+#: .\dailynotehelper\getinfo\praseinfo.py:91
 msgid "周一"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:89
+#: .\dailynotehelper\getinfo\praseinfo.py:92
 msgid "周二"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:90
+#: .\dailynotehelper\getinfo\praseinfo.py:93
 msgid "周三"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:91
+#: .\dailynotehelper\getinfo\praseinfo.py:94
 msgid "周四"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:92
+#: .\dailynotehelper\getinfo\praseinfo.py:95
 msgid "周五"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:93
+#: .\dailynotehelper\getinfo\praseinfo.py:96
 msgid "周六"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:94
+#: .\dailynotehelper\getinfo\praseinfo.py:97
 msgid "周日"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:96
+#: .\dailynotehelper\getinfo\praseinfo.py:99
 msgid "当前洞天宝钱/上限：{} / {}\n"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:103
+#: .\dailynotehelper\getinfo\praseinfo.py:106
 msgid "洞天宝钱全部恢复时间：{} {}\n"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:131
+#: .\dailynotehelper\getinfo\praseinfo.py:134
 msgid "  · {}：已完成"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:139
+#: .\dailynotehelper\getinfo\praseinfo.py:142
 msgid "  · {} 完成时间：{}{}"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\praseinfo.py:149
+#: .\dailynotehelper\getinfo\praseinfo.py:152
 msgid ""
 "当前探索派遣总数/完成/上限：{}\n"
 "{}"
+msgstr ""
+
+#: .\dailynotehelper\getinfo\praseinfo.py:158
+msgid "参量质变仪：已就绪"
+msgstr ""
+
+#: .\dailynotehelper\getinfo\praseinfo.py:160
+msgid "参量质变仪： {} 天 {} 小时后可用"
+msgstr ""
+
+#: .\dailynotehelper\getinfo\praseinfo.py:165
+msgid "参量质变仪： 未获得"
 msgstr ""

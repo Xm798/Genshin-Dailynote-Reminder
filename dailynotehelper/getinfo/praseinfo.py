@@ -35,6 +35,9 @@ def prase_info(base_data, role) -> list:
     # task_num
     if config.COMMISSION_INFO:
         result.append(get_commission_info(base_data))
+    # transformer
+    if config.TRANSFORMER_INFO:
+        result.append(get_transformer_info(base_data))
     # home_coin
     if config.HOMECOIN_INFO:
         result.append(get_homecoin_info(base_data))
@@ -120,7 +123,7 @@ def get_expedition_info(base_data: BaseData) -> str:
     finished = 0
     for expedition in base_data.expeditions:
         avatar = re.search(
-            (r'(?<=(UI_AvatarIcon_Side_)).*(?=.png)'), expedition['avatar_side_icon']
+            r'(?<=(UI_AvatarIcon_Side_)).*(?=.png)', expedition['avatar_side_icon']
         ).group()
         try:
             avatar_name: str = avatar_json[avatar]
@@ -147,3 +150,16 @@ def get_expedition_info(base_data: BaseData) -> str:
     base_data.finished_expedition_num = finished
     expedition_data: str = '\n'.join(expedition_info)
     return (_('当前探索派遣总数/完成/上限：{}\n{}')).format(expedition_num, expedition_data)
+
+
+def get_transformer_info(basedata: BaseData) -> str:
+    if basedata.transformer.get('obtained'):
+        if basedata.transformer.get('recovery_time')['reached']:
+            return _('参量质变仪：已就绪')
+        else:
+            return (_('参量质变仪： {} 天 {} 小时后可用')).format(
+                basedata.transformer.get('recovery_time')['Day'],
+                basedata.transformer.get('recovery_time')['Hour'],
+            )
+    else:
+        return _('参量质变仪： 未获得')
