@@ -1,52 +1,50 @@
 
 # 更新日志
 
-### v2.1.6.1 (2022-03-16)
+## v2.1.6.1 (2022-03-16)
 
 Others:
 
 - 更新国服每日便笺接口 APP 版本为 2.23.1，更新加密算法 salt，更新 headers
 - 更新国际服每日便笺接口 APP 版本为 2.6.0，更新 headers
 
-### v2.1.6（2022-03-09）
+## v2.1.6（2022-03-09）
 
 New Features:
 
 - 增加 QQ 频道推送支持，[#19](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/19)，[配置文件字段调整](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/e8f190812a864f266e7f32c02793a2cfccc14722/dailynotehelper/config/config.example.yaml#L124-L128)。
 - 增加洞天宝钱提醒阈值设置，配置文件增加字段 [HOMECOIN_THRESHOLD](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1f0730a2f7525bdf9aaac66c498b0e2412a6ebc7/dailynotehelper/config/config.example.yaml#L72)。
 
-
-### v2.1.5（2022-02-28）
+## v2.1.5（2022-02-28）
 
 New Features:
 
 - 调整探索派遣倒计时为完成时间
-- 增加自定义推送支持, [#18](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/18)
+- 增加自定义推送支持，[#18](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/18)
 
-
-### v2.1.4（2022-02-16）
+## v2.1.4（2022-02-16）
 
 New Features:
 
 - 新增阿里云 FC 入口
 
-### v2.1.3（2022-02-16）
+## v2.1.3（2022-02-16）
 
 New Features:
 
-- 本地化新增中文繁体-台湾支持
+- 本地化新增中文繁体 - 台湾支持
 
 Others:
 
 - 重构本地化模块
 
-### v2.1.2（2022-02-14）
+## v2.1.2（2022-02-14）
 
 New Features:
 
 - 添加国际化支持并添加英文版，但英文文本需要校对。
 
-### v2.1.1（2022-02-13）
+## v2.1.1（2022-02-13）
 
 New Features:
 
@@ -56,7 +54,7 @@ Bug Fixes:
 
 - 修复是否接收洞天宝钱信息开关不起作用的问题
 
-### v2.1.0（2022-02-12）
+## v2.1.0（2022-02-12）
 
 New Features:
 
@@ -67,7 +65,7 @@ Bug Fixes:
 
 - 修复 API 请求失败时异常退出的问题
 
-### v2.0.1（2022-02-10）
+## v2.0.1（2022-02-10）
 
 New Features:
 
@@ -77,7 +75,7 @@ Bug Fixes:
 
 - 修正部分推送配置为空时异常的问题
 
-### v2.0.0（2022-02-09）
+## v2.0.0（2022-02-09）
 
 BREAKING CHANGE:
 
@@ -99,8 +97,7 @@ Others:
 - 优化推送体验
 - 重构部分模块
 
-
-### v1.3.3（2022-02-06）
+## v1.3.3（2022-02-06）
 
 New Features:
 
@@ -113,11 +110,11 @@ Bug Fixes:
 - 调整 cqhttp 参数，将`CQHTTP_IP`和`CQHTTP_PORT`合并为`CQHTTP_URL`
 - 调整部分通道渲染样式
 
-### v1.3.2（2022-01-12）
+## v1.3.2（2022-01-12）
 
 Bug Fixes
 
-### v1.3.1（2022-01-10）
+## v1.3.1（2022-01-10）
 
 New Features:
 
@@ -127,7 +124,7 @@ Bug Fixes:
 
 - 修复 BARK 推送状态检测错误的问题
 
-### v1.3.0（2022-01-10）
+## v1.3.0（2022-01-10）
 
 新年新气象~
 
@@ -145,32 +142,32 @@ Bug Fixes:
 - 修复诺艾尔角色信息错误
 - 优化休眠逻辑
 
-### v1.2.5（2021-12-24）
+## v1.2.5（2021-12-24）
 
 Bug Fixes：
 
 - 同步米游社 API 变动，更换新的 API。
 
-### v1.2.4（2021-11-24）
+## v1.2.4（2021-11-24）
 
 Bug Fixes：
 
 - 修复 cookie 出错时的异常退出问题
 
-### v1.2.3（2021-11-23）
+## v1.2.3（2021-11-23）
 
 New Features:
 
 - CQHTTP 推送 IP 字段支持协议头，以支持 HTTPS
 
-### v1.2.2（2021-11-10）
+## v1.2.2（2021-11-10）
 
 New Features:
 
 - 优化每日委托提醒时间判断逻辑
 - 增加每日委托奖励领取情况判断，去他人世界做委托领取奖励后不再会被误认为未完成委托。
 
-### v1.2.1（2021-11-01）
+## v1.2.1（2021-11-01）
 
 Bug Fixes：
 
@@ -181,7 +178,7 @@ New Features:
 - 增加群推送模式支持
 - 增加自定义端口支持
 
-### v1.2.0 (2021-11-01)
+## v1.2.0 (2021-11-01)
 
 New Features:
 
@@ -189,30 +186,34 @@ New Features:
 - 日志增加每轮检查树脂值显示
 
 Bug Fixes：
+
 - 修复 cqhttp 推送错误提示
 - 配置文件部分字段改为可选配置
 
-### v1.1.2（2021-10-29）
+## v1.1.2（2021-10-29）
 
 New Features:
 
 - 增加 cqhttp 推送
 
 Others:
+
 - 更新文档
 
-### v1.1.1 (2021-10-28)
+## v1.1.1 (2021-10-28)
 
 New Features:
 
 - 增加探索派遣完成提醒
 - 优化提醒标题
 
-### v1.1.0 (2021-10-28)
+## v1.1.0 (2021-10-28)
 
 New Features:
+
 - 优化提醒逻辑
 - 增加账号信息显示
 
 Bug Fixes:
+
 - 修复休眠时间不正确的问题

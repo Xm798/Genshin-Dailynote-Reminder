@@ -16,7 +16,6 @@
 - [12. Qmsg](#12-qmsg)
 - [13. Custom Notifier](#13-custom-notifier)
 
-
 ## 1. Wechat Work
 
 ### i. WeChat Work self-built application
@@ -31,7 +30,7 @@
 
 3. After the creation, enter the application details page, you can get the application ID ( `agentid` ), application secret ( `secret` ), copy and fill in the corresponding location of the configuration file (when you get the application secret, it may be pushed to the enterprise WeChat client. (You need to check it in the enterprise WeChat client).
 
-![img](https://s2.loli.net/2022/02/06/1N3rnFVHBqQk2Wh.png)
+   ![img](https://s2.loli.net/2022/02/06/1N3rnFVHBqQk2Wh.png)
 
 4. Get enterprise ID: Go to " [我的企业](https://work.weixin.qq.com/wework_admin/frame#profile)" page, pull down to the bottom, you can see the enterprise ID, copy and fill in the configuration file.
 
@@ -45,8 +44,8 @@
 
 Note: In case of `interface request is normal, enterprise WeChat receives messages normally, personal WeChat cannot receive messages`.
 
-1.  Go to "My Business" → " [微信插件](https://work.weixin.qq.com/wework_admin/frame#profile/wxPlugin)", pull to the bottom and check "Allow members to receive and reply to chat messages in WeChat plugin" ![img](https://s2.loli.net/2022/02/06/sF8MS3ZBUCueN7I.jpg)
-2.  Turn off the restriction of "Receive messages only in Enterprise Wechat" in "Me" → "Settings" → "New Message Notification" in Enterprise Wechat client ![img](https://s2.loli.net/2022/02/06/OdyJslVKtekTIAX.jpg)
+1. Go to "My Business" → " [微信插件](https://work.weixin.qq.com/wework_admin/frame#profile/wxPlugin)", pull to the bottom and check "Allow members to receive and reply to chat messages in WeChat plugin" ![img](https://s2.loli.net/2022/02/06/sF8MS3ZBUCueN7I.jpg)
+2. Turn off the restriction of "Receive messages only in Enterprise Wechat" in "Me" → "Settings" → "New Message Notification" in Enterprise Wechat client ![img](https://s2.loli.net/2022/02/06/OdyJslVKtekTIAX.jpg)
 
 ### ii. WeChat Work group robot
 
@@ -67,7 +66,7 @@ After adding a bot to a group in the terminal, the creator can look at the bot-s
 ## 3. Telegram Bot
 
 1. To create a bot: Open [@BotFather](https://t.me/botfather), enter `/newbot` to create a new bot. Follow the prompts and enter: Bot name, Bot account (needs to end with bot), copy the obtained Token and fill in the configuration file `TG_BOT _TOKEN`. ![ image-20220206143711051 ](https://s2.loli.net/2022/02/06/MBX7EmTJZDtzq93.png)
-2. Click on the link `t.me/你的botid `in the message box to jump to your bot and click `START` to associate your bot.
+2. Click on the link `t.me/your_botid`in the message box to jump to your bot and click `START` to associate your bot.
 3. Open [@userinfobot](https://t.me/userinfobot), send `/start`, get your ID and fill in the profile `TG_USER_ID`.
 4. To use Telegram bot push, you need to configure a proxy or fill in the configuration file `TG_BOT_API` after setting up the inverse proxy server.
 
@@ -109,7 +108,7 @@ Note: The free version of Server Jam has a maximum number of 5 calls per day.
 ## 9. Discord Webhook
 
 1. Go to Server Settings - Integrations, click Create Webhook, click Copy Webhook URL and fill in the configuration file `DISCORD_WEBHOOK`.
-2. You can set the bot display name `DISCORD_USERNAME`, bot avatar `DISCORD_AVATAR` (needs to be a web image address) and message card color `DISCORD_COLOR` as needed, read [ Discord Webhooks Guide ](https://birdie0.github.io/discord-webhooks-guide/structure/embeds.html)for details.
+2. You can set the bot display name `DISCORD_USERNAME`, bot avatar `DISCORD_AVATAR` (needs to be a web image address) and message card color `DISCORD_COLOR` as needed, read [Discord Webhooks Guide](https://birdie0.github.io/discord-webhooks-guide/structure/embeds.html)for details.
 
 ## 10. Email
 
@@ -178,6 +177,7 @@ Note: Qmsg is easily determined to be in violation =\_= and cannot be pushed in 
    retcode_key: 'ok'
    retcode_value: True
 ```
+
 #### Send Pushplus push with custom notifier
 
 ```yaml

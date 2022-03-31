@@ -2,8 +2,7 @@ English | [简体中文](./docs/README_ZH.md)
 
 # Genshin Dailynote Helper
 
-
-<div align="center"> 
+<div align="center">
 
 [![](https://img.shields.io/badge/Author-Xm798-blueviolet?style=flat-square)](https://github.com/Xm798/)
 [![](https://img.shields.io/badge/Github-blue?style=flat-square&logo=Github&logoColor=181717&labelColor=eeeeee&color=181717)](https://github.com/Xm798/Genshin-Dailynote-Helper)
@@ -16,39 +15,41 @@ English | [简体中文](./docs/README_ZH.md)
 
 </div>
 
-
 ## Introduction
 
 Check and push the status of the Genshin Impact resin, commissions, expeditions and homecoin.
 
 **Features**
-  - Support running on cloud functions, docker and local machine
-  - Support multi-account and multi-role
-  - Support push to multiple channels
-  - Support CN server (official and channel server) and oversea server
-  - Support for skipping certain roles (when multiple roles are bound under the same Mihoyo / Hoyolab account)
+
+- Support running on cloud functions, docker and local machine
+- Support multi-account and multi-role
+- Support push to multiple channels
+- Support CN server (official and channel server) and oversea server
+- Support for skipping certain roles (when multiple roles are bound under the same Mihoyo / Hoyolab account)
 
 **Supports sending a notification when**
-  - Resin is about to overflow
-  - Today's commission is not completed
-  - Overflow of home coin
-  - Expeditions completed
-  - Resin will overflow during the no-disturb time period
+
+- Resin is about to overflow
+- Today's commission is not completed
+- Overflow of home coin
+- Expeditions completed
+- Resin will overflow during the no-disturb time period
 
 ## Content
-  - [Introduction](#introduction)
-  - [Examples](#examples)
-  - [How to use](#how-to-use)
-  - [Configuration file parameters description](#configuration-file-parameters-description)
-    - [Some basic information](#some-basic-information)
-    - [Configuration file example](#configuration-file-example)
-  - [Push method configuration](#push-method-configuration)
-  - [💬Feedback](#feedback)
-  - [Changelog](#changelog)
-  - [Acknowledgements](#acknowledgements)
-    - [Open Source Projects](#open-source-projects)
-    - [Translators](#translators)
-  - [License](#license)
+
+- [Introduction](#introduction)
+- [Examples](#examples)
+- [How to use](#how-to-use)
+- [Configuration file parameters description](#configuration-file-parameters-description)
+  - [Some basic information](#some-basic-information)
+  - [Configuration file example](#configuration-file-example)
+- [Push method configuration](#push-method-configuration)
+- [💬Feedback](#feedback)
+- [Changelog](#changelog)
+- [Acknowledgements](#acknowledgements)
+  - [Open Source Projects](#open-source-projects)
+  - [Translators](#translators)
+- [License](#license)
 
 ## Examples
 
@@ -56,11 +57,9 @@ Check and push the status of the Genshin Impact resin, commissions, expeditions 
 
 <img src="https://s2.loli.net/2022/02/10/fop8SNLW1bqejEQ.png" width="300px" />
 
-
 **Display of each push channel**
 
 <details>
-
 
 **Notification Center**
 
@@ -119,7 +118,7 @@ Check and push the status of the Genshin Impact resin, commissions, expeditions 
 <details>
 
 1. Download the latest code packages from [Release page](https://github.com/Xm798/Genshin-Dailynote-Helper/releases) and domestically from [Gitee mirror](https://gitee.com/Xm798/Genshin-Dailynote-Helper/releases).
-   
+
 2. Open [Tencent Cloud SCF](https://console.cloud.tencent.com/scf), log in to your account, and click on "Function Services" - "New".
 
 3. Select "Start from scratch" and enter a function name. If you want to detect international services or push Telegram or Discord, you must select a region other than mainland China, such as Hong Kong. The runtime environment is Python 3.7.
@@ -154,7 +153,6 @@ i. **Using Docker Image**
 
   2. Run, `/PATH-to-YOUR-CONFIG/config.yaml` is the path to your local configuration file, you need to fill it according to the actual situation. The environment variable `TZ` is the time zone of your location (**very important**, otherwise the time will be incorrect), you can check the list of time zones at [here](https://gist.github.com/Xm798/54d188c65f683b84a74cfbe340c09518).
 
-
      ```shell
      docker run -d \
      -v /PATH-to-YOUR-CONFIG/config.yaml:/app/dailynotehelper/config/config.yaml \
@@ -163,6 +161,7 @@ i. **Using Docker Image**
      --name=genshin-dailynote-helper \
      xm798/genshin-dailynote-helper:latest
      ```
+
      If you are running on a chinese mainland machine, you can use the image on Tencent Cloud.
 
      ```shell
@@ -178,7 +177,6 @@ ii. **Using docker-compose**
 
   Clone the project, fill in the configuration file and build it to run. The environment variable TZ is the time zone of your location, you can check the list of time zones at [here](https://gist.github.com/Xm798/54d188c65f683b84a74cfbe340c09518).
 
-
   ```sh
   git clone https://github.com/Xm798/Genshin-Dailynote-Helper.git
   cd Genshin-Dailynote-Helper
@@ -192,7 +190,6 @@ ii. **Using docker-compose**
 
 2. Download the project and install the dependencies.
 
-
    ```shell
    git clone https://github.com/Xm798/Genshin-Dailynote-Helper.git
    cd Genshin-Dailynote-Helper
@@ -202,7 +199,6 @@ ii. **Using docker-compose**
 3. Modify configuration
 
    Copy `./dailynotehelper/config/config.example.yaml` and save it as `config.yaml`and fill in the configuration information.
-
 
    ```shell
    cp ./dailynotehelper/config/config.example.yaml ./dailynotehelper/config/config.yaml
@@ -222,7 +218,7 @@ ii. **Using docker-compose**
 1. RUN_ENV, only for CN server
 
     Specify the runtime environment, use `cloud` for running on domestic cloud service providers, otherwise use `local`, only effective for national service. This option is designed to provide compatibility options for users running on domestic cloud servers. `cloud` is an old version of the API, which was once unusable and is now restored. However, since MiYosha has been fully replaced with the new API, the default is to run with the `local` environment, which is the new API. For more information, please refer to [米游社可能已经禁止国内特定VPS服务商的IP或ASN](https://github.com/Arondight/Adachi-BOT/issues/522).
-    
+
 2. **COOKIE**:
       1. Open [Mihoyo bbs](https://bbs.mihoyo.com/ys) for cn server and [Hoyolab](https://www.hoyolab.com/) for oversea server, then login.
       2. Press F12 to open Developer Tools.
@@ -234,10 +230,10 @@ ii. **Using docker-compose**
     ```
 
 3. **EXCLUDE_UID**
-   
+
    If you have multiple characters bound to your MiYosha/Hoyolab account, but don't want to receive alerts for some of them, you can write their UIDs here, one per line.
 
-### Example configuration file 
+### Example configuration file
 
 [config.example.yaml](./dailynotehelper/config/config.example.yaml)
 
@@ -268,18 +264,14 @@ ii. **Using docker-compose**
 |    [Custom Notifier](./docs/Push-method-configuration.md#13-custom-notifier)     |    ✅ Supported    |                                        |                                          |
 |                                       IGOT                                       |   🛠️ Not tested    |                                        |                                          |
 
-
 ## 💬Feedback
 
 [![](https://img.shields.io/badge/%20-QQ%20Group-blue?style=for-the-badge&logo=Tencent%20QQ&logoColor=EB1923&labelColor=eeeeee&color=EB1923)](https://jq.qq.com/?_wv=1027&k=CnNxc9hp)
 [![](https://img.shields.io/badge/%20-Telegram%20Group-blue?style=for-the-badge&logo=Telegram&logoColor=26A5E4&labelColor=eeeeee&color=26A5E4)](https://t.me/+QtSxha7rXsc2ZTg1)
 
-
-
 ## Changelog
 
 See [Changelog.md](./docs/CHANGELOG.md)
-
 
 ## Acknowledgements
 
@@ -287,9 +279,9 @@ See [Changelog.md](./docs/CHANGELOG.md)
 
 |                                                   Project                                                   |                     Author                     |                                            License                                            |             Comment             |
 | :---------------------------------------------------------------------------------------------------------: | :--------------------------------------------: | :-------------------------------------------------------------------------------------------: | :-----------------------------: |
-| [ genshin_task-resin-expedition_alert ](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert) | [yaomeng0722](https://gitlab.com/yaomeng0722/) | [MIT](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE) | Initial version of this project |
+| [genshin_task-resin-expedition_alert](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert) | [yaomeng0722](https://gitlab.com/yaomeng0722/) | [MIT](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE) | Initial version of this project |
 |                                [onepush](https://github.com/y1ndan/onepush)                                 |      [y1ndan](https://gitlab.com/y1ndan/)      |                  [MIT](https://github.com/y1ndan/onepush/blob/main/LICENSE)                   |      message push channel       |
-|                [ genshin-checkin-helper ](https://gitlab.com/y1ndan/genshin-checkin-helper)                 |      [y1ndan](https://gitlab.com/y1ndan/)      |         [GPLv3](https://gitlab.com/y1ndan/genshin-checkin-helper/-/blob/main/LICENSE)         |         API call method         |
+|                [genshin-checkin-helper](https://gitlab.com/y1ndan/genshin-checkin-helper)                 |      [y1ndan](https://gitlab.com/y1ndan/)      |         [GPLv3](https://gitlab.com/y1ndan/genshin-checkin-helper/-/blob/main/LICENSE)         |         API call method         |
 |                                                      -                                                      |      [yllhwa](https://github.com/yllhwa)       |                                               -                                               | DS encryption algorithm reverse |
 
 ### Translators
@@ -298,10 +290,8 @@ See [Changelog.md](./docs/CHANGELOG.md)
 | :------: | :-------------: | :---------------------------------: |
 |  zh_TW   | 繁體中文 (台灣) | [KT-Yeh](https://github.com/KT-Yeh) |
 
-
 ## License
 
 [GNU GPLv3](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/master/LICENSE)
-
 
 > Translated by DeepL and Google from Simplified Chinese.

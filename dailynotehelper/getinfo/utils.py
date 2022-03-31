@@ -8,12 +8,16 @@ from ..utils import log
 from urllib.parse import urlencode
 
 
-def get_ds(oversea, params: dict, body: str) -> str:
+def get_ds(oversea, params, body: dict) -> str:
     t = str(int(time.time()))
     r = str(random.randint(100000, 200000))
     b = json.dumps(body) if body else ''
     q = urlencode(params) if params else ''
-    salt = 'okr4obncj8bw5a65hbnn5oo6ixjc3l9w' if oversea else 'xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs'
+    salt = (
+        'okr4obncj8bw5a65hbnn5oo6ixjc3l9w'
+        if oversea
+        else 'xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs'
+    )
     text = f'salt={salt}&t={t}&r={r}&b={b}&q={q}'
     md5 = hashlib.md5()
     md5.update(text.encode())
@@ -21,14 +25,16 @@ def get_ds(oversea, params: dict, body: str) -> str:
     return f'{t},{r},{c}'
 
 
-def get_headers(params: dict = None, body: dict = None, ds: bool = False, oversea: bool = False) -> dict:
+def get_headers(
+    params: dict = None, body: dict = None, ds: bool = False, oversea: bool = False
+) -> dict:
     cn = {
         "x-rpc-app_version": "2.23.1",
         "User-Agent": "Mozilla/5.0 (Linux; Android 12; Mi 10 Pro Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.4638.74 Mobile Safari/537.36 miHoYoBBS/2.23.1",
         "x-rpc-client_type": "5",
         "Origin": "https://webstatic.mihoyo.com",
         "X-Requested-With": "com.mihoyo.hyperion",
-        "Referer": "https://webstatic.mihoyo.com/"
+        "Referer": "https://webstatic.mihoyo.com/",
     }
     os = {
         "x-rpc-app_version": "2.6.0",
@@ -36,7 +42,7 @@ def get_headers(params: dict = None, body: dict = None, ds: bool = False, overse
         "x-rpc-client_type": "2",
         "Origin": "https://webstatic-sea.hoyolab.com",
         "X-Requested-With": "com.mihoyo.hoyolab",
-        "Referer": "https://webstatic-sea.hoyolab.com"
+        "Referer": "https://webstatic-sea.hoyolab.com",
     }
     client = os if oversea else cn
     headers = {
@@ -44,16 +50,22 @@ def get_headers(params: dict = None, body: dict = None, ds: bool = False, overse
         'User-Agent': client['User-Agent'],
         'X-Requested-With': client['X-Requested-With'],
         'Origin': client['Origin'],
-        'Referer': client['Referer']
+        'Referer': client['Referer'],
     }
     if ds:
         ds = get_ds(oversea, params, body)
-        headers.update({
-            'DS': ds,
-            'x-rpc-client_type': client['x-rpc-client_type'],
-            'x-rpc-app_version': client['x-rpc-app_version'],
-            'x-rpc-device_id': str(uuid.uuid3(uuid.NAMESPACE_URL, client['User-Agent'])).replace('-', '').upper(),
-        })
+        headers.update(
+            {
+                'DS': ds,
+                'x-rpc-client_type': client['x-rpc-client_type'],
+                'x-rpc-app_version': client['x-rpc-app_version'],
+                'x-rpc-device_id': str(
+                    uuid.uuid3(uuid.NAMESPACE_URL, client['User-Agent'])
+                )
+                .replace('-', '')
+                .upper(),
+            }
+        )
     return headers
 
 
@@ -106,7 +118,8 @@ def request(*args, **kwargs):
             log.error(f'Request failed: {e}')
             count += 1
             log.info(
-                f'Trying to reconnect in {sleep_seconds} seconds ({count}/{max_retries})...')
+                f'Trying to reconnect in {sleep_seconds} seconds ({count}/{max_retries})...'
+            )
             time.sleep(sleep_seconds)
         else:
             return response
@@ -117,6 +130,5 @@ def request(*args, **kwargs):
 
 def cookie_to_dict(cookie) -> dict:
     if cookie and '=' in cookie:
-        cookie = dict([line.strip().split('=', 1)
-                      for line in cookie.split(';')])
+        cookie = dict([line.strip().split('=', 1) for line in cookie.split(';')])
     return cookie

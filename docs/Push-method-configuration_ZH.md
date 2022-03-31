@@ -26,28 +26,33 @@
 
 1. 注册企业：用电脑打开 [企业微信官网](https://work.weixin.qq.com/)，注册一个企业。
 
-2. 创建应用：注册成功后，点「管理企业」进入管理界面，选择「应用管理」 → 「自建」 → 「创建应用」。
+2. 创建应用：注册成功后，点「管理企业」进入管理界面，选择「应用管理」→「自建」→「创建应用」。
 
-   ![img](https://s2.loli.net/2022/02/06/j5EZvRV6YtDKr7B.png)
+    ![img](https://s2.loli.net/2022/02/06/j5EZvRV6YtDKr7B.png)
 
 3. 创建完成后进入应用详情页，可以得到应用 ID( `agentid` )，应用 Secret( `secret` )，复制并填到配置文件对应位置（获取应用 Secret 时，可能会将其推送到企业微信客户端，需要在企业微信客户端查看）。
 
-![img](https://s2.loli.net/2022/02/06/1N3rnFVHBqQk2Wh.png)
+    ![img](https://s2.loli.net/2022/02/06/1N3rnFVHBqQk2Wh.png)
 
 4. 获取企业 ID：进入「[我的企业](https://work.weixin.qq.com/wework_admin/frame#profile)」页面，拉到最下边，可以看到企业 ID，复制并填到配置文件中。
 
 5. 获取推送用户：在 "通讯录" -> "成员管理" 中获取要收取信息的人员账号填入配置文件 `WW_APP_USERID`，全员推送填 `@all`。如果该应用只有一个人使用，填 `@all` 即可。
 
-   ![image-20220206142035455](https://s2.loli.net/2022/02/06/XylJe4SAMFEjoYb.png)
+    ![image-20220206142035455](https://s2.loli.net/2022/02/06/XylJe4SAMFEjoYb.png)
 
-6. 推送消息到微信：进入「我的企业」 → 「[微信插件](https://work.weixin.qq.com/wework_admin/frame#profile/wxPlugin)」，拉到下边扫描二维码，关注以后即可收到推送的消息。
+6. 推送消息到微信：进入「我的企业」→「[微信插件](https://work.weixin.qq.com/wework_admin/frame#profile/wxPlugin)」，拉到下边扫描二维码，关注以后即可收到推送的消息。
 
-   ![img](https://s2.loli.net/2022/02/06/wOJ47LAVcX6Par8.png)
+    ![img](https://s2.loli.net/2022/02/06/wOJ47LAVcX6Par8.png)
 
 注：如果出现 ` 接口请求正常，企业微信接受消息正常，个人微信无法收到消息 ` 的情况：
 
-1.  进入「我的企业」 → 「[微信插件](https://work.weixin.qq.com/wework_admin/frame#profile/wxPlugin)」，拉到最下方，勾选 “允许成员在微信插件中接收和回复聊天消息” ![img](https://s2.loli.net/2022/02/06/sF8MS3ZBUCueN7I.jpg)
-2.  在企业微信客户端 「我」 → 「设置」 → 「新消息通知」中关闭 “仅在企业微信中接受消息” 限制条件 ![img](https://s2.loli.net/2022/02/06/OdyJslVKtekTIAX.jpg)
+1. 进入「我的企业」→「[微信插件](https://work.weixin.qq.com/wework_admin/frame#profile/wxPlugin)」，拉到最下方，勾选 “允许成员在微信插件中接收和回复聊天消息”
+
+    ![img](https://s2.loli.net/2022/02/06/sF8MS3ZBUCueN7I.jpg)
+
+2. 在企业微信客户端「我」→「设置」→「新消息通知」中关闭 “仅在企业微信中接受消息” 限制条件
+
+    ![img](https://s2.loli.net/2022/02/06/OdyJslVKtekTIAX.jpg)
 
 ### ii. 企业微信机器人
 
@@ -69,7 +74,7 @@
 
 1. 创建机器人：打开 [@BotFather](https://t.me/botfather)，输入 `/newbot` 生成新一个的 bot。根据提示，依次输入：Bot 名字、Bot 账号（需要以 bot 结尾），复制获取到的 Token，填入配置文件 `TG_BOT_TOKEN`。
    ![image-20220206143711051](https://s2.loli.net/2022/02/06/MBX7EmTJZDtzq93.png)
-2. 点击消息框中 `t.me / 你的 botid ` 这个链接，跳转到你的 bot，点击 `START` 以关联你的 bot。
+2. 点击消息框中 `t.me / 你的 botid` 这个链接，跳转到你的 bot，点击 `START` 以关联你的 bot。
 3. 打开 [@userinfobot](https://t.me/userinfobot)，发送 `/start`，获取你的 ID，填入配置文件 `TG_USER_ID`。
 4. 使用 Telegram bot 推送需要配置代理，或搭建反代服务器后填入配置文件 `TG_BOT_API`。
 
@@ -86,7 +91,7 @@
 ## 5. GO-CQHTTP
 
 1. 部署 [GO-CQHTTP](https://github.com/Mrs4s/go-cqhttp)，参见文档 [快速开始](https://docs.go-cqhttp.org/guide/quick_start.html#%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B)，也可使用其他兼容 [OneBot-v11](https://github.com/botuniverse/onebot-11) 规范的框架或 SDK。
-2. 将 CQHTTP 的服务器 ` 协议头://IP 或域名: 端口号 ` 填入 `CQHTTP_URL`，需包含协议头，如：`http://1.2.3.4:5700/` 或 `https://example.com/`。
+2. 将 CQHTTP 的服务器 ` 协议头://IP 或域名：端口号 ` 填入 `CQHTTP_URL`，需包含协议头，如：`http://1.2.3.4:5700/` 或 `https://example.com/`。
 3. 配置发送模式 `CQHTTP_MESSAGE_TYPE`，`private` 为私聊发送，`group` 为群聊发送，`guild_id` 为频道发送。发送到频道需要先获取频道 ID 和子频道 ID，详见 CQHTTP 文档[频道 API](https://docs.go-cqhttp.org/api/guild.html)。
 4. 配置消息接收方的 QQ 号 / 群号，填入 `CQHTTP_SEND_ID`，与发送模式匹配。
 5. 若配置了 `Access Token`，需要填写 `CQHTTP_TOKEN`。
@@ -111,7 +116,7 @@
 
 ## 9. Discord Webhook
 
-1. 进入 Server Settings（服务器设定） - Integrations（整合），点击 Create Webhook，点击 Copy Webhook URL，填写到配置文件 `DISCORD_WEBHOOK` 中。
+1. 进入 Server Settings（服务器设定）- Integrations（整合），点击 Create Webhook，点击 Copy Webhook URL，填写到配置文件 `DISCORD_WEBHOOK` 中。
 2. 可根据需要设置机器人显示的名字 `DISCORD_USERNAME`、机器人头像 `DISCORD_AVATAR`（需要是 web 图片地址）和消息卡片颜色 `DISCORD_COLOR`，详情可阅读 [Discord Webhooks Guide](https://birdie0.github.io/discord-webhooks-guide/structure/embeds.html)。
 
 ## 10. 邮件推送
@@ -123,7 +128,7 @@
 
 注：现在酷推公共服务不可用，可能需要私有化部署。
 
-1. 登录 [CoolPush](https://cp.xuthus.cc/)，绑定 QQ 号 / QQ 群及私有化部署地址，获取 ` 调用代码 Skey`。
+1. 登录 [CoolPush](https://cp.xuthus.cc/)，绑定 QQ 号 / QQ 群及私有化部署地址，获取 `调用代码 Skey`。
 2. 将 Skey 填入 `COOL_PUSH_SKEY` ，`COOL_PUSH_MODE` 支持 QQ 私聊推送 / QQ 群消息推送 / QQ 私有化私聊推送 / QQ 私有化群聊推送，不支持一对多推送。
 3. 如果需要动态的指定推送消息给特定的 QQ 号或者群，将 QQ 号 / 群号填入 `COOL_PUSH_SENDID` 即可。
 
@@ -138,7 +143,7 @@
 ```yaml
   CUSTOM_NOTIFIER:
     method:             必填，请求方式，GET/POST
-    url: ''             必填，请求URL
+    url: ''             必填，请求 URL
     data_type:          必填，发送数据的格式，data/json/params
     headers: {}         选填，需要添加的 headers
     data: {}            选填，需要额外追加的请求内容
@@ -184,6 +189,7 @@
     retcode_key: 'ok'
     retcode_value: True
 ```
+
 #### 使用自定义推送发送 Pushplus 推送
 
 ```yaml

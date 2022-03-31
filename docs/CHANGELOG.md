@@ -1,34 +1,33 @@
 # Changelog
 
-### v2.1.6.1 (2022-03-16)
+## v2.1.6.1 (2022-03-16)
 
 Others:
 
 - Update APP version in dailynote API of CN server to 2.23.1，update salt and request headers.
 - Update APP version in dailynote API of oversea server to 2.6.0, update request headers.
 
-### v2.1.6（2022-03-09）
+## v2.1.6（2022-03-09）
 
 New Features:
 
 - Add QQ guild(channel) support，[#19](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/19)，[config file adjustment](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/e8f190812a864f266e7f32c02793a2cfccc14722/dailynotehelper/config/config.example.yaml#L124-L128).
 - Add alert threshold of homecoin，add [HOMECOIN_THRESHOLD](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1f0730a2f7525bdf9aaac66c498b0e2412a6ebc7/dailynotehelper/config/config.example.yaml#L72) item in config file.
 
-
-### v2.1.5 (2022-02-28)
+## v2.1.5 (2022-02-28)
 
 New Features:
 
 - Change expedition remaining time to finishing time.
 - Add custom notifier support, [#18](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/18).
 
-### v2.1.4 (2022-02-16)
+## v2.1.4 (2022-02-16)
 
 New Features:
 
 - Add Aliyun Function Compute entry func.
 
-### v2.1.3 (2022-02-16)
+## v2.1.3 (2022-02-16)
 
 New Features:
 
@@ -38,13 +37,13 @@ Others:
 
 - Refactor localization modules.
 
-### v2.1.2 (2022-02-14)
+## v2.1.2 (2022-02-14)
 
 New Features:
 
 - Add multilingual internationalization support and add English version. (But need someone to proofread the English translation.)
 
-### v2.1.1 (2022-02-13)
+## v2.1.1 (2022-02-13)
 
 New Features:
 
@@ -54,7 +53,7 @@ Bug Fixes:
 
 - Fix the problem that the switch of whether to receive information of Dongtianbao money does not work
 
-### v2.1.0 (2022-02-12)
+## v2.1.0 (2022-02-12)
 
 New Features:
 
@@ -65,7 +64,7 @@ Bug Fixes:
 
 - Fix the problem of abnormal exit when API request fails
 
-### v2.0.1 (2022-02-10)
+## v2.0.1 (2022-02-10)
 
 New Features:
 
@@ -75,7 +74,7 @@ Bug Fixes:
 
 - Fix the problem that some push configurations are abnormal when they are empty
 
-### v2.0.0 (2022-02-09)
+## v2.0.0 (2022-02-09)
 
 BREAKING CHANGE:
 
@@ -97,8 +96,7 @@ Others:
 - Optimize push experience
 - Refactoring of some modules
 
-
-### v1.3.3 (2022-02-06)
+## v1.3.3 (2022-02-06)
 
 New Features:
 
@@ -111,11 +109,11 @@ Bug Fixes:
 - Adjust the cqhttp parameter to merge `CQHTTP_IP` and `CQHTTP_PORT` into `CQHTTP_URL`
 - Adjust the rendering style of some channels
 
-### v1.3.2 (2022-01-12)
+## v1.3.2 (2022-01-12)
 
 Bug Fixes
 
-### v1.3.1 (2022-01-10)
+## v1.3.1 (2022-01-10)
 
 New Features:
 
@@ -125,7 +123,7 @@ Bug Fixes:
 
 - Fix the problem of BARK push status detection error
 
-### v1.3.0 (2022-01-10)
+## v1.3.0 (2022-01-10)
 
 New Year
 
@@ -143,32 +141,32 @@ Bug Fixes:
 - Fix Noelle character information error
 - Optimize hibernation logic
 
-### v1.2.5 (2021-12-24)
+## v1.2.5 (2021-12-24)
 
 Bug Fixes.
 
 - Synchronize the MiTAC API changes with the new API.
 
-### v1.2.4 (2021-11-24)
+## v1.2.4 (2021-11-24)
 
 Bug Fixes.
 
 - Fix an abnormal exit when a cookie error occurs
 
-### v1.2.3 (2021-11-23)
+## v1.2.3 (2021-11-23)
 
 New Features:
 
 - CQHTTP push IP field support protocol header to support HTTPS
 
-### v1.2.2 (2021-11-10)
+## v1.2.2 (2021-11-10)
 
 New Features:
 
 - Optimize the logic of daily commission reminder time judgment
 - Add the judgment of daily commission rewards collection, so you will no longer be mistaken for not completing the commission after going to other worlds to collect rewards.
 
-### v1.2.1 (2021-11-01)
+## v1.2.1 (2021-11-01)
 
 Bug Fixes.
 
@@ -179,7 +177,7 @@ New Features:
 - Add support for group push mode
 - Add custom port support
 
-### v1.2.0 (2021-11-01)
+## v1.2.0 (2021-11-01)
 
 New Features:
 
@@ -187,30 +185,34 @@ New Features:
 - Logs add per-round check resin value display
 
 Bug Fixes.
+
 - Fix cqhttp push error prompt
 - Some fields of the configuration file are changed to optional configuration
 
-### v1.1.2 (2021-10-29)
+## v1.1.2 (2021-10-29)
 
 New Features:
 
 - Add cqhttp push
 
 Others:
+
 - Update documentation
 
-### v1.1.1 (2021-10-28)
+## v1.1.1 (2021-10-28)
 
 New Features:
 
 - Add a reminder of the completion of exploration dispatch
 - Optimize alert titles
 
-### v1.1.0 (2021-10-28)
+## v1.1.0 (2021-10-28)
 
 New Features:
+
 - Optimize alert logic
 - Add account information display
 
 Bug Fixes:
+
 - Fix the problem of incorrect hibernation time.
