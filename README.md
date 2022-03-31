@@ -31,9 +31,10 @@ Check and push the status of the Genshin Impact resin, commissions, expeditions 
 
 - Resin is about to overflow
 - Today's commission is not completed
-- Overflow of home coin
+- Home coin is about to overflow
 - Expeditions completed
 - Resin will overflow during the no-disturb time period
+- Parametric transformer is ready
 
 ## Content
 
@@ -123,23 +124,23 @@ Check and push the status of the Genshin Impact resin, commissions, expeditions 
 
 3. Select "Start from scratch" and enter a function name. If you want to detect international services or push Telegram or Discord, you must select a region other than mainland China, such as Hong Kong. The runtime environment is Python 3.7.
 
-   ![](https://s2.loli.net/2022/02/09/BVQ1sZnSfRj2UhF.png)
+   ![img](https://s2.loli.net/2022/02/09/BVQ1sZnSfRj2UhF.png)
 
 4. In the function code section, select "Upload zip package locally", select the downloaded package and upload it.
 
-   ![](https://s2.loli.net/2022/02/09/HM275iAPhzxRyBn.png)
+   ![img](https://s2.loli.net/2022/02/09/HM275iAPhzxRyBn.png)
 
 5. Expand "Advanced Configuration", **change the execution timeout to 90 seconds or longer**, **add environment variable**key to `TZ`and value to `Asia/Shanghai`. If you are in another time zone, please change it to the corresponding time zone, you can check the time zone list at [这里](https://gist.github.com/Xm798/54d188c65f683b84a74cfbe340c09518)(**very important**, otherwise the time will be incorrect).
 
-   ![](https://s2.loli.net/2022/02/12/Lw2Hn48jKSGBPJF.png)
+   ![img](https://s2.loli.net/2022/02/12/Lw2Hn48jKSGBPJF.png)
 
 6. Expand Trigger Configuration, select Custom Trigger Period and fill in the cron expression. For example, to check every 15 minutes, fill in `0 * /15 * * * * *`, to check every 30 minutes, fill in `0 * /30 * * * * *`, and to trigger every hour exactly, fill in `0 0 * * * * *`. Please note that this interval is consistent with `CHECK_INTERVAL` in the configuration file to run the bedtime check function.
 
-   ![](https://s2.loli.net/2022/02/14/KQGvlWOq5EiARY8.png)
+   ![img](https://s2.loli.net/2022/02/14/KQGvlWOq5EiARY8.png)
 
 7. Jump to the **Function Management - Function Code** page, find `dailynotehelper/config/config.example.yaml` in the directory, right-click and rename it to `config.yaml`, **and fill in your configuration**(environment variables are not supported).
 
-    ![](https://s2.loli.net/2022/02/09/vxkaqoOfVw6hBgW.png)
+   ![img](https://s2.loli.net/2022/02/09/vxkaqoOfVw6hBgW.png)
 
 8. Click **Deploy and Test** below to see if the log test is working properly.
 
@@ -266,8 +267,8 @@ ii. **Using docker-compose**
 
 ## 💬Feedback
 
-[![](https://img.shields.io/badge/%20-QQ%20Group-blue?style=for-the-badge&logo=Tencent%20QQ&logoColor=EB1923&labelColor=eeeeee&color=EB1923)](https://jq.qq.com/?_wv=1027&k=CnNxc9hp)
-[![](https://img.shields.io/badge/%20-Telegram%20Group-blue?style=for-the-badge&logo=Telegram&logoColor=26A5E4&labelColor=eeeeee&color=26A5E4)](https://t.me/+QtSxha7rXsc2ZTg1)
+[![QQ](https://img.shields.io/badge/%20-QQ%20Group-blue?style=for-the-badge&logo=Tencent%20QQ&logoColor=EB1923&labelColor=eeeeee&color=EB1923)](https://jq.qq.com/?_wv=1027&k=CnNxc9hp)
+[![Telegram](https://img.shields.io/badge/%20-Telegram%20Group-blue?style=for-the-badge&logo=Telegram&logoColor=26A5E4&labelColor=eeeeee&color=26A5E4)](https://t.me/+QtSxha7rXsc2ZTg1)
 
 ## Changelog
 

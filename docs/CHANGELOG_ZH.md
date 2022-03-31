@@ -1,6 +1,13 @@
 
 # 更新日志
 
+## v2.1.7（2022-03-31）
+
+New Features:
+
+- 增加参量质变仪提醒，配置文件字段增加 [TRANSFORMER_INFO](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/4c182324f0597c4964ef8aaf10711e6b38e76be7/dailynotehelper/config/config.example.yaml#L50-L53) 和 [TRANSFORMER_INFO](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/4c182324f0597c4964ef8aaf10711e6b38e76be7/dailynotehelper/config/config.example.yaml#L76-L78)。
+- 角色列表添加神里绫人
+
 ## v2.1.6.1 (2022-03-16)
 
 Others:
