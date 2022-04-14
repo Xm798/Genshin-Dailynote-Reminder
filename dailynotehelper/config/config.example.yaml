@@ -29,6 +29,9 @@ base:
   # 消息中是否显示隐去中间三位数字的 UID，true or false
   # Whether to display the UID with the middle three digits hidden in the message, true or false
   DISPLAY_UID: true
+  # 消息开头的称呼
+  # Nicknme at the beginning of the message
+  NICK_NAME: '亲爱的旅行者'
 
 # 展示信息设置，true or false
 # Display information settings, true or false

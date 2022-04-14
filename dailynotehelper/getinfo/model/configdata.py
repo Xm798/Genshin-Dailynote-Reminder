@@ -10,6 +10,7 @@ class ConfigData(BaseModel):
     COOKIE_HOYOLAB: List[str] = []
     EXCLUDE_UID: List[int] = []
     DISPLAY_UID: StrictBool = True
+    NICK_NAME: str = '亲爱的旅行者'
 
     RESIN_INFO: StrictBool = True
     COMMISSION_INFO: StrictBool = True

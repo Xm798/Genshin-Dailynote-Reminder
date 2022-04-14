@@ -108,12 +108,21 @@ def check(region, base_data, message):
         log.info(_('⏩︎未开启参量质变仪就绪提醒，已跳过。'))
 
     # CHECK BEFORE SLEEP
+    overflow = False
     if config.SLEEP_TIME:
         overflow, status = check_before_sleep(base_data, status)
 
+    if config.NICK_NAME:
+        nickname = (
+            f'{config.NICK_NAME}，'
+            if 'zh' in config.LANGUAGE
+            else f'{config.NICK_NAME},'
+        )
+    else:
+        nickname = ''
     # 推送消息
     if alert or overflow:
-        send(text=_('亲爱的旅行者，'), status=status, message=message)
+        send(text=nickname, status=status, message=message)
 
 
 def check_before_sleep(base_data, status: str):
