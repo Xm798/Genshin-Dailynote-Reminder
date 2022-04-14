@@ -1,6 +1,20 @@
 # Changelog
 
+New Features:
+
+- Added custom title support and [NICK_NAME](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/da7e545940c76ef6c30cbc2d767d74137bf9513f/dailynotehelper/config/config.example.yaml#L32-L34) in the configuration file field.
+
+Fix:
+
+- Fixed a bug that Ayato displayed English in zh_CN environment
+
+Others:
+
+- Formated and refactored some code
+
 ## v2.1.7（2022-03-31）
+
+New Features:
 
 - Added parametric transformer reminder, added [TRANSFORMER_INFO](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/4c182324f0597c4964ef8aaf10711e6b38e76be7/dailynotehelper/config/config.example.yaml#L50-L53) and [TRANSFORMER_INFO](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/4c182324f0597c4964ef8aaf10711e6b38e76be7/dailynotehelper/config/config.example.yaml#L76-L78) to config file.
 - Added Kannari Ayato to the character list.
