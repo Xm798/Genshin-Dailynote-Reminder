@@ -1,6 +1,6 @@
-'''
+"""
 Thanks to y1ndan's genshin-checkin-helper(https://gitlab.com/y1ndan/genshin-checkin-helper), GPLv3 License.
-'''
+"""
 import pydantic
 from .utils import *
 from ..utils import log, _
@@ -17,6 +17,9 @@ class Response(pydantic.BaseModel):
 
 class Client(object):
     def __init__(self, cookie: str = None):
+        self.daily_note_url = None
+        self.roles_info_url = None
+        self._daily_note = None
         self.cookie = cookie_to_dict(cookie)
         self.headers = None
         self.oversea = None
@@ -39,14 +42,6 @@ class Client(object):
             ]
         return self._roles_info
 
-    @property
-    def daily_note(self):
-        roles_info = self.roles_info
-        self._daily_note = [
-            self.get_daily_note(i['game_uid'], i['region']) for i in roles_info
-        ]
-        return self._daily_note
-
     def _get_dailynote_info(self, uid: str, region: str):
         url = self.daily_note_url
         body = {'role_id': uid, 'server': region}
@@ -59,9 +54,10 @@ class Client(object):
                 cookies=self.cookie,
             )
             response = Response.parse_obj(r.json())
-        except:
+            log.debug(r.content)
+        except Exception as e:
             log.error(_('获取数据失败！'))
-            log.error(r.content)
+            log.error(e)
             self.dailynote_info = None
         else:
             if response.retcode == 0:
