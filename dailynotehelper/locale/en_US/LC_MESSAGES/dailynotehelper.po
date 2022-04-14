@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-31 09:59+0800\n"
-"PO-Revision-Date: 2022-03-31 10:06+0800\n"
+"POT-Creation-Date: 2022-04-14 10:28+0800\n"
+"PO-Revision-Date: 2022-04-14 10:29+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -141,74 +141,70 @@ msgstr "⏩︎No Parametric transformer."
 msgid "⏩︎未开启参量质变仪就绪提醒，已跳过。"
 msgstr "⏩︎ Parametric transformer reminder is not turned on, skipped."
 
-#: .\dailynotehelper\__init__.py:116
-msgid "亲爱的旅行者，"
-msgstr "Dear traveler,"
-
-#: .\dailynotehelper\__init__.py:131
+#: .\dailynotehelper\__init__.py:140
 msgid "树脂将会在{}溢出，睡前记得清树脂哦！"
 msgstr ""
 "The resin will overflow at {}, remember to use the resin before sleeping!"
 
-#: .\dailynotehelper\__init__.py:132
+#: .\dailynotehelper\__init__.py:141
 msgid "🔔睡眠期间树脂将会溢出，发送提醒。"
 msgstr "🔔 The resin will overflow during sleep, send a reminder."
 
-#: .\dailynotehelper\__init__.py:134
+#: .\dailynotehelper\__init__.py:143
 msgid "✅睡眠期间树脂不会溢出，放心休息。"
 msgstr "✅Resin will not overflow during sleep."
 
-#: .\dailynotehelper\__init__.py:141
+#: .\dailynotehelper\__init__.py:150
 msgid "🗝️ 当前配置了{}个账号，正在执行第{}个"
 msgstr "🗝️ Currently {} accounts are configured, and {}th is being executed"
 
-#: .\dailynotehelper\__init__.py:150
+#: .\dailynotehelper\__init__.py:159
 #, fuzzy, python-brace-format
 #| msgid "获取到{}的{}个角色..."
 msgid "获取到{0}的{1}个角色..."
 msgstr "Get {1} roles of {0}..."
 
-#: .\dailynotehelper\__init__.py:151
+#: .\dailynotehelper\__init__.py:160
 msgid "国服"
 msgstr "CN server"
 
-#: .\dailynotehelper\__init__.py:151
+#: .\dailynotehelper\__init__.py:160
 msgid "国际服"
 msgstr "oversea server"
 
-#: .\dailynotehelper\__init__.py:156
+#: .\dailynotehelper\__init__.py:165
 msgid "第{}个角色，{} {}"
 msgstr "The {}th character, {} {}"
 
-#: .\dailynotehelper\__init__.py:161
+#: .\dailynotehelper\__init__.py:170
 msgid "跳过该角色"
 msgstr "Skip this role"
 
-#: .\dailynotehelper\__init__.py:167
+#: .\dailynotehelper\__init__.py:176
 msgid "获取UID: {} 数据失败！"
 msgstr "Get data of UID: {} failed!"
 
-#: .\dailynotehelper\__init__.py:168
+#: .\dailynotehelper\__init__.py:177
 msgid "请查阅运行日志获取详细原因。"
 msgstr "Please consult the run log for detailed reasons."
 
-#: .\dailynotehelper\__init__.py:175
+#: .\dailynotehelper\__init__.py:184
 msgid "😴休眠中……"
 msgstr "😴 Sleeping..."
 
-#: .\dailynotehelper\__init__.py:183
+#: .\dailynotehelper\__init__.py:192
 msgid "本轮运行结束，等待下次检查..."
 msgstr "This round of running is over, waiting for the next check..."
 
-#: .\dailynotehelper\getinfo\client.py:29
+#: .\dailynotehelper\getinfo\client.py:32
 msgid "正在获取角色信息"
 msgstr "Getting game roles information"
 
-#: .\dailynotehelper\getinfo\client.py:63
+#: .\dailynotehelper\getinfo\client.py:59
 msgid "获取数据失败！"
 msgstr "Failed to get data!"
 
-#: .\dailynotehelper\getinfo\client.py:74
+#: .\dailynotehelper\getinfo\client.py:70
 msgid "未开启实时便笺！"
 msgstr "Dailynote permission is not turned on!"
 
@@ -329,6 +325,9 @@ msgstr "Parametric transformer: {} days {} hours left"
 #: .\dailynotehelper\getinfo\praseinfo.py:165
 msgid "参量质变仪： 未获得"
 msgstr "Parametric transformer: Not obtained"
+
+#~ msgid "亲爱的旅行者，"
+#~ msgstr "Dear traveler,"
 
 #~ msgid "已完成"
 #~ msgstr "Finished"

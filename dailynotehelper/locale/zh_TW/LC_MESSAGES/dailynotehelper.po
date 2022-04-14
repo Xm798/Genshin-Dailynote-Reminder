@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-31 09:59+0800\n"
-"PO-Revision-Date: 2022-03-31 10:04+0800\n"
+"POT-Creation-Date: 2022-04-14 10:28+0800\n"
+"PO-Revision-Date: 2022-04-14 10:32+0800\n"
 "Last-Translator: KT-Yeh\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -134,72 +134,68 @@ msgstr "⏩︎參量質變儀未獲得。"
 msgid "⏩︎未开启参量质变仪就绪提醒，已跳过。"
 msgstr "⏩︎未開啟參量質變儀就緒提醒，已跳過。"
 
-#: .\dailynotehelper\__init__.py:116
-msgid "亲爱的旅行者，"
-msgstr "親愛的旅行者，"
-
-#: .\dailynotehelper\__init__.py:131
+#: .\dailynotehelper\__init__.py:140
 msgid "树脂将会在{}溢出，睡前记得清树脂哦！"
 msgstr "樹脂將會在{}溢出，睡前記得清樹脂哦！"
 
-#: .\dailynotehelper\__init__.py:132
+#: .\dailynotehelper\__init__.py:141
 msgid "🔔睡眠期间树脂将会溢出，发送提醒。"
 msgstr "🔔睡眠期間樹脂將會溢出，發送提醒。"
 
-#: .\dailynotehelper\__init__.py:134
+#: .\dailynotehelper\__init__.py:143
 msgid "✅睡眠期间树脂不会溢出，放心休息。"
 msgstr "✅睡眠期間樹脂不會溢出，放心休息。"
 
-#: .\dailynotehelper\__init__.py:141
+#: .\dailynotehelper\__init__.py:150
 msgid "🗝️ 当前配置了{}个账号，正在执行第{}个"
 msgstr "🗝️ 目前配置了{}個帳號，正在執行第{}個"
 
-#: .\dailynotehelper\__init__.py:150
+#: .\dailynotehelper\__init__.py:159
 #, python-brace-format
 msgid "获取到{0}的{1}个角色..."
 msgstr "獲取到{0}的{1}個角色..."
 
-#: .\dailynotehelper\__init__.py:151
+#: .\dailynotehelper\__init__.py:160
 msgid "国服"
 msgstr "國服"
 
-#: .\dailynotehelper\__init__.py:151
+#: .\dailynotehelper\__init__.py:160
 msgid "国际服"
 msgstr "國際服"
 
-#: .\dailynotehelper\__init__.py:156
+#: .\dailynotehelper\__init__.py:165
 msgid "第{}个角色，{} {}"
 msgstr "第{}個角色，{} {}"
 
-#: .\dailynotehelper\__init__.py:161
+#: .\dailynotehelper\__init__.py:170
 msgid "跳过该角色"
 msgstr "跳過該角色"
 
-#: .\dailynotehelper\__init__.py:167
+#: .\dailynotehelper\__init__.py:176
 msgid "获取UID: {} 数据失败！"
 msgstr "獲取UID: {} 資料失敗！"
 
-#: .\dailynotehelper\__init__.py:168
+#: .\dailynotehelper\__init__.py:177
 msgid "请查阅运行日志获取详细原因。"
 msgstr "請查閱執行紀錄獲取詳細原因。"
 
-#: .\dailynotehelper\__init__.py:175
+#: .\dailynotehelper\__init__.py:184
 msgid "😴休眠中……"
 msgstr "😴休眠中……"
 
-#: .\dailynotehelper\__init__.py:183
+#: .\dailynotehelper\__init__.py:192
 msgid "本轮运行结束，等待下次检查..."
 msgstr "本輪執行結束，等待下次檢查..."
 
-#: .\dailynotehelper\getinfo\client.py:29
+#: .\dailynotehelper\getinfo\client.py:32
 msgid "正在获取角色信息"
 msgstr "正在獲取角色資料"
 
-#: .\dailynotehelper\getinfo\client.py:63
+#: .\dailynotehelper\getinfo\client.py:59
 msgid "获取数据失败！"
 msgstr "獲取資料失敗！"
 
-#: .\dailynotehelper\getinfo\client.py:74
+#: .\dailynotehelper\getinfo\client.py:70
 msgid "未开启实时便笺！"
 msgstr "未開啟即時便箋！"
 
@@ -320,6 +316,9 @@ msgstr "參量質變儀： {} 天 {} 小時後可用"
 #: .\dailynotehelper\getinfo\praseinfo.py:165
 msgid "参量质变仪： 未获得"
 msgstr "參量質變儀： {} 天 {} 小時後可用"
+
+#~ msgid "亲爱的旅行者，"
+#~ msgstr "親愛的旅行者，"
 
 #~ msgid "已完成"
 #~ msgstr "已完成"
