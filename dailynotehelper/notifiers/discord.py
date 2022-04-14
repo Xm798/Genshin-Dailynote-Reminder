@@ -1,4 +1,3 @@
-
 from .basenotifier import BaseNotifier as Base
 from ..config import config
 
@@ -14,10 +13,12 @@ class Discord(Base):
         data = {
             'username': config.DISCORD_USERNAME,
             'avatar_url': config.DISCORD_AVATAR,
-            'embeds': [{
-                'title': f'{text}{status}',
-                'description': desp,
-                'color': config.DISCORD_COLOR
-            }]
+            'embeds': [
+                {
+                    'title': f'{text}{status}',
+                    'description': desp,
+                    'color': config.DISCORD_COLOR,
+                }
+            ],
         }
         return self.push('post', url, json=data)

@@ -13,8 +13,8 @@ class Pushdeer(Base):
         url = 'https://api2.pushdeer.com/message/push'
         data = {
             'pushkey': config.PUSHDEER_KEY,
-            'text': f'{text} {status}',
+            'text': f'{text}{status}',
             'desp': desp,
-            'type': 'markdown'
+            'type': 'markdown',
         }
         return self.push('post', url, data=data)

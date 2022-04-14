@@ -12,12 +12,11 @@ class Custom(Base):
         self.retcode_key = self.conf.get('retcode_key')
         self.retcode_value = self.conf.get('retcode_value')
 
-
     def send(self, text, status, desp):
         if not self.token:
             return self.push('post', '')
-        
-        title = f'{text} {status}'
+
+        title = f'{text}{status}'
         if self.conf.get('markdown'):
             desp = f'```\n{desp}\n```'
         if self.conf.get('desp_key'):
@@ -28,7 +27,10 @@ class Custom(Base):
 
         if self.conf['method'].upper() == 'GET':
             return self.push('get', self.url, params=self.data, headers=self.headers)
-        elif self.conf['method'].upper() == 'POST' and self.conf['data_type'].lower() == 'json':
+        elif (
+            self.conf['method'].upper() == 'POST'
+            and self.conf['data_type'].lower() == 'json'
+        ):
             return self.push('post', self.url, json=self.data, headers=self.headers)
         else:
             return self.push('post', self.url, data=self.data, headers=self.headers)

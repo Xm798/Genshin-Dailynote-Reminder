@@ -13,11 +13,10 @@ from . import (
     cqhttp,
     pushdeer,
     mail,
-    custom
-    )
+    custom,
+)
 
 from .exceptions import NoSuchNotifierError
-
 
 
 _all_notifiers = {
@@ -31,11 +30,11 @@ _all_notifiers = {
     'wechatworkbot': wechatworkbot.WechatWorkBot,
     'coolpush': coolpush.CoolPush,
     'qmsg': qmsg.Qmsg,
-    'bark':bark.Bark,
-    'cqhttp':cqhttp.Cqhttp,
-    'pushdeer':pushdeer.Pushdeer,
-    'mail':mail.Mail,
-    'custom':custom.Custom
+    'bark': bark.Bark,
+    'cqhttp': cqhttp.Cqhttp,
+    'pushdeer': pushdeer.Pushdeer,
+    'mail': mail.Mail,
+    'custom': custom.Custom,
 }
 
 
@@ -51,10 +50,10 @@ def get_notifier(name=None):
     return _all_notifiers[notifier[0][1]]()
 
 
-def send2all(text='',status:str='',desp:str=''):
+def send2all(text='', status: str = '', desp: str = ''):
     for notifier in _all_notifiers:
         # 不支持 MARKDOWN 语法的推送渠道不做处理
-        if (notifier in ['serverchanturbo','pushdeer']):
+        if notifier in ['serverchanturbo', 'pushdeer']:
             message = f'```\n{desp}\n```'
         else:
             message = desp

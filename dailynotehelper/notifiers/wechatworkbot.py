@@ -10,11 +10,8 @@ class WechatWorkBot(Base):
         self.retcode_value = 0
 
     def send(self, text, status, desp):
-        url = f'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={config.WW_BOT_KEY}'
-        data = {
-            'msgtype': 'text',
-            'text': {
-                'content': f'{text} {status}\n\n{desp}'
-            }
-        }
+        url = (
+            f'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={config.WW_BOT_KEY}'
+        )
+        data = {'msgtype': 'text', 'text': {'content': f'{text}{status}\n\n{desp}'}}
         return self.push('post', url, json=data)

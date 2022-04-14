@@ -6,7 +6,9 @@ from .utils import log, request
 class WechatWorkApp(Base):
     def __init__(self):
         self.name = 'Wechat Work App'
-        self.token = config.WW_APP_AGENTID if self.access_token and config.WW_APP_AGENTID else ''
+        self.token = (
+            config.WW_APP_AGENTID if self.access_token and config.WW_APP_AGENTID else ''
+        )
         self.retcode_key = 'errcode'
         self.retcode_value = 0
 
@@ -36,8 +38,6 @@ class WechatWorkApp(Base):
             'touser': config.WW_APP_USERID,
             'msgtype': 'text',
             'agentid': config.WW_APP_AGENTID,
-            'text': {
-                'content': f'{text} {status}\n\n{desp}'
-            }
+            'text': {'content': f'{text}{status}\n\n{desp}'},
         }
         return self.push('post', url, json=data)

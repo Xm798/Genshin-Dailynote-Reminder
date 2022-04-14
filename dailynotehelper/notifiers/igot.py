@@ -11,8 +11,5 @@ class Igot(Base):
 
     def send(self, text, status, desp):
         url = f'https://push.hellyw.com/{config.IGOT_KEY}'
-        data = {
-            'title': f'{text} {status}',
-            'content': desp
-        }
+        data = {'title': f'{text}{status}', 'content': desp}
         return self.push('post', url, data=data)

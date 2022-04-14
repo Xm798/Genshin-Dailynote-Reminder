@@ -11,8 +11,5 @@ class ServerChanTurbo(Base):
 
     def send(self, text, status, desp):
         url = f'https://sctapi.ftqq.com/{config.SCTKEY}.send'
-        data = {
-            'title': f'{text} {status}',
-            'desp': desp
-        }
+        data = {'title': f'{text}{status}', 'desp': desp}
         return self.push('post', url, data=data)

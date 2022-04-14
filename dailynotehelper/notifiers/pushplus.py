@@ -13,9 +13,9 @@ class PushPlus(Base):
         url = 'https://www.pushplus.plus/send'
         data = {
             'token': config.PUSH_PLUS_TOKEN,
-            'title': f'{text} {status}',
+            'title': f'{text}{status}',
             'content': desp,
             'template': 'txt',
-            'topic': config.PUSH_PLUS_USER
+            'topic': config.PUSH_PLUS_USER,
         }
         return self.push('post', url, data=data)
