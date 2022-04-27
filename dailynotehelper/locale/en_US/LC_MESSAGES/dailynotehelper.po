@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 10:28+0800\n"
-"PO-Revision-Date: 2022-04-14 10:29+0800\n"
+"POT-Creation-Date: 2022-04-27 10:34+0800\n"
+"PO-Revision-Date: 2022-04-27 10:36+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -158,53 +158,57 @@ msgstr "✅Resin will not overflow during sleep."
 msgid "🗝️ 当前配置了{}个账号，正在执行第{}个"
 msgstr "🗝️ Currently {} accounts are configured, and {}th is being executed"
 
-#: .\dailynotehelper\__init__.py:159
+#: .\dailynotehelper\__init__.py:160
 #, fuzzy, python-brace-format
 #| msgid "获取到{}的{}个角色..."
 msgid "获取到{0}的{1}个角色..."
 msgstr "Get {1} roles of {0}..."
 
-#: .\dailynotehelper\__init__.py:160
+#: .\dailynotehelper\__init__.py:161
 msgid "国服"
 msgstr "CN server"
 
-#: .\dailynotehelper\__init__.py:160
+#: .\dailynotehelper\__init__.py:161
 msgid "国际服"
 msgstr "oversea server"
 
-#: .\dailynotehelper\__init__.py:165
+#: .\dailynotehelper\__init__.py:166
 msgid "第{}个角色，{} {}"
 msgstr "The {}th character, {} {}"
 
-#: .\dailynotehelper\__init__.py:170
+#: .\dailynotehelper\__init__.py:171
 msgid "跳过该角色"
 msgstr "Skip this role"
 
-#: .\dailynotehelper\__init__.py:176
+#: .\dailynotehelper\__init__.py:177
 msgid "获取UID: {} 数据失败！"
 msgstr "Get data of UID: {} failed!"
 
-#: .\dailynotehelper\__init__.py:177
+#: .\dailynotehelper\__init__.py:178
 msgid "请查阅运行日志获取详细原因。"
 msgstr "Please consult the run log for detailed reasons."
 
-#: .\dailynotehelper\__init__.py:184
+#: .\dailynotehelper\__init__.py:182
+msgid "获取米游社角色信息失败！"
+msgstr "Error occured when getting game roles info of Hoyolob!"
+
+#: .\dailynotehelper\__init__.py:190
 msgid "😴休眠中……"
 msgstr "😴 Sleeping..."
 
-#: .\dailynotehelper\__init__.py:192
+#: .\dailynotehelper\__init__.py:198
 msgid "本轮运行结束，等待下次检查..."
 msgstr "This round of running is over, waiting for the next check..."
 
-#: .\dailynotehelper\getinfo\client.py:32
+#: .\dailynotehelper\getinfo\client.py:31
 msgid "正在获取角色信息"
 msgstr "Getting game roles information"
 
-#: .\dailynotehelper\getinfo\client.py:59
+#: .\dailynotehelper\getinfo\client.py:64
 msgid "获取数据失败！"
 msgstr "Failed to get data!"
 
-#: .\dailynotehelper\getinfo\client.py:70
+#: .\dailynotehelper\getinfo\client.py:75
 msgid "未开启实时便笺！"
 msgstr "Dailynote permission is not turned on!"
 

@@ -28,19 +28,24 @@ class Client(object):
 
     @property
     def roles_info(self):
-        if not self._roles_info:
-            log.info(_('正在获取角色信息'))
-            url = self.roles_info_url
+        log.info(_('正在获取角色信息'))
+        url = self.roles_info_url
+        try:
             response = request(
                 'get', url, headers=self.headers, cookies=self.cookie
             ).json()
-            if response.get('retcode') != 0:
-                log.error(response.get('message'))
-            raw_roles_info = nested_lookup(response, 'list', fetch_first=True)
-            self._roles_info = [
-                extract_subset_of_dict(i, self.required_keys) for i in raw_roles_info
-            ]
-        return self._roles_info
+        except Exception as e:
+            log.error(e)
+            return e
+        else:
+            if response.get('retcode') == 0:
+                raw_roles_info = nested_lookup(response, 'list', fetch_first=True)
+                self._roles_info = [
+                    extract_subset_of_dict(i, self.required_keys) for i in raw_roles_info
+                ]
+                return self._roles_info
+            else:
+                return response.get('message')
 
     def _get_dailynote_info(self, uid: str, region: str):
         url = self.daily_note_url

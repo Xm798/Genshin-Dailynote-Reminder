@@ -155,28 +155,34 @@ def start(cookies: list, server: str) -> None:
         os.environ['ACCOUNT_INDEX'] = str(int(os.environ['ACCOUNT_INDEX']) + 1)
         client = Yuanshen(cookie, config.RUN_ENV) if server == 'cn' else Genshin(cookie)
         roles_info = client.roles_info
-        log.info(
-            _('获取到{0}的{1}个角色...').format(
-                (_('国服') if server == 'cn' else _('国际服')), len(roles_info)
-            )
-        )
-        for index, role in enumerate(roles_info):
+        if isinstance(roles_info, list):
             log.info(
-                (_('第{}个角色，{} {}')).format(
-                    index + 1, role['game_uid'], role['nickname']
+                _('获取到{0}的{1}个角色...').format(
+                    (_('国服') if server == 'cn' else _('国际服')), len(roles_info)
                 )
             )
-            if role['game_uid'] in str(config.EXCLUDE_UID):
-                log.info(_('跳过该角色'))
-            else:
-                dailynote_info, message = client.prase_dailynote_info(role)
-                if dailynote_info:
-                    check(role['region'], dailynote_info, message)
+            for i, role in enumerate(roles_info):
+                log.info(
+                    (_('第{}个角色，{} {}')).format(
+                        i + 1, role['game_uid'], role['nickname']
+                    )
+                )
+                if role['game_uid'] in str(config.EXCLUDE_UID):
+                    log.info(_('跳过该角色'))
                 else:
-                    status = (_('获取UID: {} 数据失败！')).format(role['game_uid'])
-                    message = _('请查阅运行日志获取详细原因。')
-                    send(text='ERROR! ', status=status, message=message)
-            log.info(f'-------------------------')
+                    dailynote_info, message = client.prase_dailynote_info(role)
+                    if dailynote_info:
+                        check(role['region'], dailynote_info, message)
+                    else:
+                        status = (_('获取UID: {} 数据失败！')).format(role['game_uid'])
+                        message = _('请查阅运行日志获取详细原因。')
+                        send(text='ERROR! ', status=status, message=message)
+        else:
+            log.error(roles_info)
+            status = (_('获取米游社角色信息失败！'))
+            message = roles_info
+            send(text='ERROR! ', status=status, message=message)
+        log.info(f'-------------------------')
 
 
 def run_once() -> None:
