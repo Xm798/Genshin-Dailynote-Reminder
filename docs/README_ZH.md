@@ -39,8 +39,8 @@
 - [示例](#示例)
 - [使用方法](#使用方法)
   - [1. 云函数运行](#1-云函数运行)
-    - [腾讯云云函数 SCF](#腾讯云云函数scf)
-    - [阿里云函数计算 FC](#阿里云函数计算fc)
+    - [阿里云函数计算 FC](#阿里云函数计算-fc)
+    - [腾讯云云函数 SCF](#腾讯云云函数-scf)
   - [2. Docker 运行](#2-docker-运行)
   - [3. 本地运行](#3-本地运行)
 - [配置文件参数说明](#配置文件参数说明)
@@ -115,38 +115,6 @@
 
 ### 1. 云函数运行
 
-#### 腾讯云云函数 SCF
-
-<details>
-
-1. 从 [Release 页面](https://github.com/Xm798/Genshin-Dailynote-Helper/releases) 下载最新代码包，国内可从 [Gitee 镜像](https://gitee.com/Xm798/Genshin-Dailynote-Helper/releases) 下载。
-
-2. 打开[腾讯云云函数控制台](https://console.cloud.tencent.com/scf)，登录账号，点击“函数服务” - “新建”。
-
-3. 选择“从头开始”，输入一个函数名。地域在国内随便选择，如需检测国际服或者推送 Telegram 或 Discord，必须选择大陆以外如中国香港地区。运行环境为 Python3.7。
-
-   ![img](https://s2.loli.net/2022/02/09/BVQ1sZnSfRj2UhF.png)
-
-4. 函数代码部分，选择“本地上传 zip 包”，选择下载的程序包并上传。
-
-   ![img](https://s2.loli.net/2022/02/09/HM275iAPhzxRyBn.png)
-
-5. 展开“高级配置”，**修改执行超时时间为 90 秒或更长**，**添加环境变量** key 为 `TZ`，value 为 `Asia/Shanghai`。如果你在其他时区，请修改为对应的时区，可以在[这里](https://gist.github.com/Xm798/54d188c65f683b84a74cfbe340c09518)查询时区列表（**十分重要**，否则时间会不正确）。
-
-   ![img](https://s2.loli.net/2022/02/12/Lw2Hn48jKSGBPJF.png)
-
-6. 展开触发器配置，选择自定义触发周期，填写 cron 表达式。例如：每 15 分钟检查一次，填写`0 */15 * * * * *`，每 30 分钟检查一次，填写`0 */30 * * * * *`，每小时整点触发，填写`0 0 * * * * *`。该间隔请注意与配置文件中`CHECK_INTERVAL`一致，以便运行睡前检查功能。
-
-   ![img](https://s2.loli.net/2022/02/14/KQGvlWOq5EiARY8.png)
-
-7. 跳转到 **函数管理 - 函数代码**页面，在目录中找到`dailynotehelper/config/config.example.yaml`，右键重命名为`config.yaml`，**并填写你的配置**（不支持环境变量）。
-
-    ![img](https://s2.loli.net/2022/02/09/vxkaqoOfVw6hBgW.png)
-
-8. 点击下方“**部署并测试**”，查看日志测试是否运行正常。
-
-</details>
-
 #### 阿里云函数计算 FC
 
 <details>
@@ -176,6 +144,40 @@
    ![image-20220216225056405](https://s2.loli.net/2022/02/16/dBhXO34xH18YUrD.png)
 
 7. 阿里云函数计算的配置方法到此结束。
+
+</details>
+
+#### 腾讯云云函数 SCF
+
+自 2022 年 5 月 23 日起，腾讯云不再提供免费额度。建议使用阿里云函数计算服务，或购买 1 元资源包。见 [关于云函数运行的免费额度问题](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/5) 。
+
+<details>
+
+1. 从 [Release 页面](https://github.com/Xm798/Genshin-Dailynote-Helper/releases) 下载最新代码包，国内可从 [Gitee 镜像](https://gitee.com/Xm798/Genshin-Dailynote-Helper/releases) 下载。
+
+2. 打开[腾讯云云函数控制台](https://console.cloud.tencent.com/scf)，登录账号，点击“函数服务” - “新建”。
+
+3. 选择“从头开始”，输入一个函数名。地域在国内随便选择，如需检测国际服或者推送 Telegram 或 Discord，必须选择大陆以外如中国香港地区。运行环境为 Python3.7。
+
+   ![img](https://s2.loli.net/2022/02/09/BVQ1sZnSfRj2UhF.png)
+
+4. 函数代码部分，选择“本地上传 zip 包”，选择下载的程序包并上传。
+
+   ![img](https://s2.loli.net/2022/02/09/HM275iAPhzxRyBn.png)
+
+5. 展开“高级配置”，**修改执行超时时间为 90 秒或更长**，**添加环境变量** key 为 `TZ`，value 为 `Asia/Shanghai`。如果你在其他时区，请修改为对应的时区，可以在[这里](https://gist.github.com/Xm798/54d188c65f683b84a74cfbe340c09518)查询时区列表（**十分重要**，否则时间会不正确）。
+
+   ![img](https://s2.loli.net/2022/02/12/Lw2Hn48jKSGBPJF.png)
+
+6. 展开触发器配置，选择自定义触发周期，填写 cron 表达式。例如：每 15 分钟检查一次，填写`0 */15 * * * * *`，每 30 分钟检查一次，填写`0 */30 * * * * *`，每小时整点触发，填写`0 0 * * * * *`。该间隔请注意与配置文件中`CHECK_INTERVAL`一致，以便运行睡前检查功能。
+
+   ![img](https://s2.loli.net/2022/02/14/KQGvlWOq5EiARY8.png)
+
+7. 跳转到 **函数管理 - 函数代码**页面，在目录中找到`dailynotehelper/config/config.example.yaml`，右键重命名为`config.yaml`，**并填写你的配置**（不支持环境变量）。
+
+    ![img](https://s2.loli.net/2022/02/09/vxkaqoOfVw6hBgW.png)
+
+8. 点击下方“**部署并测试**”，查看日志测试是否运行正常。
 
 </details>
 

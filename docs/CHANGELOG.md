@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.1.7.2（2022-04-27)
+
+Fix:
+
+- Fixed a bug that the notification message will not be sent when the cookie expired
+
+## v2.1.7.1 (2022-04-14)
+
 New Features:
 
 - Added custom title support and [NICK_NAME](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/da7e545940c76ef6c30cbc2d767d74137bf9513f/dailynotehelper/config/config.example.yaml#L32-L34) in the configuration file field.
@@ -12,7 +20,7 @@ Others:
 
 - Formated and refactored some code
 
-## v2.1.7（2022-03-31）
+## v2.1.7（2022-03-31)
 
 New Features:
 
@@ -26,7 +34,7 @@ Others:
 - Updated APP version in dailynote API of CN server to 2.23.1，update salt and request headers.
 - Updated APP version in dailynote API of oversea server to 2.6.0, update request headers.
 
-## v2.1.6（2022-03-09）
+## v2.1.6（2022-03-09)
 
 New Features:
 

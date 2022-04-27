@@ -1,11 +1,17 @@
 
 # 更新日志
 
+## v2.1.7.2（2022-04-27）
+
+Fix:
+
+- 修复 Cookie 失效时不推送提醒的问题
+
 ## v2.1.7.1（2022-04-14）
 
 New Features:
 
-- 增加称呼自定义，配置文件字段增加 [NICK_NAME](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/da7e545940c76ef6c30cbc2d767d74137bf9513f/dailynotehelper/config/config.example.yaml#L32-L34)。
+- 增加称呼自定义，配置文件字段增加 [NICK_NAME](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/da7e545940c76ef6c30cbc2d767d74137bf9513f/dailynotehelper/config/config.example.yaml#L32-L34) 。
 
 Fix:
 
@@ -19,7 +25,7 @@ Others:
 
 New Features:
 
-- 增加参量质变仪提醒，配置文件字段增加 [TRANSFORMER_INFO](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/4c182324f0597c4964ef8aaf10711e6b38e76be7/dailynotehelper/config/config.example.yaml#L51-L53) 和 [TRANSFORMER_INFO](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/4c182324f0597c4964ef8aaf10711e6b38e76be7/dailynotehelper/config/config.example.yaml#L76-L78)。
+- 增加参量质变仪提醒，配置文件字段增加 [TRANSFORMER_INFO](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/4c182324f0597c4964ef8aaf10711e6b38e76be7/dailynotehelper/config/config.example.yaml#L51-L53) 和 [TRANSFORMER_INFO](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/4c182324f0597c4964ef8aaf10711e6b38e76be7/dailynotehelper/config/config.example.yaml#L76-L78) 。
 - 角色列表添加神里绫人
 
 ## v2.1.6.1 (2022-03-16)
@@ -33,8 +39,8 @@ Others:
 
 New Features:
 
-- 增加 QQ 频道推送支持，[#19](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/19)，[配置文件字段调整](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/e8f190812a864f266e7f32c02793a2cfccc14722/dailynotehelper/config/config.example.yaml#L124-L128)。
-- 增加洞天宝钱提醒阈值设置，配置文件增加字段 [HOMECOIN_THRESHOLD](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1f0730a2f7525bdf9aaac66c498b0e2412a6ebc7/dailynotehelper/config/config.example.yaml#L72)。
+- 增加 QQ 频道推送支持，[#19](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/19) ，[配置文件字段调整](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/e8f190812a864f266e7f32c02793a2cfccc14722/dailynotehelper/config/config.example.yaml#L124-L128) 。
+- 增加洞天宝钱提醒阈值设置，配置文件增加字段 [HOMECOIN_THRESHOLD](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1f0730a2f7525bdf9aaac66c498b0e2412a6ebc7/dailynotehelper/config/config.example.yaml#L72) 。
 
 ## v2.1.5（2022-02-28）
 
