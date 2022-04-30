@@ -37,8 +37,8 @@ def get_headers(
         "Referer": "https://webstatic.mihoyo.com/",
     }
     os = {
-        "x-rpc-app_version": "2.6.0",
-        "User-Agent": "Mozilla/5.0 (Linux; Android 12; Mi 10 Pro Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.4638.74 Mobile Safari/537.36 miHoYoBBSOversea/2.6.0",
+        "x-rpc-app_version": "2.9.0",
+        "User-Agent": "Mozilla/5.0 (Linux; Android 12; Mi 10 Pro Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.4638.74 Mobile Safari/537.36 miHoYoBBSOversea/2.9.0",
         "x-rpc-client_type": "2",
         "Origin": "https://webstatic-sea.hoyolab.com",
         "X-Requested-With": "com.mihoyo.hoyolab",
