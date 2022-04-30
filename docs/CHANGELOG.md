@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.1.7.4（2022-04-30)
+
+Fix:
+
+- Added TW, HK, MO server support, fixed Issue #28
+
+## v2.1.7.3（2022-04-28)
+
+Fix:
+
+- Adjusted some zh-tw sentences, merged PR #27
+
 ## v2.1.7.2（2022-04-27)
 
 Fix:
