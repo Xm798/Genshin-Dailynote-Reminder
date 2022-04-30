@@ -18,6 +18,7 @@ def prase_info(base_data, role) -> list:
         'os_usa': _('美服 🦙'),
         'os_euro': _('欧服 🏰'),
         'os_asia': _('亚服 🐯'),
+        'os_cht': _('台港澳服 🧋')
     }
     result.append(f"{role['nickname']} {server[role['region']]}")
     if config.DISPLAY_UID:
