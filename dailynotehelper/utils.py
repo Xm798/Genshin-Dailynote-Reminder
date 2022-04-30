@@ -67,6 +67,7 @@ def reset_time_offset(region: str):
         'os_usa': 'Etc/GMT+5',
         'os_euro': 'Etc/GMT-1',
         'os_asia': 'Etc/GMT-8',
+        'os_cht': 'Etc/GMT-8'
     }
     tz_local = get_localzone_name()
     delta = -tz_diff(tz_server[region], tz_local) - 4
