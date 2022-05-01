@@ -23,7 +23,6 @@ class BaseNotifier(object):
             return
         try:
             response = request(method, url, 2, params, data, json, headers)
-            log.debug(response.json())
         except Exception as e:
             log.error(f'{self.name} 😳\n{e}')
             raise NotificationError()
