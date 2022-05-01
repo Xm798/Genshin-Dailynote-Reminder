@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-30 17:09+0800\n"
-"PO-Revision-Date: 2022-04-30 17:10+0800\n"
+"POT-Creation-Date: 2022-05-01 18:05+0800\n"
+"PO-Revision-Date: 2022-05-01 18:08+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -82,112 +82,116 @@ msgstr ""
 msgid "洞天宝钱快要溢出啦！"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:74
-msgid "🔔洞天宝钱已到临界值，发送提醒。"
+#: .\dailynotehelper\__init__.py:75
+msgid "🔔当前洞天宝钱{}，已到临界值{}，发送提醒。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:76
+#: .\dailynotehelper\__init__.py:81
 msgid "✅洞天宝钱检查结束，未溢出。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:78
+#: .\dailynotehelper\__init__.py:83
 msgid "⏩︎未开启洞天宝钱检查，已跳过。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:86
+#: .\dailynotehelper\__init__.py:91
 msgid "✅探索派遣未全部完成。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:89
+#: .\dailynotehelper\__init__.py:94
 msgid "探索派遣已经完成啦！"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:90
+#: .\dailynotehelper\__init__.py:95
 msgid "🔔有已完成的探索派遣，发送提醒。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:92
+#: .\dailynotehelper\__init__.py:97
 msgid "✅探索派遣检查结束，不存在完成的探索派遣。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:94
+#: .\dailynotehelper\__init__.py:99
 msgid "⏩︎未开启探索派遣完成提醒，已跳过。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:101
+#: .\dailynotehelper\__init__.py:107
 msgid "参量质变仪已就绪！"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:102
+#: .\dailynotehelper\__init__.py:108
 msgid "🔔参量质变仪已就绪，发送提醒。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:104
+#: .\dailynotehelper\__init__.py:110
 msgid "✅参量质变仪未准备好。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:106
-msgid "⏩︎参量质变仪未获得。"
+#: .\dailynotehelper\__init__.py:112
+msgid "⏩︎未获得参量质变仪。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:108
+#: .\dailynotehelper\__init__.py:114
+msgid "⏩︎接口未返回参量质变仪信息。"
+msgstr ""
+
+#: .\dailynotehelper\__init__.py:116
 msgid "⏩︎未开启参量质变仪就绪提醒，已跳过。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:140
+#: .\dailynotehelper\__init__.py:148
 msgid "树脂将会在{}溢出，睡前记得清树脂哦！"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:141
+#: .\dailynotehelper\__init__.py:149
 msgid "🔔睡眠期间树脂将会溢出，发送提醒。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:143
+#: .\dailynotehelper\__init__.py:151
 msgid "✅睡眠期间树脂不会溢出，放心休息。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:150
+#: .\dailynotehelper\__init__.py:158
 msgid "🗝️ 当前配置了{}个账号，正在执行第{}个"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:160
+#: .\dailynotehelper\__init__.py:168
 #, python-brace-format
 msgid "获取到{0}的{1}个角色..."
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:161
+#: .\dailynotehelper\__init__.py:169
 msgid "国服"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:161
+#: .\dailynotehelper\__init__.py:169
 msgid "国际服"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:166
+#: .\dailynotehelper\__init__.py:174
 msgid "第{}个角色，{} {}"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:171
+#: .\dailynotehelper\__init__.py:179
 msgid "跳过该角色"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:177
+#: .\dailynotehelper\__init__.py:185
 msgid "获取UID: {} 数据失败！"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:178
+#: .\dailynotehelper\__init__.py:186
 msgid "请查阅运行日志获取详细原因。"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:182
+#: .\dailynotehelper\__init__.py:190
 msgid "获取米游社角色信息失败！"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:190
+#: .\dailynotehelper\__init__.py:198
 msgid "😴休眠中……"
 msgstr ""
 
-#: .\dailynotehelper\__init__.py:198
+#: .\dailynotehelper\__init__.py:206
 msgid "本轮运行结束，等待下次检查..."
 msgstr ""
 
@@ -195,11 +199,11 @@ msgstr ""
 msgid "正在获取角色信息"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\client.py:63
+#: .\dailynotehelper\getinfo\client.py:64
 msgid "获取数据失败！"
 msgstr ""
 
-#: .\dailynotehelper\getinfo\client.py:74
+#: .\dailynotehelper\getinfo\client.py:75
 msgid "未开启实时便笺！"
 msgstr ""
 

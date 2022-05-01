@@ -71,7 +71,12 @@ def check(region, base_data, message):
                 if (base_data.current_home_coin >= base_data.max_home_coin)
                 else (status + _('洞天宝钱快要溢出啦！'))
             )
-            log.info(_('🔔洞天宝钱已到临界值，发送提醒。'))
+            log.info(
+                _('🔔当前洞天宝钱{}，已到临界值{}，发送提醒。').format(
+                    base_data.current_home_coin,
+                    config.HOMECOIN_THRESHOLD * base_data.max_home_coin,
+                )
+            )
         else:
             log.info(_('✅洞天宝钱检查结束，未溢出。'))
     else:
@@ -95,15 +100,18 @@ def check(region, base_data, message):
 
     # CHECK TRANSFORMER
     if config.TRANSFORMER:
-        if base_data.transformer.get('obtained'):
-            if base_data.transformer.get('recovery_time')['reached']:
-                alert = True
-                status = status + _('参量质变仪已就绪！')
-                log.info(_('🔔参量质变仪已就绪，发送提醒。'))
+        if base_data.transformer:
+            if base_data.transformer.get('obtained'):
+                if base_data.transformer.get('recovery_time')['reached']:
+                    alert = True
+                    status = status + _('参量质变仪已就绪！')
+                    log.info(_('🔔参量质变仪已就绪，发送提醒。'))
+                else:
+                    log.info(_('✅参量质变仪未准备好。'))
             else:
-                log.info(_('✅参量质变仪未准备好。'))
+                log.info(_('⏩︎未获得参量质变仪。'))
         else:
-            log.info(_('⏩︎参量质变仪未获得。'))
+            log.warning(_('⏩︎接口未返回参量质变仪信息。'))
     else:
         log.info(_('⏩︎未开启参量质变仪就绪提醒，已跳过。'))
 
@@ -179,7 +187,7 @@ def start(cookies: list, server: str) -> None:
                         send(text='ERROR! ', status=status, message=message)
         else:
             log.error(roles_info)
-            status = (_('获取米游社角色信息失败！'))
+            status = _('获取米游社角色信息失败！')
             message = roles_info
             send(text='ERROR! ', status=status, message=message)
         log.info(f'-------------------------')

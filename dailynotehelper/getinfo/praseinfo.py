@@ -18,7 +18,7 @@ def prase_info(base_data, role) -> list:
         'os_usa': _('美服 🦙'),
         'os_euro': _('欧服 🏰'),
         'os_asia': _('亚服 🐯'),
-        'os_cht': _('台港澳服 🧋')
+        'os_cht': _('台港澳服 🧋'),
     }
     result.append(f"{role['nickname']} {server[role['region']]}")
     if config.DISPLAY_UID:
@@ -37,7 +37,7 @@ def prase_info(base_data, role) -> list:
     if config.COMMISSION_INFO:
         result.append(get_commission_info(base_data))
     # transformer
-    if config.TRANSFORMER_INFO:
+    if config.TRANSFORMER_INFO and base_data.transformer:
         result.append(get_transformer_info(base_data))
     # home_coin
     if config.HOMECOIN_INFO:
