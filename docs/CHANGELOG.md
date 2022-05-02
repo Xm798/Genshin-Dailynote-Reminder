@@ -1,22 +1,29 @@
 # Changelog
 
+## v2.1.7.5（2022-05-02)
+
+Fix:
+
+- Fixed unexpected crash due to the API of oversea server did not return the information of the transformer, issue #29 .
+- Fixed the bug of the incorrect detection of Discord push status, issue #29.
+
 ## v2.1.7.4（2022-04-30)
 
 Fix:
 
-- Added TW, HK, MO server support, fixed Issue #28
+- Added TW, HK, MO server support, fixed Issue #28.
 
 ## v2.1.7.3（2022-04-28)
 
 Fix:
 
-- Adjusted some zh-tw sentences, merged PR #27
+- Adjusted some zh-tw sentences, merged PR #27.
 
 ## v2.1.7.2（2022-04-27)
 
 Fix:
 
-- Fixed a bug that the notification message will not be sent when the cookie expired
+- Fixed a bug that the notification message will not be sent when the cookie expired.
 
 ## v2.1.7.1 (2022-04-14)
 
@@ -26,11 +33,11 @@ New Features:
 
 Fix:
 
-- Fixed a bug that Ayato displayed English in zh_CN environment
+- Fixed a bug that Ayato displayed English in zh_CN environment.
 
 Others:
 
-- Formated and refactored some code
+- Formated and refactored some code.
 
 ## v2.1.7（2022-03-31)
 
