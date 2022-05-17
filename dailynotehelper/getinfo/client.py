@@ -58,7 +58,7 @@ class Client(object):
                 params=body,
                 cookies=self.cookie,
             )
-            log.info(r.text)
+            # log.info(r.text)
             response = Response.parse_obj(r.json())
         except Exception as e:
             log.error(_('获取数据失败！'))
