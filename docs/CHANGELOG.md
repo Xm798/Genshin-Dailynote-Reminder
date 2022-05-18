@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.1.8（2022-05-18)
+
+Fix:
+
+- Fixed the bug caused by the API change of cn server.
+- Fixed the incorrect time in the message title sent when the resin will overflow during sleep.
+
 ## v2.1.7.5（2022-05-02)
 
 Fix:

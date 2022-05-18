@@ -137,12 +137,12 @@ def check_before_sleep(base_data, status: str):
     overflow = False
     time_nextcheck = (
         datetime.datetime.now() + datetime.timedelta(minutes=config.CHECK_INTERVAL)
-    ).strftime('%H:%S')
+    ).strftime('%H:%M')
     if time_in_range(time_nextcheck, config.SLEEP_TIME):
         overflow_time = (
             datetime.datetime.now()
             + datetime.timedelta(seconds=base_data.resin_recovery_time)
-        ).strftime('%H:%S')
+        ).strftime('%H:%M')
         if time_in_range(overflow_time, config.SLEEP_TIME):
             overflow = True
             status += _('树脂将会在{}溢出，睡前记得清树脂哦！').format(overflow_time)

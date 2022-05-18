@@ -9,8 +9,6 @@ base:
   # 语言，支持 zh_CN，zh_TW 或 en_US。
   # Language, support zh_CN zh_TW or en_US.
   LANGUAGE: 'zh_CN'
-  # 运行环境，若云服务商环境下运行出错，请尝试修改为 cloud 。
-  RUN_ENV: local
   # 账号信息，将下面的 COOKIEx 替换为你的 COOKIE。多账号换行填写，去掉 #，以 - 开头。
   # Account information, replace COOKIEx below with your COOKIE. Fill in a new line for multiple accounts, remove the #, and start with - .
   # 国服 COOKIE
