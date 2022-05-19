@@ -290,7 +290,7 @@ The key names of all configuration items are shown as below. Their meanings are 
 
 Notice:
 
-- The values of `COOKIE`, `COOKIE_HOYOLAB`, `DISPLAY_UID` should be like: `['COOKIE1','COOKIE2']`, `['UID1','UID2']`;
+- The values of `COOKIE`, `COOKIE_HOYOLAB`, `EXCLUDE_UID` should be like: `['COOKIE1','COOKIE2']`, `[UID1,UID2]`. For example: COOKIE=`['ltuid=xxxxx; cookie_token=xxxxxx']`，EXCLUDE_UID=`[100234567]`。
 - All variables that need to be filled with `true` or `false` should be `True` or `False`;
 - If there are some Chinese characters in `NICK_NAME` and the serverless platform does not support Chinese characters for environment variables (such as Aliyun), it needs to be [URL-encode](https://www.urlencoder.org/) firstly。
 - The values of `CUSTOM_NOTIFIER`should be like: `{'method': 'POST','url': '','data_type': 'data','headers': {},'data': {},'title_key': null,'desp_key': '','markdown': False,'retcode_key': '','retcode_value': ''}`。

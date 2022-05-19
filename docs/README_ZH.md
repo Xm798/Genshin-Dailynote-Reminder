@@ -292,7 +292,7 @@ ii. **使用 docker-compose**
 
 其中：
 
-- `COOKIE`、`COOKIE_HOYOLAB`、`DISPLAY_UID`的值应形如：`['COOKIE1','COOKIE2']`、`['UID1','UID2']`；
+- `COOKIE`、`COOKIE_HOYOLAB`、`EXCLUDE_UID`的值应形如：`['COOKIE1', 'COOKIE2']`、`[UID1, UID2]`。例如：COOKIE：`['ltuid=xxxxx; cookie_token=xxxxxx']`，EXCLUDE_UID：`[100234567]`。
 - 所有需要填 true 或 false 的变量的值应为`True`或`False`；
 - `NICK_NAME` 如果有中文字符且云函数平台不支持环境变量设置中文（如阿里云），则需要经过 [URL-encode 编码](https://www.urlencoder.org/) 。
 - `CUSTOM_NOTIFIER`的值应形如：`{'method': 'POST','url': '','data_type': 'data','headers': {},'data': {},'title_key': null,'desp_key': '','markdown': False,'retcode_key': '','retcode_value': ''}`。
