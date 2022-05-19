@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.1.8.1（2022-05-19)
+
+Feat:
+
+- Supported loading configuration from environment variables, Ref [#37](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/37).
+
 ## v2.1.8（2022-05-18)
 
 Fix:
@@ -11,20 +17,20 @@ Fix:
 
 Fix:
 
-- Fixed unexpected crash due to the API of oversea server did not return the information of the transformer, issue #29 .
-- Fixed the bug of the incorrect detection of Discord push status, issue #29.
+- Fixed unexpected crash due to the API of oversea server did not return the information of the transformer, Ref [#29](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/29) .
+- Fixed the bug of the incorrect detection of Discord push status, Ref [#29](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/29).
 
 ## v2.1.7.4（2022-04-30)
 
 Fix:
 
-- Added TW, HK, MO server support, fixed Issue #28.
+- Added TW, HK, MO server support, fixed Ref [#28](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/28).
 
 ## v2.1.7.3（2022-04-28)
 
 Fix:
 
-- Adjusted some zh-tw sentences, merged PR #27.
+- Adjusted some zh-tw sentences, merged PR [#27](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/27).
 
 ## v2.1.7.2（2022-04-27)
 

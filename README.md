@@ -41,14 +41,18 @@ Check and push the status of the Genshin Impact resin, commissions, expeditions 
 - [Introduction](#introduction)
 - [Examples](#examples)
 - [How to use](#how-to-use)
+  - [1. Serverless](#1-serverless)
+  - [2. Docker](#2-docker)
+  - [3. Local](#3-local)
 - [Configuration file parameters description](#configuration-file-parameters-description)
   - [Some basic information](#some-basic-information)
-  - [Configuration file example](#configuration-file-example)
+  - [Example configuration file](#example-configuration-file)
+  - [Configure via environment variables](#configure-via-environment-variables)
 - [Push method configuration](#push-method-configuration)
 - [💬Feedback](#feedback)
 - [Changelog](#changelog)
 - [Acknowledgements](#acknowledgements)
-  - [Open Source Projects](#open-source-projects)
+  - [Open Source Projects and Contributors](#open-source-projects-and-contributors)
   - [Translators](#translators)
 - [License](#license)
 
@@ -130,17 +134,22 @@ Check and push the status of the Genshin Impact resin, commissions, expeditions 
 
    ![image-20220216224242175](https://s2.loli.net/2022/02/16/PMyYGEqgZ1cx9dF.png)
 
-4. 上传后，在编辑器中找到 `dailynotehelper/config/` 文件夹，重命名配置 `config.example.yaml`为`config.yaml`，并填入你自己的配置。保存后，点击**“部署代码”**，再点击**“测试函数”**。测试时，可以将树脂提醒阈值改为 1 触发推送，测试完成后再改回去。此时，应当能够看到上方有“执行成功”的提示和运行日志。
+4. 参数设置
+   1. 通过配置文件进行设置：在函数代码的编辑器中找到 `dailynotehelper/config/` 文件夹，将`config.example.yaml`右键重命名为`config.yaml`，并填入你自己的配置。保存后，点击 **“部署代码”**，再点击 **“测试函数”**。测试时，**可以将树脂提醒阈值改为 1 以便触发推送**，测试完成后再改回去。此时，应当能够看到上方有“执行成功”的提示和运行日志。
 
-   ![image-20220216224710614](https://s2.loli.net/2022/02/16/Iwek8gxYybHdLcT.png)
+      ![image-20220216224710614](https://s2.loli.net/2022/02/16/Iwek8gxYybHdLcT.png)
 
-5. 切换到**“触发器管理”**选项卡，**创建触发器**，选择**定时触发器**，输入**名称**，选择**按照时间间隔触发**，输入你想要的时间间隔，如 30 分钟。注意，配置文件中的 `CHECK_INTERVAL` 应当与此处一致。
+   2. 通过环境变量进行配置：切换到“**函数配置**”选项卡，下拉找到“**环境变量**”，点击**编辑**，参照[通过环境变量进行配置](#通过环境变量进行配置)的说明依次添加需要的环境变量，不设置的项目即为默认值。至少需要设置`COOKIE`或`COOKIE_HOYOLAB`以及对应的推送通道。需要注意阿里云函数计算不支持将中文设置为环境变量的值，因此如果需要自定义称呼`NICK_NAME`，需要进行 [URL-encode 编码](https://www.urlencoder.org/) 后再填入其中。
 
-   ![image-20220216224947289](https://s2.loli.net/2022/02/16/bUgnSdypPJZQT73.png)
+      ![image.png](https://s2.loli.net/2022/05/19/DojfQPLSy9AuWc7.png)
 
-6. 切换到“**函数配置**”选项卡，下拉找到“**环境变量**”，点击**编辑**，新建环境变量，key 为 `TZ`，value 为 `Asia/Shanghai`。如果你在其他时区，请修改为对应的时区，请在[这里](https://gist.github.com/Xm798/54d188c65f683b84a74cfbe340c09518)查询时区列表（**十分重要**，否则时间会不正确）。最后点击保存。
+5. 切换到“**函数配置**”选项卡，下拉找到“**环境变量**”，点击**编辑**，新建环境变量，key 为 `TZ`，value 为 `Asia/Shanghai`。如果你在其他时区，请修改为对应的时区，请在[这里](https://gist.github.com/Xm798/54d188c65f683b84a74cfbe340c09518)查询时区列表（**十分重要**，否则时间会不正确）。最后点击保存。
 
    ![image-20220216225056405](https://s2.loli.net/2022/02/16/dBhXO34xH18YUrD.png)
+
+6. 切换到 **“触发器管理”** 选项卡，**创建触发器**，选择**定时触发器**，输入**名称**，选择**按照时间间隔触发**，输入你想要的时间间隔，如 30 分钟。注意，配置文件中的 `CHECK_INTERVAL` 应当与此处一致。
+
+   ![image-20220216224947289](https://s2.loli.net/2022/02/16/bUgnSdypPJZQT73.png)
 
 7. 阿里云函数计算的配置方法到此结束。
 
@@ -251,9 +260,9 @@ ii. **Using docker-compose**
 
 ### Some basic information
 
-1. RUN_ENV, only for CN server
+1. ~~RUN_ENV, only for CN server~~
 
-    Specify the runtime environment, use `cloud` for running on domestic cloud service providers, otherwise use `local`, only effective for national service. This option is designed to provide compatibility options for users running on domestic cloud servers. `cloud` is an old version of the API, which was once unusable and is now restored. However, since MiYosha has been fully replaced with the new API, the default is to run with the `local` environment, which is the new API. For more information, please refer to [米游社可能已经禁止国内特定VPS服务商的IP或ASN](https://github.com/Arondight/Adachi-BOT/issues/522).
+    ~~Specify the runtime environment, use `cloud` for running on domestic cloud service providers, otherwise use `local`, only effective for national service. This option is designed to provide compatibility options for users running on domestic cloud servers. `cloud` is an old version of the API, which was once unusable and is now restored. However, since MiYosha has been fully replaced with the new API, the default is to run with the `local` environment, which is the new API. For more information, please refer to [米游社可能已经禁止国内特定VPS服务商的IP或ASN](https://github.com/Arondight/Adachi-BOT/issues/522).~~
 
 2. **COOKIE**:
       1. Open [Mihoyo bbs](https://bbs.mihoyo.com/ys) for cn server and [Hoyolab](https://www.hoyolab.com/) for oversea server, then login.
@@ -272,6 +281,83 @@ ii. **Using docker-compose**
 ### Example configuration file
 
 [config.example.yaml](./dailynotehelper/config/config.example.yaml)
+
+### Configure via environment variables
+
+Support loading configuration from environment variables to facilitate the use of cloud functions.
+
+The key names of all configuration items are shown as below. Their meanings are same as configuration file. Please refer to the configuration file for more details.
+
+Notice:
+
+- The values of `COOKIE`, `COOKIE_HOYOLAB`, `DISPLAY_UID` should be like: `['COOKIE1','COOKIE2']`, `['UID1','UID2']`;
+- All variables that need to be filled with `true` or `false` should be `True` or `False`;
+- If there are some Chinese characters in `NICK_NAME` and the serverless platform does not support Chinese characters for environment variables (such as Aliyun), it needs to be [URL-encode](https://www.urlencoder.org/) firstly。
+- The values of `CUSTOM_NOTIFIER`should be like: `{'method': 'POST','url': '','data_type': 'data','headers': {},'data': {},'title_key': null,'desp_key': '','markdown': False,'retcode_key': '','retcode_value': ''}`。
+
+```text
+LANGUAGE
+COOKIE
+COOKIE_HOYOLAB
+EXCLUDE_UID
+DISPLAY_UID
+NICK_NAME
+RESIN_INFO
+COMMISSION_INFO
+EXPEDITION_INFO
+TROUNCE_INFO
+HOMECOIN_INFO
+TRANSFORMER_INFO
+RESIN_THRESHOLD
+COMMISSION_NOTICE_TIME
+EXPEDITION_NOTICE
+WAIT_ALL_EXPEDITION
+HOMECOIN_NOTICE
+HOMECOIN_THRESHOLD
+TRANSFORMER
+CHECK_INTERVAL
+SLEEP_TIME
+WW_ID
+WW_APP_AGENTID
+WW_APP_SECRET
+WW_APP_USERID
+WW_BOT_KEY
+BARK_URL
+BARK_GROUP
+BARK_ICON
+BARK_ARCHIVE
+BARK_LEVEL
+TG_BOT_API
+TG_BOT_TOKEN
+TG_USER_ID
+PUSHDEER_KEY
+CQHTTP_URL
+CQHTTP_MESSAGE_TYPE
+CQHTTP_SEND_ID
+CQHTTP_SEND_CHANNEL_ID
+CQHTTP_TOKEN
+DD_BOT_TOKEN
+DD_BOT_SECRET
+SCTKEY
+PUSH_PLUS_TOKEN
+PUSH_PLUS_USER
+COOL_PUSH_SKEY
+COOL_PUSH_MODE
+COOL_PUSH_SENDID
+QMSG_KEY
+DISCORD_WEBHOOK
+DISCORD_USERNAME
+DISCORD_AVATAR
+DISCORD_COLOR
+IGOT_KEY
+MAIL_HOST
+MAIL_PORT
+MAIL_STARTTLS
+MAIL_USERNAME
+MAIL_PASSWORD
+MAIL_TO
+CUSTOM_NOTIFIER
+```
 
 ## Push method configuration
 

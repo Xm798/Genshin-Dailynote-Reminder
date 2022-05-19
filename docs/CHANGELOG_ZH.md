@@ -1,6 +1,12 @@
 
 # 更新日志
 
+## v2.1.8.1（2022-05-19)
+
+Feat:
+
+- 支持通过环境变量设置配置，Ref [#37](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/37)。
+
 ## v2.1.8（2022-05-18)
 
 Fix:
@@ -12,20 +18,20 @@ Fix:
 
 Fix:
 
-- 修复国际服接口偶发异常不返回参量质变仪数据，导致意外崩溃的问题，issue #29。
-- 修复 Discord 推送状态检测异常的问题，issue #29。
+- 修复国际服接口偶发异常不返回参量质变仪数据，导致意外崩溃的问题，Ref [#29](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/29)。
+- 修复 Discord 推送状态检测异常的问题，Ref [#29](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/29)。
 
 ## v2.1.7.4（2022-04-30）
 
 Fix:
 
-- 修复台港澳服报错问题, issue #28。
+- 修复台港澳服报错问题, Ref [#28](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/28)。
 
 ## v2.1.7.3（2022-04-28）
 
 Fix:
 
-- 调整部分中文繁体-台湾本地化翻译, PR #27.
+- 调整部分中文繁体-台湾本地化翻译, 合并 PR [#27](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/27)。
 
 ## v2.1.7.2（2022-04-27）
 
@@ -73,7 +79,7 @@ New Features:
 New Features:
 
 - 调整探索派遣倒计时为完成时间
-- 增加自定义推送支持，[#18](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/18)
+- 增加自定义推送支持，Ref [#18](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/18)
 
 ## v2.1.4（2022-02-16）
 
