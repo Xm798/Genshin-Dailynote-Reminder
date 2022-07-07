@@ -1,6 +1,16 @@
 
 # 更新日志
 
+## v2.1.8.2（2022-07-07)
+
+Feat:
+
+- 更新夜兰和久岐忍的本地化角色名。
+
+Others:
+
+- 将国内 docker 镜像迁移到阿里云 `registry.cn-shanghai.aliyuncs.com/xm798/genshin-dailynote-helper:latest`。
+
 ## v2.1.8.1（2022-05-19)
 
 Feat:

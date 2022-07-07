@@ -204,7 +204,7 @@ i. **使用镜像**
      xm798/genshin-dailynote-helper:latest
      ```
 
-     若在国内机器运行，可使用在腾讯云的镜像。
+     若在国内机器运行，可使用在阿里云的镜像。
 
      ```shell
      docker run -d \
@@ -212,7 +212,7 @@ i. **使用镜像**
      --env TZ=Asia/Shanghai \
      --restart=always \
      --name=genshin-dailynote-helper \
-     ccr.ccs.tencentyun.com/xm798/genshin-dailynote-helper:latest
+     registry.cn-shanghai.aliyuncs.com/xm798/genshin-dailynote-helper:latest
      ```
 
 ii. **使用 docker-compose**

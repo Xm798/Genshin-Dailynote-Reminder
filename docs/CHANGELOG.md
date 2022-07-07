@@ -1,38 +1,48 @@
 # Changelog
 
-## v2.1.8.1（2022-05-19)
+## v2.1.8.2 (2022-07-07)
+
+Feat:
+
+- Updated the localized character names of Yelan and Shinobu.
+
+Others:
+
+- Migrate the Chinese mainland docker image to Aliyun `registry.cn-shanghai.aliyuncs.com/xm798/genshin-dailynote-helper:latest`.
+
+## v2.1.8.1 (2022-05-19)
 
 Feat:
 
 - Supported loading configuration from environment variables, Ref [#37](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/37).
 
-## v2.1.8（2022-05-18)
+## v2.1.8 (2022-05-18)
 
 Fix:
 
 - Fixed the bug caused by the API change of cn server.
 - Fixed the incorrect time in the message title sent when the resin will overflow during sleep.
 
-## v2.1.7.5（2022-05-02)
+## v2.1.7.5 (2022-05-02)
 
 Fix:
 
 - Fixed unexpected crash due to the API of oversea server did not return the information of the transformer, Ref [#29](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/29) .
 - Fixed the bug of the incorrect detection of Discord push status, Ref [#29](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/29).
 
-## v2.1.7.4（2022-04-30)
+## v2.1.7.4 (2022-04-30)
 
 Fix:
 
 - Added TW, HK, MO server support, fixed Ref [#28](https://github.com/Xm798/Genshin-Dailynote-Helper/issues/28).
 
-## v2.1.7.3（2022-04-28)
+## v2.1.7.3 (2022-04-28)
 
 Fix:
 
 - Adjusted some zh-tw sentences, merged PR [#27](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/27).
 
-## v2.1.7.2（2022-04-27)
+## v2.1.7.2 (2022-04-27)
 
 Fix:
 
@@ -52,7 +62,7 @@ Others:
 
 - Formated and refactored some code.
 
-## v2.1.7（2022-03-31)
+## v2.1.7 (2022-03-31)
 
 New Features:
 
@@ -66,7 +76,7 @@ Others:
 - Updated APP version in dailynote API of CN server to 2.23.1，update salt and request headers.
 - Updated APP version in dailynote API of oversea server to 2.6.0, update request headers.
 
-## v2.1.6（2022-03-09)
+## v2.1.6 (2022-03-09)
 
 New Features:
 
