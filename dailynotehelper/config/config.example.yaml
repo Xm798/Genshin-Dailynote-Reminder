@@ -12,10 +12,12 @@ base:
   # 账号信息，将下面的 COOKIEx 替换为你的 COOKIE。多账号换行填写，去掉 #，以 - 开头。
   # Account information, replace COOKIEx below with your COOKIE. Fill in a new line for multiple accounts, remove the #, and start with - .
   # 国服 COOKIE
+  # Cookie of CN Server
   COOKIE: 
     - 'COOKIE1'
     #- 'COOKIE2'
-  # 国际服 HOYOLAB COOKIE
+  # 国际服 COOKIE
+  # Cookie of HOYOLAB (oversea)
   COOKIE_HOYOLAB:
     #- 'COOKIE1'
     #- 'COOKIE2'
@@ -201,6 +203,22 @@ notifier: # 这里不要填东西 Donot put anything here!
   # 收件人邮箱地址
   # recipient email address
   MAIL_TO: ''
+
+# Chanify
+  # Chanify 服务器地址
+  # Node address of Chanify
+  CHANIFY_URL: https://api.chanify.net/
+  # Token of Chanify
+  CHANIFY_TOKEN:
+  # 声音提示，1 启用声音提示, 其他情况静音推送
+  # Sound of Chanify, 1 enable sound, otherwise disable sound.
+  CHAINFY_SOUND: 1
+  # 优先级，10 正常优先级, 5 较低优先级
+  # Priority of Chanify, 10 normal, 5 lower level.
+  CHAINFY_PRIORITY: 10
+  # 通知时间的中断级别
+  # Interruption level for timing of a notification.
+  CHAINFY_INTERRUPTION_LEVEL: 'active'
 
 # 自定义推送
 # Custom notifier

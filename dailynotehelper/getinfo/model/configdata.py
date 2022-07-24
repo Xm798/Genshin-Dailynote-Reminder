@@ -83,3 +83,10 @@ class ConfigData(BaseModel):
     MAIL_TO: Optional[str]
 
     CUSTOM_NOTIFIER: dict = {}
+
+    CHANIFY_URL: Optional[str]
+    CHANIFY_TOKEN: Optional[str]
+    CHAINFY_SOUND: Optional[int] = 1
+    CHAINFY_PRIORITY: Optional[int] = 10
+    CHAINFY_INTERRUPTION_LEVEL: Literal['active', 'passive', 'time-sensitive'] = 'active'
+

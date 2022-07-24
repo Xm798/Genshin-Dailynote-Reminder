@@ -53,6 +53,12 @@ class BaseNotifier(object):
                 log.error(f'{self.name} 😳\nTG_BOT_TOKEN 错误')
                 log.error(response.json())
                 raise NotificationError()
+            # Chanify
+            elif (
+                self.name == 'Chanify' and response.json().get('request-uid')
+            ):
+                log.info(f'{self.name} 🥳')
+
             else:
                 log.error(f'{self.name} 😳\n{response}')
                 log.error(response.json())
