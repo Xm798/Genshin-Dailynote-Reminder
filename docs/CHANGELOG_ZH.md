@@ -1,6 +1,13 @@
 
 # 更新日志
 
+## v2.1.9（2022-07-24)
+
+Feat:
+
+ - 支持 [Chanify](https://github.com/chanify/chanify) 推送，配置文件新增[部分字段](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/ffe9dd3751ba430040bfe7e39309525808c77e26/dailynotehelper/config/config.example.yaml#L207-L221) 。
+
+
 ## v2.1.8.2（2022-07-07)
 
 Feat:

@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.1.9 (2022-07-24)
+
+Feat:
+
+ - Add [Chanify](https://github.com/chanify/chanify) push support, [some fields](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/ffe9dd3751ba430040bfe7e39309525808c77e26/dailynotehelper/config/config.example.yaml#L207-L221) were added to the configuration file。
+
 ## v2.1.8.2 (2022-07-07)
 
 Feat:
