@@ -26,7 +26,7 @@ Check and push the status of the Genshin Impact resin, commissions, expeditions,
 - Support push to multiple channels
 - Support CN server (official and channel server) and oversea server
 - Support for skipping certain roles (when multiple roles are bound under the same Mihoyo / Hoyolab account)
-- Support English / 简体中文 / 繁體中文
+- Support English / 简体中文 / 繁體中文 / Русский
 
 **Supports sending a notification when**
 

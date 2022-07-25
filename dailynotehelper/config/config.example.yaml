@@ -6,8 +6,8 @@
 # Caution: Don't forget to use quotes if the string contains special characters.
 
 base:
-  # 语言，支持 zh_CN，zh_TW 或 en_US。
-  # Language, support zh_CN zh_TW or en_US.
+  # 语言，支持 zh_CN，zh_TW, en_US 或 ru_RU。
+  # Language, support zh_CN, zh_TW, en_US or ru_RU.
   LANGUAGE: 'zh_CN'
   # 账号信息，将下面的 COOKIEx 替换为你的 COOKIE。多账号换行填写，去掉 #，以 - 开头。
   # Account information, replace COOKIEx below with your COOKIE. Fill in a new line for multiple accounts, remove the #, and start with - .
