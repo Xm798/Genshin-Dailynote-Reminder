@@ -1,6 +1,6 @@
 [**English Document**](https://xm798.gitbook.io/genshin-dailynote-helper/) | [**简体中文文档**](https://xm798.gitbook.io/genshin-dailynote-helper/v/zh-cn/)
 
-# Genshin Dailynote Assistant
+# Genshin Dailynote Reminder
 
 <div align="center">
 
