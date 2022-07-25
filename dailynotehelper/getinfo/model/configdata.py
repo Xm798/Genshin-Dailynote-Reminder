@@ -4,7 +4,7 @@ from pydantic import BaseModel, StrictBool, Field
 
 
 class ConfigData(BaseModel):
-    LANGUAGE: Literal['zh_CN', 'en_US', 'zh_TW'] = 'zh_CN'
+    LANGUAGE: Literal['zh_CN', 'en_US', 'zh_TW', 'ru_RU'] = 'zh_CN'
     RUN_ENV: Literal['local', 'cloud'] = 'local'
     COOKIE: List[str] = []
     COOKIE_HOYOLAB: List[str] = []
