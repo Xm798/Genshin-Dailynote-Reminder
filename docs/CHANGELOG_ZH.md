@@ -1,5 +1,10 @@
 
 # 更新日志
+## v2.1.10（2022-07-25）
+
+Feat:
+
+ - 添加俄语本地化支持，感谢 [@qarudeka](https://github.com/qarudeka), 参见 [#2](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/2)。
 
 ## v2.1.9（2022-07-24)
 

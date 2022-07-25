@@ -15,46 +15,55 @@
 
 </div>
 
-## Introduction 简介
+## Introduction
 
-Check and push the status of the Genshin Impact resin, commissions, expeditions, homecoins and transformer.
+Check and push the status of the Genshin Impact resin, commissions, expeditions, home coins and transformer.
 
 **Features**
 
-- Support running on cloud functions, docker and local machine
-- Support multi-account and multi-role
-- Support push to multiple channels
-- Support CN server (official and channel server) and oversea server
-- Support for skipping certain roles (when multiple roles are bound under the same Mihoyo / Hoyolab account)
-- Support English / 简体中文 / 繁體中文 / Русский
+- Running on serverless service, docker or the local machine.
+- Multiple accounts and multiple roles supported.
+- Pushing to multiple channels.
+- CN server (official and channel server) and oversea server supported.
+- Skipping certain roles (when multiple roles are bound to the one Mihoyo / Hoyolab account).
+- Localization support, including **English / 简体中文 / 繁體中文 / Русский**.
 
-**Supports sending a notification when**
+**It would send a notification when**:
 
-- Resin is about to overflow
-- Today's commission is not completed
-- Home coin is about to overflow
-- Expeditions completed
-- Resin will overflow during the no-disturb time period
-- Parametric transformer is ready
+- Resin is about to overflow;
+- Today's commission is not completed;
+- Home coin is about to overflow;
+- Expeditions completed;
+- Resin will overflow during the no-disturb period;
+- Parametric transformer is ready.
 
-## Examples 示例
+And all of the above can be customized.
+
+## Examples
 
 <img src="https://s2.loli.net/2022/02/10/HdwcDSgqLe8m6kK.png" width="300px" />
 
-## How to use 使用方法
+## How to use
 
 See [the document](https://xm798.gitbook.io/genshin-dailynote-helper/how-to-use).
 
-## 💬Feedback 交流反馈
+## 💬Feedback
 
 [![QQ](https://img.shields.io/badge/%20-QQ%20Group-blue?style=for-the-badge&logo=Tencent%20QQ&logoColor=EB1923&labelColor=eeeeee&color=EB1923)](https://jq.qq.com/?_wv=1027&k=CnNxc9hp)
 [![Telegram](https://img.shields.io/badge/%20-Telegram%20Group-blue?style=for-the-badge&logo=Telegram&logoColor=26A5E4&labelColor=eeeeee&color=26A5E4)](https://t.me/+QtSxha7rXsc2ZTg1)
 
-## Changelog 更新日志
+## Changelog
 
 See [Changelog](./docs/CHANGELOG.md) or [更新日志](./docs/CHANGELOG_ZH.md).
 
-## Acknowledgements 致谢
+## Acknowledgements
+
+### Translators
+
+| Language |      Name       |             Translators             |
+|:--------:| :-------------: | :---------------------------------: |
+|  zh_TW   | 繁體中文 (台灣) | [KT-Yeh](https://github.com/KT-Yeh) |
+|  ru_RU   | Русский | [qarudeka](https://github.com/qarudeka) |
 
 ### Open Source Projects and Contributors
 
@@ -65,11 +74,6 @@ See [Changelog](./docs/CHANGELOG.md) or [更新日志](./docs/CHANGELOG_ZH.md).
 |                [genshin-checkin-helper](https://gitlab.com/y1ndan/genshin-checkin-helper)                 |      [y1ndan](https://gitlab.com/y1ndan/)      |         [GPLv3](https://gitlab.com/y1ndan/genshin-checkin-helper/-/blob/main/LICENSE)         |         API call method         |
 |                                                      -                                                      |      [yllhwa](https://github.com/yllhwa)       |                                               -                                               | DS encryption algorithm reverse |
 
-### Translators
-
-| Language |      Name       |             Translators             |
-| :------: | :-------------: | :---------------------------------: |
-|  zh_TW   | 繁體中文 (台灣) | [KT-Yeh](https://github.com/KT-Yeh) |
 
 ## License
 

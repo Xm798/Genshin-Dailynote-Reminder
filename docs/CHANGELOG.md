@@ -1,10 +1,16 @@
 # Changelog
 
+## v2.1.10 (2022-07-25)
+
+Feat:
+
+ - Added Russian language support by [@qarudeka](https://github.com/qarudeka), Ref [#2](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/2).
+
 ## v2.1.9 (2022-07-24)
 
 Feat:
 
- - Add [Chanify](https://github.com/chanify/chanify) push support, [some fields](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/ffe9dd3751ba430040bfe7e39309525808c77e26/dailynotehelper/config/config.example.yaml#L207-L221) were added to the configuration file。
+ - Added [Chanify](https://github.com/chanify/chanify) push support, [some fields](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/ffe9dd3751ba430040bfe7e39309525808c77e26/dailynotehelper/config/config.example.yaml#L207-L221) were added to the configuration file。
 
 ## v2.1.8.2 (2022-07-07)
 
@@ -14,7 +20,7 @@ Feat:
 
 Others:
 
-- Migrate the Chinese mainland docker image to Aliyun `registry.cn-shanghai.aliyuncs.com/xm798/genshin-dailynote-helper:latest`.
+- Migrated the Chinese mainland docker image to Aliyun `registry.cn-shanghai.aliyuncs.com/xm798/genshin-dailynote-helper:latest`.
 
 ## v2.1.8.1 (2022-05-19)
 
