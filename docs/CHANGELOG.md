@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.1.10.1 (2022-08-07)
+
+Fix:
+
+ - Update the api of oversear server, #22.
+
 ## v2.1.10 (2022-07-25)
 
 Feat:
