@@ -9,5 +9,5 @@ class Genshin(Client):
         self.oversea = True
         self.roles_info_url = 'https://api-os-takumi.mihoyo.com/binding/api/getUserGameRolesByCookie?game_biz=hk4e_global'
         self.daily_note_url = (
-            'https://bbs-api-os.mihoyo.com/game_record/app/genshin/api/dailyNote'
+            'https://bbs-api-os.hoyolab.com/game_record/app/genshin/api/dailyNote'
         )
