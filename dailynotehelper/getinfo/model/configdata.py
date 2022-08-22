@@ -90,3 +90,6 @@ class ConfigData(BaseModel):
     CHAINFY_PRIORITY: Optional[int] = 10
     CHAINFY_INTERRUPTION_LEVEL: Literal['active', 'passive', 'time-sensitive'] = 'active'
 
+    GOTIFY_URL: Optional[str]
+    GOTIFY_TOKEN: Optional[str]
+    GOTIFY_PRIORITY: Optional[int]

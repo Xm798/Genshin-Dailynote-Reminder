@@ -220,6 +220,16 @@ notifier: # 这里不要填东西 Donot put anything here!
   # Interruption level for timing of a notification.
   CHAINFY_INTERRUPTION_LEVEL: 'active'
 
+  # Gotify
+  # Gotify 服务器地址
+  # Node address of Gotify
+  GOTIFY_URL: https://api.gotify.com
+  # Token of Chanify
+  GOTIFY_TOKEN:
+  # 优先级，0 -> 10, 从低到高
+  # Priority of Gotify, 0 -> 10, From low to high
+  GOTIFY_PRIORITY: 7
+
 # 自定义推送
 # Custom notifier
   CUSTOM_NOTIFIER:
