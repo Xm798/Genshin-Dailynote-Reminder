@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-01 18:05+0800\n"
-"PO-Revision-Date: 2022-05-01 18:08+0800\n"
+"POT-Creation-Date: 2022-08-22 19:53+0800\n"
+"PO-Revision-Date: 2022-08-22 19:55+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -16,258 +16,246 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
-#: .\dailynotehelper\__init__.py:34 .\dailynotehelper\getinfo\praseinfo.py:86
+#: dailynotehelper/__init__.py:12
+msgid "😴休眠中……"
+msgstr "😴 Sleeping..."
+
+#: dailynotehelper/__init__.py:20
+msgid "本轮运行结束，等待下次检查..."
+msgstr "This round of running is over, waiting for the next check..."
+
+#: dailynotehelper/check.py:28 dailynotehelper/getinfo/praseinfo.py:86
 msgid "奖励未领取"
 msgstr "Extra reward has not received"
 
-#: .\dailynotehelper\__init__.py:37
+#: dailynotehelper/check.py:31
 msgid "你今日的委托还没有完成哦！"
 msgstr "Your commission requests have not finished yet!"
 
-#: .\dailynotehelper\__init__.py:38
+#: dailynotehelper/check.py:32
 msgid "🔔今日委托未完成，发送提醒。"
 msgstr "🔔 Today's commissions are not finished, send a reminder."
 
-#: .\dailynotehelper\__init__.py:40
+#: dailynotehelper/check.py:34
 msgid "你今日的委托奖励还没有领取哦！"
 msgstr "Extra commission reward has not yet been received!"
 
-#: .\dailynotehelper\__init__.py:41
+#: dailynotehelper/check.py:35
 msgid "🔔今日委托已完成，奖励未领取，发送提醒。"
 msgstr ""
 "🔔 Today's commissions have been completed but the extra reward has not been "
 "received, send a reminder."
 
-#: .\dailynotehelper\__init__.py:42 .\dailynotehelper\getinfo\praseinfo.py:86
+#: dailynotehelper/check.py:36 dailynotehelper/getinfo/praseinfo.py:86
 msgid "奖励已领取"
 msgstr "Extra reward received"
 
-#: .\dailynotehelper\__init__.py:43
+#: dailynotehelper/check.py:37
 msgid "✅委托检查结束，今日委托已完成，奖励已领取。"
 msgstr ""
 "✅ Commissions checked over, commissions are completed, and the reward has "
 "been received."
 
-#: .\dailynotehelper\__init__.py:45
+#: dailynotehelper/check.py:39
 msgid "⏩︎未到每日委托检查提醒时间。"
 msgstr "⏩︎ Not up to the reminder time of commissions check ."
 
-#: .\dailynotehelper\__init__.py:47
+#: dailynotehelper/check.py:41
 msgid "⏩︎未开启每日委托检查，已跳过。"
 msgstr "⏩︎Daily commissions check is disabled, skipped."
 
-#: .\dailynotehelper\__init__.py:54
+#: dailynotehelper/check.py:48
 msgid "树脂已经溢出啦！"
 msgstr " The resin has overflowed!"
 
-#: .\dailynotehelper\__init__.py:54
+#: dailynotehelper/check.py:48
 msgid "树脂快要溢出啦！"
 msgstr " The resin is about to overflow!"
 
-#: .\dailynotehelper\__init__.py:56
+#: dailynotehelper/check.py:50
 msgid "🔔树脂已到临界值，当前树脂{}，发送提醒。"
 msgstr ""
 "🔔 The resin has reached threshold, the current resin {}, send a reminder."
 
-#: .\dailynotehelper\__init__.py:58
+#: dailynotehelper/check.py:52
 msgid "✅树脂检查结束，当前树脂{}，未到提醒临界值。"
 msgstr ""
 "✅ The resin check is over, the current resin {}, and the reminder threshold "
 "has not been reached."
 
-#: .\dailynotehelper\__init__.py:60
+#: dailynotehelper/check.py:54
 msgid "⏩︎未开启树脂检查，已跳过。"
 msgstr "⏩︎Resin check is disabled, skipped."
 
-#: .\dailynotehelper\__init__.py:70
+#: dailynotehelper/check.py:64
 msgid "洞天宝钱已经溢出啦！"
 msgstr " Home coin has overflowed!"
 
-#: .\dailynotehelper\__init__.py:72
+#: dailynotehelper/check.py:66
 msgid "洞天宝钱快要溢出啦！"
 msgstr " Home coin is about to overflow!"
 
-#: .\dailynotehelper\__init__.py:75
+#: dailynotehelper/check.py:69
 msgid "🔔当前洞天宝钱{}，已到临界值{}，发送提醒。"
 msgstr ""
 "🔔 Current home coin is {} and has reached threshold {}, send a reminder."
 
-#: .\dailynotehelper\__init__.py:81
+#: dailynotehelper/check.py:75
 msgid "✅洞天宝钱检查结束，未溢出。"
 msgstr "✅ Home coin check is over and has not overflowed."
 
-#: .\dailynotehelper\__init__.py:83
+#: dailynotehelper/check.py:77
 msgid "⏩︎未开启洞天宝钱检查，已跳过。"
 msgstr "⏩︎ The home coin check is disabled, skipped."
 
-#: .\dailynotehelper\__init__.py:91
+#: dailynotehelper/check.py:85
 msgid "✅探索派遣未全部完成。"
 msgstr "✅ The expeditions are not fully finished."
 
-#: .\dailynotehelper\__init__.py:94
+#: dailynotehelper/check.py:88
 msgid "探索派遣已经完成啦！"
 msgstr " The expeditions are finished!"
 
-#: .\dailynotehelper\__init__.py:95
+#: dailynotehelper/check.py:89
 msgid "🔔有已完成的探索派遣，发送提醒。"
 msgstr "🔔 There are completed expeditions, send a reminder."
 
-#: .\dailynotehelper\__init__.py:97
+#: dailynotehelper/check.py:91
 msgid "✅探索派遣检查结束，不存在完成的探索派遣。"
 msgstr "✅ The expeditions check is over and there is no finished."
 
-#: .\dailynotehelper\__init__.py:99
+#: dailynotehelper/check.py:93
 msgid "⏩︎未开启探索派遣完成提醒，已跳过。"
 msgstr "⏩︎ Expeditions reminder is not turned on, skipped."
 
-#: .\dailynotehelper\__init__.py:107
+#: dailynotehelper/check.py:101
 msgid "参量质变仪已就绪！"
 msgstr " Parametric transformer is ready!"
 
-#: .\dailynotehelper\__init__.py:108
+#: dailynotehelper/check.py:102
 msgid "🔔参量质变仪已就绪，发送提醒。"
 msgstr "🔔 Parametric transformer is ready, send a reminder."
 
-#: .\dailynotehelper\__init__.py:110
+#: dailynotehelper/check.py:104
 msgid "✅参量质变仪未准备好。"
 msgstr "✅Parametric transformer is not ready."
 
-#: .\dailynotehelper\__init__.py:112
+#: dailynotehelper/check.py:106
 msgid "⏩︎未获得参量质变仪。"
 msgstr "⏩︎No Parametric transformer."
 
-#: .\dailynotehelper\__init__.py:114
+#: dailynotehelper/check.py:108
 msgid "⏩︎接口未返回参量质变仪信息。"
 msgstr "⏩︎API did not return the information of transformer."
 
-#: .\dailynotehelper\__init__.py:116
+#: dailynotehelper/check.py:110
 msgid "⏩︎未开启参量质变仪就绪提醒，已跳过。"
 msgstr "⏩︎ Parametric transformer reminder is not turned on, skipped."
 
-#: .\dailynotehelper\__init__.py:148
+#: dailynotehelper/check.py:142
 msgid "树脂将会在{}溢出，睡前记得清树脂哦！"
 msgstr ""
 "The resin will overflow at {}, remember to use the resin before sleeping!"
 
-#: .\dailynotehelper\__init__.py:149
+#: dailynotehelper/check.py:143
 msgid "🔔睡眠期间树脂将会溢出，发送提醒。"
 msgstr "🔔 The resin will overflow during sleep, send a reminder."
 
-#: .\dailynotehelper\__init__.py:151
+#: dailynotehelper/check.py:145
 msgid "✅睡眠期间树脂不会溢出，放心休息。"
 msgstr "✅Resin will not overflow during sleep."
 
-#: .\dailynotehelper\__init__.py:158
+#: dailynotehelper/check.py:152
 msgid "🗝️ 当前配置了{}个账号，正在执行第{}个"
 msgstr "🗝️ Currently {} accounts are configured, and {}th is being executed"
 
-#: .\dailynotehelper\__init__.py:168
+#: dailynotehelper/check.py:162
 #, fuzzy, python-brace-format
 #| msgid "获取到{}的{}个角色..."
 msgid "获取到{0}的{1}个角色..."
 msgstr "Get {1} roles of {0}..."
 
-#: .\dailynotehelper\__init__.py:169
+#: dailynotehelper/check.py:163
 msgid "国服"
 msgstr "CN server"
 
-#: .\dailynotehelper\__init__.py:169
+#: dailynotehelper/check.py:163
 msgid "国际服"
 msgstr "oversea server"
 
-#: .\dailynotehelper\__init__.py:174
+#: dailynotehelper/check.py:168
 msgid "第{}个角色，{} {}"
 msgstr "The {}th character, {} {}"
 
-#: .\dailynotehelper\__init__.py:179
+#: dailynotehelper/check.py:173
 msgid "跳过该角色"
 msgstr "Skip this role"
 
-#: .\dailynotehelper\__init__.py:185
+#: dailynotehelper/check.py:179
 msgid "获取UID: {} 数据失败！"
 msgstr "Get data of UID: {} failed!"
 
-#: .\dailynotehelper\__init__.py:186
+#: dailynotehelper/check.py:180
 msgid "请查阅运行日志获取详细原因。"
 msgstr "Please consult the run log for detailed reasons."
 
-#: .\dailynotehelper\__init__.py:190
+#: dailynotehelper/check.py:184
 msgid "获取米游社角色信息失败！"
 msgstr "Error occured when getting game roles info of Hoyolob!"
 
-#: .\dailynotehelper\__init__.py:198
-msgid "😴休眠中……"
-msgstr "😴 Sleeping..."
-
-#: .\dailynotehelper\__init__.py:206
-msgid "本轮运行结束，等待下次检查..."
-msgstr "This round of running is over, waiting for the next check..."
-
-#: .\dailynotehelper\getinfo\client.py:31
-msgid "正在获取角色信息"
-msgstr "Getting game roles information"
-
-#: .\dailynotehelper\getinfo\client.py:64
-msgid "获取数据失败！"
-msgstr "Failed to get data!"
-
-#: .\dailynotehelper\getinfo\client.py:75
-msgid "未开启实时便笺！"
-msgstr "Dailynote permission is not turned on!"
-
-#: .\dailynotehelper\getinfo\praseinfo.py:16
+#: dailynotehelper/getinfo/praseinfo.py:16
 msgid "天空岛 🌈"
 msgstr "Celestia 🌈"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:17
+#: dailynotehelper/getinfo/praseinfo.py:17
 msgid "世界树 🌲"
 msgstr "World Tree 🌲"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:18
+#: dailynotehelper/getinfo/praseinfo.py:18
 msgid "美服 🦙"
 msgstr "America 🦙"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:19
+#: dailynotehelper/getinfo/praseinfo.py:19
 msgid "欧服 🏰"
 msgstr "Europe 🏰"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:20
+#: dailynotehelper/getinfo/praseinfo.py:20
 msgid "亚服 🐯"
 msgstr "Asia 🐯"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:21
+#: dailynotehelper/getinfo/praseinfo.py:21
 msgid "台港澳服 🧋"
 msgstr "TW, HK, MO 🧋"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:58
+#: dailynotehelper/getinfo/praseinfo.py:58
 msgid "当前树脂：{} / {}\n"
 msgstr "Current resin: {} / {}\n"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:69
+#: dailynotehelper/getinfo/praseinfo.py:69
 msgid "下个回复倒计时：{}\n"
 msgstr "Countdown to next resin recovery: {}\n"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:73
-#: .\dailynotehelper\getinfo\praseinfo.py:141
+#: dailynotehelper/getinfo/praseinfo.py:73
+#: dailynotehelper/getinfo/praseinfo.py:141
 msgid "今天"
 msgstr "Today"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:73
-#: .\dailynotehelper\getinfo\praseinfo.py:141
+#: dailynotehelper/getinfo/praseinfo.py:73
+#: dailynotehelper/getinfo/praseinfo.py:141
 msgid "明天"
 msgstr "Tomorrow"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:74
+#: dailynotehelper/getinfo/praseinfo.py:74
 msgid "全部回复时间：{} {}"
 msgstr "Recovery time of resin: {} {}"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:79
+#: dailynotehelper/getinfo/praseinfo.py:79
 msgid "周本树脂减半：{} / {}"
 msgstr "Resin discount of trounces: {} / {}"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:87
+#: dailynotehelper/getinfo/praseinfo.py:87
 msgid ""
 "今日委托任务：{}   {}\n"
 "--------------------"
@@ -275,51 +263,51 @@ msgstr ""
 "Commission requests：{}   {}\n"
 "--------------------"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:92
+#: dailynotehelper/getinfo/praseinfo.py:92
 msgid "周一"
 msgstr "Monday"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:93
+#: dailynotehelper/getinfo/praseinfo.py:93
 msgid "周二"
 msgstr "Tuesday"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:94
+#: dailynotehelper/getinfo/praseinfo.py:94
 msgid "周三"
 msgstr "Wednesday"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:95
+#: dailynotehelper/getinfo/praseinfo.py:95
 msgid "周四"
 msgstr "Thursday"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:96
+#: dailynotehelper/getinfo/praseinfo.py:96
 msgid "周五"
 msgstr "Friday"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:97
+#: dailynotehelper/getinfo/praseinfo.py:97
 msgid "周六"
 msgstr "Saturday"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:98
+#: dailynotehelper/getinfo/praseinfo.py:98
 msgid "周日"
 msgstr "Sunday"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:100
+#: dailynotehelper/getinfo/praseinfo.py:100
 msgid "当前洞天宝钱/上限：{} / {}\n"
 msgstr "Current home coin / limit: {} / {}\n"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:107
+#: dailynotehelper/getinfo/praseinfo.py:107
 msgid "洞天宝钱全部恢复时间：{} {}\n"
 msgstr "Recovery time of home coin: {} {}\n"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:135
+#: dailynotehelper/getinfo/praseinfo.py:135
 msgid "  · {}：已完成"
 msgstr "  · {}: Finished"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:143
+#: dailynotehelper/getinfo/praseinfo.py:143
 msgid "  · {} 完成时间：{}{}"
 msgstr "  · {} Finishing time: {} {}"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:153
+#: dailynotehelper/getinfo/praseinfo.py:153
 msgid ""
 "当前探索派遣总数/完成/上限：{}\n"
 "{}"
@@ -327,17 +315,29 @@ msgstr ""
 "Total number of expeditions / finished / limit: {}\n"
 "{}"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:159
+#: dailynotehelper/getinfo/praseinfo.py:159
 msgid "参量质变仪：已就绪"
 msgstr "Parametric transformer: Ready"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:161
+#: dailynotehelper/getinfo/praseinfo.py:161
 msgid "参量质变仪： {} 天 {} 小时后可用"
 msgstr "Parametric transformer: {} days {} hours left"
 
-#: .\dailynotehelper\getinfo\praseinfo.py:166
+#: dailynotehelper/getinfo/praseinfo.py:166
 msgid "参量质变仪： 未获得"
 msgstr "Parametric transformer: Not obtained"
+
+#: dailynotehelper/getinfo/client.py:31
+msgid "正在获取角色信息"
+msgstr "Getting game roles information"
+
+#: dailynotehelper/getinfo/client.py:64
+msgid "获取数据失败！"
+msgstr "Failed to get data!"
+
+#: dailynotehelper/getinfo/client.py:75
+msgid "未开启实时便笺！"
+msgstr "Dailynote permission is not turned on!"
 
 #~ msgid "亲爱的旅行者，"
 #~ msgstr "Dear traveler,"
