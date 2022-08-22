@@ -4,8 +4,8 @@
 
 Feat:
 
- - Use the account role name when the nickname is empty in the configuration. (@phpgao) (#6)
- - Add push provider Gotify. (@phpgao) (#6)
+ - Use the account role name when the nickname is empty in the configuration. ([@phpgao](https://github.com/phpgao)) ([#6](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/6))
+ - Add push provider Gotify. ([@phpgao](https://github.com/phpgao)) ([#6](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/6))
  - Add localization translations of roles in version 3.0.
 
 Fix:

@@ -5,8 +5,8 @@
 
 Feat:
 
- - 当配置中昵称为空时使用账号角色名。(@phpgao) (#6)
- - 增加 Gotify 推送。(@phpgao) (#6)
+ - 当配置中昵称为空时使用账号角色名。([@phpgao](https://github.com/phpgao)) ([#6](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/6))
+ - 增加 Gotify 推送。([@phpgao](https://github.com/phpgao)) ([#6](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/6))
  - 增加 3.0 版本新角色本地化翻译。
 
 Fix:
