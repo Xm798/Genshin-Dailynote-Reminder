@@ -19,13 +19,13 @@ def send(text: str, status: str, message: str) -> None:
         print(e)
 
 
-def check(region, base_data, message):
+def check(role, base_data, message):
     alert = False
     status = ''
 
     # CHECK COMMISSION
     if config.COMMISSION_NOTICE_TIME:
-        time_delta = reset_time_offset(region)
+        time_delta = reset_time_offset(role['region'])
         time_config = datetime.datetime.strptime(
             config.COMMISSION_NOTICE_TIME, '%H:%M'
         ) + datetime.timedelta(hours=time_delta)
@@ -127,7 +127,7 @@ def check(region, base_data, message):
             else f'{config.NICK_NAME},'
         )
     else:
-        nickname = ''
+        nickname = f"{role['nickname']},"
     # 推送消息
     if alert or overflow:
         send(text=nickname, status=status, message=message)
@@ -180,7 +180,7 @@ def start(cookies: list, server: str) -> None:
                 else:
                     dailynote_info, message = client.prase_dailynote_info(role)
                     if dailynote_info:
-                        check(role['region'], dailynote_info, message)
+                        check(role, dailynote_info, message)
                     else:
                         status = (_('获取UID: {} 数据失败！')).format(role['game_uid'])
                         message = _('请查阅运行日志获取详细原因。')
