@@ -14,7 +14,8 @@ from . import (
     pushdeer,
     mail,
     custom,
-    chanify
+    chanify,
+    gotify
 )
 
 from .exceptions import NoSuchNotifierError
@@ -36,7 +37,8 @@ _all_notifiers = {
     'pushdeer': pushdeer.Pushdeer,
     'mail': mail.Mail,
     'custom': custom.Custom,
-    'chanify': chanify.Chanify
+    'chanify': chanify.Chanify,
+    'gotify': gotify.Gotify,
 }
 
 

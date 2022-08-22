@@ -29,7 +29,7 @@ class BaseNotifier(object):
         else:
             if self.name == 'Server Chan Turbo':
                 retcode = response.json().get('data', {}).get(self.retcode_key, -1)
-            elif self.name == 'Discord':
+            elif self.name == 'Discord' or self.name == 'gotify':
                 retcode = response.status_code
             else:
                 retcode = response.json().get(self.retcode_key, -1)

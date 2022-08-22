@@ -102,6 +102,9 @@ class Config:
             "MAIL_PASSWORD",
             "MAIL_TO",
             "CUSTOM_NOTIFIER",
+            "GOTIFY_URL",
+            "GOTIFY_TOKEN",
+            "GOTIFY_PRIORITY",
         ]
 
         for key in config_items:
