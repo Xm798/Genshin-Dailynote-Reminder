@@ -31,10 +31,10 @@ def request(
                 **kwargs
             )
         except Exception as e:
-            log.error(('Request failed: {url}\n{e}').format(url=url, e=e))
+            log.error('Request failed: {url}\n{e}'.format(url=url, e=e))
             if i == max_retries:
                 raise Exception(
-                    ('Request failed ({count}/{total_requests}):\n{e}').format(
+                    'Request failed ({count}/{total_requests}):\n{e}'.format(
                         count=(i + 1), total_requests=total_requests, e=e
                     )
                 )

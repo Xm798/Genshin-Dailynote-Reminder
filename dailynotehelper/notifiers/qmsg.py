@@ -11,7 +11,5 @@ class Qmsg(Base):
 
     def send(self, text, status, desp):
         url = f'https://qmsg.zendee.cn/send/{config.QMSG_KEY}'
-        data = {
-            'msg': f'{text}{status}\n\n{desp}'
-        }
+        data = {'msg': f'{text}{status}\n\n{desp}'}
         return self.push('post', url, data=data)

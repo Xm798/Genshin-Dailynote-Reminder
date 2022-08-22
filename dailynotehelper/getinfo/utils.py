@@ -124,9 +124,6 @@ def request(*args, **kwargs):
         else:
             return response
 
-    def __str__(self) -> str:
-        return f"{self.retcode}: {self.message}"
-
 
 def cookie_to_dict(cookie) -> dict:
     if cookie and '=' in cookie:

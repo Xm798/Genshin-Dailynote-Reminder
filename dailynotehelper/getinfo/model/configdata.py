@@ -1,6 +1,6 @@
 from typing_extensions import Literal
 from typing import Optional, List
-from pydantic import BaseModel, StrictBool, Field
+from pydantic import BaseModel, StrictBool
 
 
 class ConfigData(BaseModel):
@@ -10,7 +10,7 @@ class ConfigData(BaseModel):
     COOKIE_HOYOLAB: List[str] = []
     EXCLUDE_UID: List[int] = []
     DISPLAY_UID: StrictBool = True
-    NICK_NAME: str = '亲爱的旅行者'
+    NICK_NAME: Optional[str] = ''
 
     RESIN_INFO: StrictBool = True
     COMMISSION_INFO: StrictBool = True

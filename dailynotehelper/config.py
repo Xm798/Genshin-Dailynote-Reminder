@@ -1,5 +1,3 @@
-import json
-
 import yaml
 import os
 from .getinfo.model.configdata import ConfigData
@@ -28,8 +26,8 @@ class Config:
             self.get_config_from_env()
         else:
             config_dict = yaml.load(f, Loader=yaml.FullLoader)
-            for key in config_dict:
-                k = key
+            for _key in config_dict:
+                k = _key
                 for key in config_dict[k]:
                     if 'COOKIE' in key or 'EXCLUDE_UID' in key:
                         self.config_data[key] = (
