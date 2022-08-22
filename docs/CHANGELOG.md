@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.1.11 (2022-08-22)
+
+Feat:
+
+ - Use the account role name when the nickname is empty in the configuration. (@phpgao) (#6)
+ - Add push provider Gotify. (@phpgao) (#6)
+ - Add localization translations of roles in version 3.0.
+
+Fix:
+
+ - Fix some wrong localized translations of some characters.
+
 ## v2.1.10.1 (2022-08-07)
 
 Fix:
