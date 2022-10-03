@@ -45,6 +45,8 @@ class Config:
             "EXCLUDE_UID",
             "DISPLAY_UID",
             "NICK_NAME",
+            "PROXY",
+            "OS_REVERSE_PROXY_HOST",
             "RESIN_INFO",
             "COMMISSION_INFO",
             "EXPEDITION_INFO",
