@@ -6,16 +6,16 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-22 19:53+0800\n"
+"POT-Creation-Date: 2022-10-03 22:05+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: dailynotehelper/__init__.py:12
 msgid "😴休眠中……"
@@ -312,14 +312,14 @@ msgstr ""
 msgid "参量质变仪： 未获得"
 msgstr ""
 
-#: dailynotehelper/getinfo/client.py:31
+#: dailynotehelper/getinfo/client.py:32
 msgid "正在获取角色信息"
 msgstr ""
 
-#: dailynotehelper/getinfo/client.py:64
+#: dailynotehelper/getinfo/client.py:71
 msgid "获取数据失败！"
 msgstr ""
 
-#: dailynotehelper/getinfo/client.py:75
+#: dailynotehelper/getinfo/client.py:82
 msgid "未开启实时便笺！"
 msgstr ""

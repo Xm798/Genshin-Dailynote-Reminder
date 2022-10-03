@@ -32,6 +32,11 @@ base:
   # 消息开头的称呼
   # Nicknme at the beginning of the message
   NICK_NAME: '亲爱的旅行者'
+  # 代理，支持 http 和 socks5，不需要代理请留空，对国际服、Telegram Bot、Discord 有效。
+  # Proxy, support http and socks5, valid for international servers, Telegram Bot and Discord.
+  PROXY: ''
+  # 国际服 API 反向代理，应反代 bbs-api-os.hoyolab.com，不需要请留空，详见文档。
+  OS_REVERSE_PROXY_HOST: ''
 
 # 展示信息设置，true or false
 # Display information settings, true or false

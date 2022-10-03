@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-22 19:53+0800\n"
-"PO-Revision-Date: 2022-08-22 19:55+0800\n"
+"POT-Creation-Date: 2022-10-03 22:03+0800\n"
+"PO-Revision-Date: 2022-10-03 22:05+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -339,15 +339,15 @@ msgstr "Параметрический преобразователь: дост�
 msgid "参量质变仪： 未获得"
 msgstr "Параметрический преобразователь: нет в инвентаре"
 
-#: dailynotehelper/getinfo/client.py:31
+#: dailynotehelper/getinfo/client.py:32
 msgid "正在获取角色信息"
 msgstr "Получение информации о персонажах..."
 
-#: dailynotehelper/getinfo/client.py:64
+#: dailynotehelper/getinfo/client.py:71
 msgid "获取数据失败！"
 msgstr "Ошибка при получении данных!"
 
-#: dailynotehelper/getinfo/client.py:75
+#: dailynotehelper/getinfo/client.py:82
 msgid "未开启实时便笺！"
 msgstr "Разрешения для Дневника путешественника не были предоставлены."
 

@@ -7,6 +7,9 @@ class Discord(Base):
         self.name = 'Discord'
         self.token = config.DISCORD_WEBHOOK
         self.retcode_value = 204
+        self.proxies = (
+            {'http': config.PROXY, 'https': config.PROXY} if config.PROXY else None
+        )
 
     def send(self, text, status, desp):
         url = config.DISCORD_WEBHOOK
@@ -21,4 +24,4 @@ class Discord(Base):
                 }
             ],
         }
-        return self.push('post', url, json=data)
+        return self.push('post', url, json=data, proxies=self.proxies)

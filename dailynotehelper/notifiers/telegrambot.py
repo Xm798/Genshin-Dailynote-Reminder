@@ -10,6 +10,9 @@ class TelegramBot(Base):
         )
         self.retcode_key = 'ok'
         self.retcode_value = 'error_code'
+        self.proxies = (
+            {'http': config.PROXY, 'https': config.PROXY} if config.PROXY else None
+        )
 
     def send(self, text, status, desp):
         url = f'https://{config.TG_BOT_API}/bot{config.TG_BOT_TOKEN}/sendMessage'
@@ -19,4 +22,4 @@ class TelegramBot(Base):
             'disable_web_page_preview': True,
             # 'parse_mode': 'MarkdownV2'
         }
-        return self.push('post', url, data=data)
+        return self.push('post', url, data=data, proxies=self.proxies)

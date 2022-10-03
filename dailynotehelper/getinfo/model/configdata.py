@@ -11,6 +11,8 @@ class ConfigData(BaseModel):
     EXCLUDE_UID: List[int] = []
     DISPLAY_UID: StrictBool = True
     NICK_NAME: Optional[str] = ''
+    PROXY: Optional[str] = ''
+    OS_REVERSE_PROXY_HOST: Optional[str] = ''
 
     RESIN_INFO: StrictBool = True
     COMMISSION_INFO: StrictBool = True

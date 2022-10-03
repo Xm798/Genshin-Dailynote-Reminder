@@ -1,0 +1,18 @@
+# PROJECT: Genshin DailyNote Notice Helper Config File
+# Author: Xm798
+# Github: https://github.com/Xm798/Genshin-Dailynote-Helper
+
+# 本文件是一个最小化配置示例，仅包含必要的配置项，且不包含任何推送设置，仅供参考。
+# This file is a minimal configuration example, which only includes the necessary configuration items. It does not include any notify configurations and is for reference only.
+
+base:
+  # 国服 COOKIE
+  # Cookie of CN Server
+  COOKIE: 
+    - 'COOKIE1'
+    #- 'COOKIE2'
+  # 国际服 COOKIE
+  # Cookie of HOYOLAB (oversea)
+  COOKIE_HOYOLAB:
+    #- 'COOKIE1'
+    #- 'COOKIE2'

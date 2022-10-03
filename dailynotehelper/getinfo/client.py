@@ -25,6 +25,7 @@ class Client(object):
         self.oversea = None
         self._roles_info = None
         self.required_keys = {'region', 'game_uid', 'nickname', 'level', 'region_name'}
+        self.proxies = None
 
     @property
     def roles_info(self):
@@ -32,7 +33,11 @@ class Client(object):
         url = self.roles_info_url
         try:
             response = request(
-                'get', url, headers=self.headers, cookies=self.cookie
+                'get',
+                url,
+                headers=self.headers,
+                cookies=self.cookie,
+                proxies=self.proxies,
             ).json()
         except Exception as e:
             log.error(e)
@@ -41,7 +46,8 @@ class Client(object):
             if response.get('retcode') == 0:
                 raw_roles_info = nested_lookup(response, 'list', fetch_first=True)
                 self._roles_info = [
-                    extract_subset_of_dict(i, self.required_keys) for i in raw_roles_info
+                    extract_subset_of_dict(i, self.required_keys)
+                    for i in raw_roles_info
                 ]
                 return self._roles_info
             else:
@@ -57,6 +63,7 @@ class Client(object):
                 headers=get_headers(params=body, ds=True, oversea=self.oversea),
                 params=body,
                 cookies=self.cookie,
+                proxies=self.proxies,
             )
             # log.info(r.text)
             response = Response.parse_obj(r.json())
