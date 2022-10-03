@@ -5,8 +5,8 @@
 
 Feat:
 
-- 支持在[配置文件中设置代理](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1091b1474f8efd17901becc49dc28d7df3d64182/dailynotehelper/config/config.example.yaml#L35-L37)，对国际服信息获取和 Telegram Bot 推送、Discord 推送生效。([#7](https://github.com/Xm798/Genshin-Dailynote-Reminder/issues/7))
-- 支持[设置国际服便笺反代 API](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1091b1474f8efd17901becc49dc28d7df3d64182/dailynotehelper/config/config.example.yaml#L38-L39)，以便在不设置代理的情况下使用自建的反代 API 进行国际服信息获取。
+- 支持在[配置文件中设置代理](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/9465eb0a1ad8f97344142e9de69b3f6878437b2b/dailynotehelper/config/config.example.yaml#L35-L37)，对国际服信息获取和 Telegram Bot 推送、Discord 推送生效。([#7](https://github.com/Xm798/Genshin-Dailynote-Reminder/issues/7))
+- 支持[设置国际服便笺反代 API](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/9465eb0a1ad8f97344142e9de69b3f6878437b2b/dailynotehelper/config/config.example.yaml#L38-L39)，以便在不设置代理的情况下使用自建的反代 API 进行国际服信息获取。
 
 ## v2.1.11（2022-08-22）
 

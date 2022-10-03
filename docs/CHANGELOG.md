@@ -4,8 +4,8 @@
 
 Feat:
 
- - Now you can set the proxy [in the config file]((https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1091b1474f8efd17901becc49dc28d7df3d64182/dailynotehelper/config/config.example.yaml#L35-L37), and it will work on the fetch of oversea server info, requests of Telegram bot and Discord webhook, which can't be connected directly in China mainland. ([#7](https://github.com/Xm798/Genshin-Dailynote-Reminder/issues/7))
- - You can set the reverse proxy api of oversea's daily note api [in the config file](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1091b1474f8efd17901becc49dc28d7df3d64182/dailynotehelper/config/config.example.yaml#L38-L39), which can be used to fetch the oversea server info without proxy.
+ - Now you can set the proxy [in the config file](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/9465eb0a1ad8f97344142e9de69b3f6878437b2b/dailynotehelper/config/config.example.yaml#L35-L37), and it will work on the fetch of oversea server info, requests of Telegram bot and Discord webhook, which can't be connected directly in China mainland. ([#7](https://github.com/Xm798/Genshin-Dailynote-Reminder/issues/7))
+ - You can set the reverse proxy api of oversea's daily note api [in the config file](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/9465eb0a1ad8f97344142e9de69b3f6878437b2b/dailynotehelper/config/config.example.yaml#L38-L39), which can be used to fetch the oversea server info without proxy.
 
 ## v2.1.11 (2022-08-22)
 
