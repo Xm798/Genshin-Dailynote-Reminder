@@ -155,7 +155,7 @@ def start(cookies: list, server: str) -> None:
         )
         log.info('-------------------------')
         os.environ['ACCOUNT_INDEX'] = str(int(os.environ['ACCOUNT_INDEX']) + 1)
-        client = Yuanshen(cookie, config.RUN_ENV) if server == 'cn' else Genshin(cookie)
+        client = Yuanshen(cookie) if server == 'cn' else Genshin(cookie)
         roles_info = client.roles_info
         if isinstance(roles_info, list):
             log.info(
