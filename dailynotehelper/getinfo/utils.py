@@ -127,5 +127,10 @@ def request(*args, **kwargs):
 
 def cookie_to_dict(cookie) -> dict:
     if cookie and '=' in cookie:
-        cookie = dict([line.strip().split('=', 1) for line in cookie.split(';')])
+        lines = [line.strip().split('=') for line in cookie.split(';')]
+        cookie = {}
+        for item in lines:
+            if not item[0]:
+                continue
+            cookie.setdefault(item[0], item[1])
     return cookie
