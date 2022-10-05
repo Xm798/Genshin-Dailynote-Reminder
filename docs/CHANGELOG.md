@@ -1,41 +1,47 @@
 # Changelog
 
+## v2.1.13（2022-10-05）
+
+Fix:
+
+- A cookie loading exception in some cases
+
 ## v2.1.12 (2022-10-03)
 
 Feat:
 
- - Now you can set the proxy [in the config file](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/9465eb0a1ad8f97344142e9de69b3f6878437b2b/dailynotehelper/config/config.example.yaml#L35-L37), and it will work on the fetch of oversea server info, requests of Telegram bot and Discord webhook, which can't be connected directly in China mainland. ([#7](https://github.com/Xm798/Genshin-Dailynote-Reminder/issues/7))
- - You can set the reverse proxy api of oversea's daily note api [in the config file](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/9465eb0a1ad8f97344142e9de69b3f6878437b2b/dailynotehelper/config/config.example.yaml#L38-L39), which can be used to fetch the oversea server info without proxy.
+- Now you can set the proxy [in the config file](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/9465eb0a1ad8f97344142e9de69b3f6878437b2b/dailynotehelper/config/config.example.yaml#L35-L37), and it will work on the fetch of oversea server info, requests of Telegram bot and Discord webhook, which can't be connected directly in China mainland. ([#7](https://github.com/Xm798/Genshin-Dailynote-Reminder/issues/7))
+- You can set the reverse proxy api of oversea's daily note api [in the config file](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/9465eb0a1ad8f97344142e9de69b3f6878437b2b/dailynotehelper/config/config.example.yaml#L38-L39), which can be used to fetch the oversea server info without proxy.
 
 ## v2.1.11 (2022-08-22)
 
 Feat:
 
- - Use the account role name when the nickname is empty in the configuration. ([@phpgao](https://github.com/phpgao)) ([#6](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/6))
- - Add push provider Gotify. ([@phpgao](https://github.com/phpgao)) ([#6](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/6))
- - Add localization translations of roles in version 3.0.
+- Use the account role name when the nickname is empty in the configuration. ([@phpgao](https://github.com/phpgao)) ([#6](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/6))
+- Add push provider Gotify. ([@phpgao](https://github.com/phpgao)) ([#6](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/6))
+- Add localization translations of roles in version 3.0.
 
 Fix:
 
- - Fix some wrong localized translations of some characters.
+- Fix some wrong localized translations of some characters.
 
 ## v2.1.10.1 (2022-08-07)
 
 Fix:
 
- - Update the api of oversear server, #22.
+- Update the api of oversear server, #22.
 
 ## v2.1.10 (2022-07-25)
 
 Feat:
 
- - Added Russian language support by [@qarudeka](https://github.com/qarudeka), Ref [#2](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/2).
+- Added Russian language support by [@qarudeka](https://github.com/qarudeka), Ref [#2](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/2).
 
 ## v2.1.9 (2022-07-24)
 
 Feat:
 
- - Added [Chanify](https://github.com/chanify/chanify) push support, [some fields](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/ffe9dd3751ba430040bfe7e39309525808c77e26/dailynotehelper/config/config.example.yaml#L207-L221) were added to the configuration file。
+- Added [Chanify](https://github.com/chanify/chanify) push support, [some fields](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/ffe9dd3751ba430040bfe7e39309525808c77e26/dailynotehelper/config/config.example.yaml#L207-L221) were added to the configuration file。
 
 ## v2.1.8.2 (2022-07-07)
 

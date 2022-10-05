@@ -1,6 +1,12 @@
 
 # 更新日志
 
+## v2.1.13（2022-10-05）
+
+Fix:
+
+- Cookie 在某些情况下无法读取的问题
+
 ## v2.1.12（2022-10-03）
 
 Feat:
@@ -12,33 +18,31 @@ Feat:
 
 Feat:
 
- - 当配置中昵称为空时使用账号角色名。([@phpgao](https://github.com/phpgao)) ([#6](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/6))
- - 增加 Gotify 推送。([@phpgao](https://github.com/phpgao)) ([#6](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/6))
- - 增加 3.0 版本新角色本地化翻译。
+- 当配置中昵称为空时使用账号角色名。([@phpgao](https://github.com/phpgao)) ([#6](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/6))
+- 增加 Gotify 推送。([@phpgao](https://github.com/phpgao)) ([#6](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/6))
+- 增加 3.0 版本新角色本地化翻译。
 
 Fix:
 
- - 修复部分角色错误的本地化翻译。
+- 修复部分角色错误的本地化翻译。
 
 ## v2.1.10.1（2022-08-07）
 
 Fix:
 
- - 更新国际服的 API，#22。
-
+- 更新国际服的 API，#22。
 
 ## v2.1.10（2022-07-25）
 
 Feat:
 
- - 添加俄语本地化支持，感谢 [@qarudeka](https://github.com/qarudeka), 参见 [#2](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/2)。
+- 添加俄语本地化支持，感谢 [@qarudeka](https://github.com/qarudeka), 参见 [#2](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/2)。
 
 ## v2.1.9（2022-07-24)
 
 Feat:
 
- - 支持 [Chanify](https://github.com/chanify/chanify) 推送，配置文件新增[部分字段](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/ffe9dd3751ba430040bfe7e39309525808c77e26/dailynotehelper/config/config.example.yaml#L207-L221) 。
-
+- 支持 [Chanify](https://github.com/chanify/chanify) 推送，配置文件新增[部分字段](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/ffe9dd3751ba430040bfe7e39309525808c77e26/dailynotehelper/config/config.example.yaml#L207-L221) 。
 
 ## v2.1.8.2（2022-07-07)
 
