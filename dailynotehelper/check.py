@@ -177,7 +177,6 @@ def start(cookies: list, server: str) -> None:
                         check(role, dailynote_info, message)
                     else:
                         status = (_('获取UID: {} 数据失败！')).format(role['game_uid'])
-                        message = _('请查阅运行日志获取详细原因。')
                         send(text='ERROR! ', status=status, message=message)
         else:
             log.error(roles_info)

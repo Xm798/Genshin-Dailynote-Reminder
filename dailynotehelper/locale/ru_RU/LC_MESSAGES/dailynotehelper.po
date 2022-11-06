@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 22:03+0800\n"
-"PO-Revision-Date: 2022-10-03 22:05+0800\n"
+"POT-Creation-Date: 2022-11-06 20:40+0800\n"
+"PO-Revision-Date: 2022-11-06 20:41+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #: dailynotehelper/__init__.py:12
 msgid "😴休眠中……"
@@ -209,11 +209,7 @@ msgstr "Пропускаем персонажа"
 msgid "获取UID: {} 数据失败！"
 msgstr "Ошибка при обработке пользователя. UID: {}"
 
-#: dailynotehelper/check.py:180
-msgid "请查阅运行日志获取详细原因。"
-msgstr "Пожалуйста, проверьте логи запуска для подробностей."
-
-#: dailynotehelper/check.py:184
+#: dailynotehelper/check.py:183
 msgid "获取米游社角色信息失败！"
 msgstr "Произошла ошибка во время получения игровых персонажей (HoYoLAB)"
 
@@ -339,17 +335,26 @@ msgstr "Параметрический преобразователь: дост�
 msgid "参量质变仪： 未获得"
 msgstr "Параметрический преобразователь: нет в инвентаре"
 
-#: dailynotehelper/getinfo/client.py:32
+#: dailynotehelper/getinfo/client.py:33
 msgid "正在获取角色信息"
 msgstr "Получение информации о персонажах..."
 
-#: dailynotehelper/getinfo/client.py:71
+#: dailynotehelper/getinfo/client.py:72
 msgid "获取数据失败！"
 msgstr "Ошибка при получении данных!"
 
-#: dailynotehelper/getinfo/client.py:82
+#: dailynotehelper/getinfo/client.py:84 dailynotehelper/getinfo/client.py:86
 msgid "未开启实时便笺！"
 msgstr "Разрешения для Дневника путешественника не были предоставлены."
+
+#: dailynotehelper/getinfo/client.py:88 dailynotehelper/getinfo/client.py:90
+msgid "账号异常！请登录米游社APP进行验证。"
+msgstr ""
+"Ваш аккаунт ненормальный. Пожалуйста, продолжите процесс проверки в "
+"приложении Hoyolab."
+
+#~ msgid "请查阅运行日志获取详细原因。"
+#~ msgstr "Пожалуйста, проверьте логи запуска для подробностей."
 
 #~ msgid "亲爱的旅行者，"
 #~ msgstr "Dear traveler,"

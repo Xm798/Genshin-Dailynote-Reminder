@@ -19,7 +19,8 @@ class Client(object):
     def __init__(self, cookie: str = None):
         self.daily_note_url = None
         self.roles_info_url = None
-        self._daily_note = None
+        self.dailynote_info = None
+        self.error_message = None
         self.cookie = cookie_to_dict(cookie)
         self.headers = None
         self.oversea = None
@@ -76,19 +77,27 @@ class Client(object):
                 self.dailynote_info = BaseData.parse_obj(response.data)
                 pass
             elif response.retcode == -10001:
-                log.error(response.retcode, response.message)
+                log.error(f'Retcode: {response.retcode},\nMessage: {response.message}')
                 self.dailynote_info = None
+                self.error_message = f'Retcode: {response.retcode}\nMessage: {response.message}'
             elif response.retcode == 10102:
                 log.error(_('未开启实时便笺！'))
                 self.dailynote_info = None
-            else:
-                log.error(response.retcode, response.message)
+                self.error_message = _('未开启实时便笺！')
+            elif response.retcode == 1034:
+                log.error(_('账号异常！请登录米游社APP进行验证。'))
                 self.dailynote_info = None
+                self.error_message = _('账号异常！请登录米游社APP进行验证。')
+            else:
+                log.error(f'Retcode: {response.retcode},\nMessage: {response.message}')
+                self.dailynote_info = None
+                self.error_message = f'Retcode: {response.retcode}\nMessage: {response.message}'
 
     def prase_dailynote_info(self, role):
         self._get_dailynote_info(role['game_uid'], role['region'])
-        result: str = (
-            prase_info(self.dailynote_info, role) if self.dailynote_info else ''
-        )
-        message = "\n".join(result)
+        if self.dailynote_info:
+            result = prase_info(self.dailynote_info, role)
+            message = "\n".join(result)
+        else:
+            message = self.error_message
         return self.dailynote_info, message
