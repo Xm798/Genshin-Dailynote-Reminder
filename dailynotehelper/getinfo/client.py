@@ -6,24 +6,21 @@ from .utils import *
 from ..utils import log, _
 from .model import BaseData
 from typing import Optional
-from .praseinfo import prase_info
-
-
-class Response(pydantic.BaseModel):
-    retcode: int
-    message: str
-    data: Optional[dict]
+from .parse_info import parse_info
 
 
 class Client(object):
+    class Response(pydantic.BaseModel):
+        retcode: int
+        message: str
+        data: Optional[dict]
+
     def __init__(self, cookie: str = None):
-        self.daily_note_url = None
-        self.roles_info_url = None
-        self.dailynote_info = None
-        self.error_message = None
+        self.dailynote_api = None
+        self.roles_api = None
         self.cookie = cookie_to_dict(cookie)
         self.headers = None
-        self.oversea = None
+        self.client_type = None
         self._roles_info = None
         self.required_keys = {'region', 'game_uid', 'nickname', 'level', 'region_name'}
         self.proxies = None
@@ -31,11 +28,10 @@ class Client(object):
     @property
     def roles_info(self):
         log.info(_('正在获取角色信息'))
-        url = self.roles_info_url
         try:
             response = request(
                 'get',
-                url,
+                self.roles_api,
                 headers=self.headers,
                 cookies=self.cookie,
                 proxies=self.proxies,
@@ -54,50 +50,42 @@ class Client(object):
             else:
                 return response.get('message')
 
-    def _get_dailynote_info(self, uid: str, region: str):
-        url = self.daily_note_url
-        body = {'role_id': uid, 'server': region}
+    def parse_dailynote_info(self, role):
+        data = None
+        body = {'role_id': role['game_uid'], 'server': role['region']}
         try:
             r = request(
                 'get',
-                url,
-                headers=get_headers(params=body, ds=True, oversea=self.oversea),
+                self.dailynote_api,
+                headers=get_headers(params=body, ds=True, client_type=self.client_type),
                 params=body,
                 cookies=self.cookie,
                 proxies=self.proxies,
             )
-            # log.info(r.text)
-            response = Response.parse_obj(r.json())
+            response = self.Response.parse_obj(r.json())
         except Exception as e:
             log.error(_('获取数据失败！'))
             log.error(e)
-            self.dailynote_info = None
+            message = e
+            retcode = 999
         else:
-            if response.retcode == 0:
-                self.dailynote_info = BaseData.parse_obj(response.data)
-                pass
-            elif response.retcode == -10001:
-                log.error(f'Retcode: {response.retcode},\nMessage: {response.message}')
-                self.dailynote_info = None
-                self.error_message = f'Retcode: {response.retcode}\nMessage: {response.message}'
-            elif response.retcode == 10102:
-                log.error(_('未开启实时便笺！'))
-                self.dailynote_info = None
-                self.error_message = _('未开启实时便笺！')
-            elif response.retcode == 1034:
-                log.error(_('账号异常！请登录米游社APP进行验证。'))
-                self.dailynote_info = None
-                self.error_message = _('账号异常！请登录米游社APP进行验证。')
+            retcode = response.retcode
+            if retcode == 0:
+                data = BaseData.parse_obj(response.data)
+                result = parse_info(data, role, mode='standard')
+                message = "\n".join(result)
             else:
-                log.error(f'Retcode: {response.retcode},\nMessage: {response.message}')
-                self.dailynote_info = None
-                self.error_message = f'Retcode: {response.retcode}\nMessage: {response.message}'
+                if retcode == 10102:
+                    message = _('未开启实时便笺！')
+                elif retcode == 1034:
+                    message = _('账号异常！请登录米游社APP进行验证。')
+                else:
+                    message = f'Retcode: {retcode}\nMessage: {response.message}'
+                log.error(message)
 
-    def prase_dailynote_info(self, role):
-        self._get_dailynote_info(role['game_uid'], role['region'])
-        if self.dailynote_info:
-            result = prase_info(self.dailynote_info, role)
-            message = "\n".join(result)
-        else:
-            message = self.error_message
-        return self.dailynote_info, message
+        return {
+            'status': True if retcode == 0 else False,
+            'retcode': retcode,
+            'data': data,
+            'message': message
+        }

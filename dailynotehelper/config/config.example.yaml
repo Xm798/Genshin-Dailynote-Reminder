@@ -9,6 +9,10 @@ base:
   # 语言，支持 zh_CN，zh_TW, en_US 或 ru_RU。
   # Language, support zh_CN, zh_TW, en_US or ru_RU.
   LANGUAGE: 'zh_CN'
+  # 轻量模式，开启后将获取简洁版信息，以避免米游社风控验证码。仅对国服有效。
+  # 可选项：auto: 自动模式，在遇到验证码后自动回落到轻量模式；true：强制开启；false：强制关闭。
+  # Only valid for CN server.
+  LITE_MODE: auto
   # 账号信息，将下面的 COOKIEx 替换为你的 COOKIE。多账号换行填写，去掉 #，以 - 开头。
   # Account information, replace COOKIEx below with your COOKIE. Fill in a new line for multiple accounts, remove the #, and start with - .
   # 国服 COOKIE

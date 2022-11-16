@@ -5,6 +5,8 @@ import ast
 import logging
 from urllib import parse
 
+# yaml = ruamel.yaml.YAML()
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s %(levelname)s %(message)s',
@@ -36,10 +38,14 @@ class Config:
                     else:
                         self.config_data[key] = config_dict[k][key]
 
+    def update_user_cookie(self):
+        pass
+
     def get_config_from_env(self):
         logging.info('Trying loading config from environment variables.')
         config_items = [
             "LANGUAGE",
+            "LITE_MODE",
             "COOKIE",
             "COOKIE_HOYOLAB",
             "EXCLUDE_UID",
@@ -110,6 +116,9 @@ class Config:
         for key in config_items:
             eval_items = [
                 'COOKIE',
+                'COOKIE_HOYOLAB',
+                'LITE_MODE',
+                'DISPLAY_UID',
                 'EXCLUDE_UID',
                 'CUSTOM_NOTIFIER',
                 'RESIN_INFO',

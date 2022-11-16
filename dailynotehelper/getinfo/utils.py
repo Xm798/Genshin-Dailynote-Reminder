@@ -8,17 +8,17 @@ from ..utils import log
 from urllib.parse import urlencode
 
 
-def get_ds(oversea, params, body: dict) -> str:
+def get_ds(ds_type: str, params, body: dict) -> str:
     t = str(int(time.time()))
     r = str(random.randint(100000, 200000))
     b = json.dumps(body) if body else ''
     q = urlencode(params) if params else ''
-    salt = (
-        'okr4obncj8bw5a65hbnn5oo6ixjc3l9w'
-        if oversea
-        else 'xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs'
-    )
-    text = f'salt={salt}&t={t}&r={r}&b={b}&q={q}'
+    salt = {
+        'cn': 'xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs',
+        'os': 'okr4obncj8bw5a65hbnn5oo6ixjc3l9w',
+        'cn_widget': 't0qEgfub6cvueAPgR5m9aQWWVciEer7v',
+    }
+    text = f'salt={salt[ds_type]}&t={t}&r={r}&b={b}&q={q}'
     md5 = hashlib.md5()
     md5.update(text.encode())
     c = md5.hexdigest()
@@ -26,42 +26,48 @@ def get_ds(oversea, params, body: dict) -> str:
 
 
 def get_headers(
-    params: dict = None, body: dict = None, ds: bool = False, oversea: bool = False
+        params: dict = None, body: dict = None, ds: bool = False, client_type: str = 'cn'
 ) -> dict:
-    cn = {
-        "x-rpc-app_version": "2.40.1",
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.40.1",
-        "x-rpc-client_type": "5",
-        "x-rpc-page": "3.1.3_#/ys",
-        "Origin": "https://webstatic.mihoyo.com",
-        "X-Requested-With": "com.mihoyo.hyperion",
-        "Referer": "https://webstatic.mihoyo.com/",
+    client = {
+        'cn': {
+            'Accept': 'application/json, text/plain, */*',
+            "x-rpc-app_version": "2.40.1",
+            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.40.1",
+            "x-rpc-client_type": "5",
+            "x-rpc-page": "3.1.3_#/ys",
+            "Origin": "https://webstatic.mihoyo.com",
+            "X-Requested-With": "com.mihoyo.hyperion",
+            "Referer": "https://webstatic.mihoyo.com/",
+        },
+        'os': {
+            'Accept': 'application/json, text/plain, */*',
+            "x-rpc-app_version": "2.9.0",
+            "User-Agent": "Mozilla/5.0 (Linux; Android 12; Mi 10 Pro Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.4638.74 Mobile Safari/537.36 miHoYoBBSOversea/2.9.0",
+            "x-rpc-client_type": "2",
+            "Origin": "https://webstatic-sea.hoyolab.com",
+            "X-Requested-With": "com.mihoyo.hoyolab",
+            "Referer": "https://webstatic-sea.hoyolab.com",
+        },
+        'cn_widget': {
+            "Accept": '*/*',
+            "x-rpc-sys_version": "16.1",
+            "x-rpc-channel": 'appstore',
+            "x-rpc-client_type": "2",
+            "Referer": 'https://app.mihoyo.com',
+            "x-rpc-device_name": 'iPhone',
+            "x-rpc-device_model": 'iPhone14,2',
+            "x-rpc-app_version": '2.40.1',
+            "User-Agent": 'WidgetExtension/264 CFNetwork/1399 Darwin/22.1.0'
+        }
     }
-    os = {
-        "x-rpc-app_version": "2.9.0",
-        "User-Agent": "Mozilla/5.0 (Linux; Android 12; Mi 10 Pro Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.4638.74 Mobile Safari/537.36 miHoYoBBSOversea/2.9.0",
-        "x-rpc-client_type": "2",
-        "Origin": "https://webstatic-sea.hoyolab.com",
-        "X-Requested-With": "com.mihoyo.hoyolab",
-        "Referer": "https://webstatic-sea.hoyolab.com",
-    }
-    client = os if oversea else cn
-    headers = {
-        'Accept': 'application/json, text/plain, */*',
-        'User-Agent': client['User-Agent'],
-        'X-Requested-With': client['X-Requested-With'],
-        'Origin': client['Origin'],
-        'Referer': client['Referer'],
-    }
+    headers = client[client_type]
     if ds:
-        ds = get_ds(oversea, params, body)
+        ds = get_ds(client_type, params, body)
         headers.update(
             {
                 'DS': ds,
-                'x-rpc-client_type': client['x-rpc-client_type'],
-                'x-rpc-app_version': client['x-rpc-app_version'],
                 'x-rpc-device_id': str(
-                    uuid.uuid3(uuid.NAMESPACE_URL, client['User-Agent'])
+                    uuid.uuid3(uuid.NAMESPACE_URL, uuid.UUID(int = uuid.getnode()).hex[-12:])
                 )
                 .replace('-', '')
                 .upper(),
@@ -126,7 +132,7 @@ def request(*args, **kwargs):
             return response
 
 
-def cookie_to_dict(cookie) -> dict:
+def cookie_to_dict(cookie: str) -> dict:
     if cookie and '=' in cookie:
         lines = [line.strip().split('=') for line in cookie.split(';')]
         cookie = {}
@@ -135,3 +141,13 @@ def cookie_to_dict(cookie) -> dict:
                 continue
             cookie.setdefault(item[0], item[1])
     return cookie
+
+
+def dict_to_cookie(cookie: dict) -> str:
+    if isinstance(cookie, dict):
+        cookie_str = ""
+        for i, (k, v) in enumerate(cookie.items()):
+            append = f"{k}={v}" if i == len(cookie) - 1 else f"{k}={v}; "
+            cookie_str += append
+        return cookie_str
+

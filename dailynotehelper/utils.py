@@ -34,22 +34,22 @@ def time_in_range(t0: str, t_range: str) -> bool:
 
 def tz_diff(tz_server: str, tz_local: str):
     offset_local = (
-        datetime.datetime.utcnow()
-        .replace(tzinfo=pytz.utc)
-        .astimezone(pytz.timezone(tz_local))
-        .utcoffset()
-        .total_seconds()
-        / 60
-        / 60
+            datetime.datetime.utcnow()
+            .replace(tzinfo=pytz.utc)
+            .astimezone(pytz.timezone(tz_local))
+            .utcoffset()
+            .total_seconds()
+            / 60
+            / 60
     )
     offset_server = (
-        datetime.datetime.utcnow()
-        .replace(tzinfo=pytz.utc)
-        .astimezone(pytz.timezone(tz_server))
-        .utcoffset()
-        .total_seconds()
-        / 60
-        / 60
+            datetime.datetime.utcnow()
+            .replace(tzinfo=pytz.utc)
+            .astimezone(pytz.timezone(tz_server))
+            .utcoffset()
+            .total_seconds()
+            / 60
+            / 60
     )
     diff = offset_local - offset_server
     if abs(diff) > 12.0:
