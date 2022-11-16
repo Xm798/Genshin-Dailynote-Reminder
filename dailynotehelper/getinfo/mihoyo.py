@@ -57,7 +57,8 @@ class Yuanshen(Client):
             'status': True if retcode == 0 else False,
             'retcode': retcode,
             'data': data,
-            'message': message
+            'message': message,
+            'ck_updated': True if ck_updated else False
         }
 
     def _get_multitoken(self):

@@ -74,7 +74,7 @@ class Check:
         else:
             log.info(_('✅探索派遣检查结束，不存在完成的探索派遣。'))
 
-    def check(self, role, lite=False):
+    def check(self, role, lite=False, push=False):
 
         if config.COMMISSION_NOTICE_TIME:
             self.check_commision(role, self.data.finished_task_num)
@@ -125,7 +125,7 @@ class Check:
         else:
             nickname = f"{role['nickname']}, "
         # 推送消息
-        if self.alert or overflow:
+        if self.alert or overflow or push:
             send(text=nickname, status=self.status, message=self.message)
 
     def check_before_sleep(self, recovery_seconds: int) -> bool:
@@ -154,7 +154,7 @@ class Check:
                 if not fallback
                 else info['message'] + '\n\n⚠️账号异常，本次自动回落至轻量模式'
             )
-            self.check(role, lite=True)
+            self.check(role, lite=True, push=info['ck_updated'])
         else:
             log.error(info['message'])
             send(
