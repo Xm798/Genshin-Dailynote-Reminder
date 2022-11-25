@@ -1,5 +1,29 @@
 # Changelog
 
+## v2.2.1 (2022-11-25)
+
+Fix:
+
+- Fix a bug that the oversea account can not work normally when the `LITE_MODE` is set to `true`.
+
+## v2.2.0 (2022-11-17)
+
+Feat:
+
+- A new lite mode for cn server when encountering a verification code
+
+## v2.1.15（2022-11-15）
+
+Fix:
+
+- Fix the crash when switching language to English
+
+## v2.1.14（2022-11-06）
+
+Others:
+
+- Add an prompt message of 1034 error
+
 ## v2.1.13（2022-10-05）
 
 Fix:
