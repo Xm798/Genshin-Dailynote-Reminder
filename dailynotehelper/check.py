@@ -213,7 +213,7 @@ def start(cookies: list, server: str) -> None:
                     check = Check()
                     if config.LITE_MODE == 'auto':
                         check.standard_mode(client, role, True)
-                    elif config.LITE_MODE:
+                    elif config.LITE_MODE and server == 'cn':
                         check.lite_mode(client, role)
                     else:
                         check.standard_mode(client, role, False)
