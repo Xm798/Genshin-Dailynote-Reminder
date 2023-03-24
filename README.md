@@ -56,6 +56,14 @@ See [the document](https://xm798.gitbook.io/genshin-dailynote-helper/how-to-use)
 
 See [Changelog](./docs/CHANGELOG.md) or [更新日志](./docs/CHANGELOG_ZH.md).
 
+## Declaration
+
+On March 22nd, 2023, even though the repository's actions had been inactive for almost five months, Github issued a second ban on the warehouse due to alleged abuse of the Action. Sadly, there is no recourse to challenge this decision, leaving us with a sense of helplessness and no option but to undertake a rebuild.
+
+> 2023 年 3 月 22 日，尽管存储库的 Actions 已经近五个月没有活动，但 Github 仍以涉嫌滥用 Action 为由被封禁。难过的是无法进行申诉，让我们感到无助，别无选择，只能再次重建仓库。
+> 
+> ![CleanShot 2023-03-24 at 23.41.31@2x.png](https://s2.loli.net/2023/03/24/UPbLltzcrIBgnJD.png)
+
 ## Acknowledgements
 
 ### Translators
@@ -73,7 +81,6 @@ See [Changelog](./docs/CHANGELOG.md) or [更新日志](./docs/CHANGELOG_ZH.md).
 |                                [onepush](https://github.com/y1ndan/onepush)                                 |      [y1ndan](https://gitlab.com/y1ndan/)      |                  [MIT](https://github.com/y1ndan/onepush/blob/main/LICENSE)                   |      message push channel       |
 |                [genshin-checkin-helper](https://gitlab.com/y1ndan/genshin-checkin-helper)                 |      [y1ndan](https://gitlab.com/y1ndan/)      |         [GPLv3](https://gitlab.com/y1ndan/genshin-checkin-helper/-/blob/main/LICENSE)         |         API call method         |
 |                                                      -                                                      |      [yllhwa](https://github.com/yllhwa)       |                                               -                                               | DS encryption algorithm reverse |
-
 
 ## License
 
