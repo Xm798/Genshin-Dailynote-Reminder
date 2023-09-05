@@ -10,6 +10,20 @@ from ..config import config
 
 class ClientCNWidget(Client):
     def __init__(self, cookie: str = None):
+        base_takumi_api = 'https://api-takumi.mihoyo.com'
+        base_takumi_record_api = 'https://api-takumi-record.mihoyo.com'
+        self.roles_api = (
+            base_takumi_api + '/binding/api/getUserGameRolesByCookie?game_biz=hk4e_cn'
+        )
+        self.get_multi_token_api = (
+            base_takumi_api + '/auth/api/getMultiTokenByLoginTicket'
+        )
+        self.widget_api = (
+            base_takumi_record_api + '/game_record/app/card/api/getWidgetData?game_id=2'
+        )
+        # self.widget_api = api_takumi_record + '/game_record/app/genshin/aapi/widget/v2'
+
+        super().__init__(cookie)
         self.client_type = 'cn_widget'
         self.login_ticket: str = ''
         self.cookie_widget = {
@@ -22,19 +36,6 @@ class ClientCNWidget(Client):
             'stoken': self.cookie.get('stoken'),
             'ltoken': self.cookie.get('ltoken'),
         }
-
-        base_takumi_api = 'https://api-takumi.mihoyo.com'
-        base_takumi_record_api = 'https://api-takumi-record.mihoyo.com'
-        self.get_multi_token_api = (
-            base_takumi_api + '/auth/api/getMultiTokenByLoginTicket'
-        )
-        self.widget_api = (
-            base_takumi_record_api + '/game_record/app/card/api/getWidgetData?game_id=2'
-        )
-        # self.widget_api = api_takumi_record + '/game_record/app/genshin/aapi/widget/v2'
-
-        super().__init__(cookie)
-
 
     def parse_info(self, role) -> dict:
         data = None

@@ -145,7 +145,7 @@ class Check:
                 log.info(_('✅睡眠期间树脂不会溢出，放心休息。'))
                 return False
 
-    def lite_mode(self, cookie: str, role, fallback=False):
+    def lite_mode(self, cookie, role, fallback=False):
         client = ClientCNWidget(cookie)
         info = client.parse_info(role)
         log.info(_('⚠️处于轻量模式，仅检查树脂、委托、洞天宝钱。'))

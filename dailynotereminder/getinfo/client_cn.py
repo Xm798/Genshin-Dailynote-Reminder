@@ -64,7 +64,7 @@ class ClientCN(Client):
                 self.generate_device_seed()
         return self._device_seed
 
-    def get_device_fp(self) -> str | None:
+    def get_device_fp(self):
         default_fp = "38d7ee834d1e9"
         headers = {
             "Host": "public-data-api.mihoyo.com",
