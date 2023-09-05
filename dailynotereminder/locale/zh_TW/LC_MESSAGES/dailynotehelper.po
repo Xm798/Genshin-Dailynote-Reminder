@@ -18,249 +18,249 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.2\n"
 
-#: dailynotehelper/__init__.py:12
+#: dailynotereminder/__init__.py:12
 msgid "😴休眠中……"
 msgstr "😴休眠中……"
 
-#: dailynotehelper/__init__.py:20
+#: dailynotereminder/__init__.py:20
 msgid "本轮运行结束，等待下次检查..."
 msgstr "本輪執行結束，等待下次檢查..."
 
-#: dailynotehelper/check.py:23 dailynotehelper/getinfo/parse_info.py:118
+#: dailynotereminder/check.py:23 dailynotereminder/getinfo/parse_info.py:118
 msgid "奖励已领取"
 msgstr "獎勵已領取"
 
-#: dailynotehelper/check.py:26
+#: dailynotereminder/check.py:26
 msgid "你今日的委托还没有完成哦！"
 msgstr "你今日的委託還沒有完成哦！"
 
-#: dailynotehelper/check.py:27
+#: dailynotereminder/check.py:27
 msgid "🔔今日委托未完成，发送提醒。"
 msgstr "🔔 今日委託未完成，發送提醒。"
 
-#: dailynotehelper/check.py:29
+#: dailynotereminder/check.py:29
 msgid "你今日的委托奖励还没有领取哦！"
 msgstr "你今日的委託獎勵還沒有領取哦！"
 
-#: dailynotehelper/check.py:30
+#: dailynotereminder/check.py:30
 msgid "🔔今日委托已完成，奖励未领取，发送提醒。"
 msgstr "🔔 今日委託已完成，獎勵未領取，發送提醒。"
 
-#: dailynotehelper/check.py:32
+#: dailynotereminder/check.py:32
 msgid "✅委托检查结束，今日委托已完成，奖励已领取。"
 msgstr "✅ 委託檢查結束，今日委託已完成，獎勵已領取。"
 
-#: dailynotehelper/check.py:34
+#: dailynotereminder/check.py:34
 msgid "⏩︎未到每日委托检查提醒时间。"
 msgstr "⏩︎未到每日委託檢查提醒時間。"
 
-#: dailynotehelper/check.py:39
+#: dailynotereminder/check.py:39
 msgid "树脂已经溢出啦！"
 msgstr "樹脂已經溢出啦！"
 
-#: dailynotehelper/check.py:39
+#: dailynotereminder/check.py:39
 msgid "树脂快要溢出啦！"
 msgstr "樹脂快要溢出啦！"
 
-#: dailynotehelper/check.py:40
+#: dailynotereminder/check.py:40
 msgid "🔔树脂已到临界值，当前树脂{}，发送提醒。"
 msgstr "🔔樹脂已到臨界值，當前樹脂{}，發送提醒。"
 
-#: dailynotehelper/check.py:42
+#: dailynotereminder/check.py:42
 msgid "✅树脂检查结束，当前树脂{}，未到提醒临界值。"
 msgstr "✅樹脂檢查結束，當前樹脂{}，未到提醒臨界值。"
 
-#: dailynotehelper/check.py:51
+#: dailynotereminder/check.py:51
 msgid "洞天宝钱已经溢出啦！"
 msgstr "洞天寶錢已經溢出啦！"
 
-#: dailynotehelper/check.py:53
+#: dailynotereminder/check.py:53
 msgid "洞天宝钱快要溢出啦！"
 msgstr "洞天寶錢快要溢出啦！"
 
-#: dailynotehelper/check.py:56
+#: dailynotereminder/check.py:56
 msgid "🔔当前洞天宝钱{}，已到临界值{}，发送提醒。"
 msgstr "🔔当前洞天寶錢{}，已到臨界值{}，發送提醒。"
 
-#: dailynotehelper/check.py:62
+#: dailynotereminder/check.py:62
 msgid "✅洞天宝钱检查结束，未溢出。"
 msgstr "✅洞天寶錢檢查結束，未溢出。"
 
-#: dailynotehelper/check.py:69
+#: dailynotereminder/check.py:69
 msgid "✅探索派遣未全部完成。"
 msgstr "✅探索派遣未全部完成。"
 
-#: dailynotehelper/check.py:72
+#: dailynotereminder/check.py:72
 msgid "探索派遣已经完成啦！"
 msgstr "探索派遣已經完成啦！"
 
-#: dailynotehelper/check.py:73
+#: dailynotereminder/check.py:73
 msgid "🔔有已完成的探索派遣，发送提醒。"
 msgstr "🔔有已完成的探索派遣，發送提醒。"
 
-#: dailynotehelper/check.py:75
+#: dailynotereminder/check.py:75
 msgid "✅探索派遣检查结束，不存在完成的探索派遣。"
 msgstr "✅探索派遣檢查結束，不存在完成的探索派遣。"
 
-#: dailynotehelper/check.py:82
+#: dailynotereminder/check.py:82
 msgid "⏩︎未开启每日委托检查，已跳过。"
 msgstr "⏩︎未開啟每日委託檢查，已跳過。"
 
-#: dailynotehelper/check.py:87
+#: dailynotereminder/check.py:87
 msgid "⏩︎未开启树脂检查，已跳过。"
 msgstr "⏩︎未開啟樹脂檢查，已跳過。"
 
-#: dailynotehelper/check.py:92
+#: dailynotereminder/check.py:92
 msgid "⏩︎未开启洞天宝钱检查，已跳过。"
 msgstr "⏩︎未開啟洞天寶錢檢查，已跳過。"
 
-#: dailynotehelper/check.py:97
+#: dailynotereminder/check.py:97
 msgid "⏩︎未开启探索派遣完成提醒，已跳过。"
 msgstr "⏩︎未開啟探索派遣完成提醒，已跳過。"
 
-#: dailynotehelper/check.py:104
+#: dailynotereminder/check.py:104
 msgid "参量质变仪已就绪！"
 msgstr "參數質變儀已就緒！"
 
-#: dailynotehelper/check.py:105
+#: dailynotereminder/check.py:105
 msgid "🔔参量质变仪已就绪，发送提醒。"
 msgstr "🔔參數質變儀已就緒，發送提醒。"
 
-#: dailynotehelper/check.py:107
+#: dailynotereminder/check.py:107
 msgid "✅参量质变仪未准备好。"
 msgstr "✅參數質變儀未準備好。"
 
-#: dailynotehelper/check.py:109
+#: dailynotereminder/check.py:109
 msgid "⏩︎未获得参量质变仪。"
 msgstr "⏩︎未獲得參數質變儀。"
 
-#: dailynotehelper/check.py:111
+#: dailynotereminder/check.py:111
 msgid "⏩︎接口未返回参量质变仪信息。"
 msgstr "⏩︎接口未返回參數質變儀信息。"
 
-#: dailynotehelper/check.py:113
+#: dailynotereminder/check.py:113
 msgid "⏩︎未开启参量质变仪就绪提醒，已跳过。"
 msgstr "⏩︎未開啟參數質變儀就緒提醒，已跳過。"
 
-#: dailynotehelper/check.py:140
+#: dailynotereminder/check.py:140
 msgid "树脂将会在{}溢出，睡前记得清树脂哦！"
 msgstr "樹脂將會在{}溢出，睡前記得清樹脂哦！"
 
-#: dailynotehelper/check.py:141
+#: dailynotereminder/check.py:141
 msgid "🔔睡眠期间树脂将会溢出，发送提醒。"
 msgstr "🔔睡眠期間樹脂將會溢出，發送提醒。"
 
-#: dailynotehelper/check.py:144
+#: dailynotereminder/check.py:144
 msgid "✅睡眠期间树脂不会溢出，放心休息。"
 msgstr "✅睡眠期間樹脂不會溢出，放心休息。"
 
-#: dailynotehelper/check.py:149
+#: dailynotereminder/check.py:149
 msgid "⚠️处于轻量模式，仅检查树脂、委托、洞天宝钱。"
 msgstr ""
 
-#: dailynotehelper/check.py:162 dailynotehelper/check.py:182
+#: dailynotereminder/check.py:162 dailynotereminder/check.py:182
 msgid "获取UID: {} 数据失败！"
 msgstr "獲取UID: {} 資料失敗！"
 
-#: dailynotehelper/check.py:176
+#: dailynotereminder/check.py:176
 msgid "⚠️UID: {} 账号异常，自动回落到轻量模式。"
 msgstr ""
 
-#: dailynotehelper/check.py:190
+#: dailynotereminder/check.py:190
 msgid "🗝️ 当前配置了{}个账号，正在执行第{}个"
 msgstr "🗝️ 目前配置了{}個帳號，正在執行第{}個"
 
-#: dailynotehelper/check.py:200
+#: dailynotereminder/check.py:200
 #, python-brace-format
 msgid "获取到{0}的{1}个角色..."
 msgstr "獲取到{0}的{1}個角色..."
 
-#: dailynotehelper/check.py:201
+#: dailynotereminder/check.py:201
 msgid "国服"
 msgstr "國服"
 
-#: dailynotehelper/check.py:201
+#: dailynotereminder/check.py:201
 msgid "国际服"
 msgstr "國際服"
 
-#: dailynotehelper/check.py:206
+#: dailynotereminder/check.py:206
 msgid "第{}个角色，{} {}"
 msgstr "第{}個角色，{} {}"
 
-#: dailynotehelper/check.py:211
+#: dailynotereminder/check.py:211
 msgid "跳过该角色"
 msgstr "跳過該角色"
 
-#: dailynotehelper/check.py:221
+#: dailynotereminder/check.py:221
 msgid "获取米游社角色信息失败！"
 msgstr "獲取遊戲角色資料失敗！"
 
-#: dailynotehelper/getinfo/parse_info.py:16
+#: dailynotereminder/getinfo/parse_info.py:16
 msgid "天空岛 🌈"
 msgstr "天空島 🌈"
 
-#: dailynotehelper/getinfo/parse_info.py:17
+#: dailynotereminder/getinfo/parse_info.py:17
 msgid "世界树 🌲"
 msgstr "世界樹 🌲"
 
-#: dailynotehelper/getinfo/parse_info.py:18
+#: dailynotereminder/getinfo/parse_info.py:18
 msgid "美服 🦙"
 msgstr "美服 🦙"
 
-#: dailynotehelper/getinfo/parse_info.py:19
+#: dailynotereminder/getinfo/parse_info.py:19
 msgid "欧服 🏰"
 msgstr "歐服 🏰"
 
-#: dailynotehelper/getinfo/parse_info.py:20
+#: dailynotereminder/getinfo/parse_info.py:20
 msgid "亚服 🐯"
 msgstr "亞服 🐯"
 
-#: dailynotehelper/getinfo/parse_info.py:21
+#: dailynotereminder/getinfo/parse_info.py:21
 msgid "台港澳服 🧋"
 msgstr "臺港澳服 🧋"
 
-#: dailynotehelper/getinfo/parse_info.py:78
-#: dailynotehelper/getinfo/parse_info.py:136
+#: dailynotereminder/getinfo/parse_info.py:78
+#: dailynotereminder/getinfo/parse_info.py:136
 msgid "当前洞天宝钱/上限：{} / {}\n"
 msgstr "當前洞天寶錢/上限：{} / {}\n"
 
-#: dailynotehelper/getinfo/parse_info.py:90
+#: dailynotereminder/getinfo/parse_info.py:90
 msgid "当前树脂：{} / {}\n"
 msgstr "當前樹脂：{} / {}\n"
 
-#: dailynotehelper/getinfo/parse_info.py:96
+#: dailynotereminder/getinfo/parse_info.py:96
 msgid "下个回复倒计时：{}\n"
 msgstr "下個恢復倒數計時：{}\n"
 
-#: dailynotehelper/getinfo/parse_info.py:104
-#: dailynotehelper/getinfo/parse_info.py:177
+#: dailynotereminder/getinfo/parse_info.py:104
+#: dailynotereminder/getinfo/parse_info.py:177
 msgid "今天"
 msgstr "今天"
 
-#: dailynotehelper/getinfo/parse_info.py:104
-#: dailynotehelper/getinfo/parse_info.py:177
+#: dailynotereminder/getinfo/parse_info.py:104
+#: dailynotereminder/getinfo/parse_info.py:177
 msgid "明天"
 msgstr "明天"
 
-#: dailynotehelper/getinfo/parse_info.py:105
+#: dailynotereminder/getinfo/parse_info.py:105
 #, fuzzy
 #| msgid "全部回复时间：{} {}"
 msgid "预估回复时间：{} {}"
 msgstr "全部恢復時間：{} {}"
 
-#: dailynotehelper/getinfo/parse_info.py:110
+#: dailynotereminder/getinfo/parse_info.py:110
 msgid "周本树脂减半：{} / {}"
 msgstr "週本樹脂減半：{} / {}"
 
-#: dailynotehelper/getinfo/parse_info.py:120
+#: dailynotereminder/getinfo/parse_info.py:120
 msgid "奖励未领取"
 msgstr "獎勵未領取"
 
-#: dailynotehelper/getinfo/parse_info.py:122
+#: dailynotereminder/getinfo/parse_info.py:122
 msgid "委托未完成"
 msgstr ""
 
-#: dailynotehelper/getinfo/parse_info.py:123
+#: dailynotereminder/getinfo/parse_info.py:123
 msgid ""
 "今日委托任务：{}   {}\n"
 "--------------------"
@@ -268,47 +268,47 @@ msgstr ""
 "今日委託任務：{}   {}\n"
 "--------------------"
 
-#: dailynotehelper/getinfo/parse_info.py:128
+#: dailynotereminder/getinfo/parse_info.py:128
 msgid "周一"
 msgstr "週一"
 
-#: dailynotehelper/getinfo/parse_info.py:129
+#: dailynotereminder/getinfo/parse_info.py:129
 msgid "周二"
 msgstr "週二"
 
-#: dailynotehelper/getinfo/parse_info.py:130
+#: dailynotereminder/getinfo/parse_info.py:130
 msgid "周三"
 msgstr "週三"
 
-#: dailynotehelper/getinfo/parse_info.py:131
+#: dailynotereminder/getinfo/parse_info.py:131
 msgid "周四"
 msgstr "週四"
 
-#: dailynotehelper/getinfo/parse_info.py:132
+#: dailynotereminder/getinfo/parse_info.py:132
 msgid "周五"
 msgstr "週五"
 
-#: dailynotehelper/getinfo/parse_info.py:133
+#: dailynotereminder/getinfo/parse_info.py:133
 msgid "周六"
 msgstr "週六"
 
-#: dailynotehelper/getinfo/parse_info.py:134
+#: dailynotereminder/getinfo/parse_info.py:134
 msgid "周日"
 msgstr "週日"
 
-#: dailynotehelper/getinfo/parse_info.py:143
+#: dailynotereminder/getinfo/parse_info.py:143
 msgid "洞天宝钱全部恢复时间：{} {}\n"
 msgstr "洞天寶錢全部恢復時間：{} {}\n"
 
-#: dailynotehelper/getinfo/parse_info.py:171
+#: dailynotereminder/getinfo/parse_info.py:171
 msgid "  · {}：已完成"
 msgstr "  · {}：已完成"
 
-#: dailynotehelper/getinfo/parse_info.py:179
+#: dailynotereminder/getinfo/parse_info.py:179
 msgid "  · {} 完成时间：{}{}"
 msgstr "  · {} 完成時間：{}{}"
 
-#: dailynotehelper/getinfo/parse_info.py:189
+#: dailynotereminder/getinfo/parse_info.py:189
 msgid ""
 "当前探索派遣总数/完成/上限：{}\n"
 "{}"
@@ -316,31 +316,31 @@ msgstr ""
 "當前探索派遣總數/完成/上限：{}\n"
 "{}"
 
-#: dailynotehelper/getinfo/parse_info.py:195
+#: dailynotereminder/getinfo/parse_info.py:195
 msgid "参量质变仪：已就绪"
 msgstr "參數質變儀：已就緒"
 
-#: dailynotehelper/getinfo/parse_info.py:197
+#: dailynotereminder/getinfo/parse_info.py:197
 msgid "参量质变仪： {} 天 {} 小时后可用"
 msgstr "參數質變儀： {} 天 {} 小時後可用"
 
-#: dailynotehelper/getinfo/parse_info.py:202
+#: dailynotereminder/getinfo/parse_info.py:202
 msgid "参量质变仪： 未获得"
 msgstr "參數質變儀：未獲得"
 
-#: dailynotehelper/getinfo/client.py:30
+#: dailynotereminder/getinfo/client.py:30
 msgid "正在获取角色信息"
 msgstr "正在獲取角色資料"
 
-#: dailynotehelper/getinfo/client.py:67
+#: dailynotereminder/getinfo/client.py:67
 msgid "获取数据失败！"
 msgstr "獲取資料失敗！"
 
-#: dailynotehelper/getinfo/client.py:79
+#: dailynotereminder/getinfo/client.py:79
 msgid "未开启实时便笺！"
 msgstr "未開啟即時便箋！"
 
-#: dailynotehelper/getinfo/client.py:81
+#: dailynotereminder/getinfo/client.py:81
 msgid "账号异常！请登录米游社APP进行验证。"
 msgstr "您的賬戶異常，請在 Hoyolab 應用程序中進行驗證。"
 

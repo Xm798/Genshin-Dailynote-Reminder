@@ -1,3 +1,3 @@
-from dailynotehelper import run
+from dailynotereminder import run
 
 run()

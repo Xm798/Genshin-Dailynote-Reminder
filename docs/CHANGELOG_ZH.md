@@ -1,5 +1,14 @@
 
 # 更新日志
+## v2.3（2023-09-05）
+
+Fix：
+
+- 修复游戏 3.8 版本更新后标准模式无法运行的问题
+
+Feat：
+
+- 配置文件新增 `DEVICE_FP`，以尝试绕过国服验证码，Ref [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
 
 ## v2.2.1（2022-11-25）
 
@@ -41,8 +50,8 @@ Fix:
 
 Feat:
 
-- 支持在[配置文件中设置代理](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/9465eb0a1ad8f97344142e9de69b3f6878437b2b/dailynotehelper/config/config.example.yaml#L35-L37)，对国际服信息获取和 Telegram Bot 推送、Discord 推送生效。([#7](https://github.com/Xm798/Genshin-Dailynote-Reminder/issues/7))
-- 支持[设置国际服便笺反代 API](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/9465eb0a1ad8f97344142e9de69b3f6878437b2b/dailynotehelper/config/config.example.yaml#L38-L39)，以便在不设置代理的情况下使用自建的反代 API 进行国际服信息获取。
+- 支持在[配置文件中设置代理](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/9465eb0a1ad8f97344142e9de69b3f6878437b2b/dailynotereminder/config/config.example.yaml#L35-L37)，对国际服信息获取和 Telegram Bot 推送、Discord 推送生效。([#7](https://github.com/Xm798/Genshin-Dailynote-Reminder/issues/7))
+- 支持[设置国际服便笺反代 API](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/9465eb0a1ad8f97344142e9de69b3f6878437b2b/dailynotereminder/config/config.example.yaml#L38-L39)，以便在不设置代理的情况下使用自建的反代 API 进行国际服信息获取。
 
 ## v2.1.11（2022-08-22）
 
@@ -72,7 +81,7 @@ Feat:
 
 Feat:
 
-- 支持 [Chanify](https://github.com/chanify/chanify) 推送，配置文件新增[部分字段](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/ffe9dd3751ba430040bfe7e39309525808c77e26/dailynotehelper/config/config.example.yaml#L207-L221) 。
+- 支持 [Chanify](https://github.com/chanify/chanify) 推送，配置文件新增[部分字段](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/ffe9dd3751ba430040bfe7e39309525808c77e26/dailynotereminder/config/config.example.yaml#L207-L221) 。
 
 ## v2.1.8.2（2022-07-07)
 
@@ -126,7 +135,7 @@ Fix:
 
 New Features:
 
-- 增加称呼自定义，配置文件字段增加 [NICK_NAME](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/da7e545940c76ef6c30cbc2d767d74137bf9513f/dailynotehelper/config/config.example.yaml#L32-L34) 。
+- 增加称呼自定义，配置文件字段增加 [NICK_NAME](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/da7e545940c76ef6c30cbc2d767d74137bf9513f/dailynotereminder/config/config.example.yaml#L32-L34) 。
 
 Fix:
 
@@ -140,7 +149,7 @@ Others:
 
 New Features:
 
-- 增加参量质变仪提醒，配置文件字段增加 [TRANSFORMER_INFO](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/4c182324f0597c4964ef8aaf10711e6b38e76be7/dailynotehelper/config/config.example.yaml#L51-L53) 和 [TRANSFORMER_INFO](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/4c182324f0597c4964ef8aaf10711e6b38e76be7/dailynotehelper/config/config.example.yaml#L76-L78) 。
+- 增加参量质变仪提醒，配置文件字段增加 [TRANSFORMER_INFO](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/4c182324f0597c4964ef8aaf10711e6b38e76be7/dailynotereminder/config/config.example.yaml#L51-L53) 和 [TRANSFORMER_INFO](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/4c182324f0597c4964ef8aaf10711e6b38e76be7/dailynotereminder/config/config.example.yaml#L76-L78) 。
 - 角色列表添加神里绫人
 
 ## v2.1.6.1 (2022-03-16)
@@ -154,8 +163,8 @@ Others:
 
 New Features:
 
-- 增加 QQ 频道推送支持，[#19](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/19) ，[配置文件字段调整](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/e8f190812a864f266e7f32c02793a2cfccc14722/dailynotehelper/config/config.example.yaml#L124-L128) 。
-- 增加洞天宝钱提醒阈值设置，配置文件增加字段 [HOMECOIN_THRESHOLD](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1f0730a2f7525bdf9aaac66c498b0e2412a6ebc7/dailynotehelper/config/config.example.yaml#L72) 。
+- 增加 QQ 频道推送支持，[#19](https://github.com/Xm798/Genshin-Dailynote-Helper/pull/19) ，[配置文件字段调整](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/e8f190812a864f266e7f32c02793a2cfccc14722/dailynotereminder/config/config.example.yaml#L124-L128) 。
+- 增加洞天宝钱提醒阈值设置，配置文件增加字段 [HOMECOIN_THRESHOLD](https://github.com/Xm798/Genshin-Dailynote-Helper/blob/1f0730a2f7525bdf9aaac66c498b0e2412a6ebc7/dailynotereminder/config/config.example.yaml#L72) 。
 
 ## v2.1.5（2022-02-28）
 

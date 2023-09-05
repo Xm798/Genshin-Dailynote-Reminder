@@ -28,7 +28,7 @@ jobs:
       - name: Pack serverless file
         run: |
           cp -f ./serverless.py ./index.py
-          zip -r "serverless_$RELEASE_VERSION"".zip" . -x "*.pyc" -x "./bin/*" -x "*.so" -x ".git/*" -x "./__pycache__/" -x ".github/*" -x "./dailynotehelper/config/config.yaml" -x "./*/__pycache__/" -x "./Docker*" -x ".dockerignore" -x "docker-compose.yml" -x ".gitignore" -x "./docs/*" -x "serverless.py"
+          zip -r "serverless_$RELEASE_VERSION"".zip" . -x "*.pyc" -x "./bin/*" -x "*.so" -x ".git/*" -x "./__pycache__/" -x ".github/*" -x "./dailynotereminder/config/config.yaml" -x "./*/__pycache__/" -x "./Docker*" -x ".dockerignore" -x "docker-compose.yml" -x ".gitignore" -x "./docs/*" -x "serverless.py"
         env: 
           RELEASE_VERSION: ${{ env.RELEASE_VERSION }}
       - name: Publish release

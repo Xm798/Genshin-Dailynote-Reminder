@@ -13,7 +13,7 @@ RUN adduser app -D \
 
 WORKDIR /app
 COPY index.py ./
-COPY dailynotehelper ./dailynotehelper
+COPY dailynotereminder ./dailynotereminder
 
 USER app
 CMD [ "python3", "./index.py" ]

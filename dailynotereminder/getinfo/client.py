@@ -1,22 +1,27 @@
 """
 Thanks to y1ndan's genshin-checkin-helper(https://gitlab.com/y1ndan/genshin-checkin-helper), GPLv3 License.
 """
+import hashlib
+import json
 import pydantic
+import uuid
+from typing import Optional
+from urllib.parse import urlencode
 from .utils import *
 from ..utils import log, _
 from .model import BaseData
-from typing import Optional
 from .parse_info import parse_info
+from abc import ABC, abstractmethod
 
 
-class Client(object):
+class Client(ABC):
     class Response(pydantic.BaseModel):
         retcode: int
         message: str
         data: Optional[dict]
 
     def __init__(self, cookie: str = None):
-        self.dailynote_api = None
+        self.daily_note_api = None
         self.roles_api = None
         self.cookie = cookie_to_dict(cookie)
         self.headers = None
@@ -24,6 +29,10 @@ class Client(object):
         self._roles_info = None
         self.required_keys = {'region', 'game_uid', 'nickname', 'level', 'region_name'}
         self.proxies = None
+        self.device_id = str(
+            uuid.uuid3(uuid.NAMESPACE_URL, uuid.UUID(int=uuid.getnode()).hex[-12:])
+        )
+        self.headers = self.get_headers()
 
     @property
     def roles_info(self):
@@ -50,14 +59,14 @@ class Client(object):
             else:
                 return response.get('message')
 
-    def parse_dailynote_info(self, role):
+    def parse_info(self, role):
         data = None
         body = {'role_id': role['game_uid'], 'server': role['region']}
         try:
             r = request(
                 'get',
-                self.dailynote_api,
-                headers=get_headers(params=body, ds=True, client_type=self.client_type),
+                self.daily_note_api,
+                headers=self.get_headers(params=body, ds=True),
                 params=body,
                 cookies=self.cookie,
                 proxies=self.proxies,
@@ -87,5 +96,37 @@ class Client(object):
             'status': True if retcode == 0 else False,
             'retcode': retcode,
             'data': data,
-            'message': message
+            'message': message,
         }
+
+    def get_headers(
+        self,
+        params: dict = None,
+        body: dict = None,
+        ds: bool = False,
+    ) -> dict:
+        headers = self._get_headers()
+        if ds:
+            ds = self.get_ds(params, body)
+            headers.update({'DS': ds, 'x-rpc-device_id': self.device_id.upper()})
+        return headers
+
+    def get_ds(self, params, body: dict) -> str:
+        t = str(int(time.time()))
+        r = str(random.randint(100000, 200000))
+        b = json.dumps(body) if body else ''
+        q = urlencode(params) if params else ''
+        salt = self._get_ds_salt()
+        text = f'salt={salt}&t={t}&r={r}&b={b}&q={q}'
+        md5 = hashlib.md5()
+        md5.update(text.encode())
+        c = md5.hexdigest()
+        return f'{t},{r},{c}'
+
+    @abstractmethod
+    def _get_ds_salt(self) -> str:
+        pass
+
+    @abstractmethod
+    def _get_headers(self) -> dict:
+        pass

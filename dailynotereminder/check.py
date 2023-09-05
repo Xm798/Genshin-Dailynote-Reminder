@@ -1,8 +1,9 @@
 from .utils import *
 from .utils import _
 from .getinfo.parse_info import *
-from .getinfo.mihoyo import Yuanshen
-from .getinfo.hoyolab import Genshin
+from .getinfo.client_cn import ClientCN
+from .getinfo.client_os import ClientOS
+from .getinfo.client_cn_widget import ClientCNWidget
 from .notifiers import send2all
 
 
@@ -144,15 +145,16 @@ class Check:
                 log.info(_('✅睡眠期间树脂不会溢出，放心休息。'))
                 return False
 
-    def lite_mode(self, client, role, fallback=False):
-        info = client.parse_widget_info(role)
+    def lite_mode(self, cookie: str, role, fallback=False):
+        client = ClientCNWidget(cookie)
+        info = client.parse_info(role)
         log.info(_('⚠️处于轻量模式，仅检查树脂、委托、洞天宝钱。'))
         if info['retcode'] == 0:
             self.data = info['data']
             self.message = (
                 info['message']
                 if not fallback
-                else info['message'] + '\n\n⚠️账号异常，本次自动回落至轻量模式'
+                else info['message'] + '\n⚠️账号异常，本次自动回落至轻量模式'
             )
             self.check(role, lite=True, push=info['ck_updated'])
         else:
@@ -166,7 +168,7 @@ class Check:
             )
 
     def standard_mode(self, client, role, fallback):
-        info = client.parse_dailynote_info(role)
+        info = client.parse_info(role)
         if info['retcode'] == 0:
             self.data = info['data']
             self.message = info['message']
@@ -174,7 +176,7 @@ class Check:
         else:
             if info['retcode'] == 1034 and fallback:
                 log.warning(_('⚠️UID: {} 账号异常，自动回落到轻量模式。').format(role['game_uid']))
-                self.lite_mode(client, role, fallback=True)
+                self.lite_mode(client.cookie, role, fallback=True)
             else:
                 log.error(info['message'])
                 send(
@@ -193,7 +195,7 @@ def start(cookies: list, server: str) -> None:
         )
         log.info('-------------------------')
         os.environ['ACCOUNT_INDEX'] = str(int(os.environ['ACCOUNT_INDEX']) + 1)
-        client = Yuanshen(cookie) if server == 'cn' else Genshin(cookie)
+        client = ClientCN(cookie) if server == 'cn' else ClientOS(cookie)
         roles_info = client.roles_info
         if isinstance(roles_info, list):
             log.info(
@@ -214,7 +216,7 @@ def start(cookies: list, server: str) -> None:
                     if config.LITE_MODE == 'auto':
                         check.standard_mode(client, role, True)
                     elif config.LITE_MODE and server == 'cn':
-                        check.lite_mode(client, role)
+                        check.lite_mode(cookie, role)
                     else:
                         check.standard_mode(client, role, False)
         else:

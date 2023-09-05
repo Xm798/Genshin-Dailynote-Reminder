@@ -9,6 +9,7 @@ class ConfigData(BaseModel):
     LITE_MODE: Literal['auto', True, False] = 'auto'
     COOKIE: List[str] = []
     COOKIE_HOYOLAB: List[str] = []
+    DEVICE_FP: Optional[str] = ''
     EXCLUDE_UID: List[int] = []
     DISPLAY_UID: StrictBool = True
     NICK_NAME: Optional[str] = ''

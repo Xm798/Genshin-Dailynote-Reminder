@@ -69,7 +69,12 @@ def parse_info(info, role, mode='standard'):
             'max_home_coin': int(data_lite['洞天财瓮'].split('/')[1]),
             'finished_task_num': finished_task_num,
             'is_extra_task_reward_received': is_extra_task_reward_received,
-            'resin_recovery_time': (int(data_lite['原粹树脂'].split('/')[1]) - int(data_lite['原粹树脂'].split('/')[0])) * 8 * 60
+            'resin_recovery_time': (
+                int(data_lite['原粹树脂'].split('/')[1])
+                - int(data_lite['原粹树脂'].split('/')[0])
+            )
+            * 8
+            * 60,
         }
         info = BaseData.parse_obj(data)
         result.append(get_resin_info(info.current_resin, info.max_resin, None))
@@ -149,32 +154,19 @@ def get_homecoin_info(info) -> str:
 
 
 def get_expedition_info(info: BaseData) -> str:
-    project_path = os.path.dirname(os.path.dirname(__file__))
-    config_file = os.path.join(
-        project_path, '', f'./locale/{config.LANGUAGE}/avatar.json'
-    )
-    with open(config_file, 'r', encoding='utf-8') as f:
-        avatar_json = json.load(f)
-
     expedition_info: list[str] = []
     finished = 0
-    for expedition in info.expeditions:
-        avatar = re.search(
-            r'(?<=(UI_AvatarIcon_Side_)).*(?=.png)', expedition['avatar_side_icon']
-        ).group()
-        try:
-            avatar_name: str = avatar_json[avatar]
-        except KeyError:
-            avatar_name: str = avatar
-
+    current_time = datetime.datetime.now()
+    for index, expedition in enumerate(info.expeditions):
+        avatar_name: str = _('角色 {}'.format(index + 1))
         if expedition['status'] == 'Finished':
             expedition_info.append(_('  · {}：已完成').format(avatar_name))
             finished += 1
         else:
-            finish_time = datetime.datetime.now() + datetime.timedelta(
+            finish_time = current_time + datetime.timedelta(
                 seconds=int(expedition['remained_time'])
             )
-            day = _('今天') if datetime.datetime.now().day == finish_time.day else _('明天')
+            day = _('今天') if current_time.day == finish_time.day else _('明天')
             expedition_info.append(
                 (_('  · {} 完成时间：{}{}')).format(
                     avatar_name, day, finish_time.strftime('%X')
