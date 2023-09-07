@@ -15,7 +15,7 @@ from . import (
     mail,
     custom,
     chanify,
-    gotify
+    gotify,
 )
 
 from .exceptions import NoSuchNotifierError
@@ -62,3 +62,10 @@ def send2all(text='', status: str = '', desp: str = ''):
         else:
             message = desp
         get_notifier(notifier).send(text, status, message)
+
+
+def send(text: str, status: str, message: str) -> None:
+    try:
+        send2all(text=text, status=status, desp=message)
+    except Exception as e:
+        print(e)

@@ -5,10 +5,13 @@ import hashlib
 import json
 import pydantic
 import uuid
+import time
+import random
 from typing import Optional
 from urllib.parse import urlencode
-from .utils import *
-from ..utils import log, _
+from .utils import cookie_to_dict, request, nested_lookup, extract_subset_of_dict
+from ..utils import log
+from ..locale import _
 from ..config import config
 from .model import BaseData
 from .parse_info import parse_info

@@ -1,17 +1,14 @@
-import yaml
-import os
-from .getinfo.model.configdata import ConfigData
 import ast
-import logging
+import os
+import yaml
+
+from pathlib import Path
 from urllib import parse
 
-# yaml = ruamel.yaml.YAML()
+from .utils import log
+from .getinfo.model.configdata import ConfigData
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s %(levelname)s %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
-)
+# yaml = ruamel.yaml.YAML()
 
 
 class Config:
@@ -19,31 +16,31 @@ class Config:
         self.config_data = {}
 
     def get_config(self):
-        project_path = os.path.dirname(__file__)
-        config_file = os.path.join(project_path, 'config', 'config.yaml')
+        project_path = Path(__file__).parent
+        config_file = project_path / 'config' / 'config.yaml'
         try:
-            f = open(config_file, 'r', encoding='utf-8')
+            with open(config_file, 'r', encoding='utf-8') as f:
+                config_dict = yaml.load(f, Loader=yaml.FullLoader)
+                for _key in config_dict:
+                    k = _key
+                    for key in config_dict[k]:
+                        if 'COOKIE' in key or 'EXCLUDE_UID' in key:
+                            self.config_data[key] = (
+                                config_dict[k][key] if config_dict[k][key] else []
+                            )
+                        else:
+                            self.config_data[key] = config_dict[k][key]
         except IOError:
-            logging.warning('Cannot read the configuration file.')
+            log.warning('Cannot read the configuration file.')
             self.get_config_from_env()
-        else:
-            config_dict = yaml.load(f, Loader=yaml.FullLoader)
-            for _key in config_dict:
-                k = _key
-                for key in config_dict[k]:
-                    if 'COOKIE' in key or 'EXCLUDE_UID' in key:
-                        self.config_data[key] = (
-                            config_dict[k][key] if config_dict[k][key] else []
-                        )
-                    else:
-                        self.config_data[key] = config_dict[k][key]
 
     def update_user_cookie(self):
         pass
 
     def get_config_from_env(self):
-        logging.info('Trying loading config from environment variables.')
+        log.info('Trying loading config from environment variables.')
         config_items = [
+            "CHECK_UPDATE",
             "LANGUAGE",
             "LITE_MODE",
             "COOKIE",

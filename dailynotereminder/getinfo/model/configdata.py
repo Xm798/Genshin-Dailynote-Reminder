@@ -4,6 +4,7 @@ from pydantic import BaseModel, StrictBool
 
 
 class ConfigData(BaseModel):
+    CHECK_UPDATE: StrictBool = True
     LANGUAGE: Literal['zh_CN', 'en_US', 'zh_TW', 'ru_RU'] = 'zh_CN'
     RUN_ENV: Literal['local', 'cloud'] = 'local'
     LITE_MODE: Literal['auto', True, False] = 'auto'

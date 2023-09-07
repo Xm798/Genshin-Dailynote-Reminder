@@ -1,24 +1,6 @@
-import os
 import pytz
-import gettext
-import logging
 import datetime
 from tzlocal import get_localzone_name
-from .config import config
-
-_localedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'locale')
-_translate = gettext.translation(
-    'dailynotereminder', _localedir, languages=[config.LANGUAGE], fallback=True
-)
-_ = _translate.gettext
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s %(levelname)s %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
-)
-
-log = logging
 
 
 def time_in_range(t0: str, t_range: str) -> bool:
@@ -34,22 +16,22 @@ def time_in_range(t0: str, t_range: str) -> bool:
 
 def tz_diff(tz_server: str, tz_local: str):
     offset_local = (
-            datetime.datetime.utcnow()
-            .replace(tzinfo=pytz.utc)
-            .astimezone(pytz.timezone(tz_local))
-            .utcoffset()
-            .total_seconds()
-            / 60
-            / 60
+        datetime.datetime.utcnow()
+        .replace(tzinfo=pytz.utc)
+        .astimezone(pytz.timezone(tz_local))
+        .utcoffset()
+        .total_seconds()
+        / 60
+        / 60
     )
     offset_server = (
-            datetime.datetime.utcnow()
-            .replace(tzinfo=pytz.utc)
-            .astimezone(pytz.timezone(tz_server))
-            .utcoffset()
-            .total_seconds()
-            / 60
-            / 60
+        datetime.datetime.utcnow()
+        .replace(tzinfo=pytz.utc)
+        .astimezone(pytz.timezone(tz_server))
+        .utcoffset()
+        .total_seconds()
+        / 60
+        / 60
     )
     diff = offset_local - offset_server
     if abs(diff) > 12.0:
@@ -67,7 +49,7 @@ def reset_time_offset(region: str):
         'os_usa': 'Etc/GMT+5',
         'os_euro': 'Etc/GMT-1',
         'os_asia': 'Etc/GMT-8',
-        'os_cht': 'Etc/GMT-8'
+        'os_cht': 'Etc/GMT-8',
     }
     tz_local = get_localzone_name()
     delta = -tz_diff(tz_server[region], tz_local) - 4

@@ -1,13 +1,21 @@
+import os
 import schedule
+import datetime
+
 from time import sleep
-from .utils import *
-from .utils import _
+
+from .utils import log
+from .utils import time_in_range, tz_diff, reset_time_offset
+from .utils.update_checker import check_update
+from .locale import _
 from .check import start
 from .config import config
 from .__banner__ import banner
 
 
 def run_once() -> None:
+    if config.CHECK_UPDATE:
+        check_update()
     if time_in_range(datetime.datetime.now().strftime('%H:%M'), config.SLEEP_TIME):
         log.info(_('😴休眠中……'))
         return

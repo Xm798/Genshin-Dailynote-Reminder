@@ -1,10 +1,11 @@
 import os
 import json
+import time
 
 from .client import Client
-from .utils import *
-from ..utils import log, _
+from .utils import request, sample_string
 from ..config import config
+from ..utils import log
 
 
 class ClientCN(Client):

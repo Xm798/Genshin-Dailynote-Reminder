@@ -1,10 +1,14 @@
-from .utils import *
-from .utils import _
-from .getinfo.parse_info import *
+import datetime
+import os
+
+from .utils import log
+from .utils import time_in_range, reset_time_offset
+from .locale import _
+from .notifiers import send
+from .config import config
 from .getinfo.client_cn import ClientCN
 from .getinfo.client_os import ClientOS
 from .getinfo.client_cn_widget import ClientCNWidget
-from .notifiers import send2all
 
 
 class Check:
@@ -76,7 +80,6 @@ class Check:
             log.info(_('✅探索派遣检查结束，不存在完成的探索派遣。'))
 
     def check(self, role, lite=False, push=False):
-
         if config.COMMISSION_NOTICE_TIME:
             self.check_commision(role, self.data.finished_task_num)
         else:
@@ -224,10 +227,3 @@ def start(cookies: list, server: str) -> None:
             message = roles_info
             send(text='❌ERROR! ', status=status, message=message)
         log.info(f'-------------------------')
-
-
-def send(text: str, status: str, message: str) -> None:
-    try:
-        send2all(text=text, status=status, desp=message)
-    except Exception as e:
-        print(e)

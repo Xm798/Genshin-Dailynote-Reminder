@@ -2,8 +2,9 @@ import os
 import json
 
 from .client import Client
-from .utils import *
-from ..utils import log, _
+from .utils import request, dict_to_cookie
+from ..utils import log
+from ..locale import _
 from .parse_info import parse_info
 from ..config import config
 

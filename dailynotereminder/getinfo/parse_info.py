@@ -1,8 +1,5 @@
-import os
-import re
-import json
 import datetime
-from ..utils import _
+from ..locale import _
 from ..config import config
 from .model import BaseData
 

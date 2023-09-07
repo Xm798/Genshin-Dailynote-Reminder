@@ -6,6 +6,9 @@
 # Caution: Don't forget to use quotes if the string contains special characters.
 
 base:
+  # 自动检查更新
+  # Check for updates
+  CHECK_UPDATE: true
   # 语言，支持 zh_CN，zh_TW, en_US 或 ru_RU。
   # Language, support zh_CN, zh_TW, en_US or ru_RU.
   LANGUAGE: 'zh_CN'
