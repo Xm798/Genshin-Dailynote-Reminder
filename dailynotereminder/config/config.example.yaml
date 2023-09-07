@@ -25,9 +25,12 @@ base:
   COOKIE_HOYOLAB:
     #- 'COOKIE1'
     #- 'COOKIE2'
-  # 设备指纹，用于规避国服验证码，不需要请留空
-  # Device fingerprint, used to avoid CN server verification code, leave it blank if not needed
-  DEVICE_FP: ''
+  # 设备信息，用于规避国服验证码，不需要请留空
+  # Device info, used to avoid CN server verification code, leave it blank if not needed
+  DEVICE_INFO:
+    device_id:
+    device_fp:
+    user_agent:
   # 排除 UID，在该列表中的 UID 不会进行检测
   # Exclude UIDs, UIDs in this list will not be detected
   EXCLUDE_UID:

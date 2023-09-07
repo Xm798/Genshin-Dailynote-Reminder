@@ -48,7 +48,7 @@ class Config:
             "LITE_MODE",
             "COOKIE",
             "COOKIE_HOYOLAB",
-            "DEVICE_FP",
+            "DEVICE_INFO",
             "EXCLUDE_UID",
             "DISPLAY_UID",
             "NICK_NAME",

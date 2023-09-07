@@ -9,6 +9,7 @@ from typing import Optional
 from urllib.parse import urlencode
 from .utils import *
 from ..utils import log, _
+from ..config import config
 from .model import BaseData
 from .parse_info import parse_info
 from abc import ABC, abstractmethod
@@ -29,7 +30,8 @@ class Client(ABC):
         self._roles_info = None
         self.required_keys = {'region', 'game_uid', 'nickname', 'level', 'region_name'}
         self.proxies = None
-        self.device_id = str(
+        device_id = config.DEVICE_INFO.get('device_id')
+        self.device_id = device_id if device_id else str(
             uuid.uuid3(uuid.NAMESPACE_URL, uuid.UUID(int=uuid.getnode()).hex[-12:])
         )
         self.headers = self.get_headers()
@@ -109,6 +111,8 @@ class Client(ABC):
         if ds:
             ds = self.get_ds(params, body)
             headers.update({'DS': ds, 'x-rpc-device_id': self.device_id.upper()})
+        # todo: delete
+        print(headers)
         return headers
 
     def get_ds(self, params, body: dict) -> str:

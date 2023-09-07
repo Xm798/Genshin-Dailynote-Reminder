@@ -13,6 +13,9 @@ class ClientCN(Client):
         self._device_seed = None
         self.client_type = 'cn'
         self.get_fp_api = 'https://public-data-api.mihoyo.com/device-fp/api/getFp'
+        ua = config.DEVICE_INFO.get('user_agent')
+        default_ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.45.1"
+        self.user_agent = ua if ua else default_ua
         super().__init__(cookie)
         base_takumi_api = 'https://api-takumi.mihoyo.com'
         base_takumi_record_api = 'https://api-takumi-record.mihoyo.com'
@@ -31,7 +34,7 @@ class ClientCN(Client):
     def device_fp(self) -> str:
         if not self._device_fp:
             self._device_fp = (
-                config.DEVICE_FP
+                config.DEVICE_INFO.get('device_fp')
                 or os.environ.get('GDR_DEVICE_FP')
                 or self.get_device_fp()
             )
@@ -73,7 +76,7 @@ class ClientCN(Client):
             "Accept-Language": "en-US,en;q=0.9",
             "Sec-Fetch-Mode": "cors",
             "Origin": "https://bbs.mihoyo.com",
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.45.1",
+            "User-Agent": self.user_agent,
             "Referer": "https://bbs.mihoyo.com/",
             "Connection": "keep-alive",
             "Sec-Fetch-Dest": "empty",
@@ -89,7 +92,7 @@ class ClientCN(Client):
             "app_name": "account_cn",
             "ext_fields": json.dumps(
                 {
-                    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.58.2",
+                    "userAgent": self.user_agent,
                     "browserScreenSize": 243750,
                     "maxTouchPoints": 5,
                     "isTouchSupported": True,
@@ -119,6 +122,8 @@ class ClientCN(Client):
             ),
         }
         try:
+            # TODO: delete
+            print(headers)
             r = request(
                 'post',
                 self.get_fp_api,
@@ -145,7 +150,7 @@ class ClientCN(Client):
         headers = {
             'Accept': 'application/json, text/plain, */*',
             "x-rpc-app_version": "2.45.1",
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.45.1",
+            "User-Agent": self.user_agent,
             "x-rpc-client_type": "5",
             "x-rpc-page": "v4.0.5-ys_#/ys/daily",
             "Origin": "https://webstatic.mihoyo.com",
