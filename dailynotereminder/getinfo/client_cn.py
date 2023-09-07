@@ -122,7 +122,6 @@ class ClientCN(Client):
             ),
         }
         try:
-            # TODO: delete
             print(headers)
             r = request(
                 'post',

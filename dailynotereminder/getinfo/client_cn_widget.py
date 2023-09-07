@@ -21,7 +21,7 @@ class ClientCNWidget(Client):
         self.widget_api = (
             base_takumi_record_api + '/game_record/app/card/api/getWidgetData?game_id=2'
         )
-        # self.widget_api = api_takumi_record + '/game_record/app/genshin/aapi/widget/v2'
+        # self.widget_api = base_takumi_record_api + '/game_record/app/genshin/aapi/widget/v2'
 
         super().__init__(cookie)
         self.client_type = 'cn_widget'
@@ -119,9 +119,9 @@ class ClientCNWidget(Client):
     def _get_headers(self) -> dict:
         headers = {
             "Accept": '*/*',
-            "x-rpc-sys_version": "16.3",
+            "x-rpc-sys_version": "16.6",
             "x-rpc-channel": 'appstore',
-            "x-rpc-client_type": "1",
+            "x-rpc-client_type": "2",
             "Referer": 'https://app.mihoyo.com',
             "x-rpc-device_name": 'iPhone',
             "x-rpc-device_model": 'iPhone14,2',

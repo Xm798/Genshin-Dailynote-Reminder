@@ -111,8 +111,6 @@ class Client(ABC):
         if ds:
             ds = self.get_ds(params, body)
             headers.update({'DS': ds, 'x-rpc-device_id': self.device_id.upper()})
-        # todo: delete
-        print(headers)
         return headers
 
     def get_ds(self, params, body: dict) -> str:
