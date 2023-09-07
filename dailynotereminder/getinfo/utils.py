@@ -45,7 +45,8 @@ def request(*args, **kwargs):
     while is_retry and count <= max_retries:
         try:
             s = requests.Session()
-            response = s.request(verify=False, *args, **kwargs)
+            # response = s.request(verify=False, *args, **kwargs)
+            response = s.request(*args, **kwargs)
             is_retry = False
         except Exception as e:
             if count == max_retries:
