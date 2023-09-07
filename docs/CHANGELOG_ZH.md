@@ -19,7 +19,7 @@ Fix：
 
 Feat：
 
-- 配置文件新增 `DEVICE_FP`，以尝试绕过国服验证码，Ref [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
+- 配置文件新增 `DEVICE_INFO`，以尝试绕过国服验证码，Ref [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
 
 ## v2.2.1（2022-11-25）
 

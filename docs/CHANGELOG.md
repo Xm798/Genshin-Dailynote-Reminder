@@ -18,7 +18,7 @@ Fix:
 
 Feat:
 
-- Added `DEVICE_FP` to the configuration file to attempt to bypass the verification on the CN server. Ref [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
+- Added `DEVICE_INFO` to the configuration file to attempt to bypass the verification on the CN server. Ref [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
 
 ## v2.2.1 (2022-11-25)
 
