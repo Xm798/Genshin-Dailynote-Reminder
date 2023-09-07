@@ -1,4 +1,15 @@
 # Changelog
+
+## v2.3.1 (2023-09-07)
+
+Feat:
+
+- Added update checking, enabled by default, can be turned off by setting `CHECK_UPDATE` to `false` in the configuration file.
+
+Fix:
+
+- Updated i18n resources.
+
 ## v2.3 (2023-09-05)
 
 Fix:
