@@ -1,6 +1,7 @@
-from typing_extensions import Literal
-from typing import Optional, List
+from typing import List, Optional
+
 from pydantic import BaseModel, StrictBool
+from typing_extensions import Literal
 
 
 class ConfigData(BaseModel):

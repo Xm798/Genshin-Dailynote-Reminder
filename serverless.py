@@ -1,6 +1,7 @@
 import os
-from dailynotereminder.__banner__ import banner
+
 from dailynotereminder import run_once
+from dailynotereminder.__banner__ import banner
 
 
 # Tencent SCF

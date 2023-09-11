@@ -1,5 +1,5 @@
-from .basenotifier import BaseNotifier as Base
 from ..config import config
+from .basenotifier import BaseNotifier as Base
 
 
 class Pushdeer(Base):

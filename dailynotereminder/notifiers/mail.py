@@ -1,9 +1,10 @@
-from .basenotifier import BaseNotifier as Base
-from ..config import config
 import smtplib
 from email.mime.text import MIMEText
-from .utils import log
+
+from ..config import config
+from .basenotifier import BaseNotifier as Base
 from .exceptions import NotificationError
+from .utils import log
 
 
 class Mail(Base):

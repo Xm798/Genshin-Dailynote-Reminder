@@ -1,6 +1,7 @@
 import logging
 import sys
-from colorama import Fore, Back, Style
+
+from colorama import Back, Fore, Style
 
 
 class Log:

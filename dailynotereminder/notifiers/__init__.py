@@ -1,25 +1,23 @@
 from . import (
+    bark,
+    chanify,
+    coolpush,
+    cqhttp,
+    custom,
     dingtalkbot,
     discord,
+    gotify,
     igot,
+    mail,
+    pushdeer,
     pushplus,
+    qmsg,
     serverchanturbo,
     telegrambot,
     wechatworkapp,
     wechatworkbot,
-    coolpush,
-    qmsg,
-    bark,
-    cqhttp,
-    pushdeer,
-    mail,
-    custom,
-    chanify,
-    gotify,
 )
-
 from .exceptions import NoSuchNotifierError
-
 
 _all_notifiers = {
     'dingtalkbot': dingtalkbot.DingTalkBot,

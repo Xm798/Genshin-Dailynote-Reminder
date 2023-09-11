@@ -1,10 +1,11 @@
-import requests
 import re
 
-from .__init__ import log
+import requests
+
+from ..__version__ import version as current_version
 from ..locale import _
 from ..notifiers import send
-from ..__version__ import version as current_version
+from .__init__ import log
 
 
 def get_latest_version_github(repo):

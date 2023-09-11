@@ -1,9 +1,11 @@
 import random
 import time
-import requests
-from ..utils import log
-import urllib3
 from http.cookies import SimpleCookie
+
+import requests
+import urllib3
+
+from ..utils import log
 
 
 def nested_lookup(obj, key, with_keys=False, fetch_first=False):

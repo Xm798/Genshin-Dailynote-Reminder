@@ -1,16 +1,15 @@
-import os
-import schedule
 import datetime
-
+import os
 from time import sleep
 
-from .utils import log
-from .utils import time_in_range, tz_diff, reset_time_offset
-from .utils.update_checker import check_update
-from .locale import _
+import schedule
+
+from .__banner__ import banner
 from .check import start
 from .config import config
-from .__banner__ import banner
+from .locale import _
+from .utils import log, reset_time_offset, time_in_range, tz_diff
+from .utils.update_checker import check_update
 
 
 def run_once() -> None:

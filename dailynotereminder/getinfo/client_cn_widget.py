@@ -1,12 +1,12 @@
-import os
 import json
+import os
 
-from .client import Client
-from .utils import request, dict_to_cookie
-from ..utils import log
-from ..locale import _
-from .parse_info import parse_info
 from ..config import config
+from ..locale import _
+from ..utils import log
+from .client import Client
+from .parse_info import parse_info
+from .utils import dict_to_cookie, request
 
 
 class ClientCNWidget(Client):

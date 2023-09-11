@@ -1,6 +1,7 @@
 import datetime
-from ..locale import _
+
 from ..config import config
+from ..locale import _
 from .model import BaseData
 
 

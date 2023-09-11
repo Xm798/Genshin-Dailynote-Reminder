@@ -1,12 +1,12 @@
 import ast
 import os
-import yaml
-
 from pathlib import Path
 from urllib import parse
 
-from .utils import log
+import yaml
+
 from .getinfo.model.configdata import ConfigData
+from .utils import log
 
 # yaml = ruamel.yaml.YAML()
 

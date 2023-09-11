@@ -1,8 +1,8 @@
-from .client import Client
 from ..config import config
-from .utils import request
-from ..utils import log
 from ..locale import _
+from ..utils import log
+from .client import Client
+from .utils import request
 
 
 class ClientOS(Client):

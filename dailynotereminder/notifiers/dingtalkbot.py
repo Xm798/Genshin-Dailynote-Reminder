@@ -5,8 +5,8 @@ import json
 import time
 from urllib import parse
 
-from .basenotifier import BaseNotifier as Base
 from ..config import config
+from .basenotifier import BaseNotifier as Base
 
 
 class DingTalkBot(Base):
