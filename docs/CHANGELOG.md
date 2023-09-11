@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.3.2 (2023-09-11)
+
+Fix:
+
+- Changed the Cookie handling method to resolve the issue where V2 Cookies of oversea server could not be used
+
 ## v2.3.1 (2023-09-07)
 
 Feat:
