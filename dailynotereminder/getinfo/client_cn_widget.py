@@ -38,7 +38,10 @@ class ClientCNWidget(Client):
             'ltoken': self.cookie.get('ltoken'),
         }
 
-    def parse_info(self, role) -> dict:
+    def get_roles_info(self):
+        return super().get_roles_info()
+
+    def get_daily_note_info(self, role) -> dict:
         data = None
         ck_updated = ''
         if not self.cookie_widget['stoken']:

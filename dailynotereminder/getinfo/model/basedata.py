@@ -1,5 +1,6 @@
-import pydantic
 from typing import List, Union
+
+import pydantic
 from typing_extensions import Literal
 
 

@@ -2,6 +2,8 @@ import random
 import time
 import requests
 from ..utils import log
+import urllib3
+from http.cookies import SimpleCookie
 
 
 def nested_lookup(obj, key, with_keys=False, fetch_first=False):
@@ -38,6 +40,7 @@ def extract_subset_of_dict(raw_dict, keys):
 
 
 def request(*args, **kwargs):
+    urllib3.disable_warnings()
     is_retry = True
     count = 0
     max_retries = 3
@@ -45,8 +48,8 @@ def request(*args, **kwargs):
     while is_retry and count <= max_retries:
         try:
             s = requests.Session()
-            # response = s.request(verify=False, *args, **kwargs)
-            response = s.request(*args, **kwargs)
+            response = s.request(verify=False, *args, **kwargs)
+            # response = s.request(*args, **kwargs)
             is_retry = False
         except Exception as e:
             if count == max_retries:
@@ -61,15 +64,9 @@ def request(*args, **kwargs):
             return response
 
 
-def cookie_to_dict(cookie: str) -> dict:
-    if cookie and '=' in cookie:
-        lines = [line.strip().split('=') for line in cookie.split(';')]
-        cookie = {}
-        for item in lines:
-            if not item[0]:
-                continue
-            cookie.setdefault(item[0], item[1])
-    return cookie
+def cookie_to_dict(rawdata: str) -> dict:
+    cookie = SimpleCookie(rawdata)
+    return {k: v.value for k, v in cookie.items()}
 
 
 def dict_to_cookie(cookie: dict) -> str:

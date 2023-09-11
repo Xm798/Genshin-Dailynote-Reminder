@@ -123,7 +123,6 @@ class ClientCN(Client):
             ),
         }
         try:
-            print(headers)
             r = request(
                 'post',
                 self.get_fp_api,
@@ -141,6 +140,12 @@ class ClientCN(Client):
         except Exception as e:
             log.error('Get device_fp failed!' + str(e))
             return None
+
+    def get_roles_info(self):
+        return super().get_roles_info()
+
+    def get_daily_note_info(self, role):
+        return super().get_daily_note_info(role)
 
     def _get_ds_salt(self) -> str:
         salt = 'xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs'

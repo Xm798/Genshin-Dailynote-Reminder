@@ -150,7 +150,7 @@ class Check:
 
     def lite_mode(self, cookie, role, fallback=False):
         client = ClientCNWidget(cookie)
-        info = client.parse_info(role)
+        info = client.get_daily_note_info(role)
         log.info(_('⚠️处于轻量模式，仅检查树脂、委托、洞天宝钱。'))
         if info['retcode'] == 0:
             self.data = info['data']
@@ -171,7 +171,7 @@ class Check:
             )
 
     def standard_mode(self, client, role, fallback):
-        info = client.parse_info(role)
+        info = client.get_daily_note_info(role)
         if info['retcode'] == 0:
             self.data = info['data']
             self.message = info['message']
@@ -199,7 +199,7 @@ def start(cookies: list, server: str) -> None:
         log.info('-------------------------')
         os.environ['ACCOUNT_INDEX'] = str(int(os.environ['ACCOUNT_INDEX']) + 1)
         client = ClientCN(cookie) if server == 'cn' else ClientOS(cookie)
-        roles_info = client.roles_info
+        roles_info = client.get_roles_info()
         if isinstance(roles_info, list):
             log.info(
                 _('获取到{0}的{1}个角色...').format(
@@ -224,6 +224,6 @@ def start(cookies: list, server: str) -> None:
                         check.standard_mode(client, role, False)
         else:
             status = _('获取米游社角色信息失败！')
-            message = roles_info
+            message = str(roles_info)
             send(text='❌ERROR! ', status=status, message=message)
         log.info(f'-------------------------')

@@ -28,8 +28,8 @@ base:
   COOKIE_HOYOLAB:
     #- 'COOKIE1'
     #- 'COOKIE2'
-  # 设备信息，用于规避国服验证码，不需要请留空
-  # Device info, used to avoid CN server verification code, leave it blank if not needed
+  # 设备信息，用于规避验证码，不需要请留空
+  # Device info, used to avoid verification code, leave it blank if not needed
   DEVICE_INFO:
     device_id:
     device_fp:

@@ -66,7 +66,11 @@ def generate_update_message(latest_info):
 
 
 def notify_update(latest_info):
-    log.info(_('⬆️ 检查到新版本{}，请及时更新。').format(latest_info['version']))
+    log.info(
+        _('⬆️ 检查到新版本{}。\n如需关闭提醒，请将 CHECK_UPDATE 设为 false。').format(
+            latest_info['version']
+        )
+    )
     message = generate_update_message(latest_info)
     send(text='🎉', status=_('Genshin-Dailynote-Reminder 有更新啦'), message=message)
 

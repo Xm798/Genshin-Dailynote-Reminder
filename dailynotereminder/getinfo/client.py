@@ -30,8 +30,7 @@ class Client(ABC):
         self.cookie = cookie_to_dict(cookie)
         self.headers = None
         self.client_type = None
-        self._roles_info = None
-        self.required_keys = {'region', 'game_uid', 'nickname', 'level', 'region_name'}
+        self.required_keys = {'region', 'game_uid', 'nickname', 'region_name'}
         self.proxies = None
         device_id = config.DEVICE_INFO.get('device_id')
         self.device_id = device_id if device_id else str(
@@ -39,8 +38,8 @@ class Client(ABC):
         )
         self.headers = self.get_headers()
 
-    @property
-    def roles_info(self):
+    @abstractmethod
+    def get_roles_info(self):
         log.info(_('正在获取角色信息'))
         try:
             response = request(
@@ -55,16 +54,19 @@ class Client(ABC):
             return e
         else:
             if response.get('retcode') == 0:
-                raw_roles_info = nested_lookup(response, 'list', fetch_first=True)
-                self._roles_info = [
-                    extract_subset_of_dict(i, self.required_keys)
-                    for i in raw_roles_info
-                ]
-                return self._roles_info
+                return self.parse_roles_info(response)
             else:
                 return response.get('message')
 
-    def parse_info(self, role):
+    def parse_roles_info(self, response):
+        roles = nested_lookup(response, 'list', fetch_first=True)
+        roles_list = [
+            extract_subset_of_dict(i, self.required_keys) for i in roles
+        ]
+        return roles_list
+
+    @abstractmethod
+    def get_daily_note_info(self, role):
         data = None
         body = {'role_id': role['game_uid'], 'server': role['region']}
         try:
