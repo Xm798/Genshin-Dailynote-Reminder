@@ -1,6 +1,7 @@
 class AlertException(Exception):
     """Base genshinhelper exception."""
 
+
 class CookiesExpired(AlertException):
     """Cookies has expired."""
 

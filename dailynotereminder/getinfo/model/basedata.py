@@ -22,6 +22,7 @@ class BaseData(pydantic.BaseModel):
     home_coin_recovery_time: 洞天宝钱溢出时间
 
     """
+
     current_resin: int = 0
     max_resin: int = 0
     resin_recovery_time: int = 0

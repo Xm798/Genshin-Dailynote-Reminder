@@ -13,6 +13,6 @@ class Gotify(Base):
         data = {
             'title': f'{text}{status}',
             'message': f'{text}{status}\n\n{desp}',
-            'priority': config.GOTIFY_PRIORITY
+            'priority': config.GOTIFY_PRIORITY,
         }
         return self.push('post', url, json=data)

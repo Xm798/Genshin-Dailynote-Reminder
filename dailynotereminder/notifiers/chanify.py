@@ -12,7 +12,11 @@ class Chanify(Base):
         self.retcode_value = 200
 
     def send(self, text, status, desp):
-        url = f'{self.url}v1/sender/{self.token}' if self.url.endswith('/') else f'{self.url}/v1/sender/{self.token}'
+        url = (
+            f'{self.url}v1/sender/{self.token}'
+            if self.url.endswith('/')
+            else f'{self.url}/v1/sender/{self.token}'
+        )
         data = {'title': f'{text}{status}', 'text': desp}
 
         # 可选项

@@ -94,7 +94,9 @@ class ConfigData(BaseModel):
     CHANIFY_TOKEN: Optional[str]
     CHAINFY_SOUND: Optional[int] = 1
     CHAINFY_PRIORITY: Optional[int] = 10
-    CHAINFY_INTERRUPTION_LEVEL: Literal['active', 'passive', 'time-sensitive'] = 'active'
+    CHAINFY_INTERRUPTION_LEVEL: Literal[
+        'active', 'passive', 'time-sensitive'
+    ] = 'active'
 
     GOTIFY_URL: Optional[str]
     GOTIFY_TOKEN: Optional[str]

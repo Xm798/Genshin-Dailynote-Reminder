@@ -35,8 +35,12 @@ class Client(ABC):
         self.required_keys = {'region', 'game_uid', 'nickname', 'region_name'}
         self.proxies = None
         device_id = config.DEVICE_INFO.get('device_id')
-        self.device_id = device_id if device_id else str(
-            uuid.uuid3(uuid.NAMESPACE_URL, uuid.UUID(int=uuid.getnode()).hex[-12:])
+        self.device_id = (
+            device_id
+            if device_id
+            else str(
+                uuid.uuid3(uuid.NAMESPACE_URL, uuid.UUID(int=uuid.getnode()).hex[-12:])
+            )
         )
         self.headers = self.get_headers()
 
@@ -62,9 +66,7 @@ class Client(ABC):
 
     def parse_roles_info(self, response):
         roles = nested_lookup(response, 'list', fetch_first=True)
-        roles_list = [
-            extract_subset_of_dict(i, self.required_keys) for i in roles
-        ]
+        roles_list = [extract_subset_of_dict(i, self.required_keys) for i in roles]
         return roles_list
 
     @abstractmethod

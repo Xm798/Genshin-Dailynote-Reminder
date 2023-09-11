@@ -12,7 +12,9 @@ class BaseNotifier(object):
     def send(self, text, status, desp):
         ...
 
-    def push(self, method, url, params=None, data=None, json=None, headers=None, proxies=None):
+    def push(
+        self, method, url, params=None, data=None, json=None, headers=None, proxies=None
+    ):
         """
         🚫: disabled
         🥳: success
@@ -22,7 +24,9 @@ class BaseNotifier(object):
             # log.info(f'{self.name} 🚫')
             return
         try:
-            response = request(method, url, 2, params, data, json, headers, proxies=proxies)
+            response = request(
+                method, url, 2, params, data, json, headers, proxies=proxies
+            )
         except Exception as e:
             log.error(f'{self.name} 😳\n{e}')
             raise NotificationError()
@@ -54,9 +58,7 @@ class BaseNotifier(object):
                 log.error(response.json())
                 raise NotificationError()
             # Chanify
-            elif (
-                self.name == 'Chanify' and response.json().get('request-uid')
-            ):
+            elif self.name == 'Chanify' and response.json().get('request-uid'):
                 log.info(f'{self.name} 🥳')
 
             else:
