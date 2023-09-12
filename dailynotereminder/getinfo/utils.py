@@ -1,3 +1,4 @@
+import hashlib
 import random
 import time
 from http.cookies import SimpleCookie
@@ -82,3 +83,7 @@ def dict_to_cookie(cookie: dict) -> str:
 
 def sample_string(s, k):
     return ''.join(random.sample(s, k))
+
+
+def hash_string(s):
+    return hashlib.sha256(s.encode()).hexdigest()

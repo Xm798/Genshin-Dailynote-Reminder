@@ -11,3 +11,5 @@ config.yaml
 
 # Virtual environment
 venv/
+
+*.cache

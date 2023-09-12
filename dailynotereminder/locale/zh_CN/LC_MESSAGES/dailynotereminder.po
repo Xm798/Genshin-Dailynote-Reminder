@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-11 19:46+0800\n"
-"PO-Revision-Date: 2023-09-11 19:53+0800\n"
+"POT-Creation-Date: 2023-09-12 12:28+0800\n"
+"PO-Revision-Date: 2023-09-12 12:32+0800\n"
 "Last-Translator: Xm798\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -203,25 +203,27 @@ msgid ""
 msgstr ""
 
 #: dailynotereminder/utils/update_checker.py:71
-msgid ""
-"⬆️ 检查到新版本{}。\n"
-"如需关闭提醒，请将 CHECK_UPDATE 设为 false。"
-msgstr ""
-
-#: dailynotereminder/utils/update_checker.py:76
 msgid "Genshin-Dailynote-Reminder 有更新啦"
 msgstr ""
 
-#: dailynotereminder/utils/update_checker.py:84
-msgid "⚠️ 检查版本更新失败。"
+#: dailynotereminder/utils/update_checker.py:79
+msgid "⚠️ 检查版本更新失败"
 msgstr ""
 
-#: dailynotereminder/utils/update_checker.py:90
-msgid "🔄 当前已是最新版本，无需更新。"
+#: dailynotereminder/utils/update_checker.py:83
+msgid "🎉 检查到新版本 {}"
+msgstr ""
+
+#: dailynotereminder/utils/update_checker.py:88
+msgid "⬆️ 不发送通知，请前往 {} 下载"
+msgstr ""
+
+#: dailynotereminder/utils/update_checker.py:92
+msgid "🔄 当前已是最新版本，无需更新"
 msgstr ""
 
 #: dailynotereminder/getinfo/client_cn_widget.py:62
-#: dailynotereminder/getinfo/client.py:87
+#: dailynotereminder/getinfo/client.py:162
 msgid "获取数据失败！"
 msgstr ""
 
@@ -229,15 +231,19 @@ msgstr ""
 msgid "Cookie 中缺少 login_ticket，请重新获取完整 Cookie！"
 msgstr ""
 
-#: dailynotereminder/getinfo/client.py:49
-msgid "正在获取角色信息"
+#: dailynotereminder/getinfo/client.py:136
+msgid "从缓存文件中获取角色信息"
 msgstr ""
 
-#: dailynotereminder/getinfo/client.py:99
+#: dailynotereminder/getinfo/client.py:139
+msgid "正在从服务器获取角色信息"
+msgstr ""
+
+#: dailynotereminder/getinfo/client.py:174
 msgid "未开启实时便笺！"
 msgstr ""
 
-#: dailynotereminder/getinfo/client.py:101
+#: dailynotereminder/getinfo/client.py:176
 msgid "账号异常！请登录米游社APP进行验证。"
 msgstr ""
 

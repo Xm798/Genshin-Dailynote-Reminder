@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-11 19:46+0800\n"
-"PO-Revision-Date: 2023-09-11 19:50+0800\n"
+"POT-Creation-Date: 2023-09-12 12:28+0800\n"
+"PO-Revision-Date: 2023-09-12 12:32+0800\n"
 "Last-Translator: Xm798\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -206,27 +206,27 @@ msgstr ""
 "更新地址：{}"
 
 #: dailynotereminder/utils/update_checker.py:71
-msgid ""
-"⬆️ 检查到新版本{}。\n"
-"如需关闭提醒，请将 CHECK_UPDATE 设为 false。"
-msgstr ""
-"⬆️ 檢查到新版本{}。\n"
-"如需關閉提醒，請將 CHECK_UPDATE 設為 false。"
-
-#: dailynotereminder/utils/update_checker.py:76
 msgid "Genshin-Dailynote-Reminder 有更新啦"
 msgstr "Genshin-Dailynote-Reminder 有更新啦"
 
-#: dailynotereminder/utils/update_checker.py:84
-msgid "⚠️ 检查版本更新失败。"
-msgstr "⚠️ 檢查版本更新失敗。"
+#: dailynotereminder/utils/update_checker.py:79
+msgid "⚠️ 检查版本更新失败"
+msgstr "⚠️ 檢查版本更新失敗"
 
-#: dailynotereminder/utils/update_checker.py:90
-msgid "🔄 当前已是最新版本，无需更新。"
-msgstr "🔄 當前已是最新版本，無需更新。"
+#: dailynotereminder/utils/update_checker.py:83
+msgid "🎉 检查到新版本 {}"
+msgstr "🎉 檢查到新版本 {}"
+
+#: dailynotereminder/utils/update_checker.py:88
+msgid "⬆️ 不发送通知，请前往 {} 下载"
+msgstr "⬆️ 不發送通知，請前往 {} 下載"
+
+#: dailynotereminder/utils/update_checker.py:92
+msgid "🔄 当前已是最新版本，无需更新"
+msgstr "🔄 當前已是最新版本，無需更新"
 
 #: dailynotereminder/getinfo/client_cn_widget.py:62
-#: dailynotereminder/getinfo/client.py:87
+#: dailynotereminder/getinfo/client.py:162
 msgid "获取数据失败！"
 msgstr "獲取資料失敗！"
 
@@ -234,15 +234,19 @@ msgstr "獲取資料失敗！"
 msgid "Cookie 中缺少 login_ticket，请重新获取完整 Cookie！"
 msgstr "Cookie 中缺少 login_ticket，請重新獲取完整 Cookie！"
 
-#: dailynotereminder/getinfo/client.py:49
-msgid "正在获取角色信息"
-msgstr "正在獲取角色資料"
+#: dailynotereminder/getinfo/client.py:136
+msgid "从缓存文件中获取角色信息"
+msgstr "從快取檔案中獲取角色資料"
 
-#: dailynotereminder/getinfo/client.py:99
+#: dailynotereminder/getinfo/client.py:139
+msgid "正在从服务器获取角色信息"
+msgstr "正在從伺服器獲取角色資料"
+
+#: dailynotereminder/getinfo/client.py:174
 msgid "未开启实时便笺！"
 msgstr "未開啟即時便箋！"
 
-#: dailynotereminder/getinfo/client.py:101
+#: dailynotereminder/getinfo/client.py:176
 msgid "账号异常！请登录米游社APP进行验证。"
 msgstr "您的賬戶異常，請在 Hoyolab 應用程序中進行驗證。"
 
@@ -385,6 +389,13 @@ msgstr "參數質變儀：未獲得"
 #, python-brace-format
 msgid "获取 {server} ltoken 失败！"
 msgstr "獲取 {server} ltoken 失敗！"
+
+#~ msgid ""
+#~ "⬆️ 检查到新版本{}。\n"
+#~ "如需关闭提醒，请将 CHECK_UPDATE 设为 false。"
+#~ msgstr ""
+#~ "⬆️ 檢查到新版本{}。\n"
+#~ "如需關閉提醒，請將 CHECK_UPDATE 設為 false。"
 
 #~ msgid "⬆️ 检查到新版本{}，请及时更新。"
 #~ msgstr "⬆️ 檢查到新版本{}，請及時更新。"

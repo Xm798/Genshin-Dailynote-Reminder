@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genshin Dailynote Helper\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-11 19:46+0800\n"
-"PO-Revision-Date: 2023-09-11 19:49+0800\n"
+"POT-Creation-Date: 2023-09-12 12:28+0800\n"
+"PO-Revision-Date: 2023-09-12 12:32+0800\n"
 "Last-Translator: Xm798\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -218,27 +218,27 @@ msgstr ""
 "Update URL: {}"
 
 #: dailynotereminder/utils/update_checker.py:71
-msgid ""
-"⬆️ 检查到新版本{}。\n"
-"如需关闭提醒，请将 CHECK_UPDATE 设为 false。"
-msgstr ""
-"⬆️ New version detected {}.\n"
-"To disable notifications, set CHECK_UPDATE to false."
-
-#: dailynotereminder/utils/update_checker.py:76
 msgid "Genshin-Dailynote-Reminder 有更新啦"
 msgstr "Genshin-Dailynote-Reminder has been updated."
 
-#: dailynotereminder/utils/update_checker.py:84
-msgid "⚠️ 检查版本更新失败。"
-msgstr "⚠️ Version update check failed."
+#: dailynotereminder/utils/update_checker.py:79
+msgid "⚠️ 检查版本更新失败"
+msgstr "⚠️ Version update check failed"
 
-#: dailynotereminder/utils/update_checker.py:90
-msgid "🔄 当前已是最新版本，无需更新。"
-msgstr "🔄 You are already on the latest version, no update needed."
+#: dailynotereminder/utils/update_checker.py:83
+msgid "🎉 检查到新版本 {}"
+msgstr "🎉 New version {} detected"
+
+#: dailynotereminder/utils/update_checker.py:88
+msgid "⬆️ 不发送通知，请前往 {} 下载"
+msgstr "⬆️ No notification will be sent. Please go to {} to download"
+
+#: dailynotereminder/utils/update_checker.py:92
+msgid "🔄 当前已是最新版本，无需更新"
+msgstr "🔄 You are already on the latest version, no update is needed"
 
 #: dailynotereminder/getinfo/client_cn_widget.py:62
-#: dailynotereminder/getinfo/client.py:87
+#: dailynotereminder/getinfo/client.py:162
 msgid "获取数据失败！"
 msgstr "Failed to get data!"
 
@@ -247,15 +247,19 @@ msgid "Cookie 中缺少 login_ticket，请重新获取完整 Cookie！"
 msgstr ""
 "Cookie is missing login_ticket, please obtain the complete Cookie again!"
 
-#: dailynotereminder/getinfo/client.py:49
-msgid "正在获取角色信息"
-msgstr "Getting game roles information"
+#: dailynotereminder/getinfo/client.py:136
+msgid "从缓存文件中获取角色信息"
+msgstr "Retrieving avatar information from the cache file"
 
-#: dailynotereminder/getinfo/client.py:99
+#: dailynotereminder/getinfo/client.py:139
+msgid "正在从服务器获取角色信息"
+msgstr "Retrieving avatar information from the server"
+
+#: dailynotereminder/getinfo/client.py:174
 msgid "未开启实时便笺！"
 msgstr "Dailynote permission is not turned on!"
 
-#: dailynotereminder/getinfo/client.py:101
+#: dailynotereminder/getinfo/client.py:176
 msgid "账号异常！请登录米游社APP进行验证。"
 msgstr ""
 "Your account is abnormal. Please proceed with the verification process in "
@@ -400,6 +404,13 @@ msgstr "Parametric transformer: Not obtained"
 #, python-brace-format
 msgid "获取 {server} ltoken 失败！"
 msgstr "Failed to obtain ltoken of {server}!"
+
+#~ msgid ""
+#~ "⬆️ 检查到新版本{}。\n"
+#~ "如需关闭提醒，请将 CHECK_UPDATE 设为 false。"
+#~ msgstr ""
+#~ "⬆️ New version detected {}.\n"
+#~ "To disable notifications, set CHECK_UPDATE to false."
 
 #~ msgid "⬆️ 检查到新版本{}，请及时更新。"
 #~ msgstr "⬆️ New version {} detected, please update promptly."
