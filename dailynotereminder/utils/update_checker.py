@@ -62,7 +62,7 @@ def get_latest_version_jihulab(repo):
 
 def generate_update_message(latest_info):
     return _('当前版本：{}\n最新版本：{}\n更新地址：{}').format(
-        latest_info['version'], latest_info['version'], latest_info['url']
+        current_version, latest_info['version'], latest_info['url']
     )
 
 

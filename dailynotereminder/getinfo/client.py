@@ -62,7 +62,9 @@ class Client(ABC):
             if response.get('retcode') == 0:
                 return self.parse_roles_info(response)
             else:
-                return response.get('message')
+                message = response.get('message')
+                log.error(message)
+                return message
 
     def parse_roles_info(self, response):
         roles = nested_lookup(response, 'list', fetch_first=True)
