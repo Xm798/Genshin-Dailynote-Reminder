@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.3.3 (2023-09-12)
+
+Feat:
+
+- Added a roles info caching mechanism. The cache file is located in the config directory to avoid repeatedly fetching character information from the server. The default cache validity period is 3 days, and it will also be refreshed when the Cookie changes. Note: This does not apply to cloud function environments, as they cannot write to files.
+- Updated the version notification default to only alert for significant updates, unless `CHECK_UPDATE` is set to `all` to alert for all versions, or `false` to disable.
+
 ## v2.3.2 (2023-09-11)
 
 Fix:
