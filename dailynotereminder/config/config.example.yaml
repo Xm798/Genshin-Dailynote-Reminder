@@ -6,9 +6,9 @@
 # Caution: Don't forget to use quotes if the string contains special characters.
 
 base:
-  # 自动检查更新
-  # Check for updates
-  CHECK_UPDATE: true
+  # 版本更新提醒，all 为提醒所有版本，default 为仅提醒重要版本，false 为不检查更新
+  # Version update reminder, "all" is to remind for all versions, "default" is to remind only for important versions, "false" is to not check for updates.
+  CHECK_UPDATE: default
   # 语言，支持 zh_CN，zh_TW, en_US 或 ru_RU。
   # Language, support zh_CN, zh_TW, en_US or ru_RU.
   LANGUAGE: 'zh_CN'

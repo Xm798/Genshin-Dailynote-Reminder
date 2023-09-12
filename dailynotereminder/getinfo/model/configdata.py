@@ -5,7 +5,7 @@ from typing_extensions import Literal
 
 
 class ConfigData(BaseModel):
-    CHECK_UPDATE: StrictBool = True
+    CHECK_UPDATE: Literal['default', 'all', True, False] = 'default'
     LANGUAGE: Literal['zh_CN', 'en_US', 'zh_TW', 'ru_RU'] = 'zh_CN'
     RUN_ENV: Literal['local', 'cloud'] = 'local'
     LITE_MODE: Literal['auto', True, False] = 'auto'
